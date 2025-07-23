@@ -250895,10 +250895,14 @@
             case 0:
               // Function start
               code = $async$self.passcodeController._change_notifier$_value.text;
-              if (code === "1234")
+              if (code === "1233")
                 username = "Dinesh";
+              else if (code === "9876")
+                username = "Mona";
+              else if (code === "0000")
+                username = "Raj";
               else
-                username = code === "120" ? "Lucky" : null;
+                username = code === "94181" ? "Admin" : null;
               $async$goto = username != null ? 2 : 4;
               break;
             case 2:
