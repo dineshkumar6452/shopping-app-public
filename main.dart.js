@@ -60671,12 +60671,13 @@
     },
     _AccountTransactionsScreenState_generateLedgerPdf_closure2: function _AccountTransactionsScreenState_generateLedgerPdf_closure2() {
     },
-    _AccountTransactionsScreenState_generateLedgerPdf_closure3: function _AccountTransactionsScreenState_generateLedgerPdf_closure3(t0, t1, t2, t3) {
+    _AccountTransactionsScreenState_generateLedgerPdf_closure3: function _AccountTransactionsScreenState_generateLedgerPdf_closure3(t0, t1, t2, t3, t4) {
       var _ = this;
-      _.transactions = t0;
-      _.grandTotal = t1;
-      _.totalDebit = t2;
-      _.totalCredit = t3;
+      _.accountName = t0;
+      _.transactions = t1;
+      _.grandTotal = t2;
+      _.totalDebit = t3;
+      _.totalCredit = t4;
     },
     _AccountTransactionsScreenState_generateLedgerPdf__closure: function _AccountTransactionsScreenState_generateLedgerPdf__closure() {
     },
@@ -258030,7 +258031,7 @@
               t2 = type$.double;
               totalCredit = t1.where$1(transactions, new A._AccountTransactionsScreenState_generateLedgerPdf_closure()).fold$1$2(0, 0, new A._AccountTransactionsScreenState_generateLedgerPdf_closure0(), t2);
               totalDebit = t1.where$1(transactions, new A._AccountTransactionsScreenState_generateLedgerPdf_closure1()).fold$1$2(0, 0, new A._AccountTransactionsScreenState_generateLedgerPdf_closure2(), t2);
-              pdf.addPage$1(A.MultiPage$(new A._AccountTransactionsScreenState_generateLedgerPdf_closure3(transactions, totalCredit - totalDebit, totalDebit, totalCredit), B.EdgeInsets_16_16_16_160));
+              pdf.addPage$1(A.MultiPage$(new A._AccountTransactionsScreenState_generateLedgerPdf_closure3(accountName, transactions, totalCredit - totalDebit, totalDebit, totalCredit), B.EdgeInsets_16_16_16_160));
               $async$goto = 2;
               return A._asyncAwait(A.Printing_layoutPdf(new A._AccountTransactionsScreenState_generateLedgerPdf_closure4(pdf)), $async$generateLedgerPdf$2);
             case 2:
@@ -258351,8 +258352,9 @@
         amount = 0;
       t3 = isCredit ? B.IconData_57415_false : B.IconData_58646_false;
       t3 = A.Icon$(t3, isCredit ? B.MaterialColor_nI1 : B.MaterialColor_vIZ, _null, _null);
-      t4 = B.JSNumber_methods.toStringAsFixed$1(amount, 2);
-      t4 = A.Text$("\u20b9" + t4, _null, _null, _null, A.TextStyle$(_null, _null, isCredit ? B.MaterialColor_nI1 : B.MaterialColor_vIZ, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, B.FontWeight_6, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, _null), _null, _null, _null);
+      t4 = isCredit ? "Bill : " : "Paid : ";
+      t5 = B.JSNumber_methods.toStringAsFixed$1(amount, 2);
+      t4 = A.Text$(t4 + " \u20b9" + t5, _null, _null, _null, A.TextStyle$(_null, _null, isCredit ? B.MaterialColor_nI1 : B.MaterialColor_vIZ, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, B.FontWeight_6, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, _null), _null, _null, _null);
       t5 = t2.$index(txn, "description");
       if (t5 == null)
         t5 = "";
@@ -258428,7 +258430,7 @@
   A._AccountTransactionsScreenState_generateLedgerPdf_closure3.prototype = {
     call$1(context) {
       var t9, t10, t11, t12, t13, t14, t15, _this = this, _null = null,
-        t1 = A.Container$0(_null, A.Text$0("Ledger Format", _null, _null, A.TextStyle$0(_null, B.PdfColor_1_1_1, _null, _null, _null, _null, _null, _null, _null, B.List_empty19, _null, _null, 18, _null, B.FontWeight_1, _null, true, _null, _null, _null, _null), B.TextAlign_40, _null), B.PdfColor_Ebk, _null, _null, _null, _null, B.EdgeInsets_8_8_8_8, 1 / 0),
+        t1 = A.Container$0(_null, A.Text$0("Ledger for " + _this.accountName, _null, _null, A.TextStyle$0(_null, B.PdfColor_1_1_1, _null, _null, _null, _null, _null, _null, _null, B.List_empty19, _null, _null, 18, _null, B.FontWeight_1, _null, true, _null, _null, _null, _null), B.TextAlign_40, _null), B.PdfColor_Ebk, _null, _null, _null, _null, B.EdgeInsets_8_8_8_8, 1 / 0),
         t2 = A.Text$0("Company Name:", _null, _null, A.TextStyle$0(_null, _null, _null, _null, _null, _null, _null, _null, _null, B.List_empty19, _null, _null, _null, _null, B.FontWeight_1, _null, true, _null, _null, _null, _null), _null, _null),
         t3 = A.Text$0("Address:", _null, _null, _null, _null, _null),
         t4 = A.Text$0("Phone No.:         Email ID:", _null, _null, _null, _null, _null),
@@ -258459,7 +258461,7 @@
         t2 = t1.$index(txn, "createdAt");
       t2 = t2 == null ? _null : J.substring$2$s(t2, 0, 10);
       t2 = A.Text$0(t2 == null ? "" : t2, _null, _null, _null, _null, _null);
-      t3 = A.Text$0(isCredit ? "Credit" : "Debit", _null, _null, _null, _null, _null);
+      t3 = A.Text$0(isCredit ? "Bill" : "Payment", _null, _null, _null, _null, _null);
       t4 = t1.$index(txn, "description");
       t4 = A.Text$0(A._asString(t4 == null ? "" : t4), _null, _null, _null, _null, _null);
       t5 = t1.$index(txn, "voucherType");
@@ -260265,9 +260267,9 @@
       t1 = type$.String;
       t2 = type$.dynamic;
       t3 = type$.JSArray_Map_String_dynamic;
-      t4 = A._setArrayType([A.LinkedHashMap_LinkedHashMap$_literal(["title", "Product", "subtitle", "Manage product list", "icon", B.IconData_58186_false, "nav", "Product"], t1, t2), A.LinkedHashMap_LinkedHashMap$_literal(["title", "Category", "subtitle", "Manage category list", "icon", B.IconData_57672_false, "nav", "Category"], t1, t2), A.LinkedHashMap_LinkedHashMap$_literal(["title", "POS", "subtitle", "Point of Sale System", "icon", B.IconData_58584_false, "nav", "POS"], t1, t2), A.LinkedHashMap_LinkedHashMap$_literal(["title", "Accounts", "subtitle", "View balances and transactions", "icon", B.IconData_57409_false, "nav", "Accounts"], t1, t2), A.LinkedHashMap_LinkedHashMap$_literal(["title", "Todo", "subtitle", "Manage todo tasks", "icon", B.IconData_57687_false, "nav", "Todo"], t1, t2)], t3);
+      t4 = A._setArrayType([A.LinkedHashMap_LinkedHashMap$_literal(["title", "Product", "subtitle", "Manage product list", "icon", B.IconData_58186_false, "nav", "Product"], t1, t2), A.LinkedHashMap_LinkedHashMap$_literal(["title", "Category", "subtitle", "Manage category list", "icon", B.IconData_57672_false, "nav", "Category"], t1, t2), A.LinkedHashMap_LinkedHashMap$_literal(["title", "Accounts", "subtitle", "View balances and transactions", "icon", B.IconData_57409_false, "nav", "Accounts"], t1, t2), A.LinkedHashMap_LinkedHashMap$_literal(["title", "Todo", "subtitle", "Manage todo tasks", "icon", B.IconData_57687_false, "nav", "Todo"], t1, t2)], t3);
       if (this._username === "Admin")
-        B.JSArray_methods.addAll$1(t4, A._setArrayType([A.LinkedHashMap_LinkedHashMap$_literal(["title", "Dashboard", "subtitle", "Business overview", "icon", B.IconData_57777_false, "nav", "Dashboard"], t1, t2)], t3));
+        B.JSArray_methods.addAll$1(t4, A._setArrayType([A.LinkedHashMap_LinkedHashMap$_literal(["title", "Dashboard", "subtitle", "Business overview", "icon", B.IconData_57777_false, "nav", "Dashboard"], t1, t2), A.LinkedHashMap_LinkedHashMap$_literal(["title", "POS", "subtitle", "Point of Sale System", "icon", B.IconData_58584_false, "nav", "POS"], t1, t2)], t3));
       return A.Scaffold$(A.AppBar$(_null, _null, true, B.Text_sBg), new A.Padding(B.EdgeInsets_16_16_16_16, A.ListView$separated(new A._HomeScreenState_build_closure(this, t4), t4.length, new A._HomeScreenState_build_closure0()), _null), _null, _null, _null);
     }
   };
