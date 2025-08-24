@@ -27,16 +27,18 @@ const RESOURCES = {"assets/AssetManifest.bin": "457b86cc9ed4084da0f224754c0bbcde
 "canvaskit/skwasm_st.js.symbols": "c7e7aac7cd8b612defd62b43e3050bdd",
 "canvaskit/skwasm_st.wasm": "56c3973560dfcbf28ce47cebe40f3206",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"firebase-messaging-sw%20copy.js": "bbb7a8c3d90200fb2e44e89ebd652b72",
 "firebase-messaging-sw.js": "bbb7a8c3d90200fb2e44e89ebd652b72",
 "flutter.js": "76f08d47ff9f5715220992f993002504",
-"flutter_bootstrap.js": "9ea6e41fa414780c0ddfea408e9d371c",
+"flutter_bootstrap.js": "b43e721970d6681e43dfa887b196a4dc",
+"flutter_service_worker%20copy.js": "cfb989b1c52e970ba6c49064a994bf1b",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "e66e75582ca791fb2779d1a8778501c6",
-"/": "e66e75582ca791fb2779d1a8778501c6",
-"main.dart.js": "520569bb48c7a188d37d27cdac3a5705",
+"index.html": "abd2c82159393cb28cdaec98585e6c82",
+"/": "abd2c82159393cb28cdaec98585e6c82",
+"main.dart.js": "d87cb255e23e29ba59e0fa71959b6bb4",
 "manifest.json": "18b05de58f5aeed2ffa6be1246cc43f1",
 "version.json": "53fb59e54fb87bb44dba7c2200e1dead"};
 // The application shell files that are downloaded before a service worker can
@@ -209,3 +211,27 @@ function onlineFirst(event) {
     })
   );
 }
+
+// In web/firebase-messaging-sw.js
+importScripts("https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js");
+importScripts("https://www.gstatic.com/firebasejs/10.0.0/firebase-messaging-compat.js");
+
+firebase.initializeApp({
+      apiKey: "AIzaSyD-TqqcHT1qTXM8JQRKHk8ChHKpo8G4HEQ",
+      authDomain: "push-notification-web-93c6b.firebaseapp.com",
+      projectId: "push-notification-web-93c6b",
+      storageBucket: "push-notification-web-93c6b.firebasestorage.app",
+      messagingSenderId: "757763376577",
+      appId: "1:757763376577:web:abb74d624dca59491b5b40",
+});
+
+const messaging = firebase.messaging();
+
+// Show notification when received in background/terminated
+messaging.onBackgroundMessage((payload) => {
+  console.log("Received background message: ", payload);
+  self.registration.showNotification(payload.notification.title, {
+    body: payload.notification.body,
+    icon: "/icons/Icon-192.png"
+  });
+});
