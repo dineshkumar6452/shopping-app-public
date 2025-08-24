@@ -83,8 +83,10 @@
     alert(payload.notification.title + " - " + payload.notification.body);
   });
 
+  console.log("Here - started" );
   // Register service worker
   if ("serviceWorker" in navigator) {
+     console.log("Here - started inside " );
     navigator.serviceWorker.register("/shopping-app-public/firebase-messaging-sw.js")
       .then((registration) => {
         console.log("Service Worker registered: ", registration);
@@ -92,6 +94,9 @@
       .catch((err) => {
         console.error("Service Worker registration failed: ", err);
       });
+
+       console.log("Here - started closed " );
+
   }
 </script>
   <script src="main.dart.js" type="application/javascript"></script>
