@@ -61,8 +61,8 @@
     try {
       const permission = await Notification.requestPermission();
       if (permission === "granted") {
-        const token = await messaging.getToken({
-          vapidKey: "YOUR_VAPID_KEY" // get from Firebase Console → Project Settings → Cloud Messaging
+         const token = await messaging.getToken({
+          vapidKey: "BFrpZj5vH_7QlpGPpFY15O8ZpBSpeLO-lxMEZkpUiYmWra5dDhrWN0y9aIwmKiaI0ohLrm0PSUJBLPr51-ZdQ4o" // get from Firebase Console → Project Settings → Cloud Messaging
         });
         console.log("FCM Token:", token);
         // send token to your server for later use
