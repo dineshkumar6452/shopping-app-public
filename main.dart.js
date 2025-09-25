@@ -265655,7 +265655,7 @@
       if (!_this._unlocked)
         return B.Scaffold_8m8;
       now = new A.DateTime(Date.now(), 0, false);
-      isWorkingHour = A.Primitives_getHours(now) >= 9 && A.Primitives_getHours(now) < 18;
+      isWorkingHour = A.Primitives_getHours(now) >= 9 && A.Primitives_getHours(now) < 20;
       t1 = type$.String;
       t2 = type$.dynamic;
       t3 = type$.JSArray_Map_String_dynamic;
