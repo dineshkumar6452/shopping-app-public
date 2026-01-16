@@ -264224,7 +264224,7 @@
               retailRate = B.JSString_methods.trim$0($async$self.retailRateController._change_notifier$_value.text);
               unit = B.JSString_methods.trim$0($async$self.unitController._change_notifier$_value.text);
               labelCount = A.Primitives_parseInt(B.JSString_methods.trim$0($async$self.labelCountController._change_notifier$_value.text), null);
-              if (productName.length === 0 || unit.length === 0 || wholesaleRate.length === 0 || retailRate.length === 0 || labelCount == null || labelCount <= 0 || labelCount > 500 || A.Primitives_parseInt(wholesaleRate, null) == null || A.Primitives_parseInt(retailRate, null) == null) {
+              if (productName.length === 0 || unit.length === 0 || wholesaleRate.length === 0 || labelCount == null || labelCount <= 0 || labelCount > 500 || A.Primitives_parseInt(wholesaleRate, null) == null || A.Primitives_parseInt(retailRate, null) == null) {
                 A.ScaffoldMessenger_of($async$self.context).showSnackBar$1(B.SnackBar_wD2);
                 // goto return
                 $async$goto = 1;
@@ -264237,7 +264237,7 @@
               t3 = $async$self.$this;
               t3.setState$1(new A._CategoryListScreenState_showRateInputPopup___closure(t3, barcode, productName, t1, unit, wholesaleRate, retailRate, labelCount));
               $async$goto = 3;
-              return A._asyncAwait(t3.callPrintApi$7$barcode$count$itemName$pcode$rrate$unit$wrate(barcode, labelCount, productName, B.JSInt_methods.toString$0(t2), retailRate, unit.toUpperCase(), frate), $async$call$0);
+              return A._asyncAwait(t3.callPrintApi$7$barcode$count$itemName$pcode$rrate$unit$wrate(barcode, labelCount, productName, B.JSInt_methods.toString$0(t2) + "0", retailRate, unit.toUpperCase(), frate), $async$call$0);
             case 3:
               // returning from await.
               A.Navigator_of($async$self.context, false).pop$1$0(type$.nullable_Object);
