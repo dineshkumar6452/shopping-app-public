@@ -28,16 +28,15 @@ const RESOURCES = {"assets/AssetManifest.bin": "457b86cc9ed4084da0f224754c0bbcde
 "canvaskit/skwasm_heavy.wasm": "b0be7910760d205ea4e011458df6ee01",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"flutter_bootstrap.js": "88c81bca588f43605f781870f27aa889",
+"flutter_bootstrap.js": "90fdee3238722730c6831a52831a713f",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "index.html": "abd2c82159393cb28cdaec98585e6c82",
 "/": "abd2c82159393cb28cdaec98585e6c82",
-"main.dart.js": "0a8963f4f9b68eb922d6731ee6f3fb34",
+"main.dart.js": "52327ecfac096388e11905c276deb872",
 "manifest.json": "18b05de58f5aeed2ffa6be1246cc43f1",
-"New%20Volume%20(E)%20-%20Shortcut.lnk": "d92b708443a6ee48339ad90d0e2fbce0",
 "version.json": "53fb59e54fb87bb44dba7c2200e1dead"};
 // The application shell files that are downloaded before a service worker can
 // start.
