@@ -28043,8 +28043,8 @@
       A.assertHelper(elevation == null || elevation >= 0);
       return new A.Dialog(backgroundColor, elevation, shadowColor, surfaceTintColor, insetPadding, clipBehavior, shape, alignment, child, semanticsRole, constraints, null);
     },
-    AlertDialog$(actions, backgroundColor, $content, title, titlePadding) {
-      return new A.AlertDialog(title, titlePadding, $content, actions, backgroundColor, null);
+    AlertDialog$(actions, backgroundColor, $content, title) {
+      return new A.AlertDialog(title, $content, actions, backgroundColor, null);
     },
     _buildMaterialDialogTransitions(context, animation, secondaryAnimation, child) {
       var t1 = type$.Animation_double;
@@ -28101,14 +28101,13 @@
       _.constraints = t10;
       _.key = t11;
     },
-    AlertDialog: function AlertDialog(t0, t1, t2, t3, t4, t5) {
+    AlertDialog: function AlertDialog(t0, t1, t2, t3, t4) {
       var _ = this;
       _.title = t0;
-      _.titlePadding = t1;
-      _.content = t2;
-      _.actions = t3;
-      _.backgroundColor = t4;
-      _.key = t5;
+      _.content = t1;
+      _.actions = t2;
+      _.backgroundColor = t3;
+      _.key = t4;
     },
     SimpleDialogOption: function SimpleDialogOption(t0, t1, t2) {
       this.onPressed = t0;
@@ -64267,9 +64266,9 @@
       });
       return A._asyncStartSync($async$POSDialogs_onWillPop, $async$completer);
     },
-    POSDialogs_showManualEntryDialog(context, onAdd) {
+    POSDialogs_showManualEntryDialog(context) {
       var $async$goto = 0,
-        $async$completer = A._makeAsyncAwaitCompleter(type$.void),
+        $async$completer = A._makeAsyncAwaitCompleter(type$.nullable_Map_String_dynamic),
         $async$returnValue;
       var $async$POSDialogs_showManualEntryDialog = A._wrapJsFunctionForAsync(function($async$errorCode, $async$result) {
         if ($async$errorCode === 1)
@@ -64278,7 +64277,7 @@
           switch ($async$goto) {
             case 0:
               // Function start
-              $async$returnValue = A.showDialog(null, null, true, null, new A.POSDialogs_showManualEntryDialog_closure(onAdd), context, null, true, type$.void);
+              $async$returnValue = A.showDialog(null, null, true, null, new A.POSDialogs_showManualEntryDialog_closure(), context, null, true, type$.Map_String_dynamic);
               // goto return
               $async$goto = 1;
               break;
@@ -64335,8 +64334,7 @@
     POSDialogs_onWillPop__closure0: function POSDialogs_onWillPop__closure0(t0) {
       this.context = t0;
     },
-    POSDialogs_showManualEntryDialog_closure: function POSDialogs_showManualEntryDialog_closure(t0) {
-      this.onAdd = t0;
+    POSDialogs_showManualEntryDialog_closure: function POSDialogs_showManualEntryDialog_closure() {
     },
     POSDialogs_showEditItemDialog_closure: function POSDialogs_showEditItemDialog_closure(t0, t1, t2, t3) {
       var _ = this;
@@ -64360,9 +64358,8 @@
       this.index = t0;
       this._name = t1;
     },
-    _ManualEntryDialog: function _ManualEntryDialog(t0, t1) {
-      this.onAdd = t0;
-      this.key = t1;
+    _ManualEntryDialog: function _ManualEntryDialog(t0) {
+      this.key = t0;
     },
     _ManualEntryDialogState: function _ManualEntryDialogState(t0, t1) {
       var _ = this;
@@ -64387,15 +64384,12 @@
     _ManualEntryDialogState__submit_closure0: function _ManualEntryDialogState__submit_closure0(t0) {
       this.$this = t0;
     },
-    _ManualEntryDialogState__submit_closure1: function _ManualEntryDialogState__submit_closure1(t0) {
-      this.$this = t0;
-    },
     _ManualEntryDialogState__buildFieldBox_closure: function _ManualEntryDialogState__buildFieldBox_closure(t0, t1) {
       this.$this = t0;
       this.field = t1;
     },
     _ManualEntryDialogState_build_closure: function _ManualEntryDialogState_build_closure(t0) {
-      this.context = t0;
+      this.$this = t0;
     },
     _ManualEntryDialogState_build_closure0: function _ManualEntryDialogState_build_closure0(t0) {
       this.$this = t0;
@@ -64428,7 +64422,7 @@
       this.$this = t0;
     },
     _ManualEntryDialogState_build_closure10: function _ManualEntryDialogState_build_closure10(t0) {
-      this.$this = t0;
+      this.context = t0;
     },
     main0() {
       var $async$goto = 0,
@@ -65426,12 +65420,9 @@
     _POSScreenState_fetchProduct_closure9: function _POSScreenState_fetchProduct_closure9(t0) {
       this.$this = t0;
     },
-    _POSScreenState__addManualItem_closure: function _POSScreenState__addManualItem_closure(t0) {
-      this.$this = t0;
+    _POSScreenState__addManualItem_closure: function _POSScreenState__addManualItem_closure() {
     },
-    _POSScreenState__addManualItem__closure: function _POSScreenState__addManualItem__closure() {
-    },
-    _POSScreenState__addManualItem__closure0: function _POSScreenState__addManualItem__closure0() {
+    _POSScreenState__addManualItem_closure0: function _POSScreenState__addManualItem_closure0() {
     },
     _POSScreenState__showInvalidBarcodeDialog_closure: function _POSScreenState__showInvalidBarcodeDialog_closure(t0) {
       this.$this = t0;
@@ -65854,7 +65845,7 @@
               date = A.DateFormat$("dd/MM/yyyy  HH:mm").format$1(new A.DateTime(Date.now(), 0, false));
               $async$temp1 = A;
               $async$goto = 2;
-              return A._asyncAwait($.$get$rootBundle().load$1(0, "assets/fonts/ShareTechMono-Regular.ttf"), $async$InvoiceService_generateAndPrintInvoiceThermal);
+              return A._asyncAwait($.$get$rootBundle().load$1(0, "fonts/ShareTechMono-Regular.ttf"), $async$InvoiceService_generateAndPrintInvoiceThermal);
             case 2:
               // returning from await.
               font = new $async$temp1.TtfFont($async$result, null);
@@ -73149,7 +73140,7 @@
       });
       return A._asyncStartSync($async$call$0, $async$completer);
     },
-    $signature: 752
+    $signature: 755
   };
   A.AppBootstrap_prepareEngineInitializer_closure0.prototype = {
     call$1(configuration) {
@@ -73182,7 +73173,7 @@
     call$0() {
       return this.call$1(null);
     },
-    $signature: 301
+    $signature: 182
   };
   A.AppBootstrap__prepareAppRunner_closure.prototype = {
     call$1(params) {
@@ -73215,7 +73206,7 @@
     call$0() {
       return this.call$1(null);
     },
-    $signature: 301
+    $signature: 182
   };
   A.AppBootstrap__prepareFlutterApp_closure.prototype = {
     call$1(options) {
@@ -73237,7 +73228,7 @@
       t1.registerView$2$jsViewOptions(view, options);
       return t5;
     },
-    $signature: 420
+    $signature: 424
   };
   A.AppBootstrap__prepareFlutterApp_closure0.prototype = {
     call$1(viewId) {
@@ -73245,7 +73236,7 @@
         A.assertThrow("Cannot removeView when multiView is not enabled");
       return $.$get$EnginePlatformDispatcher__instance().get$viewManager().disposeAndUnregisterView$1(viewId);
     },
-    $signature: 152
+    $signature: 143
   };
   A.Arena.prototype = {
     collect$0() {
@@ -73531,7 +73522,7 @@
       t1 = t1 == null ? null : A._asStringQ(t1.canvasKitBaseUrl);
       return (t1 == null ? "https://www.gstatic.com/flutter-canvaskit/5f77625673248ee5846fbcaf5d3e1a3878386fd7/" : t1) + filename;
     },
-    $signature: 25
+    $signature: 28
   };
   A.CkColorFilter.prototype = {
     initRawImageFilter$0() {
@@ -73877,13 +73868,13 @@
     call$0() {
       return A._setArrayType([], type$.JSArray_JSObject);
     },
-    $signature: 271
+    $signature: 194
   };
   A.SkiaFontCollection__registerWithFontProvider_closure0.prototype = {
     call$0() {
       return A._setArrayType([], type$.JSArray_JSObject);
     },
-    $signature: 271
+    $signature: 194
   };
   A.SkiaFontCollection_registerDownloadedFonts_makeRegisterFont.prototype = {
     call$3(buffer, url, family) {
@@ -73897,7 +73888,7 @@
         return null;
       }
     },
-    $signature: 691
+    $signature: 711
   };
   A.RegisteredFont.prototype = {};
   A.UnregisteredFont.prototype = {};
@@ -74494,7 +74485,7 @@
       t1.CkSurface$1(canvasProvider);
       return t1;
     },
-    $signature: 324
+    $signature: 331
   };
   A.CanvasKitRenderer__createRasterizer_closure0.prototype = {
     call$1(canvasProvider) {
@@ -74504,7 +74495,7 @@
       t1.CkSurface$1(canvasProvider);
       return t1;
     },
-    $signature: 419
+    $signature: 423
   };
   A.CanvasKitRenderer_initialize_closure.prototype = {
     call$0() {
@@ -74575,7 +74566,7 @@
       });
       return A._asyncStartSync($async$call$0, $async$completer);
     },
-    $signature: 208
+    $signature: 202
   };
   A.SimpleCkShader.prototype = {
     SimpleCkShader$0() {
@@ -75215,7 +75206,7 @@
       A.SkTextStyleProperties_set_fontVariations(properties, skFontVariations);
       return A._asJSObject($.__canvasKit._readField$0().TextStyle(properties));
     },
-    $signature: 123
+    $signature: 100
   };
   A.CkTextStyle_toString_closure.prototype = {
     call$0() {
@@ -75703,7 +75694,7 @@
     call$1(font) {
       return this.fontFamily === A._asString(font);
     },
-    $signature: 40
+    $signature: 41
   };
   A.CanvasKitPainter.prototype = {
     clearCache$0() {
@@ -75738,7 +75729,7 @@
       t1.toString;
       return t1.call$1(B.C_JSONMessageCodec.encodeMessage$1([null]));
     },
-    $signature: 236
+    $signature: 219
   };
   A.ClipboardMessageHandler_setDataMethodCall_closure0.prototype = {
     call$1(error) {
@@ -75749,7 +75740,7 @@
       t1.toString;
       t1.call$1(B.C_JSONMessageCodec.encodeMessage$1(["copy_fail", message, null]));
     },
-    $signature: 53
+    $signature: 57
   };
   A.ClipboardMessageHandler_getDataMethodCall_closure.prototype = {
     call$1(data) {
@@ -75758,7 +75749,7 @@
       t1.toString;
       t1.call$1(B.C_JSONMessageCodec.encodeMessage$1([map]));
     },
-    $signature: 285
+    $signature: 197
   };
   A.ClipboardMessageHandler_getDataMethodCall_closure0.prototype = {
     call$1(error) {
@@ -75769,7 +75760,7 @@
       t1.toString;
       t1.call$1(B.C_JSONMessageCodec.encodeMessage$1(["paste_fail", message, null]));
     },
-    $signature: 53
+    $signature: 57
   };
   A.ClipboardMessageHandler_hasStringsMethodCall_closure.prototype = {
     call$1(data) {
@@ -75778,7 +75769,7 @@
       t1.toString;
       t1.call$1(B.C_JSONMessageCodec.encodeMessage$1([map]));
     },
-    $signature: 285
+    $signature: 197
   };
   A.ClipboardMessageHandler_hasStringsMethodCall_closure0.prototype = {
     call$1(error) {
@@ -75789,7 +75780,7 @@
       t1.toString;
       t1.call$1(B.C_JSONMessageCodec.encodeMessage$1(["has_strings_fail", message, null]));
     },
-    $signature: 53
+    $signature: 57
   };
   A.ClipboardStrategy.prototype = {
     get$_clipboard() {
@@ -76045,7 +76036,7 @@
       t1.get$dom().setScene$1(t2);
       return new A.MultiSurfaceViewRasterizer(this.$this._surfaceProvider, t1, new A.RenderQueue(), B.BitmapSize_0_0, new A.CompositorContext(), t2);
     },
-    $signature: 424
+    $signature: 426
   };
   A.MultiSurfaceViewRasterizer.prototype = {
     get$displayFactory() {
@@ -76179,7 +76170,7 @@
     call$0() {
       return A.OffscreenCanvasViewRasterizer$(this.view, this.$this);
     },
-    $signature: 595
+    $signature: 596
   };
   A.OffscreenCanvasViewRasterizer.prototype = {
     prepareToDraw$0() {
@@ -76334,7 +76325,7 @@
       t1.append(t2);
       return t3;
     },
-    $signature: 688
+    $signature: 691
   };
   A.Rasterizer.prototype = {};
   A.ViewRasterizer.prototype = {
@@ -76673,21 +76664,21 @@
       value.toString;
       return A._asJSObject(value);
     },
-    $signature: 98
+    $signature: 90
   };
   A.DomNavigator_get_languages_closure.prototype = {
     call$1(any) {
       any.toString;
       return A._asString(any);
     },
-    $signature: 109
+    $signature: 105
   };
   A.rawHttpGet_closure.prototype = {
     call$1(value) {
       value.toString;
       return A._asJSObject(value);
     },
-    $signature: 98
+    $signature: 90
   };
   A.HttpFetchResponseImpl.prototype = {
     get$status(_) {
@@ -76771,35 +76762,35 @@
       value.toString;
       return type$.NativeArrayBuffer._as(value);
     },
-    $signature: 325
+    $signature: 337
   };
   A._DomStreamReader_read_closure.prototype = {
     call$1(value) {
       value.toString;
       return A._asJSObject(value);
     },
-    $signature: 98
+    $signature: 90
   };
   A.DomFontFace_load_closure.prototype = {
     call$1(value) {
       value.toString;
       return A._asJSObject(value);
     },
-    $signature: 98
+    $signature: 90
   };
   A.DomClipboard_readText_closure.prototype = {
     call$1(value) {
       value.toString;
       return A._asString(value);
     },
-    $signature: 109
+    $signature: 105
   };
   A.DomOffscreenCanvas_convertToBlob_closure.prototype = {
     call$1(value) {
       value.toString;
       return A._asJSObject(value);
     },
-    $signature: 98
+    $signature: 90
   };
   A.DomSubscription.prototype = {};
   A.DomPoint.prototype = {};
@@ -76809,7 +76800,7 @@
       A._asJSObject(observer);
       this.fn.call$2(B.JSArray_methods.cast$1$0(entries, type$.JSObject), observer);
     },
-    $signature: 337
+    $signature: 354
   };
   A._ttPolicy_closure.prototype = {
     call$1(url) {
@@ -76821,7 +76812,7 @@
       A._asJSObject(A._asJSObject(init.G.window).console).error("URL rejected by TrustedTypes policy flutter-engine: " + url + "(download prevented)");
       return null;
     },
-    $signature: 381
+    $signature: 384
   };
   A._DomListIterator.prototype = {
     moveNext$0() {
@@ -76867,13 +76858,13 @@
       $._fontChangeScheduled = false;
       $.$get$EnginePlatformDispatcher__instance().invokeOnPlatformMessage$3("flutter/system", $.$get$_fontChangeMessage(), new A.sendFontChangeMessage__closure());
     },
-    $signature: 116
+    $signature: 106
   };
   A.sendFontChangeMessage__closure.prototype = {
     call$1(__wc1_formal) {
       type$.nullable_ByteData._as(__wc1_formal);
     },
-    $signature: 47
+    $signature: 46
   };
   A.FallbackFontService.prototype = {
     addMissingCodePoints$1(codePoints) {
@@ -77372,7 +77363,7 @@
     call$1(f) {
       return this.$this._registeredFonts.contains$1(0, type$.NotoFont._as(f));
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__process_closure.prototype = {
     call$0() {
@@ -77384,7 +77375,7 @@
     call$1(f) {
       return this.$this._registeredFonts.contains$1(0, type$.NotoFont._as(f));
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__process_closure0.prototype = {
     call$0() {
@@ -77396,7 +77387,7 @@
     call$1(f) {
       return this.$this._pendingFonts.contains$1(0, type$.NotoFont._as(f));
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__process_closure1.prototype = {
     call$0() {
@@ -77420,7 +77411,7 @@
     call$1(f) {
       return this.$this._permanentlyUnavailableFonts.contains$1(0, type$.NotoFont._as(f));
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__findFontsForComponents_closure.prototype = {
     call$1(f) {
@@ -77428,38 +77419,38 @@
       t1.toString;
       return t1 <= 0;
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__selectBestFont_closure.prototype = {
     call$1(f) {
       return this.coverCounts.containsKey$1(0, type$.NotoFont._as(f));
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__selectBestFont_closure0.prototype = {
     call$1(f) {
       return B.JSString_methods.startsWith$1(type$.NotoFont._as(f).name, this.prefix);
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__selectBestFont_closure1.prototype = {
     call$1(f) {
       return B.JSString_methods.startsWith$1(type$.NotoFont._as(f).name, this.prefix);
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__findFontsWithMaxCoverage_closure.prototype = {
     call$1(f) {
       return this.coverCounts.containsKey$1(0, type$.NotoFont._as(f));
     },
-    $signature: 52
+    $signature: 56
   };
   A.FallbackFontService__findFontsWithMaxCoverage_closure0.prototype = {
     call$2(a, b) {
       var t1 = type$.NotoFont;
       return B.JSInt_methods.compareTo$1(t1._as(a).index, t1._as(b).index);
     },
-    $signature: 509
+    $signature: 516
   };
   A.FallbackFontService__notifyFontsChanged_closure.prototype = {
     call$0() {
@@ -77557,13 +77548,13 @@
         throw A.wrapException(A.AssertionError$(string$.There_w));
       this._box_0.fontManifestJson = B.JSArray_methods.get$first(accumulated);
     },
-    $signature: 558
+    $signature: 560
   };
   A.fetchFontManifest_closure0.prototype = {
     call$1(chunk) {
       return this.inputSink.add$1(0, chunk);
     },
-    $signature: 560
+    $signature: 561
   };
   A.fetchFontManifest_closure1.prototype = {
     call$1(fontFamilyJson) {
@@ -77575,7 +77566,7 @@
       t1 = A.List_List$_of(t1, t1.$ti._eval$1("ListIterable.E"));
       return new A.FontFamily(familyName, t1);
     },
-    $signature: 576
+    $signature: 590
   };
   A.fetchFontManifest__closure.prototype = {
     call$1(fontAssetJson) {
@@ -77596,7 +77587,7 @@
         throw A.wrapException(A.AssertionError$("Invalid Font manifest, missing 'asset' key on font."));
       return new A.FontAsset(asset, descriptors);
     },
-    $signature: 590
+    $signature: 594
   };
   A.FontLoadError.prototype = {};
   A.FontNotFoundError.prototype = {};
@@ -77663,7 +77654,7 @@
         t1._isRenderingFrame = false;
       }
     },
-    $signature: 116
+    $signature: 106
   };
   A.FrameService_scheduleWarmUpFrame_closure.prototype = {
     call$0() {
@@ -77719,7 +77710,7 @@
     call$0() {
       throw A.wrapException(A.StateError$('Invalid engine initialization state. `initializeEngineServices` was called, but the engine has already started initialization and is currently in state "' + $._initializationState.toString$0(0) + '".'));
     },
-    $signature: 58
+    $signature: 62
   };
   A.initializeEngineServices_closure0.prototype = {
     call$2(__wc0_formal, __wc1_formal) {
@@ -77730,7 +77721,7 @@
         $._hotRestartListeners[_i].call$0();
       return A.Future_Future$value(new A.ServiceExtensionResponse(), type$.ServiceExtensionResponse);
     },
-    $signature: 242
+    $signature: 208
   };
   A.initializeEngineServices_initializeRendererCallback.prototype = {
     call$0() {
@@ -77761,13 +77752,13 @@
     call$0() {
       throw A.wrapException(A.StateError$('Invalid engine initialization state. `initializeEngineUi` was called while the engine initialization state was "' + $._initializationState.toString$0(0) + '". `initializeEngineUi` can only be called when the engine is in state "' + B.DebugEngineInitializationState_2.toString$0(0) + '".'));
     },
-    $signature: 58
+    $signature: 62
   };
   A.FlutterApp_constructor__closure.prototype = {
     call$1(id) {
       return this.removeView.call$1(A._asInt(id));
     },
-    $signature: 152
+    $signature: 143
   };
   A.FlutterEngineInitializer_constructor__closure.prototype = {
     call$1(config) {
@@ -77781,13 +77772,13 @@
     $defaultValues() {
       return [null];
     },
-    $signature: 273
+    $signature: 259
   };
   A.FlutterEngineInitializer_constructor__closure0.prototype = {
     call$0() {
       return A.CustomFutureOfJSAnyToJSPromise_get_toPromise(this.autoStart.call$0(), type$.JSObject);
     },
-    $signature: 123
+    $signature: 100
   };
   A.FlutterAppRunner_constructor__closure.prototype = {
     call$1(args) {
@@ -77801,21 +77792,21 @@
     $defaultValues() {
       return [null];
     },
-    $signature: 273
+    $signature: 259
   };
   A.CustomFutureOfJSAnyToJSPromise_get_toPromise_closure.prototype = {
     call$2(resolve, reject) {
       var t1 = type$.JavaScriptFunction;
       this._this.then$1$2$onError(new A.CustomFutureOfJSAnyToJSPromise_get_toPromise__closure(t1._as(resolve)), new A.CustomFutureOfJSAnyToJSPromise_get_toPromise__closure0(t1._as(reject)), type$.Null);
     },
-    $signature: 323
+    $signature: 325
   };
   A.CustomFutureOfJSAnyToJSPromise_get_toPromise__closure.prototype = {
     call$1(value) {
       var t1 = this.resolve;
       t1.call(t1, value);
     },
-    $signature: 278
+    $signature: 272
   };
   A.CustomFutureOfJSAnyToJSPromise_get_toPromise__closure0.prototype = {
     call$2(error, stackTrace) {
@@ -77832,55 +77823,55 @@
       t2 = this.reject;
       t2.call(t2, A.callConstructor(t1, [userError], type$.JSObject));
     },
-    $signature: 31
+    $signature: 33
   };
   A._kLogicalKeyToModifierGetter_closure.prototype = {
     call$1($event) {
       return A._asBool(type$.FlutterHtmlKeyboardEvent._as($event)._event.altKey);
     },
-    $signature: 59
+    $signature: 60
   };
   A._kLogicalKeyToModifierGetter_closure0.prototype = {
     call$1($event) {
       return A._asBool(type$.FlutterHtmlKeyboardEvent._as($event)._event.altKey);
     },
-    $signature: 59
+    $signature: 60
   };
   A._kLogicalKeyToModifierGetter_closure1.prototype = {
     call$1($event) {
       return A._asBool(type$.FlutterHtmlKeyboardEvent._as($event)._event.ctrlKey);
     },
-    $signature: 59
+    $signature: 60
   };
   A._kLogicalKeyToModifierGetter_closure2.prototype = {
     call$1($event) {
       return A._asBool(type$.FlutterHtmlKeyboardEvent._as($event)._event.ctrlKey);
     },
-    $signature: 59
+    $signature: 60
   };
   A._kLogicalKeyToModifierGetter_closure3.prototype = {
     call$1($event) {
       return type$.FlutterHtmlKeyboardEvent._as($event).get$shiftKey(0);
     },
-    $signature: 59
+    $signature: 60
   };
   A._kLogicalKeyToModifierGetter_closure4.prototype = {
     call$1($event) {
       return type$.FlutterHtmlKeyboardEvent._as($event).get$shiftKey(0);
     },
-    $signature: 59
+    $signature: 60
   };
   A._kLogicalKeyToModifierGetter_closure5.prototype = {
     call$1($event) {
       return A._asBool(type$.FlutterHtmlKeyboardEvent._as($event)._event.metaKey);
     },
-    $signature: 59
+    $signature: 60
   };
   A._kLogicalKeyToModifierGetter_closure6.prototype = {
     call$1($event) {
       return A._asBool(type$.FlutterHtmlKeyboardEvent._as($event)._event.metaKey);
     },
-    $signature: 59
+    $signature: 60
   };
   A._cached_closure.prototype = {
     call$0() {
@@ -77982,7 +77973,7 @@
       type$.JavaScriptFunction._as(listener);
       A._asJSObject(init.G.window).removeEventListener(eventName, listener, true);
     },
-    $signature: 384
+    $signature: 395
   };
   A.KeyboardBinding__onKeyData_closure.prototype = {
     call$1(handled) {
@@ -78196,7 +78187,7 @@
     call$0() {
       return new A.KeyData(new A.Duration(this.currentTimeStamp.inMicroseconds + 2000000), B.KeyEventType_1, this.physicalKey, this.logicalKey, null, true);
     },
-    $signature: 183
+    $signature: 215
   };
   A.KeyboardConverter__startGuardingKey_closure0.prototype = {
     call$0() {
@@ -78248,13 +78239,13 @@
       }
       return B.JSString_methods.get$hashCode(t1) + 98784247808;
     },
-    $signature: 83
+    $signature: 74
   };
   A.KeyboardConverter__handleEvent_closure0.prototype = {
     call$0() {
       return new A.KeyData(this.timeStamp, B.KeyEventType_1, this.physicalKey, this.logicalKey.call$0(), null, true);
     },
-    $signature: 183
+    $signature: 215
   };
   A.KeyboardConverter__handleEvent_closure1.prototype = {
     call$0() {
@@ -78274,7 +78265,7 @@
       if (t2.containsValue$1(0, testeeLogicalKey) && !getModifier.call$1(_this.event))
         t2.removeWhere$1(t2, new A.KeyboardConverter__handleEvent__closure(t1, testeeLogicalKey, _this.timeStamp));
     },
-    $signature: 433
+    $signature: 444
   };
   A.KeyboardConverter__handleEvent__closure.prototype = {
     call$2(physicalKey, logicalRecord) {
@@ -78286,14 +78277,14 @@
       this.$this._dispatchKeyData.call$1(new A.KeyData(this.timeStamp, B.KeyEventType_1, physicalKey, t1, null, true));
       return true;
     },
-    $signature: 444
+    $signature: 473
   };
   A.KeyboardConverter_handleEvent_closure.prototype = {
     call$1(data) {
       this._box_0.sentAnyEvents = true;
       return this.$this.performDispatchKeyData.call$1(data);
     },
-    $signature: 158
+    $signature: 133
   };
   A.Layer.prototype = {
     get$needsPainting() {
@@ -79009,7 +79000,7 @@
     call$0() {
       return A._setArrayType([], type$.JSArray_PictureLayer);
     },
-    $signature: 476
+    $signature: 489
   };
   A.DebugInfoVisitor.prototype = {
     debugChildren$1(container) {
@@ -79220,7 +79211,7 @@
       if (value != null)
         this.cleanup.call$1(value);
     },
-    $signature: 278
+    $signature: 272
   };
   A.UniqueRef.prototype = {
     UniqueRef$4$onDispose(owner, nativeObject, _debugOwnerLabel, onDispose, $T) {
@@ -79256,7 +79247,7 @@
         ref.dispose$0();
       return null;
     },
-    $signature: 188
+    $signature: 228
   };
   A.CountedRef.prototype = {
     CountedRef$5$onDispose$onDisposed(nativeObject, debugReferrer, debugLabel, onDispose, onDisposed, $R, $T) {
@@ -79477,7 +79468,7 @@
     call$1(__wc0_formal) {
       type$.nullable_ByteData._as(__wc0_formal);
     },
-    $signature: 47
+    $signature: 46
   };
   A.SingleEntryBrowserHistory.prototype = {
     SingleEntryBrowserHistory$1$urlStrategy(urlStrategy) {
@@ -79563,13 +79554,13 @@
     call$1(__wc0_formal) {
       type$.nullable_ByteData._as(__wc0_formal);
     },
-    $signature: 47
+    $signature: 46
   };
   A.SingleEntryBrowserHistory_onPopState_closure0.prototype = {
     call$1(__wc1_formal) {
       type$.nullable_ByteData._as(__wc1_formal);
     },
-    $signature: 47
+    $signature: 46
   };
   A.NotoFont.prototype = {};
   A.FallbackFontComponent.prototype = {};
@@ -80371,7 +80362,7 @@
       A._asInt(__wc0_formal);
       this.$this.invokeOnMetricsChanged$0();
     },
-    $signature: 33
+    $signature: 32
   };
   A.EnginePlatformDispatcher_invokeOnKeyData_closure.prototype = {
     call$0() {
@@ -80384,7 +80375,7 @@
       var t1 = type$.nullable_ByteData;
       this.registrationZone.runUnaryGuarded$1$2(this.callback, t1._as(data), t1);
     },
-    $signature: 47
+    $signature: 46
   };
   A.EnginePlatformDispatcher__sendPlatformMessage_closure.prototype = {
     call$0() {
@@ -80411,7 +80402,7 @@
     call$1(success) {
       this.$this.replyToPlatformMessage$2(this.callback, B.C_JSONMessageCodec.encodeMessage$1([A._asBool(success)]));
     },
-    $signature: 120
+    $signature: 116
   };
   A.EnginePlatformDispatcher__sendPlatformMessage_closure3.prototype = {
     call$1(handled) {
@@ -80421,7 +80412,7 @@
       else if (t1 != null)
         t1.call$1(null);
     },
-    $signature: 120
+    $signature: 116
   };
   A.EnginePlatformDispatcher__addLocaleChangedListener_closure.prototype = {
     call$1(__wc0_formal) {
@@ -80485,7 +80476,7 @@
       if (metricsChanged)
         t1.invokeOnMetricsChanged$0();
     },
-    $signature: 220
+    $signature: 275
   };
   A.EnginePlatformDispatcher__addTypographySettingsObserver_closure_isDefault.prototype = {
     call$2(value, defaultValue) {
@@ -80493,13 +80484,13 @@
         return true;
       return Math.abs(value - defaultValue) < 0.0001 || Math.abs(value - defaultValue * this.computedTextScaleFactor) < 0.0001;
     },
-    $signature: 596
+    $signature: 620
   };
   A.EnginePlatformDispatcher__setAppLifecycleState_closure.prototype = {
     call$1(__wc0_formal) {
       type$.nullable_ByteData._as(__wc0_formal);
     },
-    $signature: 47
+    $signature: 46
   };
   A.EnginePlatformDispatcher_invokeOnSemanticsAction_sendActionToFramework.prototype = {
     call$0() {
@@ -80724,7 +80715,7 @@
     call$0() {
       return new A._MediaQueryListeners(this.$this._createMediaQuery$1(this.mediaQueryString), A._setArrayType([], type$.JSArray_JavaScriptFunction));
     },
-    $signature: 711
+    $signature: 714
   };
   A._MediaQueryListeners.prototype = {
     get$matches(_) {
@@ -80949,7 +80940,7 @@
       wrapper.setAttribute("aria-hidden", t1);
       return wrapper;
     },
-    $signature: 123
+    $signature: 100
   };
   A.PlatformViewEmbedder.prototype = {
     prerollCompositeEmbeddedView$2(viewId, params) {
@@ -81518,7 +81509,7 @@
       wrapper.append(slot);
       return new A.ViewClipChain(wrapper, wrapper);
     },
-    $signature: 717
+    $signature: 721
   };
   A.PlatformViewEmbedder_submitFrame_closure.prototype = {
     call$1(canvas) {
@@ -81526,19 +81517,19 @@
       t1.toString;
       return t1;
     },
-    $signature: 721
+    $signature: 722
   };
   A.PlatformViewEmbedder_submitFrame_closure0.prototype = {
     call$1(recorder) {
       return type$.PictureRecorder._as(recorder).endRecording$0();
     },
-    $signature: 729
+    $signature: 730
   };
   A.PlatformViewEmbedder__updateDomForNewComposition_closure.prototype = {
     call$1(index) {
       return A._asInt(index) !== -1;
     },
-    $signature: 74
+    $signature: 78
   };
   A.PlatformViewEmbedder__updateDomForNewComposition_updateCompositionCanvasWithDisplay.prototype = {
     call$2(canvas, index) {
@@ -81560,7 +81551,7 @@
       } else
         canvas.displayCanvas = t2.rasterizer.get$displayFactory().getCanvas$0();
     },
-    $signature: 760
+    $signature: 770
   };
   A.ViewClipChain.prototype = {};
   A.EmbeddedViewParams.prototype = {
@@ -82101,7 +82092,7 @@
     call$0() {
       return this.call$1$allowPlatformDefault(false);
     },
-    $signature: 874
+    $signature: 887
   };
   A._SanitizedDetails.prototype = {
     toString$0(_) {
@@ -82312,7 +82303,7 @@
     call$0() {
       return new A._ButtonSanitizer();
     },
-    $signature: 878
+    $signature: 896
   };
   A._PointerAdapter__addPointerEventListener_closure.prototype = {
     call$1($event) {
@@ -82495,7 +82486,7 @@
     call$0() {
       return new A._PointerDeviceState(this.x, this.y);
     },
-    $signature: 888
+    $signature: 321
   };
   A.PointerDataConverter.prototype = {
     _generateCompletePointerData$27$buttons$change$device$distance$distanceMax$kind$obscured$onRespond$orientation$physicalX$physicalY$platformData$pressure$pressureMax$pressureMin$radiusMajor$radiusMax$radiusMin$radiusMinor$scale$scrollDeltaX$scrollDeltaY$signalKind$size$tilt$timeStamp$viewId(buttons, change, device, distance, distanceMax, kind, obscured, onRespond, orientation, physicalX, physicalY, platformData, pressure, pressureMax, pressureMin, radiusMajor, radiusMax, radiusMin, radiusMinor, scale, scrollDeltaX, scrollDeltaY, signalKind, size, tilt, timeStamp, viewId) {
@@ -82833,7 +82824,7 @@
       type$.BackendImage._as(backendImage).skImage.delete();
       return null;
     },
-    $signature: 320
+    $signature: 323
   };
   A.EngineImage_closure0.prototype = {
     call$1(image) {
@@ -82843,7 +82834,7 @@
       if (t1 != null)
         t1.call$1(image);
     },
-    $signature: 321
+    $signature: 324
   };
   A.EngineImage__init_closure.prototype = {
     call$0() {
@@ -83125,7 +83116,7 @@
         t1.stopPropagation();
       }
     },
-    $signature: 47
+    $signature: 46
   };
   A.Renderer.prototype = {
     initialize$0(_) {
@@ -84014,7 +84005,7 @@
       type$.GestureMode._as(mode);
       this.$this.update$0(0);
     },
-    $signature: 248
+    $signature: 243
   };
   A.LabelRepresentation.prototype = {
     _enumToString$0() {
@@ -84249,7 +84240,7 @@
     call$1(element) {
       return B.JSString_methods.trim$0(A._asString(element)).length !== 0;
     },
-    $signature: 40
+    $signature: 41
   };
   A.SemanticComplementary.prototype = {
     focusAsRouteDefault$0() {
@@ -84451,7 +84442,7 @@
     call$1(id) {
       return "flt-semantic-node-" + A._asInt(id);
     },
-    $signature: 121
+    $signature: 108
   };
   A.SemanticMenuBar.prototype = {
     update$0(_) {
@@ -84515,7 +84506,7 @@
     call$1(id) {
       return "flt-semantic-node-" + A._asInt(id);
     },
-    $signature: 121
+    $signature: 108
   };
   A.SemanticMenuItem.prototype = {
     update$0(_) {
@@ -84775,7 +84766,7 @@
         return true;
       return !role.focusAsRouteDefault$0();
     },
-    $signature: 267
+    $signature: 203
   };
   A.SemanticRouteBase_update_closure.prototype = {
     call$0() {
@@ -85086,7 +85077,7 @@
       type$.GestureMode._as(__wc0_formal);
       this.$this._updateCssOverflow$0();
     },
-    $signature: 248
+    $signature: 243
   };
   A.SemanticScrollable_update_closure1.prototype = {
     call$1(__wc1_formal) {
@@ -85350,7 +85341,7 @@
     call$1(existing) {
       return A.getRuntimeTypeOfDartObject(type$.SemanticBehavior._as(existing)) === A.getRuntimeTypeOfDartObject(this.behavior);
     },
-    $signature: 334
+    $signature: 350
   };
   A.SemanticRole__updateControls_closure.prototype = {
     call$0() {
@@ -85378,7 +85369,7 @@
     call$1(child) {
       return A._asString(child) === "flt-semantic-node-" + this.$this.semanticsObject.id;
     },
-    $signature: 40
+    $signature: 41
   };
   A.GenericRole.prototype = {
     update$0(_) {
@@ -86333,7 +86324,7 @@
     call$1(child) {
       type$.SemanticsObject._as(child)._debugVisitRenderedSemanticNodesDepthFirst$1(this.callback);
     },
-    $signature: 270
+    $signature: 299
   };
   A.SemanticsObject_toString_closure.prototype = {
     call$0() {
@@ -86441,7 +86432,7 @@
     call$0() {
       return new A.DateTime(Date.now(), 0, false);
     },
-    $signature: 350
+    $signature: 362
   };
   A.EngineSemantics__getGestureModeClock_closure.prototype = {
     call$0() {
@@ -86838,7 +86829,7 @@
         return false;
       }
     },
-    $signature: 267
+    $signature: 203
   };
   A.EngineSemanticsOwner__computeNodeMapConsistencyMessage_closure.prototype = {
     call$1(child) {
@@ -86848,7 +86839,7 @@
         t1 = B.List_empty;
       this.liveIds.$indexSet(0, child.id, t1);
     },
-    $signature: 270
+    $signature: 299
   };
   A.EngineSemanticsOwner_updateSemantics_closure.prototype = {
     call$0() {
@@ -86902,7 +86893,7 @@
             throw A.wrapException(A.AssertionError$("Parent #" + t1 + " has child #" + childId + ". However, the child is attached to #" + t5.id + "."));
         }
     },
-    $signature: 354
+    $signature: 370
   };
   A.EnabledState.prototype = {
     _enumToString$0() {
@@ -88016,7 +88007,7 @@
       t1.writeValue$2(0, t2, key);
       t1.writeValue$2(0, t2, value);
     },
-    $signature: 365
+    $signature: 375
   };
   A.StandardMethodCodec.prototype = {
     decodeMethodCall$1(methodCall) {
@@ -88204,7 +88195,7 @@
     call$1(__wc0_formal) {
       return this.callback.call$0();
     },
-    $signature: 236
+    $signature: 219
   };
   A.LineBreakType.prototype = {
     _enumToString$0() {
@@ -88288,7 +88279,7 @@
     call$0() {
       throw A.wrapException(A.AssertionError$("Failed to convert font weight " + this.fontWeightIndex + " to CSS."));
     },
-    $signature: 58
+    $signature: 62
   };
   A.BrowserAutofillHints.prototype = {};
   A.CompositionAwareMixin.prototype = {
@@ -88620,7 +88611,7 @@
       t2.toString;
       B.JSArray_methods.add$1(this.subscriptions, A.DomSubscription$(t2, "input", A.createDomEventListener(new A.EngineAutofillForm_addInputEventListeners_addSubscriptionForKey_closure(t1, key, t2))));
     },
-    $signature: 32
+    $signature: 31
   };
   A.EngineAutofillForm_addInputEventListeners_addSubscriptionForKey_closure.prototype = {
     call$1(e) {
@@ -89788,7 +89779,7 @@
       A._asString(identifier);
       new A._DomListWrapper(A._asJSObject(type$.EngineAutofillForm._as(form).formElement.getElementsByClassName("submitBtn")), type$._DomListWrapper_JSObject).get$first(0).click();
     },
-    $signature: 376
+    $signature: 381
   };
   A.TextEditingChannel.prototype = {
     handleTextInput$2(data, callback) {
@@ -89889,7 +89880,7 @@
       if (!A._asBool(B.C_JSONMethodCodec.decodeEnvelope$1(data)))
         $.$get$printWarning().call$1("Text input client did not acquire focus after platform focus received.");
     },
-    $signature: 47
+    $signature: 46
   };
   A.HybridTextEditing.prototype = {
     HybridTextEditing$0() {
@@ -89985,7 +89976,7 @@
         $.$get$EnginePlatformDispatcher__instance().invokeOnPlatformMessage$3(_s17_, B.C_JSONMethodCodec.encodeMethodCall$1(new A.MethodCall("TextInputClient.updateEditingState", [t1, editingState.toFlutter$0()])), A._engine___emptyCallback$closure());
       }
     },
-    $signature: 377
+    $signature: 382
   };
   A.HybridTextEditing__startEditing_closure.prototype = {
     call$1(inputAction) {
@@ -89994,7 +89985,7 @@
       t1 = t1._clientId;
       $.$get$EnginePlatformDispatcher__instance().invokeOnPlatformMessage$3("flutter/textinput", B.C_JSONMethodCodec.encodeMethodCall$1(new A.MethodCall("TextInputClient.performAction", [t1, inputAction])), A._engine___emptyCallback$closure());
     },
-    $signature: 67
+    $signature: 68
   };
   A.EditableTextStyle.prototype = {
     applyToDomElement$1(domElement) {
@@ -90034,7 +90025,7 @@
     call$1(e) {
       return A._asNum(e);
     },
-    $signature: 382
+    $signature: 385
   };
   A.IntlSegmenterGranularity.prototype = {
     _enumToString$0() {
@@ -90283,7 +90274,7 @@
         return A.ioore(t1, index);
       return B.JSNumber_methods.toStringAsFixed$1(t1[index], 2);
     },
-    $signature: 121
+    $signature: 108
   };
   A.CustomElementDimensionsProvider.prototype = {
     CustomElementDimensionsProvider$2$onDprChange(_hostElement, onDprChange) {
@@ -90327,7 +90318,7 @@
       A._asDouble(__wc0_formal);
       this.$this._onResizeStreamController.add$1(0, null);
     },
-    $signature: 116
+    $signature: 106
   };
   A.CustomElementDimensionsProvider_closure0.prototype = {
     call$2(entries, __wc1_formal) {
@@ -90343,7 +90334,7 @@
         t3._sendData$1(null);
       }
     },
-    $signature: 220
+    $signature: 275
   };
   A.CustomElementDimensionsProvider_closure1.prototype = {
     call$0() {
@@ -90639,7 +90630,7 @@
     call$0() {
       this.$this._transferFocusToViewRoot$1(this.element);
     },
-    $signature: 30
+    $signature: 25
   };
   A.FlutterViewManager_safeRemove_closure.prototype = {
     call$0() {
@@ -90673,7 +90664,7 @@
       A.assertHelper(new A._hotRestartCache__closure(t1).call$0());
       return t1.cache;
     },
-    $signature: 389
+    $signature: 397
   };
   A._hotRestartCache__closure.prototype = {
     call$0() {
@@ -90700,7 +90691,7 @@
         return A.ioore(t1, t2);
       return t1[t2];
     },
-    $signature: 395
+    $signature: 405
   };
   A.AllCodeUnitFlags.prototype = {
     get$length(_) {
@@ -91062,7 +91053,7 @@
       });
       return A._asyncStartSync($async$call$0, $async$completer);
     },
-    $signature: 397
+    $signature: 406
   };
   A.TextLayout.prototype = {
     get$_mapping() {
@@ -91658,7 +91649,7 @@
       t1._as(b);
       return B.JSInt_methods.compareTo$1(a.get$span(a).start + a.get$startInSpan(), b.get$span(b).start + b.get$startInSpan());
     },
-    $signature: 405
+    $signature: 414
   };
   A.TextLayout_addLine_closure.prototype = {
     call$0() {
@@ -92255,7 +92246,7 @@
       t2 = t2.sourceRect;
       return J.asUint8List$0$x(B.NativeUint8ClampedList_methods.get$buffer(type$.NativeUint8ClampedList._as(A._asJSObject(t3.getImageData(0, 0, t1, B.JSNumber_methods.ceil$0(t2.bottom - t2.top))).data)));
     },
-    $signature: 410
+    $signature: 415
   };
   A.WebParagraphStyle.prototype = {
     $eq(_, other) {
@@ -94004,7 +93995,7 @@
         return dim + "=" + B.JSNumber_methods.toStringAsFixed$1(min, 1);
       return B.JSNumber_methods.toStringAsFixed$1(min, 1) + "<=" + dim + "<=" + B.JSNumber_methods.toStringAsFixed$1(max, 1);
     },
-    $signature: 279
+    $signature: 239
   };
   A._DefaultTextEditingStrategy_Object_CompositionAwareMixin.prototype = {};
   A.__PointerAdapter__BaseAdapter__WheelEventListenerMixin.prototype = {};
@@ -96741,7 +96732,7 @@
     call$0() {
       return B.JSNumber_methods.floor$0(1000 * this.performance.now());
     },
-    $signature: 83
+    $signature: 74
   };
   A.SafeToStringHook.prototype = {};
   A.TypeErrorDecoder.prototype = {
@@ -97318,19 +97309,19 @@
     call$1(o) {
       return this.getTag(o);
     },
-    $signature: 137
+    $signature: 130
   };
   A.initHooks_closure0.prototype = {
     call$2(o, tag) {
       return this.getUnknownTag(o, tag);
     },
-    $signature: 425
+    $signature: 442
   };
   A.initHooks_closure1.prototype = {
     call$1(tag) {
       return this.prototypeForTag(A._asString(tag));
     },
-    $signature: 241
+    $signature: 311
   };
   A._Record.prototype = {
     get$runtimeType(_) {
@@ -98158,7 +98149,7 @@
         return A.ioore(t1, 0);
       return new A.MapEntry(t1.charCodeAt(0), beforeEntry.key, type$.MapEntry_int_String);
     },
-    $signature: 442
+    $signature: 449
   };
   A.LocaleKeymap.prototype = {
     getLogicalKey$3(eventCode, eventKey, eventKeyCode) {
@@ -98194,7 +98185,7 @@
       t1.storedCallback = null;
       f.call$0();
     },
-    $signature: 96
+    $signature: 95
   };
   A._AsyncRun__initializeScheduleImmediate_closure.prototype = {
     call$1(callback) {
@@ -98207,19 +98198,19 @@
       t2 = this.span;
       t1.firstChild ? t1.removeChild(t2) : t1.appendChild(t2);
     },
-    $signature: 473
+    $signature: 476
   };
   A._AsyncRun__scheduleImmediateJsOverride_internalCallback.prototype = {
     call$0() {
       this.callback.call$0();
     },
-    $signature: 30
+    $signature: 25
   };
   A._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback.prototype = {
     call$0() {
       this.callback.call$0();
     },
-    $signature: 30
+    $signature: 25
   };
   A._TimerImpl.prototype = {
     _TimerImpl$2(milliseconds, callback) {
@@ -98273,7 +98264,7 @@
       t1._tick = tick;
       _this.callback.call$1(t1);
     },
-    $signature: 30
+    $signature: 25
   };
   A._AsyncAwaitCompleter.prototype = {
     complete$1(_, value) {
@@ -98306,19 +98297,19 @@
     call$1(result) {
       return this.bodyFunction.call$2(0, result);
     },
-    $signature: 70
+    $signature: 63
   };
   A._awaitOnObject_closure0.prototype = {
     call$2(error, stackTrace) {
       this.bodyFunction.call$2(1, new A.ExceptionAndStackTrace(error, type$.StackTrace._as(stackTrace)));
     },
-    $signature: 489
+    $signature: 507
   };
   A._wrapJsFunctionForAsync_closure.prototype = {
     call$2(errorCode, result) {
       this.$protected(A._asInt(errorCode), result);
     },
-    $signature: 507
+    $signature: 508
   };
   A._SyncStarIterator.prototype = {
     get$current(_) {
@@ -99149,7 +99140,7 @@
         t1._completeErrorObject$1(new A.AsyncError(t2, t3));
       }
     },
-    $signature: 96
+    $signature: 95
   };
   A._Future__chainForeignFuture_closure0.prototype = {
     call$2(error, stackTrace) {
@@ -99160,7 +99151,7 @@
       A.assertHelper((t1._state & 2) !== 0);
       t1._completeErrorObject$1(new A.AsyncError(error, stackTrace));
     },
-    $signature: 31
+    $signature: 33
   };
   A._Future__chainForeignFuture_closure1.prototype = {
     call$0() {
@@ -99243,7 +99234,7 @@
     call$1(__wc0_formal) {
       this.joinedResult._completeWithResultOf$1(this.originalSource);
     },
-    $signature: 96
+    $signature: 95
   };
   A._Future__propagateToListeners_handleWhenCompleteCallback_closure0.prototype = {
     call$2(e, s) {
@@ -99251,7 +99242,7 @@
       type$.StackTrace._as(s);
       this.joinedResult._completeErrorObject$1(new A.AsyncError(e, s));
     },
-    $signature: 31
+    $signature: 33
   };
   A._Future__propagateToListeners_handleValueCallback.prototype = {
     call$0() {
@@ -99355,7 +99346,7 @@
         this._future._completeErrorObject$1(new A.AsyncError(e, s));
       }
     },
-    $signature: 31
+    $signature: 33
   };
   A._AsyncCallbackEntry.prototype = {};
   A.Stream.prototype = {
@@ -99473,7 +99464,7 @@
       if (A._asBool(isMatch))
         A._cancelAndValue(this.subscription, this.future, this.value);
     },
-    $signature: 120
+    $signature: 116
   };
   A.StreamView.prototype = {
     listen$4$cancelOnError$onDone$onError(onData, cancelOnError, onDone, onError) {
@@ -100728,7 +100719,7 @@
     call$1(each) {
       return J.$eq$(this.$this.$index(0, each), this.value);
     },
-    $signature: 49
+    $signature: 50
   };
   A._HashMap_addAll_closure.prototype = {
     call$2(key, value) {
@@ -101365,7 +101356,7 @@
     call$2(k, v) {
       this.result.$indexSet(0, this.K._as(k), this.V._as(v));
     },
-    $signature: 561
+    $signature: 576
   };
   A.LinkedList.prototype = {
     remove$1(_, entry) {
@@ -101977,7 +101968,7 @@
       t2 = A.S(v);
       t1._contents += t2;
     },
-    $signature: 112
+    $signature: 104
   };
   A.UnmodifiableMapBase.prototype = {};
   A._MapBaseValueIterable.prototype = {
@@ -103432,7 +103423,7 @@
     call$1(each) {
       return this.$this.$index(0, A._asString(each));
     },
-    $signature: 241
+    $signature: 311
   };
   A._JsonMapKeyIterable.prototype = {
     get$length(_) {
@@ -103487,7 +103478,7 @@
       }
       return null;
     },
-    $signature: 299
+    $signature: 271
   };
   A._Utf8Decoder__decoderNonfatal_closure.prototype = {
     call$0() {
@@ -103499,7 +103490,7 @@
       }
       return null;
     },
-    $signature: 299
+    $signature: 271
   };
   A.AsciiCodec.prototype = {
     get$name(_) {
@@ -104133,7 +104124,7 @@
       B.JSArray_methods.$indexSet(t1, t2.i++, key);
       B.JSArray_methods.$indexSet(t1, t2.i++, value);
     },
-    $signature: 112
+    $signature: 104
   };
   A._JsonPrettyPrintMixin.prototype = {
     writeList$1(list) {
@@ -104198,7 +104189,7 @@
       B.JSArray_methods.$indexSet(t1, t2.i++, key);
       B.JSArray_methods.$indexSet(t1, t2.i++, value);
     },
-    $signature: 112
+    $signature: 104
   };
   A._JsonStringStringifier.prototype = {
     get$_partialResult() {
@@ -104823,7 +104814,7 @@
       t1._contents += t3;
       t2.comma = ", ";
     },
-    $signature: 594
+    $signature: 595
   };
   A._Uri__makeQueryFromParameters_closure.prototype = {
     call$2(key, value) {
@@ -104844,14 +104835,14 @@
             A._asStringQ(value);
         }
     },
-    $signature: 50
+    $signature: 49
   };
   A.DateTime$_internal_closure.prototype = {
     call$0() {
       var _this = this;
       return A.throwExpression(A.ArgumentError$("(" + _this.year + ", " + _this.month + ", " + _this.day + ", " + _this.hour + ", " + _this.minute + ", " + _this.second + ", " + _this.millisecond + ", " + _this.microsecond + ")", null));
     },
-    $signature: 58
+    $signature: 62
   };
   A.DateTime.prototype = {
     _addMicroseconds$1(durationMicroseconds) {
@@ -104948,7 +104939,7 @@
         return 0;
       return A.int_parse(matched, null);
     },
-    $signature: 186
+    $signature: 273
   };
   A.DateTime_parse_parseMilliAndMicroseconds.prototype = {
     call$1(matched) {
@@ -104967,7 +104958,7 @@
       }
       return result;
     },
-    $signature: 186
+    $signature: 273
   };
   A.Duration.prototype = {
     $add(_, other) {
@@ -106113,9 +106104,6 @@
     call$8$enableDomStorage$enableJavaScript$headers$universalLinksOnly$useSafariVC$useWebView$webOnlyWindowName($0, $1, $2, $3, $4, $5, $6, $7) {
       return this.noSuchMethod$1(this, A.createInvocationMirror("call", "call$8$enableDomStorage$enableJavaScript$headers$universalLinksOnly$useSafariVC$useWebView$webOnlyWindowName", 0, [$0, $1, $2, $3, $4, $5, $6, $7], ["enableDomStorage", "enableJavaScript", "headers", "universalLinksOnly", "useSafariVC", "useWebView", "webOnlyWindowName"], 0));
     },
-    call$2$onTap($0, $1) {
-      return this.noSuchMethod$1(this, A.createInvocationMirror("call", "call$2$onTap", 0, [$0, $1], ["onTap"], 0));
-    },
     call$3$onDone$onError($0, $1, $2) {
       return this.noSuchMethod$1(this, A.createInvocationMirror("call", "call$3$onDone$onError", 0, [$0, $1, $2], ["onDone", "onError"], 0));
     },
@@ -106124,6 +106112,9 @@
     },
     call$2$onError($0, $1) {
       return this.noSuchMethod$1(this, A.createInvocationMirror("call", "call$2$onError", 0, [$0, $1], ["onError"], 0));
+    },
+    call$2$onTap($0, $1) {
+      return this.noSuchMethod$1(this, A.createInvocationMirror("call", "call$2$onTap", 0, [$0, $1], ["onTap"], 0));
     },
     call$3$cancelOnError$onDone($0, $1, $2) {
       return this.noSuchMethod$1(this, A.createInvocationMirror("call", "call$3$cancelOnError$onDone", 0, [$0, $1, $2], ["cancelOnError", "onDone"], 0));
@@ -106498,7 +106489,7 @@
     call$2(msg, position) {
       throw A.wrapException(A.FormatException$("Illegal IPv6 address, " + msg, this.host, position));
     },
-    $signature: 622
+    $signature: 628
   };
   A._Uri.prototype = {
     get$_text() {
@@ -106820,7 +106811,7 @@
     call$1(s) {
       return A._Uri__uriEncode(64, A._asString(s), B.C_Utf8Codec, false);
     },
-    $signature: 25
+    $signature: 28
   };
   A._Uri__makeQueryFromParametersDefault_writeParameter.prototype = {
     call$2(key, value) {
@@ -106836,7 +106827,7 @@
         t1._contents += t2;
       }
     },
-    $signature: 628
+    $signature: 665
   };
   A._Uri__makeQueryFromParametersDefault_closure.prototype = {
     call$2(key, value) {
@@ -106848,7 +106839,7 @@
         for (t1 = J.get$iterator$ax(type$.Iterable_dynamic._as(value)), t2 = this.writeParameter; t1.moveNext$0();)
           t2.call$2(key, A._asString(t1.get$current(t1)));
     },
-    $signature: 50
+    $signature: 49
   };
   A._Uri__splitQueryStringAll_parsePair.prototype = {
     call$3(start, equalsIndex, end) {
@@ -106866,7 +106857,7 @@
       }
       J.add$1$ax(this.result.putIfAbsent$2(0, key, A.core__Uri__createList$closure()), value);
     },
-    $signature: 665
+    $signature: 688
   };
   A.UriData.prototype = {
     get$uri() {
@@ -107233,7 +107224,7 @@
           return value;
       return null;
     },
-    $signature: 145
+    $signature: 166
   };
   A._json_closure.prototype = {
     call$0() {
@@ -107242,7 +107233,7 @@
         return value;
       throw A.wrapException(A.UnsupportedError$("Missing JSON.parse() support"));
     },
-    $signature: 123
+    $signature: 100
   };
   A._FakeUserTag.prototype = {};
   A.ServiceExtensionResponse.prototype = {};
@@ -107808,19 +107799,19 @@
       type$.Map_dynamic_dynamic._as(e);
       return false;
     },
-    $signature: 108
+    $signature: 114
   };
   A.MidiInputMap_keys_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 50
+    $signature: 49
   };
   A.MidiInputMap_values_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.values, type$.Map_dynamic_dynamic._as(v));
     },
-    $signature: 50
+    $signature: 49
   };
   A.MidiOutputMap.prototype = {
     containsValue$1(receiver, value) {
@@ -107890,19 +107881,19 @@
       type$.Map_dynamic_dynamic._as(e);
       return false;
     },
-    $signature: 108
+    $signature: 114
   };
   A.MidiOutputMap_keys_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 50
+    $signature: 49
   };
   A.MidiOutputMap_values_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.values, type$.Map_dynamic_dynamic._as(v));
     },
-    $signature: 50
+    $signature: 49
   };
   A.MimeType.prototype = {$isMimeType: 1};
   A.MimeTypeArray.prototype = {
@@ -108157,19 +108148,19 @@
       type$.Map_dynamic_dynamic._as(e);
       return false;
     },
-    $signature: 108
+    $signature: 114
   };
   A.RtcStatsReport_keys_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 50
+    $signature: 49
   };
   A.RtcStatsReport_values_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.values, type$.Map_dynamic_dynamic._as(v));
     },
-    $signature: 50
+    $signature: 49
   };
   A.SelectElement.prototype = {
     get$length(receiver) {
@@ -108364,19 +108355,19 @@
       A._asString(e);
       return false;
     },
-    $signature: 40
+    $signature: 41
   };
   A.Storage_keys_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 115
+    $signature: 125
   };
   A.Storage_values_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.values, v);
     },
-    $signature: 115
+    $signature: 125
   };
   A.StyleSheet.prototype = {$isStyleSheet: 1};
   A.TextTrack.prototype = {$isTextTrack: 1};
@@ -108988,13 +108979,13 @@
     call$1(e) {
       return this.onData.call$1(type$.Event._as(e));
     },
-    $signature: 219
+    $signature: 180
   };
   A._EventStreamSubscription_onData_closure.prototype = {
     call$1(e) {
       return this.handleData.call$1(type$.Event._as(e));
     },
-    $signature: 219
+    $signature: 180
   };
   A.ImmutableListMixin.prototype = {
     get$iterator(receiver) {
@@ -109174,7 +109165,7 @@
       this.map.$indexSet(0, key, t1);
       return t1;
     },
-    $signature: 715
+    $signature: 717
   };
   A._AcceptStructuredCloneDart2Js.prototype = {
     forEachJsField$2(object, action) {
@@ -109216,13 +109207,13 @@
       } else
         return o;
     },
-    $signature: 237
+    $signature: 186
   };
   A.promiseToFuture_closure.prototype = {
     call$1(r) {
       return this.completer.complete$1(0, this.T._eval$1("0/?")._as(r));
     },
-    $signature: 70
+    $signature: 63
   };
   A.promiseToFuture_closure0.prototype = {
     call$1(e) {
@@ -109230,7 +109221,7 @@
         return this.completer.completeError$1(new A.NullRejectionException(e === undefined));
       return this.completer.completeError$1(e);
     },
-    $signature: 70
+    $signature: 63
   };
   A.dartify_convert.prototype = {
     call$1(o) {
@@ -109277,7 +109268,7 @@
       }
       return o;
     },
-    $signature: 237
+    $signature: 186
   };
   A._JSSecureRandom.prototype = {
     _JSSecureRandom$0() {
@@ -109747,7 +109738,7 @@
     call$0() {
       return new A._Channel(A.ListQueue$(1, type$._StoredMessage), 1);
     },
-    $signature: 238
+    $signature: 210
   };
   A.ChannelBuffers_push_closure0.prototype = {
     call$0() {
@@ -109760,7 +109751,7 @@
     call$0() {
       return new A._Channel(A.ListQueue$(1, type$._StoredMessage), 1);
     },
-    $signature: 238
+    $signature: 210
   };
   A.ChannelBuffers_allowOverflow_closure.prototype = {
     call$0() {
@@ -110429,7 +110420,7 @@
     call$1(code) {
       return B.JSString_methods.padLeft$2(B.JSInt_methods.toRadixString$1(A._asInt(code), 16), 2, "0");
     },
-    $signature: 121
+    $signature: 108
   };
   A.Color.prototype = {
     get$value(_) {
@@ -110756,27 +110747,27 @@
     call$1(p) {
       return this.second.call$1(this.first.call$1(p));
     },
-    $signature: 95
+    $signature: 87
   };
   A._Transform_makeTranslate_closure.prototype = {
     call$1(p) {
       var t1 = this.offset;
       return new A.Offset(p._dx + t1._dx, p._dy + t1._dy);
     },
-    $signature: 95
+    $signature: 87
   };
   A._Transform_makeScale_closure.prototype = {
     call$1(p) {
       var t1 = this.scale;
       return new A.Offset(p._dx * t1._dx, p._dy * t1._dy);
     },
-    $signature: 95
+    $signature: 87
   };
   A._Transform_kFlip_closure.prototype = {
     call$1(p) {
       return new A.Offset(p._dy, p._dx);
     },
-    $signature: 95
+    $signature: 87
   };
   A._ConicParam.prototype = {};
   A._RSuperellipseOctant.prototype = {
@@ -111626,7 +111617,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 730
+    $signature: 736
   };
   A.bootstrapEngine_closure0.prototype = {
     call$0() {
@@ -111670,7 +111661,7 @@
     call$0() {
       return this.jsListener;
     },
-    $signature: 736
+    $signature: 752
   };
   A.HashUrlStrategy.prototype = {
     addPopStateListener$1(fn) {
@@ -111748,7 +111739,7 @@
       }
       this.fn.call$1(t1);
     },
-    $signature: 188
+    $signature: 228
   };
   A.HashUrlStrategy_addPopStateListener_closure.prototype = {
     call$0() {
@@ -111843,19 +111834,19 @@
       type$.Map_dynamic_dynamic._as(e);
       return false;
     },
-    $signature: 108
+    $signature: 114
   };
   A.AudioParamMap_keys_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.keys, k);
     },
-    $signature: 50
+    $signature: 49
   };
   A.AudioParamMap_values_closure.prototype = {
     call$2(k, v) {
       return B.JSArray_methods.add$1(this.values, type$.Map_dynamic_dynamic._as(v));
     },
-    $signature: 50
+    $signature: 49
   };
   A.AudioTrackList.prototype = {
     get$length(receiver) {
@@ -114999,13 +114990,13 @@
     call$1($event) {
       return type$.AudioEvent._as($event).eventType === B.AudioEventType_3;
     },
-    $signature: 126
+    $signature: 103
   };
   A.AudioPlayer__onPrepared_closure.prototype = {
     call$1($event) {
       return type$.AudioEvent._as($event).eventType === B.AudioEventType_4;
     },
-    $signature: 126
+    $signature: 103
   };
   A.AudioPlayer__onPrepared_closure0.prototype = {
     call$1($event) {
@@ -115013,13 +115004,13 @@
       t1.toString;
       return t1;
     },
-    $signature: 126
+    $signature: 103
   };
   A.AudioPlayer_onLog_closure.prototype = {
     call$1($event) {
       return type$.AudioEvent._as($event).eventType === B.AudioEventType_0;
     },
-    $signature: 126
+    $signature: 103
   };
   A.AudioPlayer_onLog_closure0.prototype = {
     call$1($event) {
@@ -115027,13 +115018,13 @@
       t1.toString;
       return t1;
     },
-    $signature: 770
+    $signature: 774
   };
   A.AudioPlayer_closure.prototype = {
     call$1(log) {
       return A.AudioLogger_log(A._asString(log) + "\nSource: " + A.S(this.$this._audioplayer$_source));
     },
-    $signature: 32
+    $signature: 31
   };
   A.AudioPlayer_closure0.prototype = {
     call$2(e, stackTrace) {
@@ -115047,7 +115038,7 @@
     $defaultValues() {
       return [null];
     },
-    $signature: 106
+    $signature: 109
   };
   A.AudioPlayer_closure1.prototype = {
     call$1(_) {
@@ -115076,7 +115067,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 287
+    $signature: 220
   };
   A.AudioPlayer_closure2.prototype = {
     call$2(_, __) {
@@ -115091,19 +115082,19 @@
     $defaultValues() {
       return [null];
     },
-    $signature: 781
+    $signature: 814
   };
   A.AudioPlayer__completePrepared_closure.prototype = {
     call$1(isPrepared) {
       return A._asBool(isPrepared);
     },
-    $signature: 815
+    $signature: 816
   };
   A.AudioPlayer__completePrepared_closure0.prototype = {
     call$0() {
       return A.throwExpression(A.Exception_Exception("Stream closed before it got prepared"));
     },
-    $signature: 58
+    $signature: 62
   };
   A.AudioPlayer_setSourceAsset_closure.prototype = {
     call$0() {
@@ -115200,7 +115191,7 @@
     call$1($event) {
       return type$.GlobalAudioEvent._as($event).eventType === B.GlobalAudioEventType_0;
     },
-    $signature: 817
+    $signature: 833
   };
   A.GlobalAudioScope_onLog_closure0.prototype = {
     call$1($event) {
@@ -115208,7 +115199,7 @@
       t1.toString;
       return t1;
     },
-    $signature: 834
+    $signature: 836
   };
   A.PositionUpdater.prototype = {
     update$0(_) {
@@ -115494,7 +115485,7 @@
           throw A.wrapException(A.UnimplementedError$("Event Method does not exist " + A.S(eventType)));
       }
     },
-    $signature: 847
+    $signature: 853
   };
   A._AudioplayersPlatform_AudioplayersPlatformInterface_MethodChannelAudioplayersPlatform.prototype = {};
   A._AudioplayersPlatform_AudioplayersPlatformInterface_MethodChannelAudioplayersPlatform_EventChannelAudioplayersPlatform.prototype = {};
@@ -115525,7 +115516,7 @@
           throw A.wrapException(A.UnimplementedError$("Global Event Method does not exist " + A.S(eventType)));
       }
     },
-    $signature: 854
+    $signature: 866
   };
   A._GlobalAudioplayersPlatform_GlobalAudioplayersPlatformInterface_MethodChannelGlobalAudioplayersPlatform.prototype = {};
   A._GlobalAudioplayersPlatform_GlobalAudioplayersPlatformInterface_MethodChannelGlobalAudioplayersPlatform_EventChannelGlobalAudioplayersPlatform.prototype = {};
@@ -115669,7 +115660,7 @@
     call$1(player) {
       return type$.WrappedPlayer._as(player).dispose$0();
     },
-    $signature: 867
+    $signature: 873
   };
   A.WrappedPlayer.prototype = {
     setUrl$1(url) {
@@ -115982,7 +115973,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 449
+    $signature: 877
   };
   A.WrappedPlayer__setupStreams_closure3.prototype = {
     call$1(_) {
@@ -117476,7 +117467,7 @@
     call$0() {
       return new A.FirebaseWebService();
     },
-    $signature: 897
+    $signature: 314
   };
   A.FirebaseMessagingPlatform.prototype = {};
   A.FirebaseMessagingWeb.prototype = {};
@@ -119345,7 +119336,7 @@
     call$0() {
       return A.TapGestureRecognizer$(null, null, null);
     },
-    $signature: 148
+    $signature: 153
   };
   A._CupertinoButtonState_build_closure0.prototype = {
     call$1(instance) {
@@ -119358,7 +119349,7 @@
       instance.set$onTapMove(t1 ? _this.$this.get$_handleTapMove() : _null);
       instance.gestureSettings = _this.gestureSettings;
     },
-    $signature: 150
+    $signature: 155
   };
   A.__CupertinoButtonState_State_SingleTickerProviderStateMixin_dispose_closure.prototype = {
     call$0() {
@@ -119885,7 +119876,7 @@
       var marker = color.$eq(0, this.$this._effectiveColor) ? "*" : "";
       return marker + $name + " = " + color.toString$0(0) + marker;
     },
-    $signature: 362
+    $signature: 365
   };
   A._CupertinoDynamicColor_Object_Diagnosticable.prototype = {};
   A.debugCheckHasCupertinoLocalizations_closure.prototype = {
@@ -120766,7 +120757,7 @@
     call$1(__wc0_formal) {
       return A.HapticFeedback_mediumImpact();
     },
-    $signature: 287
+    $signature: 220
   };
   A._CupertinoTextSelectionHandlePainter.prototype = {
     paint$2(canvas, size) {
@@ -121152,7 +121143,7 @@
     call$1(child) {
       return A.Center$(type$.Widget._as(child), 1, 1);
     },
-    $signature: 385
+    $signature: 387
   };
   A._LeftCupertinoChevronPainter.prototype = {};
   A._RightCupertinoChevronPainter.prototype = {};
@@ -121351,7 +121342,7 @@
       t2 = this._box_0;
       return t2.previousChild = this.$this.inflateWidget$2(t1[i], new A.IndexedSlot(t2.previousChild, i, type$.IndexedSlot_nullable_Element));
     },
-    $signature: 387
+    $signature: 389
   };
   A._RenderCupertinoTextSelectionToolbarItems.prototype = {
     _text_selection_toolbar0$_updateChild$3(oldChild, newChild, slot) {
@@ -122050,7 +122041,7 @@
     call$1(color) {
       return color instanceof A.CupertinoDynamicColor ? color.resolveFrom$1(this.context) : color;
     },
-    $signature: 272
+    $signature: 269
   };
   A.NoDefaultCupertinoThemeData.prototype = {
     resolveFrom$1(context) {
@@ -122121,7 +122112,7 @@
     call$1(color) {
       return color instanceof A.CupertinoDynamicColor ? color.resolveFrom$1(this.context) : color;
     },
-    $signature: 272
+    $signature: 269
   };
   A._CupertinoThemeDefaults.prototype = {
     resolveFrom$2(context, resolveTextTheme) {
@@ -122388,19 +122379,19 @@
       type$.nullable_DiagnosticsNode._as(node);
       return node.get$level(node) === B.DiagnosticLevel_6;
     },
-    $signature: 406
+    $signature: 407
   };
   A.FlutterErrorDetails_summary_closure0.prototype = {
     call$0() {
       return null;
     },
-    $signature: 30
+    $signature: 25
   };
   A.FlutterErrorDetails_debugFillProperties_closure.prototype = {
     call$1(frame) {
       return type$.StackFrame._as(frame).packageScheme === "dart";
     },
-    $signature: 407
+    $signature: 408
   };
   A.FlutterError.prototype = {
     FlutterError$fromParts$1(diagnostics) {
@@ -122432,7 +122423,7 @@
     call$1(line) {
       return A.ErrorDescription$(A._asString(line));
     },
-    $signature: 408
+    $signature: 410
   };
   A.FlutterError$fromParts_closure.prototype = {
     call$0() {
@@ -122460,7 +122451,7 @@
       type$.DiagnosticsNode._as(node);
       return node.get$level(node) === B.DiagnosticLevel_6;
     },
-    $signature: 79
+    $signature: 76
   };
   A.FlutterError_dumpErrorToConsole_closure.prototype = {
     call$0() {
@@ -122472,26 +122463,26 @@
     call$1(value) {
       return A._asInt(value) + 1;
     },
-    $signature: 68
+    $signature: 64
   };
   A.FlutterError_defaultStackFilter_closure0.prototype = {
     call$1(value) {
       return A._asInt(value) + 1;
     },
-    $signature: 68
+    $signature: 64
   };
   A.FlutterError_toString_closure.prototype = {
     call$1(node) {
       return B.JSString_methods.trimRight$0(this.renderer._debugRender$4$parentConfiguration$prefixLineOne$prefixOtherLines(type$.DiagnosticsNode._as(node), null, "", null));
     },
-    $signature: 415
+    $signature: 416
   };
   A.debugPrintStack_closure.prototype = {
     call$1(line) {
       A._asString(line);
       return B.JSString_methods.contains$1(line, "StackTrace.current") || B.JSString_methods.contains$1(line, "dart-sdk/lib/_internal") || B.JSString_methods.contains$1(line, "dart:sdk_internal");
     },
-    $signature: 40
+    $signature: 41
   };
   A.DiagnosticsStackTrace.prototype = {
     get$allowTruncate() {
@@ -122688,7 +122679,7 @@
       });
       return A._asyncStartSync($async$call$0, $async$completer);
     },
-    $signature: 166
+    $signature: 134
   };
   A.BindingBase_initServiceExtensions_closure1.prototype = {
     call$1(uri) {
@@ -122708,7 +122699,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 94
+    $signature: 91
   };
   A.BindingBase_initServiceExtensions_closure2.prototype = {
     call$0() {
@@ -122734,7 +122725,7 @@
       });
       return A._asyncStartSync($async$call$0, $async$completer);
     },
-    $signature: 166
+    $signature: 134
   };
   A.BindingBase_initServiceExtensions_closure3.prototype = {
     call$1(serverAddress) {
@@ -122754,7 +122745,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 94
+    $signature: 91
   };
   A.BindingBase_initServiceExtensions_closure4.prototype = {
     call$0() {
@@ -122814,7 +122805,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A.BindingBase_initServiceExtensions__closure0.prototype = {
     call$1(parameters) {
@@ -122870,7 +122861,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A.BindingBase_initServiceExtensions_closure5.prototype = {
     call$0() {
@@ -122896,7 +122887,7 @@
         }
       }
     },
-    $signature: 30
+    $signature: 25
   };
   A.BindingBase_registerSignalServiceExtension_closure.prototype = {
     call$1(parameters) {
@@ -122928,7 +122919,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A.BindingBase_registerBoolServiceExtension_closure.prototype = {
     call$1(parameters) {
@@ -122978,7 +122969,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A.BindingBase_registerNumericServiceExtension_closure.prototype = {
     call$1(parameters) {
@@ -123035,7 +123026,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A.BindingBase_registerStringServiceExtension_closure.prototype = {
     call$1(parameters) {
@@ -123088,7 +123079,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A.BindingBase_registerServiceExtension_closure.prototype = {
     call$2(method, parameters) {
@@ -123167,7 +123158,7 @@
       });
       return A._asyncStartSync($async$call$2, $async$completer);
     },
-    $signature: 242
+    $signature: 208
   };
   A.BindingBase_registerServiceExtension__closure.prototype = {
     call$0() {
@@ -123632,7 +123623,7 @@
         return A.ioore(t2, t1);
       return index < t2[t1];
     },
-    $signature: 74
+    $signature: 78
   };
   A._NoDefaultValue.prototype = {};
   A.TextTreeRenderer.prototype = {
@@ -123876,7 +123867,7 @@
         ++t3.lines;
       }
     },
-    $signature: 133
+    $signature: 138
   };
   A.TextTreeRenderer__debugRender_closure.prototype = {
     call$1(n) {
@@ -123885,7 +123876,7 @@
       t1 = n.get$level(n);
       return t1.index >= this.$this._minLevel.index;
     },
-    $signature: 79
+    $signature: 76
   };
   A.DiagnosticsNode.prototype = {
     get$level(_) {
@@ -124103,7 +124094,7 @@
       t1 = this.delegate;
       return node.toJsonMap$1(t1.summaryTree || t1.subtreeDepth > 1 || t1.service._shouldShowInSummaryTree$1(node) ? t1.copyWith$1$subtreeDepth(t1.subtreeDepth - 1) : t1);
     },
-    $signature: 426
+    $signature: 432
   };
   A.DiagnosticsNode_toString_closure.prototype = {
     call$0() {
@@ -124141,7 +124132,7 @@
     call$1(jsonChild) {
       B.JSArray_methods.add$1(this.childrenJsonList, type$.Map_of_String_and_nullable_Object._as(jsonChild));
     },
-    $signature: 432
+    $signature: 433
   };
   A.MessageProperty.prototype = {};
   A.StringProperty.prototype = {
@@ -124912,13 +124903,13 @@
     call$1(e) {
       return type$.nullable_void_Function_ObjectEvent._as(e) == null;
     },
-    $signature: 243
+    $signature: 282
   };
   A.FlutterMemoryAllocations_hasListeners_closure.prototype = {
     call$1(l) {
       return type$.nullable_void_Function_ObjectEvent._as(l) != null;
     },
-    $signature: 243
+    $signature: 282
   };
   A.FlutterMemoryAllocations_dispatchObjectEvent_closure.prototype = {
     call$0() {
@@ -125435,7 +125426,7 @@
     call$1(line) {
       return A._asString(line).length !== 0;
     },
-    $signature: 40
+    $signature: 41
   };
   A.SynchronousFuture.prototype = {
     catchError$2$test(onError, test) {
@@ -125849,7 +125840,7 @@
       type$.HitTestEntry_HitTestTarget._as(entry);
       return false;
     },
-    $signature: 160
+    $signature: 129
   };
   A.GestureBinding__handlePointerEventImmediately_closure.prototype = {
     call$0() {
@@ -127468,7 +127459,7 @@
     call$1(component) {
       return Math.abs(A._asDouble(component)) < this.epsilon;
     },
-    $signature: 159
+    $signature: 151
   };
   A.LongPressStartDetails.prototype = {
     debugFillProperties$1(properties) {
@@ -130338,13 +130329,13 @@
     call$0() {
       return A.LeastSquaresSolver$(this.time, this.x, this.w).solve$1(2);
     },
-    $signature: 215
+    $signature: 200
   };
   A.VelocityTracker_getVelocityEstimate_closure0.prototype = {
     call$0() {
       return A.LeastSquaresSolver$(this.time, this.y, this.w).solve$1(2);
     },
-    $signature: 215
+    $signature: 200
   };
   A.IOSScrollViewFlingVelocityTracker.prototype = {
     addPosition$2(time, position) {
@@ -130487,21 +130478,21 @@
       type$.nullable_ActionIconThemeData._as(actionIconTheme);
       return actionIconTheme == null ? null : actionIconTheme.backButtonIconBuilder;
     },
-    $signature: 102
+    $signature: 127
   };
   A.BackButtonIcon_build_closure0.prototype = {
     call$1(context) {
       type$.BuildContext._as(context);
       return B.IconData_57490_MaterialIcons_true;
     },
-    $signature: 103
+    $signature: 110
   };
   A.BackButtonIcon_build_closure1.prototype = {
     call$1(materialLocalization) {
       type$.MaterialLocalizations._as(materialLocalization);
       return "Back";
     },
-    $signature: 104
+    $signature: 120
   };
   A.BackButton.prototype = {
     _onPressedCallback$1(context) {
@@ -130523,21 +130514,21 @@
       type$.nullable_ActionIconThemeData._as(actionIconTheme);
       return actionIconTheme == null ? null : actionIconTheme.closeButtonIconBuilder;
     },
-    $signature: 102
+    $signature: 127
   };
   A.CloseButtonIcon_build_closure0.prototype = {
     call$1(context) {
       type$.BuildContext._as(context);
       return B.IconData_57706_MaterialIcons_false;
     },
-    $signature: 103
+    $signature: 110
   };
   A.CloseButtonIcon_build_closure1.prototype = {
     call$1(materialLocalization) {
       type$.MaterialLocalizations._as(materialLocalization);
       return "Close";
     },
-    $signature: 104
+    $signature: 120
   };
   A.CloseButton.prototype = {
     _onPressedCallback$1(context) {
@@ -130559,21 +130550,21 @@
       type$.nullable_ActionIconThemeData._as(actionIconTheme);
       return actionIconTheme == null ? null : actionIconTheme.drawerButtonIconBuilder;
     },
-    $signature: 102
+    $signature: 127
   };
   A.DrawerButtonIcon_build_closure0.prototype = {
     call$1(context) {
       type$.BuildContext._as(context);
       return B.IconData_58332_MaterialIcons_false;
     },
-    $signature: 103
+    $signature: 110
   };
   A.DrawerButtonIcon_build_closure1.prototype = {
     call$1(materialLocalization) {
       type$.MaterialLocalizations._as(materialLocalization);
       return "Open navigation menu";
     },
-    $signature: 104
+    $signature: 120
   };
   A.DrawerButton.prototype = {
     _onPressedCallback$1(context) {
@@ -130611,21 +130602,21 @@
       type$.nullable_ActionIconThemeData._as(actionIconTheme);
       return actionIconTheme == null ? null : actionIconTheme.endDrawerButtonIconBuilder;
     },
-    $signature: 102
+    $signature: 127
   };
   A.EndDrawerButtonIcon_build_closure0.prototype = {
     call$1(context) {
       type$.BuildContext._as(context);
       return B.IconData_58332_MaterialIcons_false;
     },
-    $signature: 103
+    $signature: 110
   };
   A.EndDrawerButtonIcon_build_closure1.prototype = {
     call$1(materialLocalization) {
       type$.MaterialLocalizations._as(materialLocalization);
       return "Open navigation menu";
     },
-    $signature: 104
+    $signature: 120
   };
   A.EndDrawerButton.prototype = {
     _onPressedCallback$1(context) {
@@ -131622,7 +131613,7 @@
       t1.toString;
       return 2 * Math.asin(this.distanceFromAtoB / (2 * t1));
     },
-    $signature: 105
+    $signature: 126
   };
   A._CornerId.prototype = {
     _enumToString$0() {
@@ -132166,14 +132157,14 @@
       type$.PointerEnterEvent._as($event);
       return this.$this.handleHover.call$1(true);
     },
-    $signature: 62
+    $signature: 58
   };
   A._DragHandle_build_closure0.prototype = {
     call$1($event) {
       type$.PointerExitEvent._as($event);
       return this.$this.handleHover.call$1(false);
     },
-    $signature: 56
+    $signature: 52
   };
   A._BottomSheetLayoutWithSizeListener.prototype = {
     createRenderObject$1(context) {
@@ -132388,14 +132379,14 @@
       t2 === $ && A.throwLateFieldNI("_sheetAnimation");
       return A.Semantics$(_null, _null, _null, A.ClipRect$(new A._BottomSheetLayoutWithSizeListener(new A._ModalBottomSheetState_build__closure(t1), t2.get$value(0), false, t1._widget.scrollControlDisabledMaxHeightRatio, child, _null), B.Clip_1, _null), false, _null, _null, false, _null, true, _null, _null, _null, _null, _null, _null, _null, this.routeLabel, _null, _null, _null, _null, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, B.SemanticsValidationResult_0, _null);
     },
-    $signature: 283
+    $signature: 235
   };
   A._ModalBottomSheetState_build__closure.prototype = {
     call$1(size) {
       type$.Size._as(size);
       this.$this._widget.route._didChangeBarrierSemanticsClip$1(new A.EdgeInsets(0, 0, 0, size._dy));
     },
-    $signature: 297
+    $signature: 236
   };
   A.ModalBottomSheetRoute.prototype = {
     dispose$0() {
@@ -132506,7 +132497,7 @@
       instance.set$onEnd(0, t1.onVerticalDragEnd);
       instance.onlyAcceptDragOnThreshold = true;
     },
-    $signature: 155
+    $signature: 174
   };
   A._BottomSheetDefaultsM3.prototype = {
     get$_bottom_sheet$_colors() {
@@ -133323,7 +133314,7 @@
     call$1(getProperty) {
       return this.call$1$1(getProperty, type$.dynamic);
     },
-    $signature: 598
+    $signature: 597
   };
   A._ButtonStyleState_build_resolve.prototype = {
     call$1$1(getProperty, $T) {
@@ -133397,7 +133388,7 @@
     call$1(style) {
       return style == null ? null : style.get$elevation(style);
     },
-    $signature: 194
+    $signature: 242
   };
   A._ButtonStyleState_build_closure0.prototype = {
     call$1(style) {
@@ -133409,25 +133400,25 @@
     call$1(style) {
       return style == null ? null : style.get$backgroundColor(style);
     },
-    $signature: 107
+    $signature: 128
   };
   A._ButtonStyleState_build_closure2.prototype = {
     call$1(style) {
       return style == null ? null : style.get$foregroundColor();
     },
-    $signature: 107
+    $signature: 128
   };
   A._ButtonStyleState_build_closure3.prototype = {
     call$1(style) {
       return style == null ? null : style.get$shadowColor(style);
     },
-    $signature: 107
+    $signature: 128
   };
   A._ButtonStyleState_build_closure4.prototype = {
     call$1(style) {
       return style == null ? null : style.get$surfaceTintColor();
     },
-    $signature: 107
+    $signature: 128
   };
   A._ButtonStyleState_build_closure5.prototype = {
     call$1(style) {
@@ -133439,25 +133430,25 @@
     call$1(style) {
       return style == null ? null : style.get$minimumSize();
     },
-    $signature: 162
+    $signature: 161
   };
   A._ButtonStyleState_build_closure7.prototype = {
     call$1(style) {
       return style == null ? null : style.fixedSize;
     },
-    $signature: 162
+    $signature: 161
   };
   A._ButtonStyleState_build_closure8.prototype = {
     call$1(style) {
       return style == null ? null : style.get$maximumSize();
     },
-    $signature: 162
+    $signature: 161
   };
   A._ButtonStyleState_build_closure9.prototype = {
     call$1(style) {
       return style == null ? null : style.get$iconSize();
     },
-    $signature: 194
+    $signature: 242
   };
   A._ButtonStyleState_build_closure10.prototype = {
     call$1(style) {
@@ -133494,7 +133485,7 @@
     call$1(states) {
       return this.effectiveValue.call$1$1(new A._ButtonStyleState_build__closure(type$.Set_WidgetState._as(states)), type$.Color);
     },
-    $signature: 29
+    $signature: 26
   };
   A._ButtonStyleState_build__closure.prototype = {
     call$1(style) {
@@ -133549,13 +133540,13 @@
     call$1(style) {
       return style == null ? null : style.backgroundBuilder;
     },
-    $signature: 209
+    $signature: 258
   };
   A._ButtonStyleState_build_closure19.prototype = {
     call$1(style) {
       return style == null ? null : style.foregroundBuilder;
     },
-    $signature: 209
+    $signature: 258
   };
   A._ButtonStyleState_build_closure20.prototype = {
     call$1($status) {
@@ -134709,7 +134700,7 @@
     call$1(getProperty) {
       return this.call$1$1(getProperty, type$.dynamic);
     },
-    $signature: 239
+    $signature: 278
   };
   A._DayState_build_resolve.prototype = {
     call$1$2(getProperty, states, $T) {
@@ -134718,7 +134709,7 @@
     call$2(getProperty, states) {
       return this.call$1$2(getProperty, states, type$.dynamic);
     },
-    $signature: 258
+    $signature: 281
   };
   A._DayState_build_resolve_closure.prototype = {
     call$1(theme) {
@@ -134738,7 +134729,7 @@
         t1 = theme.get$dayForegroundColor();
       return t1;
     },
-    $signature: 110
+    $signature: 115
   };
   A._DayState_build_closure0.prototype = {
     call$1(theme) {
@@ -134749,13 +134740,13 @@
         t1 = theme.get$dayBackgroundColor();
       return t1;
     },
-    $signature: 110
+    $signature: 115
   };
   A._DayState_build_closure3.prototype = {
     call$1(states) {
       return this.effectiveValue.call$1$1(new A._DayState_build__closure(type$.Set_WidgetState._as(states)), type$.Color);
     },
-    $signature: 29
+    $signature: 26
   };
   A._DayState_build__closure.prototype = {
     call$1(theme) {
@@ -134763,13 +134754,13 @@
       t1 = t1 == null ? null : t1.resolve$1(this.states);
       return t1;
     },
-    $signature: 275
+    $signature: 309
   };
   A._DayState_build_closure1.prototype = {
     call$1(theme) {
       return theme.dayShape;
     },
-    $signature: 281
+    $signature: 190
   };
   A._DayState_build_closure2.prototype = {
     call$0() {
@@ -134928,7 +134919,7 @@
     call$1(getProperty) {
       return this.call$1$1(getProperty, type$.dynamic);
     },
-    $signature: 239
+    $signature: 278
   };
   A._YearPickerState__buildYearItem_resolve.prototype = {
     call$1$2(getProperty, states, $T) {
@@ -134937,7 +134928,7 @@
     call$2(getProperty, states) {
       return this.call$1$2(getProperty, states, type$.dynamic);
     },
-    $signature: 258
+    $signature: 281
   };
   A._YearPickerState__buildYearItem_resolve_closure.prototype = {
     call$1(theme) {
@@ -134957,7 +134948,7 @@
         t1 = theme.get$yearForegroundColor();
       return t1;
     },
-    $signature: 110
+    $signature: 115
   };
   A._YearPickerState__buildYearItem_closure0.prototype = {
     call$1(theme) {
@@ -134968,13 +134959,13 @@
         t1 = theme.get$yearBackgroundColor();
       return t1;
     },
-    $signature: 110
+    $signature: 115
   };
   A._YearPickerState__buildYearItem_closure3.prototype = {
     call$1(states) {
       return this.effectiveValue.call$1$1(new A._YearPickerState__buildYearItem__closure(type$.Set_WidgetState._as(states)), type$.Color);
     },
-    $signature: 29
+    $signature: 26
   };
   A._YearPickerState__buildYearItem__closure.prototype = {
     call$1(theme) {
@@ -134982,13 +134973,13 @@
       t1 = t1 == null ? null : t1.resolve$1(this.states);
       return t1;
     },
-    $signature: 275
+    $signature: 309
   };
   A._YearPickerState__buildYearItem_closure1.prototype = {
     call$1(theme) {
       return theme.yearShape;
     },
-    $signature: 281
+    $signature: 190
   };
   A._YearPickerState__buildYearItem_closure2.prototype = {
     call$0() {
@@ -135485,7 +135476,7 @@
       }
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._CheckboxState_build_closure.prototype = {
     call$1(states) {
@@ -135716,7 +135707,7 @@
       t2 = t1._onSurfaceVariant;
       return new A.BorderSide(t2 == null ? t1.onSurface : t2, 2, B.BorderStyle_1, -1);
     },
-    $signature: 111
+    $signature: 113
   };
   A._CheckboxDefaultsM3_fillColor_closure.prototype = {
     call$1(states) {
@@ -137587,7 +137578,7 @@
       }
       return t1;
     },
-    $signature: 29
+    $signature: 26
   };
   A.CircleAvatar.prototype = {
     get$_minDiameter() {
@@ -138648,7 +138639,7 @@
     call$1(row) {
       return type$.DataRow._as(row).cells.length !== this.columns.length;
     },
-    $signature: 92
+    $signature: 88
   };
   A.DataTable__debugInteractive_closure.prototype = {
     call$1(column) {
@@ -138661,7 +138652,7 @@
     call$1(row) {
       return type$.DataRow._as(row).get$_debugInteractive();
     },
-    $signature: 92
+    $signature: 88
   };
   A.DataTable_build_closure3.prototype = {
     call$1(states) {
@@ -138669,28 +138660,28 @@
         return this.theme.colorScheme.primary.withOpacity$1(0.08);
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A.DataTable_build_closure.prototype = {
     call$1(row) {
       type$.DataRow._as(row);
       return false;
     },
-    $signature: 92
+    $signature: 88
   };
   A.DataTable_build_closure0.prototype = {
     call$1(row) {
       type$.DataRow._as(row);
       return false;
     },
-    $signature: 92
+    $signature: 88
   };
   A.DataTable_build_closure1.prototype = {
     call$1(row) {
       type$.DataRow._as(row);
       return false;
     },
-    $signature: 92
+    $signature: 88
   };
   A.DataTable_build_closure2.prototype = {
     call$1(index) {
@@ -138752,7 +138743,7 @@
     call$1(checked) {
       return this.$this._data_table$_handleSelectAll$2(checked, this.someChecked);
     },
-    $signature: 113
+    $signature: 111
   };
   A.TableRowInkWell.prototype = {
     getRectCallback$1(referenceBox) {
@@ -138795,7 +138786,7 @@
       }
       return B.Rect_0_0_0_0;
     },
-    $signature: 153
+    $signature: 131
   };
   A._NullTableColumnWidth.prototype = {
     maxIntrinsicWidth$2(cells, containerWidth) {
@@ -138919,7 +138910,7 @@
       t1 = this._box_0.dialog;
       return t1;
     },
-    $signature: 27
+    $signature: 30
   };
   A.DatePickerDialog.prototype = {
     createState$0() {
@@ -139555,7 +139546,7 @@
       if (!property._restoration0$_disposed)
         property.removeListener$1(0, listener);
     },
-    $signature: 60
+    $signature: 59
   };
   A.__DatePickerDialogState_State_RestorationMixin.prototype = {
     didUpdateWidget$1(oldWidget) {
@@ -139947,7 +139938,7 @@
         return this.$this.get$_date_picker_theme$_colors().primary;
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._DatePickerDefaultsM3_dayOverlayColor_closure.prototype = {
     call$1(states) {
@@ -139979,7 +139970,7 @@
       }
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._DatePickerDefaultsM3_todayForegroundColor_closure.prototype = {
     call$1(states) {
@@ -140015,7 +140006,7 @@
         return this.$this.get$_date_picker_theme$_colors().primary;
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._DatePickerDefaultsM3_yearOverlayColor_closure.prototype = {
     call$1(states) {
@@ -140047,7 +140038,7 @@
       }
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._DatePickerDefaultsM3_rangeSelectionOverlayColor_closure.prototype = {
     call$1(states) {
@@ -140070,7 +140061,7 @@
       }
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._DatePickerThemeData_Object_Diagnosticable.prototype = {};
   A.debugCheckHasMaterial_closure.prototype = {
@@ -140214,7 +140205,7 @@
   };
   A.AlertDialog.prototype = {
     build$1(context) {
-      var dialogTheme, defaults, _0_0, t1, t2, paddingScaleFactor, defaultTitlePadding, effectiveTitlePadding, t3, titleWidget, contentWidget, actionsWidget, dialogChild, _this = this, _null = null;
+      var dialogTheme, defaults, _0_0, t1, t2, paddingScaleFactor, t3, t4, titleWidget, contentWidget, actionsWidget, dialogChild, _this = this, _null = null;
       A.debugCheckHasMaterialLocalizations(context);
       A.Theme_of(context);
       dialogTheme = A.DialogTheme_of(context);
@@ -140235,18 +140226,14 @@
       t2 = t2 == null ? _null : t2.get$textScaler();
       paddingScaleFactor = A._scalePadding((t2 == null ? B._LinearTextScaler_1 : t2).scale$1(0, 14) / 14);
       A.Directionality_maybeOf(context);
-      defaultTitlePadding = new A.EdgeInsets(24, 24, 24, 0);
-      t2 = _this.titlePadding;
-      effectiveTitlePadding = t2 == null ? _null : t2;
-      if (effectiveTitlePadding == null)
-        effectiveTitlePadding = defaultTitlePadding;
-      t2 = dialogTheme.titleTextStyle;
-      if (t2 == null) {
-        t2 = defaults.get$titleTextStyle();
-        t2.toString;
+      t2 = 24 * paddingScaleFactor;
+      t3 = dialogTheme.titleTextStyle;
+      if (t3 == null) {
+        t3 = defaults.get$titleTextStyle();
+        t3.toString;
       }
-      t3 = t1 == null && A.defaultTargetPlatform() !== B.TargetPlatform_2;
-      titleWidget = new A.Padding(new A.EdgeInsets(effectiveTitlePadding.left * paddingScaleFactor, effectiveTitlePadding.top * paddingScaleFactor, effectiveTitlePadding.right * paddingScaleFactor, effectiveTitlePadding.bottom), A.DefaultTextStyle$(A.Semantics$(_null, _null, _null, _this.title, true, _null, _null, false, _null, false, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, t3, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, B.SemanticsValidationResult_0, _null), _null, _null, B.TextOverflow_0, true, t2, B.TextAlign_4, _null, B.TextWidthBasis_0), _null);
+      t4 = t1 == null && A.defaultTargetPlatform() !== B.TargetPlatform_2;
+      titleWidget = new A.Padding(new A.EdgeInsets(t2, t2, t2, 0), A.DefaultTextStyle$(A.Semantics$(_null, _null, _null, _this.title, true, _null, _null, false, _null, false, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, t4, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, B.SemanticsValidationResult_0, _null), _null, _null, B.TextOverflow_0, true, t3, B.TextAlign_4, _null, B.TextWidthBasis_0), _null);
       t2 = 24 * paddingScaleFactor;
       t3 = dialogTheme.contentTextStyle;
       if (t3 == null) {
@@ -140352,7 +140339,7 @@
       if (!didPop)
         this.$this.onPop.call$1(result);
     },
-    $signature: 187
+    $signature: 238
   };
   A._DialogPopScope_build_closure.prototype = {
     call$1(context) {
@@ -140403,7 +140390,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 147
+    $signature: 132
   };
   A.showDialog_closure0.prototype = {
     call$2(routeContext, __wc0_formal) {
@@ -140437,7 +140424,7 @@
     call$1(innerContext) {
       return new A._FullWindowDialogWrapper(this.builder.call$1(type$.BuildContext._as(innerContext)), null);
     },
-    $signature: 810
+    $signature: 809
   };
   A.DialogRoute.prototype = {
     buildTransitions$4(context, animation, secondaryAnimation, child) {
@@ -140476,7 +140463,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 147
+    $signature: 132
   };
   A._DialogDefaultsM3.prototype = {
     get$_dialog$_colors() {
@@ -141621,7 +141608,7 @@
       var t1 = this.route;
       return t1.getItemOffset$1(t1.selectedIndex);
     },
-    $signature: 105
+    $signature: 126
   };
   A._DropdownMenuRouteLayout.prototype = {
     getConstraintsForChild$1(constraints) {
@@ -141763,13 +141750,13 @@
     call$2(total, height) {
       return A._asDouble(total) + A._asDouble(height);
     },
-    $signature: 91
+    $signature: 84
   };
   A._DropdownRoute_getMenuLimits_closure.prototype = {
     call$2(total, height) {
       return A._asDouble(total) + A._asDouble(height);
     },
-    $signature: 91
+    $signature: 84
   };
   A._DropdownRoutePage.prototype = {
     createState$0() {
@@ -141812,7 +141799,7 @@
       t2 = t1._widget;
       return new A.CustomSingleChildLayout(new A._DropdownMenuRouteLayout(t2.buttonRect, t2.route, this.textDirection, t2.menuWidth, t1.$ti._eval$1("_DropdownMenuRouteLayout<1>")), new A._CaptureAll(t2.capturedThemes._themes, this.menu, null), null);
     },
-    $signature: 825
+    $signature: 824
   };
   A._MenuItem.prototype = {
     createRenderObject$1(context) {
@@ -142197,14 +142184,14 @@
       type$.ActivateIntent._as(intent);
       return this.$this._dropdown$_handleTap$0();
     },
-    $signature: 826
+    $signature: 825
   };
   A._DropdownButtonState_initState_closure0.prototype = {
     call$1(intent) {
       type$.ButtonActivateIntent._as(intent);
       return this.$this._dropdown$_handleTap$0();
     },
-    $signature: 833
+    $signature: 832
   };
   A._DropdownButtonState__handleFocusChanged_closure.prototype = {
     call$0() {
@@ -142240,7 +142227,7 @@
         return;
       B.JSArray_methods.$indexSet(t1.itemHeights, this.index, size._dy);
     },
-    $signature: 297
+    $signature: 236
   };
   A._DropdownButtonState__handleTap_closure0.prototype = {
     call$1(newValue) {
@@ -142280,7 +142267,7 @@
       if (!t1._dropdown$_isHovering)
         t1.setState$1(new A._DropdownButtonState_build__closure0(t1));
     },
-    $signature: 62
+    $signature: 58
   };
   A._DropdownButtonState_build__closure0.prototype = {
     call$0() {
@@ -142296,7 +142283,7 @@
       if (t1._dropdown$_isHovering)
         t1.setState$1(new A._DropdownButtonState_build__closure(t1));
     },
-    $signature: 56
+    $signature: 52
   };
   A._DropdownButtonState_build__closure.prototype = {
     call$0() {
@@ -142585,7 +142572,7 @@
         return this.$this.get$_elevated_button$_colors().primary.withOpacity$1(0.1);
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._ElevatedButtonDefaultsM3_elevation_closure.prototype = {
     call$1(states) {
@@ -142600,7 +142587,7 @@
         return 1;
       return 1;
     },
-    $signature: 203
+    $signature: 285
   };
   A._ElevatedButtonDefaultsM3_iconColor_closure.prototype = {
     call$1(states) {
@@ -142961,13 +142948,13 @@
     call$2(exception, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(exception), type$.StackTrace._as(stack), "material library", A.ErrorDescription$("while sending semantics announcement"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A._ExpansionTileState__onExpansionChanged_closure0.prototype = {
     call$2(exception, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(exception), type$.StackTrace._as(stack), "material library", A.ErrorDescription$("while sending semantics announcement"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A._ExpansionTileDefaultsM3.prototype = {
     get$_expansion_tile$_colors() {
@@ -144198,7 +144185,7 @@
         return new A.BorderSide(t1, 1, B.BorderStyle_1, -1);
       }
     },
-    $signature: 313
+    $signature: 846
   };
   A.IconButtonThemeData.prototype = {
     get$hashCode(_) {
@@ -144429,7 +144416,7 @@
       var t1 = this.referenceBox.get$size(0);
       return new A.Rect(0, 0, 0 + t1._dx, 0 + t1._dy);
     },
-    $signature: 153
+    $signature: 131
   };
   A._InkRippleFactory.prototype = {
     create$11$borderRadius$color$containedInkWell$controller$customBorder$onRemoved$position$radius$rectCallback$referenceBox$textDirection(_, borderRadius, color, containedInkWell, controller, customBorder, onRemoved, position, radius, rectCallback, referenceBox, textDirection) {
@@ -144568,7 +144555,7 @@
       var t1 = this.referenceBox.get$size(0);
       return new A.Rect(0, 0, 0 + t1._dx, 0 + t1._dy);
     },
-    $signature: 153
+    $signature: 131
   };
   A._InkSplashFactory.prototype = {
     create$11$borderRadius$color$containedInkWell$controller$customBorder$onRemoved$position$radius$rectCallback$referenceBox$textDirection(_, borderRadius, color, containedInkWell, controller, customBorder, onRemoved, position, radius, rectCallback, referenceBox, textDirection) {
@@ -145399,7 +145386,7 @@
     call$1(highlight) {
       return type$.nullable_InkHighlight._as(highlight) != null;
     },
-    $signature: 858
+    $signature: 857
   };
   A._InkResponseState_activateOnIntent_closure.prototype = {
     call$0() {
@@ -145478,7 +145465,7 @@
       }
       return t1;
     },
-    $signature: 866
+    $signature: 865
   };
   A.InkWell.prototype = {};
   A.__InkResponseState_State_AutomaticKeepAliveClientMixin.prototype = {
@@ -146198,7 +146185,7 @@
         t2 = t5;
       return A.Semantics$(_null, _null, _null, new A.FadeTransition(t3, false, A.FractionalTranslation$(t2, true, t4), _null), true, _null, _null, false, _null, false, _null, _null, _null, _null, _null, _null, _null, _null, t1 !== true, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, B.SemanticsValidationResult_0, _null);
     },
-    $signature: 870
+    $signature: 869
   };
   A.FloatingLabelBehavior.prototype = {
     _enumToString$0() {
@@ -147175,7 +147162,7 @@
       type$.BoxParentData._as(t1).offset = new A.Offset(x, (this.height - box.get$size(0)._dy) / 2);
       return box.get$size(0)._dx;
     },
-    $signature: 72
+    $signature: 79
   };
   A._RenderDecoration_performLayout_baselineLayout.prototype = {
     call$2(box, x) {
@@ -147188,7 +147175,7 @@
       t1.offset = new A.Offset(x, this.baseline - t2);
       return box.get$size(0)._dx;
     },
-    $signature: 72
+    $signature: 79
   };
   A._RenderDecoration_paint_doPaint.prototype = {
     call$1(child) {
@@ -147199,7 +147186,7 @@
         this.context.paintChild$2(child, type$.BoxParentData._as(t1).offset.$add(0, this.offset));
       }
     },
-    $signature: 232
+    $signature: 193
   };
   A._RenderDecoration_hitTestChildren_closure.prototype = {
     call$2(result, transformed) {
@@ -147216,13 +147203,13 @@
       t1 = t1 == null ? null : t1.contains$1(0, tag);
       return t1 === true;
     },
-    $signature: 890
+    $signature: 889
   };
   A._RenderDecoration__childSemanticsConfigurationDelegate_closure0.prototype = {
     call$0() {
       return A._setArrayType([], type$.JSArray_SemanticsConfiguration);
     },
-    $signature: 891
+    $signature: 890
   };
   A._Decorator.prototype = {
     get$slots() {
@@ -147744,7 +147731,7 @@
       }
       return A.Matrix4_Matrix4$translationValues(t1 * 4, 0, 0);
     },
-    $signature: 132
+    $signature: 136
   };
   A.InputDecoration.prototype = {
     copyWith$43$alignLabelWithHint$border$constraints$contentPadding$counter$counterStyle$counterText$disabledBorder$enabled$enabledBorder$error$errorBorder$errorMaxLines$errorStyle$errorText$fillColor$filled$floatingLabelAlignment$floatingLabelBehavior$floatingLabelStyle$focusColor$focusedBorder$focusedErrorBorder$helperMaxLines$helperStyle$hintFadeDuration$hintMaxLines$hintStyle$hintText$hoverColor$iconColor$isCollapsed$isDense$labelStyle$prefixIconColor$prefixIconConstraints$prefixStyle$semanticCounterText$suffixIcon$suffixIconColor$suffixIconConstraints$suffixStyle$visualDensity(alignLabelWithHint, border, constraints, contentPadding, counter, counterStyle, counterText, disabledBorder, enabled, enabledBorder, error, errorBorder, errorMaxLines, errorStyle, errorText, fillColor, filled, floatingLabelAlignment, floatingLabelBehavior, floatingLabelStyle, focusColor, focusedBorder, focusedErrorBorder, helperMaxLines, helperStyle, hintFadeDuration, hintMaxLines, hintStyle, hintText, hoverColor, iconColor, isCollapsed, isDense, labelStyle, prefixIconColor, prefixIconConstraints, prefixStyle, semanticCounterText, suffixIcon, suffixIconColor, suffixIconConstraints, suffixStyle, visualDensity) {
@@ -148192,7 +148179,7 @@
       t2 = t1._onSurfaceVariant;
       return A.TextStyle$(_null, _null, t2 == null ? t1.onSurface : t2, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, _null);
     },
-    $signature: 81
+    $signature: 80
   };
   A._InputDecoratorDefaultsM3_fillColor_closure.prototype = {
     call$1(states) {
@@ -148229,7 +148216,7 @@
       t2 = t1._onSurfaceVariant;
       return new A.BorderSide(t2 == null ? t1.onSurface : t2, 1, B.BorderStyle_1, -1);
     },
-    $signature: 111
+    $signature: 113
   };
   A._InputDecoratorDefaultsM3_outlineBorder_closure.prototype = {
     call$1(states) {
@@ -148260,7 +148247,7 @@
         t1 = t2;
       return new A.BorderSide(t1, 1, B.BorderStyle_1, -1);
     },
-    $signature: 111
+    $signature: 113
   };
   A._InputDecoratorDefaultsM3_prefixIconColor_closure.prototype = {
     call$1(states) {
@@ -148324,7 +148311,7 @@
       t2 = t1._onSurfaceVariant;
       return textStyle.copyWith$1$color(t2 == null ? t1.onSurface : t2);
     },
-    $signature: 81
+    $signature: 80
   };
   A._InputDecoratorDefaultsM3_floatingLabelStyle_closure.prototype = {
     call$1(states) {
@@ -148357,7 +148344,7 @@
       t2 = t1._onSurfaceVariant;
       return textStyle.copyWith$1$color(t2 == null ? t1.onSurface : t2);
     },
-    $signature: 81
+    $signature: 80
   };
   A._InputDecoratorDefaultsM3_helperStyle_closure.prototype = {
     call$1(states) {
@@ -148373,7 +148360,7 @@
       t2 = t1._onSurfaceVariant;
       return textStyle.copyWith$1$color(t2 == null ? t1.onSurface : t2);
     },
-    $signature: 81
+    $signature: 80
   };
   A._InputDecoratorDefaultsM3_errorStyle_closure.prototype = {
     call$1(states) {
@@ -148385,7 +148372,7 @@
         textStyle = B.TextStyle_ZyH;
       return textStyle.copyWith$1$color(t1.get$_input_decorator$_colors().error);
     },
-    $signature: 81
+    $signature: 80
   };
   A.__HelperErrorState_State_SingleTickerProviderStateMixin_dispose_closure.prototype = {
     call$0() {
@@ -148943,7 +148930,7 @@
       }
       return true;
     },
-    $signature: 26
+    $signature: 27
   };
   A._IndividualOverrides.prototype = {
     resolve$1(states) {
@@ -149359,7 +149346,7 @@
         this.context.paintChild$2(child, type$.BoxParentData._as(t1).offset.$add(0, this.offset));
       }
     },
-    $signature: 232
+    $signature: 193
   };
   A._RenderListTile_hitTestChildren_closure.prototype = {
     call$2(result, transformed) {
@@ -150015,19 +150002,19 @@
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A._MaterialInteriorState_forEachTween_closure0.prototype = {
     call$1(value) {
       return new A.ColorTween(type$.Color._as(value), null);
     },
-    $signature: 100
+    $signature: 101
   };
   A._MaterialInteriorState_forEachTween_closure1.prototype = {
     call$1(value) {
       return new A.ColorTween(type$.Color._as(value), null);
     },
-    $signature: 100
+    $signature: 101
   };
   A._MaterialInteriorState_forEachTween_closure2.prototype = {
     call$1(value) {
@@ -150529,7 +150516,7 @@
         return this.$this.get$_outlined_button$_colors().primary.withOpacity$1(0.1);
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._OutlinedButtonDefaultsM3_iconColor_closure.prototype = {
     call$1(states) {
@@ -150564,7 +150551,7 @@
         t1 = t2;
       return new A.BorderSide(t1, 1, B.BorderStyle_1, -1);
     },
-    $signature: 111
+    $signature: 113
   };
   A.OutlinedButtonThemeData.prototype = {
     get$hashCode(_) {
@@ -150690,7 +150677,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 249
+    $signature: 232
   };
   A._ZoomPageTransition_build_closure0.prototype = {
     call$3(context, animation, child) {
@@ -150699,7 +150686,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 250
+    $signature: 237
   };
   A._ZoomEnterTransition.prototype = {
     createState$0() {
@@ -150870,7 +150857,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 129
+    $signature: 139
   };
   A._FadeForwardsPageTransition_build_closure0.prototype = {
     call$3(context, animation, child) {
@@ -150899,7 +150886,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 129
+    $signature: 139
   };
   A.FadeForwardsPageTransitionsBuilder__delegatedTransition_closure0.prototype = {
     call$3(context, animation, child) {
@@ -150913,7 +150900,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 129
+    $signature: 139
   };
   A.ZoomPageTransitionsBuilder.prototype = {
     get$delegatedTransition() {
@@ -150948,7 +150935,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 249
+    $signature: 232
   };
   A.ZoomPageTransitionsBuilder__snapshotAwareDelegatedTransition_closure0.prototype = {
     call$3(context, animation, child) {
@@ -150957,7 +150944,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 250
+    $signature: 237
   };
   A.PageTransitionsTheme.prototype = {
     _all$1(builders) {
@@ -151913,7 +151900,7 @@
       t2 = type$.Animation_double;
       return t1._buildMaterialIndicator$5(context, $.$get$_CircularProgressIndicatorState__strokeHeadTween().transform$1(0, t2._as(t1.get$_progress_indicator$_controller()).get$value(0)), $.$get$_CircularProgressIndicatorState__strokeTailTween().transform$1(0, t2._as(t1.get$_progress_indicator$_controller()).get$value(0)), $.$get$_CircularProgressIndicatorState__offsetTween().transform$1(0, t2._as(t1.get$_progress_indicator$_controller()).get$value(0)), $.$get$_CircularProgressIndicatorState__rotationTween().transform$1(0, t2._as(t1.get$_progress_indicator$_controller()).get$value(0)));
     },
-    $signature: 64
+    $signature: 65
   };
   A._CircularProgressIndicatorState_build_closure.prototype = {
     call$1(context) {
@@ -151929,7 +151916,7 @@
           return t1._buildAnimation$0();
       }
     },
-    $signature: 27
+    $signature: 30
   };
   A._RefreshProgressIndicatorPainter.prototype = {
     paint$2(canvas, size) {
@@ -152077,7 +152064,7 @@
       t6 === $ && A.throwLateFieldNI(_s6_);
       return t1._buildMaterialIndicator$5(context, 1.05 * t3, t4, t5, t2.transform$1(0, t6));
     },
-    $signature: 64
+    $signature: 65
   };
   A._CircularProgressIndicatorDefaultsM2.prototype = {
     get$color(_) {
@@ -152725,7 +152712,7 @@
         t1._dismiss$1(B.RefreshIndicatorStatus_4);
       }
     },
-    $signature: 30
+    $signature: 25
   };
   A.RefreshIndicatorState_build_closure.prototype = {
     call$0() {
@@ -152772,7 +152759,7 @@
           return materialIndicator;
       }
     },
-    $signature: 64
+    $signature: 65
   };
   A._RefreshIndicatorState_State_TickerProviderStateMixin_dispose_closure.prototype = {
     call$0() {
@@ -153803,7 +153790,7 @@
       t9 = t7.extendBodyBehindMaterialBanner;
       return A.Actions$(t1, new A.CustomMultiChildLayout(new A._ScaffoldLayout(false, false, _this.minInsets, _this.minViewPadding, _this.textDirection, t6, t2, t3, t4, t5, t8, t7.snackBarWidth, t9, t4), _this.children, null));
     },
-    $signature: 261
+    $signature: 310
   };
   A._DismissDrawerAction.prototype = {
     isEnabled$1(_, intent) {
@@ -153860,7 +153847,7 @@
     call$1(entry) {
       return type$.HitTestEntry_HitTestTarget._as(entry).target.$eq(0, this.renderObject);
     },
-    $signature: 160
+    $signature: 129
   };
   A._ScaffoldState_State_TickerProviderStateMixin_RestorationMixin_dispose_closure.prototype = {
     call$2(property, listener) {
@@ -153869,7 +153856,7 @@
       if (!property._restoration0$_disposed)
         property.removeListener$1(0, listener);
     },
-    $signature: 60
+    $signature: 59
   };
   A._ScaffoldMessengerState_State_TickerProviderStateMixin_dispose_closure.prototype = {
     call$0() {
@@ -154383,7 +154370,7 @@
         t1 = t2;
       return t1;
     },
-    $signature: 203
+    $signature: 285
   };
   A._MaterialScrollbarState_initState_closure.prototype = {
     call$0() {
@@ -154870,7 +154857,7 @@
       this.$this._widget.toString;
       return parameter + " can only be used with floating behavior. SnackBarBehavior.fixed was set by default.";
     },
-    $signature: 25
+    $signature: 28
   };
   A._SnackBarState_build_closure1.prototype = {
     call$0() {
@@ -154888,13 +154875,13 @@
     call$3(context, value, child) {
       return A.Align$(B.Alignment_m1_1, child, A._asDouble(value), null, null);
     },
-    $signature: 262
+    $signature: 249
   };
   A._SnackBarState_build_closure3.prototype = {
     call$3(context, value, child) {
       return A.Align$(B.AlignmentDirectional_m1_m1, child, A._asDouble(value), null, null);
     },
-    $signature: 262
+    $signature: 249
   };
   A._SnackbarDefaultsM3.prototype = {
     get$_snack_bar$_colors() {
@@ -155601,7 +155588,7 @@
         return this.$this._widget.activeThumbColor;
       return this.$this._widget.inactiveThumbColor;
     },
-    $signature: 29
+    $signature: 26
   };
   A._MaterialSwitchState__widgetTrackColor_closure.prototype = {
     call$1(states) {
@@ -155609,7 +155596,7 @@
         return this.$this._widget.activeTrackColor;
       return this.$this._widget.inactiveTrackColor;
     },
-    $signature: 29
+    $signature: 26
   };
   A._MaterialSwitchState__handleDragEnd_closure.prototype = {
     call$0() {
@@ -156438,7 +156425,7 @@
         return _this.$this.get$_switch$_colors().onSurface.withOpacity$1(0.1);
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._SwitchDefaultsM3_mouseCursor_closure.prototype = {
     call$1(states) {
@@ -156886,7 +156873,7 @@
         return this.$this.get$_text_button$_colors().primary.withOpacity$1(0.1);
       return null;
     },
-    $signature: 29
+    $signature: 26
   };
   A._TextButtonDefaultsM3_iconColor_closure.prototype = {
     call$1(states) {
@@ -157649,14 +157636,14 @@
       type$.PointerEnterEvent._as($event);
       return this.$this._handleHover$1(true);
     },
-    $signature: 62
+    $signature: 58
   };
   A._TextFieldState_build_closure8.prototype = {
     call$1($event) {
       type$.PointerExitEvent._as($event);
       return this.$this._handleHover$1(false);
     },
-    $signature: 56
+    $signature: 52
   };
   A._TextFieldState_build_closure6.prototype = {
     call$2(context, child) {
@@ -157674,7 +157661,7 @@
       t3 = t3.handleDidLoseAccessibilityFocus;
       return A.Semantics$(_null, _null, _null, child, false, t5, t2, false, _null, false, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, t4, _null, _null, _null, _null, _null, t7, t3, _null, t1.get$_text_field$_isEnabled() ? new A._TextFieldState_build__closure0(t1) : _null, _null, _null, t6, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, B.SemanticsValidationResult_0, _null);
     },
-    $signature: 283
+    $signature: 235
   };
   A._TextFieldState_build__closure.prototype = {
     call$0() {
@@ -157708,7 +157695,7 @@
       }
       return A.TextStyle$(_null, _null, A.Theme_of(this.context).textTheme.bodyLarge.color, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, _null);
     },
-    $signature: 81
+    $signature: 80
   };
   A.__TextFieldState_State_RestorationMixin_dispose_closure.prototype = {
     call$2(property, listener) {
@@ -157717,7 +157704,7 @@
       if (!property._restoration0$_disposed)
         property.removeListener$1(0, listener);
     },
-    $signature: 60
+    $signature: 59
   };
   A.__TextFieldState_State_RestorationMixin.prototype = {
     didUpdateWidget$1(oldWidget) {
@@ -157791,7 +157778,7 @@
       if (t1 != null)
         t1.call$1(value);
     },
-    $signature: 32
+    $signature: 31
   };
   A._TextFormFieldState.prototype = {
     get$_effectiveController() {
@@ -160299,7 +160286,7 @@
     call$1(border) {
       return type$.ShapeBorder._as(border) instanceof A._CompoundBorder;
     },
-    $signature: 266
+    $signature: 261
   };
   A._CompoundBorder_dimensions_closure.prototype = {
     call$2(previousValue, border) {
@@ -160317,7 +160304,7 @@
     call$1(border) {
       return type$.ShapeBorder._as(border).get$preferPaintInterior();
     },
-    $signature: 266
+    $signature: 261
   };
   A._CompoundBorder_toString_closure.prototype = {
     call$1(border) {
@@ -161900,7 +161887,7 @@
       this._box_0.result = result;
       return result == null;
     },
-    $signature: 128
+    $signature: 102
   };
   A.InlineSpan_codeUnitAt_closure.prototype = {
     call$1(span) {
@@ -161908,7 +161895,7 @@
       this._box_0.result = result;
       return result == null;
     },
-    $signature: 128
+    $signature: 102
   };
   A.TransformProperty.prototype = {
     valueToString$1$parentConfiguration(parentConfiguration) {
@@ -163137,7 +163124,7 @@
       t1 = n.get$level(n);
       return t1.index >= 3;
     },
-    $signature: 79
+    $signature: 76
   };
   A._StrutStyle_Object_Diagnosticable.prototype = {};
   A.TextOverflow.prototype = {
@@ -163995,7 +163982,7 @@
     call$1(box) {
       return A.TextPainter__shiftTextBox(type$.TextBox._as(box), this.offset);
     },
-    $signature: 130
+    $signature: 141
   };
   A.TextPainter_setPlaceholderDimensions_closure.prototype = {
     call$0() {
@@ -164013,7 +164000,7 @@
         ++this._box_0.placeholderCount;
       return this.value.length >= this._box_0.placeholderCount;
     },
-    $signature: 128
+    $signature: 102
   };
   A.TextPainter__createParagraph_closure.prototype = {
     call$0() {
@@ -164040,7 +164027,7 @@
     call$1(box) {
       return A.TextPainter__shiftTextBox(type$.TextBox._as(box), this.offset);
     },
-    $signature: 130
+    $signature: 141
   };
   A.TextPainter_computeLineMetrics_closure.prototype = {
     call$1(metrics) {
@@ -164894,7 +164881,7 @@
     call$1($name) {
       return '"' + A._asString($name) + '"';
     },
-    $signature: 25
+    $signature: 28
   };
   A.TextStyle_debugFillProperties_closure.prototype = {
     call$1(n) {
@@ -164903,7 +164890,7 @@
       t1 = n.get$level(n);
       return t1.index >= 3;
     },
-    $signature: 79
+    $signature: 76
   };
   A._TextStyle_Object_Diagnosticable.prototype = {};
   A.FrictionSimulation.prototype = {
@@ -165537,7 +165524,7 @@
         t1.get$semantics().updateSemantics$1(update);
       }
     },
-    $signature: 131
+    $signature: 142
   };
   A.RendererBinding_pipelineOwner_closure0.prototype = {
     call$0() {
@@ -165564,7 +165551,7 @@
     call$2(error, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(error), type$.StackTrace._as(stack), "rendering library", A.ErrorDescription$("while sending the first-frame event"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A.RendererBinding__scheduleMouseTrackerUpdate_closure.prototype = {
     call$0() {
@@ -165947,7 +165934,7 @@
       t1.push(A.DiagnosticsProperty$("The offending constraints were", this.$this, true, B.C__NoDefaultValue, _null, false, _null, _null, B.DiagnosticLevel_3, _null, false, true, true, B.DiagnosticsTreeStyle_9, _null, type$.BoxConstraints));
       throw A.wrapException(A.FlutterError$fromParts(t1));
     },
-    $signature: 133
+    $signature: 138
   };
   A.BoxConstraints_toString_describe.prototype = {
     call$3(min, max, dim) {
@@ -165955,7 +165942,7 @@
         return dim + "=" + B.JSNumber_methods.toStringAsFixed$1(min, 1);
       return B.JSNumber_methods.toStringAsFixed$1(min, 1) + "<=" + dim + "<=" + B.JSNumber_methods.toStringAsFixed$1(max, 1);
     },
-    $signature: 279
+    $signature: 239
   };
   A.BoxHitTestResult.prototype = {
     addWithPaintTransform$3$hitTest$position$transform(hitTest, position, transform) {
@@ -166150,7 +166137,7 @@
     call$0() {
       return this.computer.call$1(this.input);
     },
-    $signature: 105
+    $signature: 126
   };
   A._LayoutCacheStorage.prototype = {
     set$_cachedIntrinsicDimensions(_cachedIntrinsicDimensions) {
@@ -166708,7 +166695,7 @@
     call$1(pair) {
       return this.$this.computeDistanceToActualBaseline$1(type$.Record_2_BoxConstraints_and_TextBaseline._as(pair)._1);
     },
-    $signature: 282
+    $signature: 279
   };
   A.RenderBox_debugAssertDoesMeetConstraints_closure.prototype = {
     call$0() {
@@ -169271,7 +169258,7 @@
       t1 = this.$this;
       return new A.TextBox(textBox.left + t1.get$_editable$_paintOffset()._dx, textBox.top + t1.get$_editable$_paintOffset()._dy, textBox.right + t1.get$_editable$_paintOffset()._dx, textBox.bottom + t1.get$_editable$_paintOffset()._dy, textBox.direction);
     },
-    $signature: 130
+    $signature: 141
   };
   A.RenderEditable_describeSemanticsConfiguration_closure.prototype = {
     call$1(info) {
@@ -170534,25 +170521,25 @@
     call$2(child, extent) {
       return child.getMinIntrinsicWidth$1(extent);
     },
-    $signature: 72
+    $signature: 79
   };
   A.RenderFlex_computeMaxIntrinsicWidth_closure.prototype = {
     call$2(child, extent) {
       return child.getMaxIntrinsicWidth$1(extent);
     },
-    $signature: 72
+    $signature: 79
   };
   A.RenderFlex_computeMinIntrinsicHeight_closure.prototype = {
     call$2(child, extent) {
       return child.getMinIntrinsicHeight$1(extent);
     },
-    $signature: 72
+    $signature: 79
   };
   A.RenderFlex_computeMaxIntrinsicHeight_closure.prototype = {
     call$2(child, extent) {
       return child.getMaxIntrinsicHeight$1(extent);
     },
-    $signature: 72
+    $signature: 79
   };
   A.RenderFlex__computeDryDistanceToHighestBaseline_constraintsForChild.prototype = {
     call$1(child) {
@@ -170573,7 +170560,7 @@
         t1 = _this.nonFlexConstraints;
       return t1;
     },
-    $signature: 286
+    $signature: 283
   };
   A.RenderFlex__computeDryDistanceToFirstBaseline_constraintsForChild.prototype = {
     call$1(child) {
@@ -170594,7 +170581,7 @@
         t1 = _this.nonFlexConstraints;
       return t1;
     },
-    $signature: 286
+    $signature: 283
   };
   A.RenderFlex_computeDryLayout_closure.prototype = {
     call$0() {
@@ -171661,7 +171648,7 @@
     call$1(component) {
       return isFinite(A._asDouble(component));
     },
-    $signature: 159
+    $signature: 151
   };
   A.OpacityLayer.prototype = {
     set$alpha(_, value) {
@@ -173398,7 +173385,7 @@
       t1._as(b);
       return a._depth - b._depth;
     },
-    $signature: 82
+    $signature: 81
   };
   A.PipelineOwner_flushLayout_closure2.prototype = {
     call$0() {
@@ -173438,7 +173425,7 @@
       t1._as(b);
       return a._depth - b._depth;
     },
-    $signature: 82
+    $signature: 81
   };
   A.PipelineOwner_flushPaint_closure.prototype = {
     call$0() {
@@ -173458,7 +173445,7 @@
       t1._as(a);
       return t1._as(b)._depth - a._depth;
     },
-    $signature: 82
+    $signature: 81
   };
   A.PipelineOwner_flushPaint_closure2.prototype = {
     call$0() {
@@ -173478,7 +173465,7 @@
       type$.RenderObject._as(object);
       return !object._needsLayout && object._object$_owner === this.$this;
     },
-    $signature: 89
+    $signature: 99
   };
   A.PipelineOwner_flushSemantics_closure1.prototype = {
     call$2(a, b) {
@@ -173487,7 +173474,7 @@
       t1._as(b);
       return a._depth - b._depth;
     },
-    $signature: 82
+    $signature: 81
   };
   A.PipelineOwner_flushSemantics_closure2.prototype = {
     call$0() {
@@ -173504,7 +173491,7 @@
       type$.RenderObject._as(object);
       return !object._needsLayout && object._object$_owner === this.$this && !object.get$_semantics().get$parentDataDirty();
     },
-    $signature: 89
+    $signature: 99
   };
   A.PipelineOwner_flushSemantics_closure4.prototype = {
     call$2(a, b) {
@@ -174596,7 +174583,7 @@
     call$1(t) {
       return type$.RenderObject._as(t) === this.$this;
     },
-    $signature: 89
+    $signature: 99
   };
   A.RenderObject_markNeedsPaint_closure.prototype = {
     call$0() {
@@ -176027,7 +176014,7 @@
       A.assertHelper(!semantics.get$parentDataDirty());
       B.JSArray_methods.forEach$1(semantics._getNonBlockedChildren$0(), this);
     },
-    $signature: 309
+    $signature: 301
   };
   A._RenderObjectSemantics_isBlockingPreviousSibling_closure.prototype = {
     call$1(child) {
@@ -176092,7 +176079,7 @@
       t1._containsIncompleteFragment = true;
       return new A._IncompleteSemanticsFragment(config, t1);
     },
-    $signature: 176
+    $signature: 302
   };
   A._RenderObjectSemantics__collectChildMergeUpAndSiblingGroup_closure0.prototype = {
     call$1(config) {
@@ -176105,7 +176092,7 @@
       t1._containsIncompleteFragment = true;
       return new A._IncompleteSemanticsFragment(config, t1);
     },
-    $signature: 176
+    $signature: 302
   };
   A._RenderObjectSemantics__updateChildGeometry_closure.prototype = {
     call$1(group) {
@@ -176281,7 +176268,7 @@
         t1 = this.$this;
       throw A.wrapException(A.FlutterError$fromParts(A._setArrayType([A.ErrorSummary$("Invalid number of boxes provided to positionInlineChildren."), A.ErrorDescription$("The number of boxes (" + this.boxes.length + ") exceeds the number of child render objects (" + t1.ContainerRenderObjectMixin__childCount + "). Each box corresponds to a child, but there are not enough children to position all boxes."), A.ErrorHint$("This error typically occurs when a custom InlineSpan implementation returns a list of boxes that is longer than the number of inline children. Ensure that the number of boxes returned by `computeLineMetrics` or similar methods does not exceed the number of children."), A.DiagnosticsProperty$("The RenderParagraph receiving the boxes", t1, true, B.C__NoDefaultValue, _null, false, _null, _null, B.DiagnosticLevel_3, _null, false, true, true, B.DiagnosticsTreeStyle_9, _null, type$.RenderObject)], type$.JSArray_DiagnosticsNode)));
     },
-    $signature: 58
+    $signature: 62
   };
   A.RenderInlineChildrenContainerDefaults_hitTestInlineChildren_closure.prototype = {
     call$2(result, transformed) {
@@ -177061,7 +177048,7 @@
       type$._SelectableFragment._as(element);
       return element._cachedBoundingBoxes = element._cachedRect = null;
     },
-    $signature: 177
+    $signature: 176
   };
   A.RenderParagraph_selectionColor_closure.prototype = {
     call$1(fragment) {
@@ -177088,7 +177075,7 @@
       type$._SelectableFragment._as(element);
       return element._cachedBoundingBoxes = element._cachedRect = null;
     },
-    $signature: 177
+    $signature: 176
   };
   A.RenderParagraph_paint_closure.prototype = {
     call$0() {
@@ -180445,7 +180432,7 @@
     call$1(value) {
       return isFinite(A._asDouble(value));
     },
-    $signature: 159
+    $signature: 151
   };
   A.RenderFittedBox_hitTestChildren_closure.prototype = {
     call$2(result, position) {
@@ -182929,7 +182916,7 @@
     call$0() {
       throw A.wrapException(A.FlutterError_FlutterError(A.objectRuntimeType(this.$this, "RenderSliver") + " does not implement applyPaintTransform."));
     },
-    $signature: 58
+    $signature: 62
   };
   A.RenderSliver__debugDrawArrow_closure.prototype = {
     call$0() {
@@ -183107,7 +183094,7 @@
     call$1(result) {
       return this.child.hitTest$2$position(result, this._box_0.transformedPosition);
     },
-    $signature: 179
+    $signature: 178
   };
   A._SliverGeometry_Object_Diagnosticable.prototype = {};
   A._SliverLogicalContainerParentData_SliverLogicalParentData_ContainerParentDataMixin.prototype = {
@@ -184430,7 +184417,7 @@
       } else
         t2._childManager.createChild$2$after(t3, t4);
     },
-    $signature: 180
+    $signature: 179
   };
   A.RenderSliverMultiBoxAdaptor_collectGarbage_closure.prototype = {
     call$1(constraints) {
@@ -184456,7 +184443,7 @@
       B.JSArray_methods.forEach$1(t6, t2._childManager.get$removeChild());
       A.assertHelper(!new A.WhereIterable(new A.LinkedHashMapValuesIterable(t1, t3), t4._as(new A.RenderSliverMultiBoxAdaptor_collectGarbage__closure0()), t5).get$iterator(0).moveNext$0());
     },
-    $signature: 180
+    $signature: 179
   };
   A.RenderSliverMultiBoxAdaptor_collectGarbage__closure.prototype = {
     call$1(child) {
@@ -184464,7 +184451,7 @@
       t1.toString;
       return !type$.SliverMultiBoxAdaptorParentData._as(t1).KeepAliveParentDataMixin_keepAlive;
     },
-    $signature: 174
+    $signature: 146
   };
   A.RenderSliverMultiBoxAdaptor_collectGarbage__closure0.prototype = {
     call$1(child) {
@@ -184472,7 +184459,7 @@
       t1.toString;
       return !type$.SliverMultiBoxAdaptorParentData._as(t1).KeepAliveParentDataMixin_keepAlive;
     },
-    $signature: 174
+    $signature: 146
   };
   A.RenderSliverMultiBoxAdaptor_debugAssertChildListIsNonEmptyAndContiguous_closure.prototype = {
     call$0() {
@@ -184770,13 +184757,13 @@
     call$2$from$to(from, to) {
       return this.$this.calculatePaintOffset$3$from$to(this.constraints, from, to);
     },
-    $signature: 182
+    $signature: 181
   };
   A.RenderSliverEdgeInsetsPadding_performLayout_cacheOffset.prototype = {
     call$2$from$to(from, to) {
       return this.$this.calculateCacheOffset$3$from$to(this.constraints, from, to);
     },
-    $signature: 182
+    $signature: 181
   };
   A.RenderSliverEdgeInsetsPadding_debugPaint_closure.prototype = {
     call$0() {
@@ -186487,7 +186474,7 @@
       }
       return -1;
     },
-    $signature: 138
+    $signature: 147
   };
   A.RenderTable_assembleSemanticsNode_findColumnIndex.prototype = {
     call$1(left) {
@@ -186507,7 +186494,7 @@
       }
       return -1;
     },
-    $signature: 138
+    $signature: 147
   };
   A.RenderTable_assembleSemanticsNode_shiftTransform.prototype = {
     call$3(node, dx, dy) {
@@ -186536,7 +186523,7 @@
     call$2(a, b) {
       return A._asDouble(a) + A._asDouble(b);
     },
-    $signature: 91
+    $signature: 84
   };
   A.RenderTable_hitTestChildren_closure.prototype = {
     call$2(result, transformed) {
@@ -187562,7 +187549,7 @@
         t3 = _this.$this.computeChildMainAxisPosition$2(t1, t2.mainAxisPosition);
       return t1.hitTest$3$crossAxisPosition$mainAxisPosition(_this.sliverResult, t2.crossAxisPosition, t3);
     },
-    $signature: 179
+    $signature: 178
   };
   A.RenderViewport.prototype = {
     RenderViewport$11$anchor$axisDirection$cacheExtent$cacheExtentStyle$center$children$clipBehavior$crossAxisDirection$offset$paintOrder$scrollCacheExtent(anchor, axisDirection, cacheExtent, cacheExtentStyle, center, children, clipBehavior, crossAxisDirection, offset, paintOrder, scrollCacheExtent) {
@@ -188771,13 +188758,13 @@
       var t1 = this._box_0;
       t1.baselineOffset = A.BaselineOffset_minOf(t1.baselineOffset, A.BaselineOffset__(child.getDryBaseline$2(this.childConstraints, this.baseline), offset._dy));
     },
-    $signature: 184
+    $signature: 183
   };
   A.RenderWrap_computeDryBaseline_getChildSize.prototype = {
     call$1(child) {
       return child._computeIntrinsics$2$3(B.C__DryLayout, this.childConstraints, child.get$_computeDryLayout(), type$.BoxConstraints, type$.Size);
     },
-    $signature: 185
+    $signature: 184
   };
   A._RenderWrap_RenderBox_ContainerRenderObjectMixin.prototype = {
     attach$1(owner) {
@@ -189637,7 +189624,7 @@
     call$1(value) {
       this.callback.call$0();
     },
-    $signature: 70
+    $signature: 63
   };
   A.TickerCanceled.prototype = {
     toString$0(_) {
@@ -190910,7 +190897,7 @@
       A._asObject(key);
       return type$.SemanticsNode._as(node) === this.$this;
     },
-    $signature: 190
+    $signature: 189
   };
   A.SemanticsNode_detach_closure0.prototype = {
     call$1(node) {
@@ -190924,7 +190911,7 @@
       type$.Set_SemanticsNode._as(value);
       return value.get$isEmpty(value);
     },
-    $signature: 191
+    $signature: 175
   };
   A.SemanticsNode_getSemanticsData_closure.prototype = {
     call$1(node) {
@@ -191031,7 +191018,7 @@
     call$1(node) {
       return type$.SemanticsNode._as(node)._id;
     },
-    $signature: 192
+    $signature: 191
   };
   A.SemanticsNode__addToUpdate_closure.prototype = {
     call$0() {
@@ -191051,13 +191038,13 @@
   A.SemanticsNode_sendEvent_closure.prototype = {
     call$1(__wc0_formal) {
     },
-    $signature: 96
+    $signature: 95
   };
   A.SemanticsNode_sendEvent_closure0.prototype = {
     call$2(error, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(error), type$.StackTrace._as(stack), "semantics library", A.ErrorDescription$("while sending accessibility event"), null, new A.SemanticsNode_sendEvent__closure(this.$this, this.event), false));
     },
-    $signature: 31
+    $signature: 33
   };
   A.SemanticsNode_sendEvent__closure.prototype = {
     call$0() {
@@ -191082,7 +191069,7 @@
     call$1(line) {
       return B.JSString_methods.substring$1(A._asString(line), 4);
     },
-    $signature: 25
+    $signature: 28
   };
   A.SemanticsNode_debugFillProperties_closure0.prototype = {
     call$1(tag) {
@@ -191213,7 +191200,7 @@
     call$1(group) {
       return type$._SemanticsSortGroup._as(group).sortedWithinKnot$0();
     },
-    $signature: 193
+    $signature: 192
   };
   A._SemanticsSortGroup_sortedWithinKnot_closure.prototype = {
     call$2(a, b) {
@@ -191230,7 +191217,7 @@
         return -verticalDiff;
       return -B.JSNumber_methods.compareTo$1(aTopLeft._dx, bTopLeft._dx);
     },
-    $signature: 141
+    $signature: 150
   };
   A._SemanticsSortGroup_sortedWithinKnot_search.prototype = {
     call$1(id) {
@@ -191248,13 +191235,13 @@
       }
       B.JSArray_methods.add$1(_this.sortedIds, id);
     },
-    $signature: 33
+    $signature: 32
   };
   A._SemanticsSortGroup_sortedWithinKnot_closure0.prototype = {
     call$1(node) {
       return type$.SemanticsNode._as(node)._id;
     },
-    $signature: 192
+    $signature: 191
   };
   A._SemanticsSortGroup_sortedWithinKnot_closure1.prototype = {
     call$1(id) {
@@ -191268,7 +191255,7 @@
     call$1(group) {
       return type$._SemanticsSortGroup._as(group).sortedWithinVerticalGroup$0();
     },
-    $signature: 193
+    $signature: 192
   };
   A._TraversalSortNode.prototype = {
     compareTo$1(_, other) {
@@ -191460,14 +191447,14 @@
       t1._as(b);
       return a._semantics$_depth - b._semantics$_depth;
     },
-    $signature: 141
+    $signature: 150
   };
   A.SemanticsOwner_sendSemanticsUpdate_closure2.prototype = {
     call$2(key, oldNode) {
       A._asObject(key);
       return this.node === type$.SemanticsNode._as(oldNode);
     },
-    $signature: 190
+    $signature: 189
   };
   A.SemanticsOwner_sendSemanticsUpdate_closure3.prototype = {
     call$1(oldNode) {
@@ -191481,7 +191468,7 @@
       type$.Set_SemanticsNode._as(value);
       return value.get$isEmpty(value);
     },
-    $signature: 191
+    $signature: 175
   };
   A.SemanticsOwner_sendSemanticsUpdate_closure5.prototype = {
     call$0() {
@@ -191496,7 +191483,7 @@
       t1._as(b);
       return a._semantics$_depth - b._semantics$_depth;
     },
-    $signature: 141
+    $signature: 150
   };
   A.SemanticsOwner__getSemanticsActionHandlerForId_closure.prototype = {
     call$1(node) {
@@ -192660,7 +192647,7 @@
         A.FlutterError_reportError(new A.FlutterErrorDetails(exception, stack, "services library", t1, null, null, false));
       }
     },
-    $signature: 47
+    $signature: 46
   };
   A._DefaultBinaryMessenger_setMessageHandler_closure.prototype = {
     call$2(data, callback) {
@@ -193640,7 +193627,7 @@
       t1.writeValue$2(0, t2, key);
       t1.writeValue$2(0, t2, value);
     },
-    $signature: 112
+    $signature: 104
   };
   A.StandardMethodCodec0.prototype = {
     encodeMethodCall$1(methodCall) {
@@ -193956,7 +193943,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 175
+    $signature: 196
   };
   A.MethodChannel.prototype = {
     get$binaryMessenger() {
@@ -194167,7 +194154,7 @@
     call$1(message) {
       return this.$this._handleAsMethodCall$2(type$.nullable_ByteData._as(message), this.handler);
     },
-    $signature: 175
+    $signature: 196
   };
   A.OptionalMethodChannel.prototype = {
     invokeMethod$1$2(method, $arguments, $T) {
@@ -195444,7 +195431,7 @@
     call$2(error, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(error), type$.StackTrace._as(stack), "services library", A.ErrorDescription$("while setting the system UI overlay style"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A.SystemChrome_handleAppLifecycleStateChanged_closure.prototype = {
     call$0() {
@@ -195857,7 +195844,7 @@
         replacedLength = originalIndex <= t1 && originalIndex < _this.regionEnd ? 0 : _this.replacementString.length;
       return replacedLength - (B.JSInt_methods.clamp$2(originalIndex, t1, _this.regionEnd) - t1);
     },
-    $signature: 68
+    $signature: 64
   };
   A.SmartDashesType.prototype = {
     _enumToString$0() {
@@ -196072,7 +196059,7 @@
         replacedLength = originalIndex <= t2 && originalIndex < t1.end ? 0 : this.replacementString.length;
       return originalIndex + replacedLength - (B.JSInt_methods.clamp$2(originalIndex, t2, t1.end) - t2);
     },
-    $signature: 68
+    $signature: 64
   };
   A.SelectionChangedCause.prototype = {
     _enumToString$0() {
@@ -196575,7 +196562,7 @@
         bounds = B.Rect_0_0_0_0;
       return !(bounds.$eq(0, B.Rect_0_0_0_0) || bounds.get$hasNaN() || bounds.left >= 1 / 0 || bounds.top >= 1 / 0 || bounds.right >= 1 / 0 || bounds.bottom >= 1 / 0);
     },
-    $signature: 40
+    $signature: 41
   };
   A.TextInput__handleTextInputInvocation_closure1.prototype = {
     call$1(elementIdentifier) {
@@ -197108,7 +197095,7 @@
     call$2(error, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(error), type$.StackTrace._as(stack), "services library", A.ErrorDescription$("while sending the UndoManager.setUndoState event"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A.UndoManagerClient.prototype = {};
   A.Violation.prototype = {};
@@ -197526,13 +197513,13 @@
     call$1(count) {
       return A._asInt(count) + 1;
     },
-    $signature: 68
+    $signature: 64
   };
   A._colorsWithinRect_closure0.prototype = {
     call$0() {
       return 1;
     },
-    $signature: 83
+    $signature: 74
   };
   A._colorsWithinRect_closure1.prototype = {
     call$2(rgba, count) {
@@ -197797,7 +197784,7 @@
       child.toString;
       return new A.ViewAnchor(t1, child, null);
     },
-    $signature: 64
+    $signature: 65
   };
   A._WindowManagerState_build__closure.prototype = {
     call$1(entry) {
@@ -197819,7 +197806,7 @@
       this.parent.set$finalLocalValue(ancestor);
       return false;
     },
-    $signature: 26
+    $signature: 27
   };
   A.Intent.prototype = {};
   A.Action.prototype = {
@@ -197958,7 +197945,7 @@
       type$._ActionsScope._as(t1);
       return false;
     },
-    $signature: 86
+    $signature: 94
   };
   A.Actions_maybeFind_closure.prototype = {
     call$1(element) {
@@ -197973,7 +197960,7 @@
       }
       return false;
     },
-    $signature: 86
+    $signature: 94
   };
   A.Actions_maybeFind_closure0.prototype = {
     call$0() {
@@ -197981,7 +197968,7 @@
         t2 = this.T;
       throw A.wrapException(A.FlutterError$fromParts(A._setArrayType([A.ErrorSummary$("An " + J.get$runtimeType$(t1.action).toString$0(0) + " cannot be cast to an Action<" + A.createRuntimeType(t2).toString$0(0) + ">."), A.ErrorDescription$("A valid action " + A.S(t1.action) + " was found but could not be returned by Actions.maybeFind<" + A.createRuntimeType(t2).toString$0(0) + ">."), A.ErrorHint$("This is a current limitation of the Actions widget, see https://github.com/flutter/flutter/issues/180871 for more details. As a workaround, consider using Actions.invoke or Actions.maybeInvoke instead, or explicitly set the type parameter to Intent: Actions.maybeFind<Intent>(context, intent)")], type$.JSArray_DiagnosticsNode)));
     },
-    $signature: 58
+    $signature: 62
   };
   A.Actions__maybeFindWithoutDependingOn_closure.prototype = {
     call$1(element) {
@@ -197995,7 +197982,7 @@
       }
       return false;
     },
-    $signature: 86
+    $signature: 94
   };
   A.Actions_invoke_closure0.prototype = {
     call$1(element) {
@@ -198009,7 +197996,7 @@
         _this._box_0.returnValue = A.Actions__findDispatcher(element).invokeAction$3(result, t2, _this.context);
       return t1;
     },
-    $signature: 86
+    $signature: 94
   };
   A.Actions_invoke_closure.prototype = {
     call$0() {
@@ -198034,7 +198021,7 @@
         _this._box_0.returnValue = A.Actions__findDispatcher(element).invokeAction$3(result, t2, _this.context);
       return t1;
     },
-    $signature: 86
+    $signature: 94
   };
   A._ActionsState.prototype = {
     initState$0() {
@@ -198287,7 +198274,7 @@
       var t1 = this.$this;
       return t1._actions$_hovering && target.enabled && t1._canShowHighlight;
     },
-    $signature: 144
+    $signature: 154
   };
   A._FocusableActionDetectorState__mayTriggerCallback_canRequestFocus.prototype = {
     call$1(target) {
@@ -198306,14 +198293,14 @@
       }
       return t1;
     },
-    $signature: 144
+    $signature: 154
   };
   A._FocusableActionDetectorState__mayTriggerCallback_shouldShowFocusHighlight.prototype = {
     call$1(target) {
       var t1 = this.$this;
       return t1._focused && t1._canShowHighlight && this.canRequestFocus.call$1(target);
     },
-    $signature: 144
+    $signature: 154
   };
   A._FocusableActionDetectorState_didUpdateWidget_closure.prototype = {
     call$1(duration) {
@@ -199317,7 +199304,7 @@
       t1.toString;
       return t1;
     },
-    $signature: 27
+    $signature: 30
   };
   A._WidgetsAppState__onUnknownRoute_closure.prototype = {
     call$0() {
@@ -199339,7 +199326,7 @@
       type$.BuildContext._as(context);
       return this.$this._widget.builder.call$2(context, this._box_0.routing);
     },
-    $signature: 27
+    $signature: 30
   };
   A._WidgetsAppState_build_closure0.prototype = {
     call$0() {
@@ -199852,7 +199839,7 @@
     call$2(exception, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(exception), type$.StackTrace._as(stack), "widgets library", A.ErrorDescription$("while sending semantics announcement"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A._RawAutocompleteState__buildOptionsView_closure.prototype = {
     call$1(context) {
@@ -199863,7 +199850,7 @@
       t3 = t1._options;
       return t1.$ti._eval$1("Widget(BuildContext,~(1),Iterable<1>)")._as(t2.optionsViewBuilder).call$3(context, t1.get$_select(), t3);
     },
-    $signature: 27
+    $signature: 30
   };
   A._AutocompleteCallbackAction.prototype = {
     isEnabled$1(_, intent) {
@@ -201616,7 +201603,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 80
+    $signature: 82
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure8.prototype = {
     call$0() {
@@ -201803,7 +201790,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 80
+    $signature: 82
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure1.prototype = {
     call$1(parameters) {
@@ -201831,7 +201818,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 80
+    $signature: 82
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure2.prototype = {
     call$1(parameters) {
@@ -201859,7 +201846,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 80
+    $signature: 82
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure3.prototype = {
     call$0() {
@@ -201957,7 +201944,7 @@
     call$1(timings) {
       J.forEach$1$ax(type$.List_FrameTiming._as(timings), this.$this.get$_profileFramePostEvent());
     },
-    $signature: 139
+    $signature: 148
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_initServiceExtensions_closure.prototype = {
     call$0() {
@@ -202067,7 +202054,7 @@
       });
       return A._asyncStartSync($async$call$0, $async$completer);
     },
-    $signature: 166
+    $signature: 134
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions__closure0.prototype = {
     call$1(value) {
@@ -202093,7 +202080,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 94
+    $signature: 91
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions_closure0.prototype = {
     call$0() {
@@ -202850,7 +202837,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 80
+    $signature: 82
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure0.prototype = {
     call$1(parameters) {
@@ -202878,7 +202865,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 80
+    $signature: 82
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure1.prototype = {
     call$1(__wc0_formal) {
@@ -202906,7 +202893,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure2.prototype = {
     call$1(__wc1_formal) {
@@ -202934,7 +202921,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure3.prototype = {
     call$0() {
@@ -203198,7 +203185,7 @@
     call$2(exception, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(exception), type$.StackTrace._as(stack), "widgets library", A.ErrorDescription$("while popping route"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A.WidgetsBinding__handleBuildScheduled_closure.prototype = {
     call$0() {
@@ -203232,7 +203219,7 @@
       t1.firstFrameCallback = null;
       this.$this.WidgetsBinding__firstFrameCompleter.complete$0(0);
     },
-    $signature: 139
+    $signature: 148
   };
   A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure1.prototype = {
     call$0() {
@@ -204049,7 +204036,7 @@
       t1 = A.Navigator_maybeOf(context);
       return new A._CaptureAll(A.InheritedTheme_capture(context, t1 == null ? null : t1.get$context(0))._themes, type$.Widget._as($.ContextMenuController__contextMenuBuilder.call$1(context)), null);
     },
-    $signature: 27
+    $signature: 30
   };
   A.debugChildrenHaveDuplicateKeys_closure.prototype = {
     call$0() {
@@ -204238,7 +204225,7 @@
     },
     "call*": "call$3",
     $requiredArgCount: 3,
-    $signature: 147
+    $signature: 132
   };
   A._DialogWindowDelegate.prototype = {};
   A._DialogWindowRoute.prototype = {
@@ -207805,7 +207792,7 @@
     call$2(error, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(error), type$.StackTrace._as(stack), "widgets library", A.ErrorDescription$("while starting Live Text input"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A.EditableTextState__inferSpellCheckConfiguration_closure.prototype = {
     call$0() {
@@ -207820,7 +207807,7 @@
       A._asString(hint);
       return hint === "password" || hint === "newPassword";
     },
-    $signature: 40
+    $signature: 41
   };
   A.EditableTextState_buttonItemsForToolbarOptions_closure.prototype = {
     call$0() {
@@ -208255,7 +208242,7 @@
       A.Actions_invoke(this.context, new A.EditableTextTapOutsideIntent(t1._widget.focusNode, $event), type$.EditableTextTapOutsideIntent);
       return null;
     },
-    $signature: 78
+    $signature: 75
   };
   A.EditableTextState_build__closure5.prototype = {
     call$1($event) {
@@ -208309,7 +208296,7 @@
       t1._scribbleCacheKey = null;
       return false;
     },
-    $signature: 48
+    $signature: 51
   };
   A.EditableTextState_build__closure4.prototype = {
     call$2(context, offset) {
@@ -208582,7 +208569,7 @@
     call$1(entry) {
       return type$.HitTestEntry_HitTestTarget._as(entry).target.$eq(0, this.$this.get$renderEditable());
     },
-    $signature: 160
+    $signature: 129
   };
   A._ScribblePlaceholder.prototype = {
     build$3$dimensions$textScaler(builder, dimensions, textScaler) {
@@ -209228,7 +209215,7 @@
       body = A.ClipRect$(A.Align$(B.Alignment_0_0, child, t3.get$value(0), null, null), B.Clip_1, null);
       return t1._widget.expansibleBuilder$4(context, header, body, t1.___ExpansibleState__animationController_A);
     },
-    $signature: 64
+    $signature: 65
   };
   A.__ExpansibleState_State_SingleTickerProviderStateMixin_dispose_closure.prototype = {
     call$0() {
@@ -209394,7 +209381,7 @@
       var t1 = this.$this._node;
       return A._setArrayType([t1, "With enclosing scope " + A.S(t1.get$enclosingScope())], type$.JSArray_Object);
     },
-    $signature: 125
+    $signature: 112
   };
   A.UnfocusDisposition.prototype = {
     _enumToString$0() {
@@ -209849,7 +209836,7 @@
       t1 = t1._focus_manager$_manager;
       return A._setArrayType(["primary focus was " + t2, "next focus will be " + A.S(t1 == null ? null : t1._markedForFocus)], type$.JSArray_Object);
     },
-    $signature: 125
+    $signature: 112
   };
   A.FocusNode__removeChild_closure.prototype = {
     call$1(descendant) {
@@ -209879,7 +209866,7 @@
     call$0() {
       return A._setArrayType([this.ancestor], type$.JSArray_Object);
     },
-    $signature: 125
+    $signature: 112
   };
   A.FocusNode_debugDescribeChildren_closure.prototype = {
     call$1(child) {
@@ -209985,7 +209972,7 @@
     call$0() {
       return A._setArrayType([this.scope], type$.JSArray_Object);
     },
-    $signature: 125
+    $signature: 112
   };
   A.FocusScopeNode_autofocus_closure.prototype = {
     call$0() {
@@ -210827,7 +210814,7 @@
       }
       return true;
     },
-    $signature: 26
+    $signature: 27
   };
   A._FocusTraversalGroupInfo.prototype = {};
   A.TraversalDirection.prototype = {
@@ -212025,7 +212012,7 @@
     call$2(exception, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(exception), type$.StackTrace._as(stack), "widgets library", A.ErrorDescription$("while sending semantics announcement"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A._FormScope.prototype = {
     updateShouldNotify$1(old) {
@@ -212269,7 +212256,7 @@
       if (!property._restoration0$_disposed)
         property.removeListener$1(0, listener);
     },
-    $signature: 60
+    $signature: 59
   };
   A._FormFieldState_State_RestorationMixin.prototype = {
     didUpdateWidget$1(oldWidget) {
@@ -212726,7 +212713,7 @@
       type$.Element._as(element);
       return element.get$debugIsActive() && element._dirty && element.get$buildScope() === this.$this;
     },
-    $signature: 26
+    $signature: 27
   };
   A.BuildScope__dirtyElementIndexAfter_closure.prototype = {
     call$0() {
@@ -213343,7 +213330,7 @@
     call$1(value) {
       return A._asInt(value) + 1;
     },
-    $signature: 68
+    $signature: 64
   };
   A.BuildOwner_finalizeTree__closure1.prototype = {
     call$1(element) {
@@ -213355,7 +213342,7 @@
     call$1(value) {
       return A._asInt(value) + 1;
     },
-    $signature: 68
+    $signature: 64
   };
   A.NotifiableElementMixin.prototype = {
     attachNotificationTree$0() {
@@ -214239,7 +214226,7 @@
       B.JSArray_methods.add$1(this.ancestors, element);
       return true;
     },
-    $signature: 26
+    $signature: 27
   };
   A.Element_describeElements_closure.prototype = {
     call$1(element) {
@@ -214330,7 +214317,7 @@
     call$1(element) {
       return !(type$.Element._as(element) instanceof A._NullElement);
     },
-    $signature: 26
+    $signature: 27
   };
   A.Element_update_closure.prototype = {
     call$0() {
@@ -215537,7 +215524,7 @@
     call$1(child) {
       return !this.$this._forgottenChildren.contains$1(0, type$.Element._as(child));
     },
-    $signature: 26
+    $signature: 27
   };
   A.MultiChildRenderObjectElement__debugCheckHasAssociatedRenderObject_closure.prototype = {
     call$0() {
@@ -215664,7 +215651,7 @@
     call$0() {
       return A.TapGestureRecognizer$(this.$this, -1, null);
     },
-    $signature: 148
+    $signature: 153
   };
   A.GestureDetector_build_closure0.prototype = {
     call$1(instance) {
@@ -215685,7 +215672,7 @@
       instance.gestureSettings = this.gestureSettings;
       instance.set$supportedDevices(_null);
     },
-    $signature: 150
+    $signature: 155
   };
   A.GestureDetector_build_closure1.prototype = {
     call$0() {
@@ -215765,7 +215752,7 @@
       instance.gestureSettings = _this.gestureSettings;
       instance.set$supportedDevices(null);
     },
-    $signature: 155
+    $signature: 174
   };
   A.GestureDetector_build_closure7.prototype = {
     call$0() {
@@ -215794,7 +215781,7 @@
     call$0() {
       return A.PanGestureRecognizer$(this.$this, null);
     },
-    $signature: 228
+    $signature: 270
   };
   A.GestureDetector_build_closure10.prototype = {
     call$1(instance) {
@@ -217467,7 +217454,7 @@
     call$1(value) {
       return new A.EdgeInsetsGeometryTween(type$.EdgeInsetsGeometry._as(value), null);
     },
-    $signature: 151
+    $signature: 156
   };
   A._AnimatedContainerState_forEachTween_closure1.prototype = {
     call$1(value) {
@@ -217491,7 +217478,7 @@
     call$1(value) {
       return new A.EdgeInsetsGeometryTween(type$.EdgeInsetsGeometry._as(value), null);
     },
-    $signature: 151
+    $signature: 156
   };
   A._AnimatedContainerState_forEachTween_closure5.prototype = {
     call$1(value) {
@@ -217534,7 +217521,7 @@
     call$1(value) {
       return new A.EdgeInsetsGeometryTween(type$.EdgeInsetsGeometry._as(value), null);
     },
-    $signature: 151
+    $signature: 156
   };
   A.AnimatedPositioned.prototype = {
     createState$0() {
@@ -217603,37 +217590,37 @@
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A._AnimatedPositionedState_forEachTween_closure0.prototype = {
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A._AnimatedPositionedState_forEachTween_closure1.prototype = {
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A._AnimatedPositionedState_forEachTween_closure2.prototype = {
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A._AnimatedPositionedState_forEachTween_closure3.prototype = {
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A._AnimatedPositionedState_forEachTween_closure4.prototype = {
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A.AnimatedOpacity.prototype = {
     createState$0() {
@@ -217664,7 +217651,7 @@
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A.AnimatedDefaultTextStyle.prototype = {
     createState$0() {
@@ -217761,19 +217748,19 @@
     call$1(value) {
       return new A.Tween(A._asDouble(value), null, type$.Tween_double);
     },
-    $signature: 57
+    $signature: 53
   };
   A._AnimatedPhysicalModelState_forEachTween_closure1.prototype = {
     call$1(value) {
       return new A.ColorTween(type$.Color._as(value), null);
     },
-    $signature: 100
+    $signature: 101
   };
   A._AnimatedPhysicalModelState_forEachTween_closure2.prototype = {
     call$1(value) {
       return new A.ColorTween(type$.Color._as(value), null);
     },
-    $signature: 100
+    $signature: 101
   };
   A._ImplicitlyAnimatedWidgetState_State_SingleTickerProviderStateMixin_dispose_closure.prototype = {
     call$0() {
@@ -217928,7 +217915,7 @@
       this._box_0.ancestorContext = $parent;
       return false;
     },
-    $signature: 26
+    $signature: 27
   };
   A._VisibilityScope.prototype = {
     updateShouldNotify$1(old) {
@@ -218075,7 +218062,7 @@
       }
       return true;
     },
-    $signature: 26
+    $signature: 27
   };
   A.InheritedTheme_capture__closure.prototype = {
     call$0() {
@@ -218420,7 +218407,7 @@
     call$1(value) {
       return this._box_0.completedValue = value;
     },
-    $signature: 137
+    $signature: 130
   };
   A._loadAll_closure0.prototype = {
     call$1(p) {
@@ -218687,7 +218674,7 @@
       }
       return A.getRuntimeTypeOfDartObject(ancestor.get$widget()) !== B.Type_LookupBoundary_YmL;
     },
-    $signature: 26
+    $signature: 27
   };
   A.LookupBoundary_findAncestorRenderObjectOfType_closure.prototype = {
     call$1(ancestor) {
@@ -218697,7 +218684,7 @@
       }
       return A.getRuntimeTypeOfDartObject(ancestor.get$widget()) !== B.Type_LookupBoundary_YmL;
     },
-    $signature: 26
+    $signature: 27
   };
   A.LookupBoundary_debugIsHidingAncestorWidgetOfExactType_closure.prototype = {
     call$0() {
@@ -218720,7 +218707,7 @@
       t1.hiddenByBoundary = t1.hiddenByBoundary || A.getRuntimeTypeOfDartObject(ancestor.get$widget()) === B.Type_LookupBoundary_YmL;
       return true;
     },
-    $signature: 26
+    $signature: 27
   };
   A.LookupBoundary_debugIsHidingAncestorStateOfType_closure.prototype = {
     call$0() {
@@ -218749,7 +218736,7 @@
       t1.hiddenByBoundary = t1.hiddenByBoundary || A.getRuntimeTypeOfDartObject(ancestor.get$widget()) === B.Type_LookupBoundary_YmL;
       return true;
     },
-    $signature: 26
+    $signature: 27
   };
   A.LookupBoundary_debugIsHidingAncestorRenderObjectOfType_closure.prototype = {
     call$0() {
@@ -218772,7 +218759,7 @@
       t1.hiddenByBoundary = t1.hiddenByBoundary || A.getRuntimeTypeOfDartObject(ancestor.get$widget()) === B.Type_LookupBoundary_YmL;
       return true;
     },
-    $signature: 26
+    $signature: 27
   };
   A.MagnifierInfo.prototype = {
     $eq(_, other) {
@@ -218906,7 +218893,7 @@
     call$1(context) {
       return new A._CaptureAll(this.capturedThemes._themes, type$.Widget._as(this.builder.call$1(type$.BuildContext._as(context))), null);
     },
-    $signature: 27
+    $signature: 30
   };
   A.MagnifierDecoration.prototype = {
     $eq(_, other) {
@@ -220379,13 +220366,13 @@
     call$2(error, stackTrace) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(error), type$.StackTrace._as(stackTrace), "widgets library", A.ErrorDescription$("while restoring focus in the navigator"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A._RouteEntry_dispose_closure.prototype = {
     call$1(e) {
       return type$.OverlayEntry._as(e).get$mounted();
     },
-    $signature: 84
+    $signature: 97
   };
   A._RouteEntry_dispose_closure0.prototype = {
     call$0() {
@@ -220408,7 +220395,7 @@
     call$1(e) {
       return !type$.OverlayEntry._as(e).get$mounted();
     },
-    $signature: 84
+    $signature: 97
   };
   A._RouteEntry_dispose__closure0.prototype = {
     call$0() {
@@ -220427,7 +220414,7 @@
     call$1(entry) {
       return type$._RouteEntry._as(entry).route === this.route;
     },
-    $signature: 85
+    $signature: 96
   };
   A._RouteEntry_markForPop_closure.prototype = {
     call$0() {
@@ -221644,7 +221631,7 @@
         t1 = null;
       return A._RouteEntry$(route, B._RouteLifecycle_1, false, t1);
     },
-    $signature: 898
+    $signature: 598
   };
   A.NavigatorState_restoreState_closure0.prototype = {
     call$0() {
@@ -221664,7 +221651,7 @@
       type$._RouteEntry._as(entry).forcedDispose$0();
       return true;
     },
-    $signature: 85
+    $signature: 96
   };
   A.NavigatorState__updateHeroController_closure.prototype = {
     call$0() {
@@ -221748,20 +221735,20 @@
     call$0() {
       return A._setArrayType([], type$.JSArray__RouteEntry);
     },
-    $signature: 127
+    $signature: 118
   };
   A.NavigatorState__updatePages_closure1.prototype = {
     call$0() {
       var t1 = A.List_List$_of(this.unattachedPagelessRoutes, type$._RouteEntry);
       return t1;
     },
-    $signature: 127
+    $signature: 118
   };
   A.NavigatorState__updatePages_closure2.prototype = {
     call$0() {
       return A._setArrayType([], type$.JSArray__RouteEntry);
     },
-    $signature: 127
+    $signature: 118
   };
   A.NavigatorState__updatePages_closure3.prototype = {
     call$0() {
@@ -221797,7 +221784,7 @@
     call$0() {
       return A._setArrayType([], type$.JSArray__RouteEntry);
     },
-    $signature: 127
+    $signature: 118
   };
   A.NavigatorState__updatePages_closure5.prototype = {
     call$0() {
@@ -221864,7 +221851,7 @@
     call$1(object) {
       return A.S(object);
     },
-    $signature: 109
+    $signature: 105
   };
   A.NavigatorState_pop_closure.prototype = {
     call$0() {
@@ -222182,7 +222169,7 @@
       if (!property._restoration0$_disposed)
         property.removeListener$1(0, listener);
     },
-    $signature: 60
+    $signature: 59
   };
   A._NavigatorState_State_TickerProviderStateMixin_dispose_closure.prototype = {
     call$0() {
@@ -223217,7 +223204,7 @@
       var t1 = type$.OverlayEntry._as(entry)._overlay;
       return t1 == null || t1 === this.$this;
     },
-    $signature: 84
+    $signature: 97
   };
   A.OverlayState_rearrange_closure0.prototype = {
     call$1(entry) {
@@ -223226,7 +223213,7 @@
       t1 = this.$this._entries;
       return B.JSArray_methods.indexOf$1(t1, entry) === B.JSArray_methods.lastIndexOf$1(t1, entry);
     },
-    $signature: 84
+    $signature: 97
   };
   A.OverlayState_rearrange_closure1.prototype = {
     call$0() {
@@ -224179,7 +224166,7 @@
       this._box_0.ancestor = A.LookupBoundary_getElementForInheritedWidgetOfExactType(element, type$._RenderTheaterMarker);
       return false;
     },
-    $signature: 26
+    $signature: 27
   };
   A._OverlayPortal.prototype = {
     createElement$0(_) {
@@ -225451,7 +225438,7 @@
       t1._overscroll_indicator$_controller.dispose$0();
       t1._overscroll_indicator$_controller = null;
     },
-    $signature: 30
+    $signature: 25
   };
   A.OverscrollIndicatorNotification.prototype = {
     debugFillDescription$1(description) {
@@ -225607,7 +225594,7 @@
     call$1(element) {
       return A.PageStorageBucket__maybeAddKey(element, this.keys);
     },
-    $signature: 26
+    $signature: 27
   };
   A.PageStorage.prototype = {
     build$1(context) {
@@ -226021,7 +226008,7 @@
       }
       return false;
     },
-    $signature: 48
+    $signature: 51
   };
   A._PageViewState_build_closure0.prototype = {
     call$2(context, position) {
@@ -226233,7 +226220,7 @@
     call$2(error, stack) {
       A.FlutterError_reportError(new A.FlutterErrorDetails(A._asObject(error), type$.StackTrace._as(stack), "widget library", A.ErrorDescription$("while handling framework focus changed on platform view"), null, null, false));
     },
-    $signature: 31
+    $signature: 33
   };
   A.PlatformViewSurface.prototype = {
     createRenderObject$1(context) {
@@ -227247,7 +227234,7 @@
       if (!property._restoration0$_disposed)
         property.removeListener$1(0, listener);
     },
-    $signature: 60
+    $signature: 59
   };
   A.__RestorationScopeState_State_RestorationMixin.prototype = {
     didUpdateWidget$1(oldWidget) {
@@ -227417,7 +227404,7 @@
       if (!property._restoration0$_disposed)
         property.removeListener$1(0, listener);
     },
-    $signature: 60
+    $signature: 59
   };
   A.RouteInformation.prototype = {
     get$uri() {
@@ -228190,7 +228177,7 @@
           t2.dispose$0();
       }
     },
-    $signature: 96
+    $signature: 95
   };
   A.TransitionRoute__handleDragEnd_closure.prototype = {
     call$1($status) {
@@ -228448,7 +228435,7 @@
         t4 = t2._page = new A.RepaintBoundary(new A.Builder(new A._ModalScopeState_build__closure(t2), null), t2._widget.route._subtreeKey);
       return A.Actions$(t1, A.PrimaryScrollController$(A._FocusScopeWithExternalFocusNode$(new A.RepaintBoundary(new A.ListenableBuilder(new A._ModalScopeState_build__closure0(t2), t4, t3, null), null), t2.focusScopeNode, true), t2.primaryScrollController));
     },
-    $signature: 261
+    $signature: 310
   };
   A._ModalScopeState_build__closure0.prototype = {
     call$2(context, child) {
@@ -228467,7 +228454,7 @@
         t5 = A.ValueNotifier$(false, type$.bool);
       return t2._buildFlexibleTransitions$4(context, t3, t4, new A.ListenableBuilder(new A._ModalScopeState_build___closure(t1), child, t5, null));
     },
-    $signature: 64
+    $signature: 65
   };
   A._ModalScopeState_build___closure.prototype = {
     call$2(context, child) {
@@ -228492,7 +228479,7 @@
       t3.toString;
       return t1.buildPage$3(context, t2, t3);
     },
-    $signature: 27
+    $signature: 30
   };
   A.ModalRoute.prototype = {
     setState$1(fn) {
@@ -229380,7 +229367,7 @@
       type$.PointerEvent._as($event);
       return new A.VelocityTracker($event.get$kind($event), A.List_List$filled(20, null, false, type$.nullable__PointAtTime));
     },
-    $signature: 311
+    $signature: 241
   };
   A._WrappedScrollBehavior.prototype = {
     get$dragDevices() {
@@ -230053,14 +230040,14 @@
       this.$this._notifyListeners$1(type$.ScrollMetricsNotification._as(notification).asScrollUpdate$0());
       return false;
     },
-    $signature: 156
+    $signature: 160
   };
   A.ScrollNotificationObserverState_build_closure0.prototype = {
     call$1(notification) {
       this.$this._notifyListeners$1(type$.ScrollNotification._as(notification));
       return false;
     },
-    $signature: 48
+    $signature: 51
   };
   A.ScrollDecelerationRate.prototype = {
     _enumToString$0() {
@@ -231459,7 +231446,7 @@
       if (!property._restoration0$_disposed)
         property.removeListener$1(0, listener);
     },
-    $signature: 60
+    $signature: 59
   };
   A.Scrollable.prototype = {
     createState$0() {
@@ -231951,7 +231938,7 @@
       instance.gestureSettings = t1._mediaQueryGestureSettings;
       instance.set$supportedDevices(t1.__ScrollableState__configuration_A.get$dragDevices());
     },
-    $signature: 155
+    $signature: 174
   };
   A.ScrollableState_setCanDrag_closure1.prototype = {
     call$0() {
@@ -234322,7 +234309,7 @@
           break;
       }
     },
-    $signature: 56
+    $signature: 52
   };
   A.RawScrollbarState_build_closure0.prototype = {
     call$1($event) {
@@ -236906,13 +236893,13 @@
         t2.remove$1(0, index);
       }
     },
-    $signature: 33
+    $signature: 32
   };
   A.SliverMultiBoxAdaptorElement_performRebuild_closure.prototype = {
     call$0() {
       return null;
     },
-    $signature: 30
+    $signature: 25
   };
   A.SliverMultiBoxAdaptorElement_performRebuild_closure0.prototype = {
     call$0() {
@@ -237866,7 +237853,7 @@
       type$.TableRow._as(row1);
       return row1.key != null && B.JSArray_methods.any$1(this.children, new A.Table___closure(row1));
     },
-    $signature: 87
+    $signature: 85
   };
   A.Table___closure.prototype = {
     call$1(row2) {
@@ -237875,7 +237862,7 @@
       t1 = this.row1;
       return t1 !== row2 && t1.key == row2.key;
     },
-    $signature: 87
+    $signature: 85
   };
   A.Table_closure0.prototype = {
     call$0() {
@@ -237894,20 +237881,20 @@
     call$1(row) {
       return type$.TableRow._as(row).children.length !== this.cellCount;
     },
-    $signature: 87
+    $signature: 85
   };
   A.Table__closure1.prototype = {
     call$1(row) {
       return type$.TableRow._as(row).children.length === 0;
     },
-    $signature: 87
+    $signature: 85
   };
   A.Table_closure1.prototype = {
     call$1(row) {
       type$.TableRow._as(row);
       return true;
     },
-    $signature: 87
+    $signature: 85
   };
   A.Table_closure2.prototype = {
     call$1(row) {
@@ -239764,7 +239751,7 @@
     call$1(__wc0_formal) {
       return this.builtMagnifier;
     },
-    $signature: 27
+    $signature: 30
   };
   A.SelectionOverlay_showHandles_closure.prototype = {
     call$1(context) {
@@ -239784,7 +239771,7 @@
       }
       return new A._CaptureAll(this.capturedThemes._themes, A.TapRegion$(A.TextFieldTapRegion$(new A.ExcludeSemantics(true, handle, _null), _null, B.Type_EditableText_O5i, _null, _null), false, _null, true, B.Type_SelectableRegion_M7l, _null, _null, _null, _null, _null), _null);
     },
-    $signature: 27
+    $signature: 30
   };
   A.SelectionOverlay_showHandles_closure0.prototype = {
     call$1(context) {
@@ -239806,7 +239793,7 @@
       }
       return new A._CaptureAll(this.capturedThemes._themes, A.TapRegion$(A.TextFieldTapRegion$(new A.ExcludeSemantics(true, handle, _null), _null, B.Type_EditableText_O5i, _null, _null), false, _null, true, B.Type_SelectableRegion_M7l, _null, _null, _null, _null, _null), _null);
     },
-    $signature: 27
+    $signature: 30
   };
   A.SelectionOverlay_showToolbar_closure.prototype = {
     call$1(context) {
@@ -239853,7 +239840,7 @@
       type$.nullable_ValueListenable_ClipboardStatus._as(t1.clipboardStatus);
       return B.SizedBox_0_0_null_null;
     },
-    $signature: 27
+    $signature: 30
   };
   A._SelectionToolbarWrapper.prototype = {
     createState$0() {
@@ -240002,7 +239989,7 @@
     call$0() {
       return A.PanGestureRecognizer$(this.$this, A.LinkedHashSet_LinkedHashSet$_literal([B.PointerDeviceKind_0, B.PointerDeviceKind_2, B.PointerDeviceKind_5], type$.PointerDeviceKind));
     },
-    $signature: 228
+    $signature: 270
   };
   A._SelectionHandleOverlayState_build_closure0.prototype = {
     call$1(instance) {
@@ -240809,7 +240796,7 @@
         B.OptionalMethodChannel_13P.invokeMethod$1$1("Scribe.startStylusHandwriting", type$.void);
       }
     },
-    $signature: 120
+    $signature: 116
   };
   A.TextSelectionGestureDetector.prototype = {
     createState$0() {
@@ -240908,7 +240895,7 @@
     call$0() {
       return A.TapGestureRecognizer$(this.$this, -1, null);
     },
-    $signature: 148
+    $signature: 153
   };
   A._TextSelectionGestureDetectorState_build_closure0.prototype = {
     call$1(instance) {
@@ -240918,7 +240905,7 @@
       instance.set$onSecondaryTap(t1._widget.onSecondaryTap);
       instance.set$onSecondaryTapDown(t1._widget.onSecondaryTapDown);
     },
-    $signature: 150
+    $signature: 155
   };
   A._TextSelectionGestureDetectorState_build_closure1.prototype = {
     call$0() {
@@ -242845,7 +242832,7 @@
       }
       return true;
     },
-    $signature: 26
+    $signature: 27
   };
   A._DeprecatedRawViewKey.prototype = {
     $eq(_, other) {
@@ -244075,7 +244062,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 42
+    $signature: 43
   };
   A.WidgetInspectorService__registerServiceExtensionWithArg_closure.prototype = {
     call$1(parameters) {
@@ -244271,7 +244258,7 @@
       });
       return A._asyncStartSync($async$call$0, $async$completer);
     },
-    $signature: 208
+    $signature: 202
   };
   A.WidgetInspectorService_initServiceExtensions_closure5.prototype = {
     call$1($name) {
@@ -244352,7 +244339,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 161
+    $signature: 162
   };
   A.WidgetInspectorService_initServiceExtensions_closure8.prototype = {
     call$1(args) {
@@ -244381,7 +244368,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 161
+    $signature: 162
   };
   A.WidgetInspectorService_initServiceExtensions_closure9.prototype = {
     call$1(args) {
@@ -244410,7 +244397,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 161
+    $signature: 162
   };
   A.WidgetInspectorService_initServiceExtensions_closure10.prototype = {
     call$1(parameters) {
@@ -244527,14 +244514,14 @@
       var t1 = A.Uri_parse(A._asString(directory), 0, null);
       return t1.get$path(t1);
     },
-    $signature: 25
+    $signature: 28
   };
   A.WidgetInspectorService_removePubRootDirectories_closure.prototype = {
     call$1(directory) {
       var t1 = A.Uri_parse(A._asString(directory), 0, null);
       return t1.get$path(t1);
     },
-    $signature: 25
+    $signature: 28
   };
   A.WidgetInspectorService__getParentChain_createDelegate.prototype = {
     call$0() {
@@ -244547,7 +244534,7 @@
       type$.DiagnosticsNode._as(node);
       return node.get$value(node) instanceof A.Element;
     },
-    $signature: 79
+    $signature: 76
   };
   A.WidgetInspectorService__getRootWidgetTreeImpl_combinedAddAdditionalPropertiesCallback.prototype = {
     call$2(node, delegate) {
@@ -244884,7 +244871,7 @@
       t1 = this.area;
       return J.compareTo$1$ns(t1.call$1(a), t1.call$1(b));
     },
-    $signature: 82
+    $signature: 81
   };
   A.InspectorButtonVariant.prototype = {
     _enumToString$0() {
@@ -245026,13 +245013,13 @@
       var route = A._modalRouteForRenderObject(type$.RenderObject._as(hit));
       return route == null || !route._offstage;
     },
-    $signature: 89
+    $signature: 99
   };
   A._filterInspectorHitCandidatesToModalRouteScope_closure0.prototype = {
     call$1(hit) {
       return A._modalRouteForRenderObject(type$.RenderObject._as(hit)) == this.scopeRoute;
     },
-    $signature: 89
+    $signature: 99
   };
   A._filterInspectorHitCandidatesToModalRouteScope_closure1.prototype = {
     call$2(a, b) {
@@ -245041,7 +245028,7 @@
       t1._as(b);
       return B.JSNumber_methods.compareTo$1(A._inspectorHitArea(a), A._inspectorHitArea(b));
     },
-    $signature: 82
+    $signature: 81
   };
   A._InspectorOverlayLayer.prototype = {
     _InspectorOverlayLayer$3$overlayRect$rootRenderObject$selection(overlayRect, rootRenderObject, selection, _box_0) {
@@ -245212,7 +245199,7 @@
     call$1(child) {
       return type$.RenderBox._as(child) instanceof A._RenderInspectorOverlay;
     },
-    $signature: 174
+    $signature: 146
   };
   A._WidgetInspectorButtonGroup.prototype = {
     createState$0() {
@@ -245385,14 +245372,14 @@
       type$.PointerEnterEvent._as(__wc0_formal);
       this.$this._tooltipVisibilityChangedAfter$2$isVisible(B.Duration_100000, true);
     },
-    $signature: 62
+    $signature: 58
   };
   A._WidgetInspectorButtonState_build_closure0.prototype = {
     call$1(__wc1_formal) {
       type$.PointerExitEvent._as(__wc1_formal);
       this.$this._tooltipVisibilityChangedAfter$2$isVisible(B.Duration_100000, false);
     },
-    $signature: 56
+    $signature: 52
   };
   A._WidgetInspectorButtonState__tooltipVisibilityChangedAfter_closure.prototype = {
     call$0() {
@@ -245515,7 +245502,7 @@
       t2 = node.get$level(node);
       return t2.index >= t1.index;
     },
-    $signature: 79
+    $signature: 76
   };
   A.WeakMap.prototype = {
     _isPrimitive$1(key) {
@@ -245695,7 +245682,7 @@
       }
       return true;
     },
-    $signature: 128
+    $signature: 102
   };
   A._WidgetSpanParentData.prototype = {
     applyParentData$1(renderObject) {
@@ -247492,35 +247479,35 @@
         A.FlutterError_reportError(new A.FlutterErrorDetails(exception, stack, "flutter web plugins", t1, null, null, false));
       }
     },
-    $signature: 47
+    $signature: 46
   };
   A.PluginRegistry.prototype = {};
   A.get_closure.prototype = {
     call$1(client) {
       return client._sendUnstreamed$3("GET", this.url, this.headers);
     },
-    $signature: 101
+    $signature: 124
   };
   A.post_closure.prototype = {
     call$1(client) {
       var _this = this;
       return client._sendUnstreamed$5("POST", _this.url, type$.nullable_Map_String_String._as(_this.headers), _this.body, _this.encoding);
     },
-    $signature: 101
+    $signature: 124
   };
   A.put_closure.prototype = {
     call$1(client) {
       var _this = this;
       return client._sendUnstreamed$5("PUT", _this.url, type$.nullable_Map_String_String._as(_this.headers), _this.body, _this.encoding);
     },
-    $signature: 101
+    $signature: 124
   };
   A.delete_closure.prototype = {
     call$1(client) {
       var _this = this;
       return client._sendUnstreamed$5("DELETE", _this.url, _this.headers, _this.body, _this.encoding);
     },
-    $signature: 101
+    $signature: 124
   };
   A.BaseClient.prototype = {
     _sendUnstreamed$5(method, url, headers, body, encoding) {
@@ -247872,7 +247859,7 @@
       } else
         t1._contents = t3 + value;
     },
-    $signature: 115
+    $signature: 125
   };
   A.MediaType_toString__closure.prototype = {
     call$1(match) {
@@ -255068,7 +255055,7 @@
     call$1(element) {
       return A._asString(element) !== "";
     },
-    $signature: 40
+    $signature: 41
   };
   A.PsdChannel.prototype = {
     readPlane$7(input, width, height, bitDepth, compression, lineLengths, planeNum) {
@@ -270369,88 +270356,88 @@
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_background_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 6 : 98;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onBackground_closure0.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onBackground_closure1.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 90 : 10;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onBackground_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_background();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_surface_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surface_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 6 : 98;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_surfaceDim_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surfaceDim_closure0.prototype = {
     call$1(s) {
       type$.DynamicScheme._as(s);
       return s.isDark ? 6 : new A.ContrastCurve(87, 87, 80, 75).$get$1(0, s.contrastLevel);
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_surfaceBright_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surfaceBright_closure0.prototype = {
     call$1(s) {
       type$.DynamicScheme._as(s);
       return s.isDark ? new A.ContrastCurve(24, 24, 29, 34).$get$1(0, s.contrastLevel) : 98;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_surfaceContainerLowest_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surfaceContainerLowest_closure0.prototype = {
     call$1(s) {
       type$.DynamicScheme._as(s);
       return s.isDark ? new A.ContrastCurve(4, 4, 2, 0).$get$1(0, s.contrastLevel) : 100;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_surfaceContainerLow_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surfaceContainerLow_closure0.prototype = {
     call$1(s) {
@@ -270459,13 +270446,13 @@
       t1 = s.contrastLevel;
       return s.isDark ? new A.ContrastCurve(10, 10, 11, 12).$get$1(0, t1) : new A.ContrastCurve(96, 96, 96, 95).$get$1(0, t1);
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_surfaceContainer_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surfaceContainer_closure0.prototype = {
     call$1(s) {
@@ -270474,13 +270461,13 @@
       t1 = s.contrastLevel;
       return s.isDark ? new A.ContrastCurve(12, 12, 16, 20).$get$1(0, t1) : new A.ContrastCurve(94, 94, 92, 90).$get$1(0, t1);
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_surfaceContainerHigh_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surfaceContainerHigh_closure0.prototype = {
     call$1(s) {
@@ -270489,13 +270476,13 @@
       t1 = s.contrastLevel;
       return s.isDark ? new A.ContrastCurve(17, 17, 21, 25).$get$1(0, t1) : new A.ContrastCurve(92, 92, 88, 85).$get$1(0, t1);
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_surfaceContainerHighest_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surfaceContainerHighest_closure0.prototype = {
     call$1(s) {
@@ -270504,129 +270491,129 @@
       t1 = s.contrastLevel;
       return s.isDark ? new A.ContrastCurve(22, 22, 26, 30).$get$1(0, t1) : new A.ContrastCurve(90, 90, 84, 80).$get$1(0, t1);
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onSurface_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onSurface_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 90 : 10;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_surfaceVariant_closure.prototype = {
     call$1(s) {
       return s.neutralVariantPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_surfaceVariant_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 30 : 90;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onSurfaceVariant_closure.prototype = {
     call$1(s) {
       return s.neutralVariantPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onSurfaceVariant_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 80 : 30;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_inverseSurface_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_inverseSurface_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 90 : 20;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_inverseOnSurface_closure0.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_inverseOnSurface_closure1.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 20 : 95;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_inverseOnSurface_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_inverseSurface();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_outline_closure.prototype = {
     call$1(s) {
       return s.neutralVariantPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_outline_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 60 : 50;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_outlineVariant_closure.prototype = {
     call$1(s) {
       return s.neutralVariantPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_outlineVariant_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 30 : 80;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_shadow_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_shadow_closure0.prototype = {
     call$1(s) {
       type$.DynamicScheme._as(s);
       return 0;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_scrim_closure.prototype = {
     call$1(s) {
       return s.neutralPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_scrim_closure0.prototype = {
     call$1(s) {
       type$.DynamicScheme._as(s);
       return 0;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_primary_closure.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_primary_closure0.prototype = {
     call$1(s) {
@@ -270635,19 +270622,19 @@
         return s.isDark ? 100 : 0;
       return s.isDark ? 80 : 40;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_primary_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_primaryContainer(), $.$get$MaterialDynamicColors_primary(), 10, B.TonePolarity_2, false);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onPrimary_closure0.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onPrimary_closure1.prototype = {
     call$1(s) {
@@ -270656,19 +270643,19 @@
         return s.isDark ? 10 : 90;
       return s.isDark ? 20 : 100;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onPrimary_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_primary();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_primaryContainer_closure.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_primaryContainer_closure0.prototype = {
     call$1(s) {
@@ -270684,19 +270671,19 @@
         return s.isDark ? 85 : 25;
       return s.isDark ? 30 : 90;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_primaryContainer_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_primaryContainer(), $.$get$MaterialDynamicColors_primary(), 10, B.TonePolarity_2, false);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onPrimaryContainer_closure0.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onPrimaryContainer_closure1.prototype = {
     call$1(s) {
@@ -270709,55 +270696,55 @@
         return s.isDark ? 0 : 100;
       return s.isDark ? 90 : 30;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onPrimaryContainer_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_primaryContainer();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_inversePrimary_closure0.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_inversePrimary_closure1.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 40 : 80;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_inversePrimary_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_inverseSurface();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_secondary_closure.prototype = {
     call$1(s) {
       return s.secondaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_secondary_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 80 : 40;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_secondary_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_secondaryContainer(), $.$get$MaterialDynamicColors_secondary(), 10, B.TonePolarity_2, false);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onSecondary_closure0.prototype = {
     call$1(s) {
       return s.secondaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onSecondary_closure1.prototype = {
     call$1(s) {
@@ -270767,19 +270754,19 @@
       else
         return s.isDark ? 20 : 100;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onSecondary_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_secondary();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_secondaryContainer_closure.prototype = {
     call$1(s) {
       return s.secondaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_secondaryContainer_closure0.prototype = {
     call$1(s) {
@@ -270795,19 +270782,19 @@
       t2 = s.secondaryPalette;
       return A.MaterialDynamicColors__findDesiredChromaByTone(t2.hue, t2.chroma, initialTone, !t1);
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_secondaryContainer_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_secondaryContainer(), $.$get$MaterialDynamicColors_secondary(), 10, B.TonePolarity_2, false);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onSecondaryContainer_closure0.prototype = {
     call$1(s) {
       return s.secondaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onSecondaryContainer_closure1.prototype = {
     call$1(s) {
@@ -270820,19 +270807,19 @@
         return s.isDark ? 90 : 30;
       return A.DynamicColor_foregroundTone($.$get$MaterialDynamicColors_secondaryContainer().tone.call$1(s), 4.5);
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onSecondaryContainer_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_secondaryContainer();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_tertiary_closure.prototype = {
     call$1(s) {
       return s.tertiaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_tertiary_closure0.prototype = {
     call$1(s) {
@@ -270841,19 +270828,19 @@
         return s.isDark ? 90 : 25;
       return s.isDark ? 80 : 40;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_tertiary_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_tertiaryContainer(), $.$get$MaterialDynamicColors_tertiary(), 10, B.TonePolarity_2, false);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onTertiary_closure0.prototype = {
     call$1(s) {
       return s.tertiaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onTertiary_closure1.prototype = {
     call$1(s) {
@@ -270862,19 +270849,19 @@
         return s.isDark ? 10 : 90;
       return s.isDark ? 20 : 100;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onTertiary_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_tertiary();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_tertiaryContainer_closure.prototype = {
     call$1(s) {
       return s.tertiaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_tertiaryContainer_closure0.prototype = {
     call$1(s) {
@@ -270891,19 +270878,19 @@
       t1 === $ && A.throwLateFieldNI("_tone");
       return t1;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_tertiaryContainer_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_tertiaryContainer(), $.$get$MaterialDynamicColors_tertiary(), 10, B.TonePolarity_2, false);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onTertiaryContainer_closure0.prototype = {
     call$1(s) {
       return s.tertiaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onTertiaryContainer_closure1.prototype = {
     call$1(s) {
@@ -270916,73 +270903,73 @@
         return s.isDark ? 90 : 30;
       return A.DynamicColor_foregroundTone($.$get$MaterialDynamicColors_tertiaryContainer().tone.call$1(s), 4.5);
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onTertiaryContainer_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_tertiaryContainer();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_error_closure.prototype = {
     call$1(s) {
       return s.errorPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_error_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 80 : 40;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_error_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_errorContainer(), $.$get$MaterialDynamicColors_error(), 10, B.TonePolarity_2, false);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onError_closure0.prototype = {
     call$1(s) {
       return s.errorPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onError_closure1.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 20 : 100;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onError_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_error();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_errorContainer_closure.prototype = {
     call$1(s) {
       return s.errorPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_errorContainer_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).isDark ? 30 : 90;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_errorContainer_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_errorContainer(), $.$get$MaterialDynamicColors_error(), 10, B.TonePolarity_2, false);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onErrorContainer_closure0.prototype = {
     call$1(s) {
       return s.errorPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onErrorContainer_closure1.prototype = {
     call$1(s) {
@@ -270991,266 +270978,266 @@
         return s.isDark ? 90 : 10;
       return s.isDark ? 90 : 30;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onErrorContainer_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_errorContainer();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_primaryFixed_closure.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_primaryFixed_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 40 : 90;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_primaryFixed_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_primaryFixed(), $.$get$MaterialDynamicColors_primaryFixedDim(), 10, B.TonePolarity_1, true);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_primaryFixedDim_closure.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_primaryFixedDim_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 30 : 80;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_primaryFixedDim_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_primaryFixed(), $.$get$MaterialDynamicColors_primaryFixedDim(), 10, B.TonePolarity_1, true);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onPrimaryFixed_closure0.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onPrimaryFixed_closure2.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 100 : 10;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onPrimaryFixed_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_primaryFixedDim();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onPrimaryFixed_closure1.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_primaryFixed();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onPrimaryFixedVariant_closure0.prototype = {
     call$1(s) {
       return s.primaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onPrimaryFixedVariant_closure2.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 90 : 30;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onPrimaryFixedVariant_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_primaryFixedDim();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onPrimaryFixedVariant_closure1.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_primaryFixed();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_secondaryFixed_closure.prototype = {
     call$1(s) {
       return s.secondaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_secondaryFixed_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 80 : 90;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_secondaryFixed_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_secondaryFixed(), $.$get$MaterialDynamicColors_secondaryFixedDim(), 10, B.TonePolarity_1, true);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_secondaryFixedDim_closure.prototype = {
     call$1(s) {
       return s.secondaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_secondaryFixedDim_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 70 : 80;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_secondaryFixedDim_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_secondaryFixed(), $.$get$MaterialDynamicColors_secondaryFixedDim(), 10, B.TonePolarity_1, true);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onSecondaryFixed_closure0.prototype = {
     call$1(s) {
       return s.secondaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onSecondaryFixed_closure2.prototype = {
     call$1(s) {
       type$.DynamicScheme._as(s);
       return 10;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onSecondaryFixed_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_secondaryFixedDim();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onSecondaryFixed_closure1.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_secondaryFixed();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onSecondaryFixedVariant_closure0.prototype = {
     call$1(s) {
       return s.secondaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onSecondaryFixedVariant_closure2.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 25 : 30;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onSecondaryFixedVariant_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_secondaryFixedDim();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onSecondaryFixedVariant_closure1.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_secondaryFixed();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_tertiaryFixed_closure.prototype = {
     call$1(s) {
       return s.tertiaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_tertiaryFixed_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 40 : 90;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_tertiaryFixed_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_tertiaryFixed(), $.$get$MaterialDynamicColors_tertiaryFixedDim(), 10, B.TonePolarity_1, true);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_tertiaryFixedDim_closure.prototype = {
     call$1(s) {
       return s.tertiaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_tertiaryFixedDim_closure0.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 30 : 80;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_tertiaryFixedDim_closure1.prototype = {
     call$1(s) {
       return new A.ToneDeltaPair($.$get$MaterialDynamicColors_tertiaryFixed(), $.$get$MaterialDynamicColors_tertiaryFixedDim(), 10, B.TonePolarity_1, true);
     },
-    $signature: 38
+    $signature: 40
   };
   A.MaterialDynamicColors_onTertiaryFixed_closure0.prototype = {
     call$1(s) {
       return s.tertiaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onTertiaryFixed_closure2.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 100 : 10;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onTertiaryFixed_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_tertiaryFixedDim();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onTertiaryFixed_closure1.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_tertiaryFixed();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onTertiaryFixedVariant_closure0.prototype = {
     call$1(s) {
       return s.tertiaryPalette;
     },
-    $signature: 5
+    $signature: 6
   };
   A.MaterialDynamicColors_onTertiaryFixedVariant_closure2.prototype = {
     call$1(s) {
       return type$.DynamicScheme._as(s).variant === B.Variant_0_monochrome ? 90 : 30;
     },
-    $signature: 6
+    $signature: 5
   };
   A.MaterialDynamicColors_onTertiaryFixedVariant_closure.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_tertiaryFixedDim();
     },
-    $signature: 16
+    $signature: 15
   };
   A.MaterialDynamicColors_onTertiaryFixedVariant_closure1.prototype = {
     call$1(s) {
       return $.$get$MaterialDynamicColors_tertiaryFixed();
     },
-    $signature: 16
+    $signature: 15
   };
   A.ContrastCurve.prototype = {
     $get$1(_, contrastLevel) {
@@ -271376,7 +271363,7 @@
       t1 === $ && A.throwLateFieldNI("_chroma");
       return t1;
     },
-    $signature: 105
+    $signature: 126
   };
   A.SchemeContent.prototype = {};
   A.SchemeExpressive.prototype = {};
@@ -272735,7 +272722,7 @@
         return;
       t1.addError$1(error);
     },
-    $signature: 53
+    $signature: 57
   };
   A.MobileScannerController__setupListeners_closure1.prototype = {
     call$1(torchState) {
@@ -272757,7 +272744,7 @@
         return;
       t1.set$value(0, t1._change_notifier$_value.copyWith$1$zoomScale(zoomScale));
     },
-    $signature: 116
+    $signature: 106
   };
   A.MobileScannerController__setupListeners_closure3.prototype = {
     call$1(orientation) {
@@ -273036,7 +273023,7 @@
     call$1(s) {
       return A._asString(s);
     },
-    $signature: 25
+    $signature: 28
   };
   A.BarcodeReader.prototype = {
     get$scriptId() {
@@ -273096,7 +273083,7 @@
       if ((t1.future._state & 30) === 0)
         t1.complete$0(0);
     },
-    $signature: 53
+    $signature: 57
   };
   A.BarcodeReader_maybeLoadLibrary_closure0.prototype = {
     call$1(__wc1_formal) {
@@ -273108,7 +273095,7 @@
         t1.completeError$1(B.MobileScannerException_JtH);
       }
     },
-    $signature: 53
+    $signature: 57
   };
   A.MediaTrackConstraintsDelegate.prototype = {
     getCameraDirection$1(videoStream) {
@@ -273756,14 +273743,14 @@
       A._asObject(__wc0_formal);
       this.videoElement.controls = false;
     },
-    $signature: 53
+    $signature: 57
   };
   A.MobileScannerWeb__createVideoElement_closure0.prototype = {
     call$1(__wc1_formal) {
       A._asObject(__wc1_formal);
       this.videoElement.controls = false;
     },
-    $signature: 53
+    $signature: 57
   };
   A.MobileScannerWeb__createVideoElement_closure1.prototype = {
     call$1(__wc2_formal) {
@@ -273777,19 +273764,19 @@
     call$1(e) {
       return A._asString(e);
     },
-    $signature: 25
+    $signature: 28
   };
   A.MobileScannerWeb__applyVideoConstraints_closure0.prototype = {
     call$1(e) {
       return A._asString(e);
     },
-    $signature: 25
+    $signature: 28
   };
   A.MobileScannerWeb__applyVideoConstraints_closure1.prototype = {
     call$1(e) {
       return A._asString(e);
     },
-    $signature: 25
+    $signature: 28
   };
   A.MobileScannerWeb__isValidDeviceId_closure.prototype = {
     call$1(d) {
@@ -273818,7 +273805,7 @@
         return;
       t1.addError$1(error);
     },
-    $signature: 53
+    $signature: 57
   };
   A.PollingBarcodeReader.prototype = {
     get$isScanning() {
@@ -274127,44 +274114,44 @@
     call$1(c) {
       return type$.Offset._as(c)._dx;
     },
-    $signature: 75
+    $signature: 72
   };
   A.isInsideScanWindow_closure0.prototype = {
     call$1(c) {
       return type$.Offset._as(c)._dx;
     },
-    $signature: 75
+    $signature: 72
   };
   A.isInsideScanWindow_closure1.prototype = {
     call$1(c) {
       return type$.Offset._as(c)._dy;
     },
-    $signature: 75
+    $signature: 72
   };
   A.isInsideScanWindow_closure2.prototype = {
     call$1(c) {
       return type$.Offset._as(c)._dy;
     },
-    $signature: 75
+    $signature: 72
   };
   A.computeBoundingBoxSize_closure.prototype = {
     call$1(c) {
       return type$.Offset._as(c)._dx;
     },
-    $signature: 75
+    $signature: 72
   };
   A.computeBoundingBoxSize_closure0.prototype = {
     call$1(c) {
       return type$.Offset._as(c)._dy;
     },
-    $signature: 75
+    $signature: 72
   };
   A.mirrorBarcodeX_closure.prototype = {
     call$1(c) {
       type$.Offset._as(c);
       return new A.Offset(this.videoWidth - c._dx, c._dy);
     },
-    $signature: 95
+    $signature: 87
   };
   A.ZXingWasmBarcodeReader.prototype = {
     get$scriptId() {
@@ -274285,11 +274272,10 @@
   };
   A.POSDialogs_promptClearCart_closure.prototype = {
     call$1(context) {
-      var _null = null;
       type$.BuildContext._as(context);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_AeR, new A.POSDialogs_promptClearCart__closure(context), _null), A.TextButton$(B.Text_CY8, new A.POSDialogs_promptClearCart__closure0(context), _null)], type$.JSArray_Widget), _null, B.Text_XmJ, B.Text_6p4, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_AeR, new A.POSDialogs_promptClearCart__closure(context), null), A.TextButton$(B.Text_CY8, new A.POSDialogs_promptClearCart__closure0(context), null)], type$.JSArray_Widget), null, B.Text_XmJ, B.Text_6p4);
     },
-    $signature: 28
+    $signature: 29
   };
   A.POSDialogs_promptClearCart__closure.prototype = {
     call$0() {
@@ -274311,9 +274297,9 @@
       t2 = type$.JSArray_Widget;
       t3 = A.Row$(A._setArrayType([B.Icon_L7b, B.SizedBox_8_null_null_null, B.Text_Jcc], t2), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null);
       t4 = A.Text$("Invalid barcode: " + this.barcode + "\n\nDo you want to continue scanning?", _null, _null, _null, B.TextStyle_3gD, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_Tyl, new A.POSDialogs_showInvalidBarcodeDialog__closure(context, this.onContinue), _null)], t2), t1, t4, t3, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_Tyl, new A.POSDialogs_showInvalidBarcodeDialog__closure(context, this.onContinue), _null)], t2), t1, t4, t3);
     },
-    $signature: 28
+    $signature: 29
   };
   A.POSDialogs_showInvalidBarcodeDialog__closure.prototype = {
     call$0() {
@@ -274324,11 +274310,10 @@
   };
   A.POSDialogs_onWillPop_closure.prototype = {
     call$1(context) {
-      var _null = null;
       type$.BuildContext._as(context);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A.POSDialogs_onWillPop__closure(context), _null), A.TextButton$(B.Text_GL4, new A.POSDialogs_onWillPop__closure0(context), _null)], type$.JSArray_Widget), _null, B.Text_Myx, B.Text_HqJ, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A.POSDialogs_onWillPop__closure(context), null), A.TextButton$(B.Text_GL4, new A.POSDialogs_onWillPop__closure0(context), null)], type$.JSArray_Widget), null, B.Text_Myx, B.Text_HqJ);
     },
-    $signature: 28
+    $signature: 29
   };
   A.POSDialogs_onWillPop__closure.prototype = {
     call$0() {
@@ -274345,7 +274330,7 @@
   A.POSDialogs_showManualEntryDialog_closure.prototype = {
     call$1(context) {
       type$.BuildContext._as(context);
-      return new A._ManualEntryDialog(this.onAdd, null);
+      return B._ManualEntryDialog_null;
     },
     $signature: 756
   };
@@ -274357,9 +274342,9 @@
       t2 = _this.priceController;
       t3 = type$.JSArray_Widget;
       t4 = A.Column$(A._setArrayType([A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t1, _null, _null, _null, _null, _null, 2, B.InputDecoration_mbQ, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_false, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null), A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t2, _null, _null, _null, _null, _null, 2, B.InputDecoration_3bG, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_true, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null)], t3), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_8Ec, new A.POSDialogs_showEditItemDialog__closure(t1, _this.item, t2, _this.onSave, context), _null), A.TextButton$(B.Text_FgL, new A.POSDialogs_showEditItemDialog__closure0(context), _null)], t3), _null, t4, B.Text_MxW, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_8Ec, new A.POSDialogs_showEditItemDialog__closure(t1, _this.item, t2, _this.onSave, context), _null), A.TextButton$(B.Text_FgL, new A.POSDialogs_showEditItemDialog__closure0(context), _null)], t3), _null, t4, B.Text_MxW);
     },
-    $signature: 28
+    $signature: 29
   };
   A.POSDialogs_showEditItemDialog__closure.prototype = {
     call$0() {
@@ -274386,9 +274371,6 @@
   A._ManualEntryDialog.prototype = {
     createState$0() {
       return new A._ManualEntryDialogState(B._ManualEntryField_0, B._StateLifecycle_0);
-    },
-    onAdd$2(arg0, arg1) {
-      return this.onAdd.call$2(arg0, arg1);
     }
   };
   A._ManualEntryDialogState.prototype = {
@@ -274455,8 +274437,7 @@
         _this.setState$1(new A._ManualEntryDialogState__submit_closure0(_this));
         return;
       }
-      _this._widget.onAdd$2(rate, qty);
-      _this.setState$1(new A._ManualEntryDialogState__submit_closure1(_this));
+      A.Navigator_of(_this.get$context(0), false).pop$1$1(A.LinkedHashMap_LinkedHashMap$_literal(["rate", rate, "quantity", qty], type$.String, type$.num), type$.Map_String_num);
     },
     _buildFieldBox$3$field$label$value(field, label, value) {
       var t1, t2, _null = null,
@@ -274489,29 +274470,31 @@
       return this._buildKey$3$icon$onTap(label, null, onTap);
     },
     build$1(context) {
-      var _this = this, _null = null,
+      var t4, _this = this, _null = null,
         t1 = type$.JSArray_Widget,
-        t2 = A.Row$(A._setArrayType([B.Text_AO7, A.IconButton$(_null, B.BoxConstraints_0Yu0, B.Icon_8qC, _null, _null, new A._ManualEntryDialogState_build_closure(context), B.EdgeInsets_4_4_4_4, _null, "Close")], t1), B.CrossAxisAlignment_2, B.MainAxisAlignment_3, B.MainAxisSize_1, 0, _null),
-        t3 = A._setArrayType([A.Row$(A._setArrayType([A.Expanded$(_this._buildFieldBox$3$field$label$value(B._ManualEntryField_0, "Rate", _this._rateText), 1), B.SizedBox_10_null_null_null, A.Expanded$(_this._buildFieldBox$3$field$label$value(B._ManualEntryField_1, "Quantity", _this._qtyText), 1)], t1), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null)], t1),
-        t4 = _this._dialogs$_error;
-      if (t4 != null)
-        B.JSArray_methods.addAll$1(t3, A._setArrayType([B.SizedBox_null_6_null_null, A.Text$(t4, _null, _null, _null, B.TextStyle_uu9, _null, _null, _null)], t1));
-      t3.push(B.SizedBox_null_16_null_null);
-      t4 = type$.List_Widget;
-      t3.push(A.Row$(t4._as(A._setArrayType([_this._buildKey$2$onTap("1", new A._ManualEntryDialogState_build_closure0(_this)), _this._buildKey$2$onTap("2", new A._ManualEntryDialogState_build_closure1(_this)), _this._buildKey$2$onTap("3", new A._ManualEntryDialogState_build_closure2(_this))], t1)), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null));
-      t3.push(A.Row$(t4._as(A._setArrayType([_this._buildKey$2$onTap("4", new A._ManualEntryDialogState_build_closure3(_this)), _this._buildKey$2$onTap("5", new A._ManualEntryDialogState_build_closure4(_this)), _this._buildKey$2$onTap("6", new A._ManualEntryDialogState_build_closure5(_this))], t1)), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null));
-      t3.push(A.Row$(t4._as(A._setArrayType([_this._buildKey$2$onTap("7", new A._ManualEntryDialogState_build_closure6(_this)), _this._buildKey$2$onTap("8", new A._ManualEntryDialogState_build_closure7(_this)), _this._buildKey$2$onTap("9", new A._ManualEntryDialogState_build_closure8(_this))], t1)), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null));
-      t3.push(A.Row$(t4._as(A._setArrayType([_this._buildKey$2$onTap(".", new A._ManualEntryDialogState_build_closure9(_this)), _this._buildKey$2$onTap("0", new A._ManualEntryDialogState_build_closure10(_this)), _this._buildKey$3$icon$onTap("", B.IconData_61109_MaterialIcons_true, _this.get$_onBackspace())], t1)), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null));
-      t3.push(B.SizedBox_null_10_null_null);
+        t2 = A._setArrayType([A.Row$(A._setArrayType([A.Expanded$(_this._buildFieldBox$3$field$label$value(B._ManualEntryField_0, "Rate", _this._rateText), 1), B.SizedBox_10_null_null_null, A.Expanded$(_this._buildFieldBox$3$field$label$value(B._ManualEntryField_1, "Quantity", _this._qtyText), 1)], t1), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null)], t1),
+        t3 = _this._dialogs$_error;
+      if (t3 != null)
+        B.JSArray_methods.addAll$1(t2, A._setArrayType([B.SizedBox_null_6_null_null, A.Text$(t3, _null, _null, _null, B.TextStyle_uu9, _null, _null, _null)], t1));
+      t2.push(B.SizedBox_null_16_null_null);
+      t3 = type$.List_Widget;
+      t2.push(A.Row$(t3._as(A._setArrayType([_this._buildKey$2$onTap("1", new A._ManualEntryDialogState_build_closure(_this)), _this._buildKey$2$onTap("2", new A._ManualEntryDialogState_build_closure0(_this)), _this._buildKey$2$onTap("3", new A._ManualEntryDialogState_build_closure1(_this))], t1)), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null));
+      t2.push(A.Row$(t3._as(A._setArrayType([_this._buildKey$2$onTap("4", new A._ManualEntryDialogState_build_closure2(_this)), _this._buildKey$2$onTap("5", new A._ManualEntryDialogState_build_closure3(_this)), _this._buildKey$2$onTap("6", new A._ManualEntryDialogState_build_closure4(_this))], t1)), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null));
+      t2.push(A.Row$(t3._as(A._setArrayType([_this._buildKey$2$onTap("7", new A._ManualEntryDialogState_build_closure5(_this)), _this._buildKey$2$onTap("8", new A._ManualEntryDialogState_build_closure6(_this)), _this._buildKey$2$onTap("9", new A._ManualEntryDialogState_build_closure7(_this))], t1)), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null));
+      t2.push(A.Row$(t3._as(A._setArrayType([_this._buildKey$2$onTap(".", new A._ManualEntryDialogState_build_closure8(_this)), _this._buildKey$2$onTap("0", new A._ManualEntryDialogState_build_closure9(_this)), _this._buildKey$3$icon$onTap("", B.IconData_61109_MaterialIcons_true, _this.get$_onBackspace())], t1)), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null));
+      t2.push(B.SizedBox_null_10_null_null);
       type$.MaterialColor._eval$1("ColorSwatch.T")._as(600);
-      t1 = B.Map_tFts8.$index(0, 600);
-      t1.toString;
-      t3.push(A.SizedBox$(A.ElevatedButton$(B.Text_DzQ, _this.get$_dialogs$_submit(), A.ElevatedButton_styleFrom(_null, _null, t1, _null, _null, _null, _null, _null, _null, B.Color_wst, _null, _null, _null, _null, new A.RoundedRectangleBorder(A.BorderRadius$circular(8), B.BorderSide_Ah5), _null, _null, _null, _null, _null)), 48, 1 / 0));
-      t3.push(B.SizedBox_null_8_null_null);
-      t1 = B.Map_GGfjP.$index(0, 600);
-      t1.toString;
-      t3.push(A.Center$(A.TextButton$(B.Text_CzP, _this.get$_onClear(), A.TextButton_styleFrom(_null, _null, _null, _null, _null, _null, _null, _null, _null, t1, _null, B.Size_0_32, B.EdgeInsets_14_0_14_0, _null, _null, _null, _null, _null, B.TextStyle_3LD, _null)), _null, _null));
-      return A.AlertDialog$(_null, _null, A.SizedBox$(A.Column$(t3, B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0), _null, 300), t2, B.EdgeInsets_24_16_12_0);
+      t3 = B.Map_tFts8.$index(0, 600);
+      t3.toString;
+      t2.push(A.SizedBox$(A.ElevatedButton$(B.Text_DzQ, _this.get$_dialogs$_submit(), A.ElevatedButton_styleFrom(_null, _null, t3, _null, _null, _null, _null, _null, _null, B.Color_wst, _null, _null, _null, _null, new A.RoundedRectangleBorder(A.BorderRadius$circular(8), B.BorderSide_Ah5), _null, _null, _null, _null, _null)), 48, 1 / 0));
+      t2.push(B.SizedBox_null_8_null_null);
+      t3 = B.Map_GGfjP.$index(0, 600);
+      t3.toString;
+      t3 = A.TextButton$(B.Text_CzP, _this.get$_onClear(), A.TextButton_styleFrom(_null, _null, _null, _null, _null, _null, _null, _null, _null, t3, _null, B.Size_0_32, B.EdgeInsets_14_0_14_0, _null, _null, _null, _null, _null, B.TextStyle_3LD, _null));
+      t4 = B.Map_GGfjP.$index(0, 600);
+      t4.toString;
+      t2.push(A.Row$(A._setArrayType([t3, B.SizedBox_4_null_null_null, A.TextButton$(B.Text_FgL, new A._ManualEntryDialogState_build_closure10(context), A.TextButton_styleFrom(_null, _null, _null, _null, _null, _null, _null, _null, _null, t4, _null, B.Size_0_32, B.EdgeInsets_14_0_14_0, _null, _null, _null, _null, _null, B.TextStyle_3LD, _null))], t1), B.CrossAxisAlignment_2, B.MainAxisAlignment_2, B.MainAxisSize_1, 0, _null));
+      return A.AlertDialog$(_null, _null, A.SizedBox$(A.Column$(t2, B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0), _null, 300), B.Text_AO7);
     }
   };
   A._ManualEntryDialogState__setCurrentText_closure.prototype = {
@@ -274548,16 +274531,6 @@
     },
     $signature: 0
   };
-  A._ManualEntryDialogState__submit_closure1.prototype = {
-    call$0() {
-      var t1 = this.$this;
-      t1._rateText = "";
-      t1._qtyText = "1";
-      t1._dialogs$_active = B._ManualEntryField_0;
-      t1._dialogs$_error = null;
-    },
-    $signature: 0
-  };
   A._ManualEntryDialogState__buildFieldBox_closure.prototype = {
     call$0() {
       return this.$this._selectField$1(this.field);
@@ -274566,73 +274539,73 @@
   };
   A._ManualEntryDialogState_build_closure.prototype = {
     call$0() {
-      return A.Navigator_of(this.context, false).pop$1$0(type$.nullable_Object);
+      return this.$this._onDigit$1("1");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure0.prototype = {
     call$0() {
-      return this.$this._onDigit$1("1");
+      return this.$this._onDigit$1("2");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure1.prototype = {
     call$0() {
-      return this.$this._onDigit$1("2");
+      return this.$this._onDigit$1("3");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure2.prototype = {
     call$0() {
-      return this.$this._onDigit$1("3");
+      return this.$this._onDigit$1("4");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure3.prototype = {
     call$0() {
-      return this.$this._onDigit$1("4");
+      return this.$this._onDigit$1("5");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure4.prototype = {
     call$0() {
-      return this.$this._onDigit$1("5");
+      return this.$this._onDigit$1("6");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure5.prototype = {
     call$0() {
-      return this.$this._onDigit$1("6");
+      return this.$this._onDigit$1("7");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure6.prototype = {
     call$0() {
-      return this.$this._onDigit$1("7");
+      return this.$this._onDigit$1("8");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure7.prototype = {
     call$0() {
-      return this.$this._onDigit$1("8");
+      return this.$this._onDigit$1("9");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure8.prototype = {
     call$0() {
-      return this.$this._onDigit$1("9");
+      return this.$this._onDigit$1(".");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure9.prototype = {
     call$0() {
-      return this.$this._onDigit$1(".");
+      return this.$this._onDigit$1("0");
     },
     $signature: 0
   };
   A._ManualEntryDialogState_build_closure10.prototype = {
     call$0() {
-      return this.$this._onDigit$1("0");
+      return A.Navigator_of(this.context, false).pop$1$0(type$.nullable_Object);
     },
     $signature: 0
   };
@@ -274864,9 +274837,9 @@
       t1 = this.cat;
       t2 = t1.subCategory;
       t2 = A.Text$('Are you sure you want to delete "' + (t2 == null ? "Unnamed" : t2) + '"?', _null, _null, _null, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._CategoryListScreenState_showDeleteConfirmation__closure(context), _null), A.TextButton$(B.Text_Jql, new A._CategoryListScreenState_showDeleteConfirmation__closure0(this.$this, context, t1), A.TextButton_styleFrom(_null, _null, _null, _null, _null, _null, _null, _null, _null, B.MaterialColor_nI1, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null))], type$.JSArray_Widget), _null, t2, B.Text_eg8, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._CategoryListScreenState_showDeleteConfirmation__closure(context), _null), A.TextButton$(B.Text_Jql, new A._CategoryListScreenState_showDeleteConfirmation__closure0(this.$this, context, t1), A.TextButton_styleFrom(_null, _null, _null, _null, _null, _null, _null, _null, _null, B.MaterialColor_nI1, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null))], type$.JSArray_Widget), _null, t2, B.Text_eg8);
     },
-    $signature: 28
+    $signature: 29
   };
   A._CategoryListScreenState_showDeleteConfirmation__closure.prototype = {
     call$0() {
@@ -274915,9 +274888,9 @@
       t2 = A.Text$("Enter wholesale rate for " + A.S(t1.subCategory), _null, _null, _null, _null, _null, _null, _null);
       t3 = this.rateController;
       t4 = A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t3, _null, _null, _null, _null, _null, 2, B.InputDecoration_A4A, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_false, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._CategoryListScreenState_showRateInputPopup__closure(context), _null), A.ElevatedButton$(B.Text_LTe, new A._CategoryListScreenState_showRateInputPopup__closure0(this.$this, t3, context, t1), _null)], type$.JSArray_Widget), _null, t4, t2, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._CategoryListScreenState_showRateInputPopup__closure(context), _null), A.ElevatedButton$(B.Text_LTe, new A._CategoryListScreenState_showRateInputPopup__closure0(this.$this, t3, context, t1), _null)], type$.JSArray_Widget), _null, t4, t2);
     },
-    $signature: 28
+    $signature: 29
   };
   A._CategoryListScreenState_showRateInputPopup__closure.prototype = {
     call$0() {
@@ -274985,7 +274958,7 @@
         t3.push("GST: " + B.JSNumber_methods.toStringAsFixed$1(t5, 2) + "%");
       return A.ListTile$(false, _null, _null, _null, true, _null, _null, _null, true, _null, t4, _null, _null, _null, _null, _null, _null, false, _null, _null, _null, _null, _null, A.Text$(B.JSArray_methods.join$1(t3, "  \u2022  "), _null, _null, _null, _null, _null, _null, _null), _null, t2, A.Row$(A._setArrayType([A.IconButton$(_null, _null, B.Icon_OqF, _null, _null, new A._CategoryListScreenState_build__closure0(t1, cat), _null, _null, "Generate Barcode"), A.IconButton$(_null, _null, B.Icon_XAA, _null, _null, new A._CategoryListScreenState_build__closure1(t1, cat), _null, _null, _null), A.IconButton$(_null, _null, B.Icon_Htt, _null, _null, new A._CategoryListScreenState_build__closure2(t1, cat), _null, _null, _null)], type$.JSArray_Widget), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0, 0, _null), _null);
     },
-    $signature: 97
+    $signature: 98
   };
   A._CategoryListScreenState_build__closure0.prototype = {
     call$0() {
@@ -275360,7 +275333,7 @@
         t1 = t3;
       return t1;
     },
-    $signature: 49
+    $signature: 50
   };
   A._AccountListScreenState__checkIfAdmin_closure.prototype = {
     call$0() {
@@ -275444,7 +275417,7 @@
       t5 = A.Column$(A._setArrayType([t6, B.SizedBox_null_10_null_null, A.DropdownButtonFormField$(B.InputDecoration_p8h, t9, new A._AccountListScreenState__showAddOrEditDialog___closure1(t7, t5, setState), t8, type$.String), B.SizedBox_null_10_null_null, A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t10, _null, _null, _null, _null, _null, 2, B.InputDecoration_nwy, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_false, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, new A._AccountListScreenState__showAddOrEditDialog___closure2(t5, setState), _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null)], t11), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0);
       t8 = A.TextButton$(B.Text_FgL, new A._AccountListScreenState__showAddOrEditDialog___closure3(context), _null);
       t1 = t7.isFormValid ? new A._AccountListScreenState__showAddOrEditDialog___closure4(t7, _this.$this, t4, t10, context, t1) : _null;
-      return A.AlertDialog$(A._setArrayType([t8, A.ElevatedButton$(A.Text$(t2 ? "Update" : "Add", _null, _null, _null, _null, _null, _null, _null), t1, _null)], t11), _null, t5, t3, _null);
+      return A.AlertDialog$(A._setArrayType([t8, A.ElevatedButton$(A.Text$(t2 ? "Update" : "Add", _null, _null, _null, _null, _null, _null, _null), t1, _null)], t11), _null, t5, t3);
     },
     $signature: 168
   };
@@ -275452,7 +275425,7 @@
     call$1(__wc1_formal) {
       return this.validateForm.call$1(this.setState);
     },
-    $signature: 32
+    $signature: 31
   };
   A._AccountListScreenState__showAddOrEditDialog___closure0.prototype = {
     call$1(type) {
@@ -275470,13 +275443,13 @@
       this._box_0.selectedType = value;
       this.validateForm.call$1(this.setState);
     },
-    $signature: 67
+    $signature: 68
   };
   A._AccountListScreenState__showAddOrEditDialog___closure2.prototype = {
     call$1(__wc2_formal) {
       return this.validateForm.call$1(this.setState);
     },
-    $signature: 32
+    $signature: 31
   };
   A._AccountListScreenState__showAddOrEditDialog___closure3.prototype = {
     call$0() {
@@ -275573,9 +275546,9 @@
       t1 = this.passcodeController;
       t2 = A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t1, _null, _null, _null, _null, _null, 2, B.InputDecoration_J7L, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, true, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null);
       t3 = this.$this;
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._AccountListScreenState__confirmDeleteAccount__closure(t3), _null), A.ElevatedButton$(B.Text_Jql, new A._AccountListScreenState__confirmDeleteAccount__closure0(t3, t1, this.id), _null)], type$.JSArray_Widget), _null, t2, B.Text_aGN, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._AccountListScreenState__confirmDeleteAccount__closure(t3), _null), A.ElevatedButton$(B.Text_Jql, new A._AccountListScreenState__confirmDeleteAccount__closure0(t3, t1, this.id), _null)], type$.JSArray_Widget), _null, t2, B.Text_aGN);
     },
-    $signature: 28
+    $signature: 29
   };
   A._AccountListScreenState__confirmDeleteAccount__closure.prototype = {
     call$0() {
@@ -275646,13 +275619,13 @@
     call$1(acc) {
       return J.$eq$(J.$index$asx(acc, "id"), this.id);
     },
-    $signature: 49
+    $signature: 50
   };
   A._AccountListScreenState__confirmDeleteAccount___closure0.prototype = {
     call$0() {
       return null;
     },
-    $signature: 30
+    $signature: 25
   };
   A._AccountListScreenState_buildAccountTile_closure.prototype = {
     call$0() {
@@ -275711,7 +275684,7 @@
       t1 = this.$this;
       return t1.buildAccountTile$1(type$.Map_dynamic_dynamic._as(J.$index$asx(t1.filteredAccounts, index)));
     },
-    $signature: 63
+    $signature: 67
   };
   A._AccountListScreenState_build_closure0.prototype = {
     call$0() {
@@ -276219,7 +276192,7 @@
     call$1(txn) {
       return J.$eq$(J.$index$asx(txn, "id"), this.id);
     },
-    $signature: 49
+    $signature: 50
   };
   A._AccountTransactionsScreenState_findExistingTransaction_closure0.prototype = {
     call$0() {
@@ -276278,7 +276251,7 @@
       t2 = t1.isSaving;
       t6 = A.TextButton$(B.Text_FgL, t2 ? _null : new A._AccountTransactionsScreenState__showTransactionDialog___closure3(_this.ctx), _null);
       t1 = t2 ? _null : new A._AccountTransactionsScreenState__showTransactionDialog___closure4(t1, _this.$this, t5, setState, t3, _this.ctx, context);
-      return A.AlertDialog$(A._setArrayType([t6, A.ElevatedButton$(t2 ? B.SizedBox_bTJ : B.Text_8Ec, t1, _null)], t9), _null, t8, t4, _null);
+      return A.AlertDialog$(A._setArrayType([t6, A.ElevatedButton$(t2 ? B.SizedBox_bTJ : B.Text_8Ec, t1, _null)], t9), _null, t8, t4);
     },
     $signature: 168
   };
@@ -276288,7 +276261,7 @@
       if (t1.type != newType)
         this.setState.call$1(new A._AccountTransactionsScreenState__showTransactionDialog___onTypeChange_closure(t1, newType));
     },
-    $signature: 67
+    $signature: 68
   };
   A._AccountTransactionsScreenState__showTransactionDialog___onTypeChange_closure.prototype = {
     call$0() {
@@ -276302,19 +276275,19 @@
     call$1(val) {
       return val == null || A.Primitives_parseDouble(val) == null ? "Enter valid amount" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._AccountTransactionsScreenState__showTransactionDialog___closure.prototype = {
     call$1(val) {
       return this._box_0.amountStr = val;
     },
-    $signature: 67
+    $signature: 68
   };
   A._AccountTransactionsScreenState__showTransactionDialog___closure1.prototype = {
     call$1(val) {
       return this._box_0.description = val;
     },
-    $signature: 67
+    $signature: 68
   };
   A._AccountTransactionsScreenState__showTransactionDialog___closure2.prototype = {
     call$1(tag) {
@@ -276455,9 +276428,9 @@
       type$.BuildContext._as(ctx);
       t1 = this.passcodeController;
       t2 = A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t1, _null, _null, _null, _null, _null, 2, B.InputDecoration_owC, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, true, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._AccountTransactionsScreenState__deleteTransaction__closure(ctx), _null), A.ElevatedButton$(B.Text_Jv3, new A._AccountTransactionsScreenState__deleteTransaction__closure0(this.$this, t1, ctx), _null)], type$.JSArray_Widget), _null, t2, B.Text_Vok, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._AccountTransactionsScreenState__deleteTransaction__closure(ctx), _null), A.ElevatedButton$(B.Text_Jv3, new A._AccountTransactionsScreenState__deleteTransaction__closure0(this.$this, t1, ctx), _null)], type$.JSArray_Widget), _null, t2, B.Text_Vok);
     },
-    $signature: 28
+    $signature: 29
   };
   A._AccountTransactionsScreenState__deleteTransaction__closure.prototype = {
     call$0() {
@@ -276479,7 +276452,7 @@
     call$1(txn) {
       return J.$eq$(J.$index$asx(txn, "type"), "credit");
     },
-    $signature: 49
+    $signature: 50
   };
   A._AccountTransactionsScreenState_build_closure0.prototype = {
     call$2(sum, txn) {
@@ -276488,13 +276461,13 @@
       t1 = A.Primitives_parseDouble(J.toString$0$(J.$index$asx(txn, "amount")));
       return sum + (t1 == null ? 0 : t1);
     },
-    $signature: 65
+    $signature: 70
   };
   A._AccountTransactionsScreenState_build_closure1.prototype = {
     call$1(txn) {
       return J.$eq$(J.$index$asx(txn, "type"), "debit");
     },
-    $signature: 49
+    $signature: 50
   };
   A._AccountTransactionsScreenState_build_closure2.prototype = {
     call$2(sum, txn) {
@@ -276503,7 +276476,7 @@
       t1 = A.Primitives_parseDouble(J.toString$0$(J.$index$asx(txn, "amount")));
       return sum + (t1 == null ? 0 : t1);
     },
-    $signature: 65
+    $signature: 70
   };
   A._AccountTransactionsScreenState_build_closure3.prototype = {
     call$2(context, index) {
@@ -276571,7 +276544,7 @@
     call$1(txn) {
       return J.$eq$(J.$index$asx(txn, "type"), "credit");
     },
-    $signature: 49
+    $signature: 50
   };
   A._AccountTransactionsScreenState_generateLedgerPdf_closure0.prototype = {
     call$2(sum, txn) {
@@ -276580,13 +276553,13 @@
       t1 = A.Primitives_parseDouble(J.toString$0$(J.$index$asx(txn, "amount")));
       return sum + (t1 == null ? 0 : t1);
     },
-    $signature: 65
+    $signature: 70
   };
   A._AccountTransactionsScreenState_generateLedgerPdf_closure1.prototype = {
     call$1(txn) {
       return J.$eq$(J.$index$asx(txn, "type"), "debit");
     },
-    $signature: 49
+    $signature: 50
   };
   A._AccountTransactionsScreenState_generateLedgerPdf_closure2.prototype = {
     call$2(sum, txn) {
@@ -276595,7 +276568,7 @@
       t1 = A.Primitives_parseDouble(J.toString$0$(J.$index$asx(txn, "amount")));
       return sum + (t1 == null ? 0 : t1);
     },
-    $signature: 65
+    $signature: 70
   };
   A._AccountTransactionsScreenState_generateLedgerPdf_closure3.prototype = {
     call$1(context) {
@@ -276667,7 +276640,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 169
+    $signature: 170
   };
   A.AddEditCategoryScreen.prototype = {
     createState$0() {
@@ -276858,7 +276831,7 @@
     call$1(item) {
       return B.JSString_methods.startsWith$1(A._asString(item).toUpperCase(), this.textEditingValue.text.toUpperCase());
     },
-    $signature: 40
+    $signature: 41
   };
   A._AddEditCategoryScreenState_build_closure2.prototype = {
     call$1(selection) {
@@ -276875,7 +276848,7 @@
         t1.setState$1(new A._AddEditCategoryScreenState_build__closure0());
       }
     },
-    $signature: 32
+    $signature: 31
   };
   A._AddEditCategoryScreenState_build__closure0.prototype = {
     call$0() {
@@ -276906,7 +276879,7 @@
         t1.setState$1(new A._AddEditCategoryScreenState_build___closure());
       }
     },
-    $signature: 32
+    $signature: 31
   };
   A._AddEditCategoryScreenState_build___closure.prototype = {
     call$0() {
@@ -276917,7 +276890,7 @@
     call$1(val) {
       return val == null || B.JSString_methods.trim$0(val).length === 0 ? "Required" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._AddEditCategoryScreenState_build_closure.prototype = {
     call$1(value) {
@@ -276933,7 +276906,7 @@
       t1.selectedGst = val;
       t1.setState$1(new A._AddEditCategoryScreenState_build__closure3());
     },
-    $signature: 67
+    $signature: 68
   };
   A._AddEditCategoryScreenState_build__closure3.prototype = {
     call$0() {
@@ -277430,7 +277403,7 @@
     call$1(p) {
       return J.$eq$(J.$index$asx(type$.Map_String_dynamic._as(p), "isSpecialBarcodeRate"), true);
     },
-    $signature: 170
+    $signature: 171
   };
   A._AddProductScreenState_submitProductUpdate_closure0.prototype = {
     call$1(priceItem) {
@@ -277499,7 +277472,7 @@
     call$1(p) {
       return J.$eq$(J.$index$asx(type$.Map_String_dynamic._as(p), "isSpecialBarcodeRate"), true);
     },
-    $signature: 170
+    $signature: 171
   };
   A._AddProductScreenState_submitProduct_closure2.prototype = {
     call$1(priceItem) {
@@ -277590,7 +277563,7 @@
         B.JSArray_methods.addAll$1(t14, t5);
       }
       t5 = A.Form$(_null, A.SingleChildScrollView$(A.Column$(t14, B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0), _null, B.Axis_1), t6);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._AddProductScreenState_showPriceEditDialog___closure6(context), _null), A.ElevatedButton$(B.Text_8Ec, new A._AddProductScreenState_showPriceEditDialog___closure7(t1, t6, t7, t9, t11, t2, _this.rate3Controller, _this.rate4Controller, t3, t4, _this.unitController, context), _null)], t15), _null, t5, B.Text_UIT, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._AddProductScreenState_showPriceEditDialog___closure6(context), _null), A.ElevatedButton$(B.Text_8Ec, new A._AddProductScreenState_showPriceEditDialog___closure7(t1, t6, t7, t9, t11, t2, _this.rate3Controller, _this.rate4Controller, t3, t4, _this.unitController, context), _null)], t15), _null, t5, B.Text_UIT);
     },
     $signature: 168
   };
@@ -277632,13 +277605,13 @@
         return "MRP must be greater than 0";
       return null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._AddProductScreenState_showPriceEditDialog___closure0.prototype = {
     call$1(__wc0_formal) {
       return this._box_0.isSpecialRateEnabled ? this.calculateSpecialRate.call$0() : null;
     },
-    $signature: 32
+    $signature: 31
   };
   A._AddProductScreenState_showPriceEditDialog___closure1.prototype = {
     call$1(value) {
@@ -277650,7 +277623,7 @@
         return "Retail Rate must be greater than 0";
       return null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._AddProductScreenState_showPriceEditDialog___closure2.prototype = {
     call$1(value) {
@@ -277662,7 +277635,7 @@
         return "Wholesale Rate must be greater than 0";
       return null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._AddProductScreenState_showPriceEditDialog___closure3.prototype = {
     call$1(value) {
@@ -277683,13 +277656,13 @@
     call$1(__wc1_formal) {
       return this.calculateSpecialRate.call$0();
     },
-    $signature: 32
+    $signature: 31
   };
   A._AddProductScreenState_showPriceEditDialog___closure5.prototype = {
     call$1(__wc2_formal) {
       return this.calculateSpecialRate.call$0();
     },
-    $signature: 32
+    $signature: 31
   };
   A._AddProductScreenState_showPriceEditDialog___closure6.prototype = {
     call$0() {
@@ -277722,7 +277695,7 @@
     call$1(value) {
       return value.length === 0 ? "Enter product name" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._AddProductScreenState_build_closure0.prototype = {
     call$1(value) {
@@ -277730,7 +277703,7 @@
         return "Enter stock";
       return A.Primitives_parseInt(value, null) == null ? "Stock must be a whole number" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._AddProductScreenState_build_closure1.prototype = {
     call$0() {
@@ -277934,7 +277907,7 @@
         t2 = A._arrayInstanceType(t1),
         t3 = t2._eval$1("WhereIterable<1>"),
         filteredList = A.List_List$_of(new A.WhereIterable(t1, t2._eval$1("bool(1)")._as(new A._CategorySearchDialogState_build_closure(this)), t3), t3._eval$1("Iterable.E"));
-      return A.AlertDialog$(_null, _null, A.Column$(A._setArrayType([A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _null, _null, _null, _null, _null, _null, 2, B.InputDecoration_HTr, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, new A._CategorySearchDialogState_build_closure0(this), _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null), B.SizedBox_null_10_null_null, A.SizedBox$(A.ListView$builder(_null, new A._CategorySearchDialogState_build_closure1(filteredList, context), filteredList.length, _null, false), 300, 17976931348623157e292)], type$.JSArray_Widget), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0), B.Text_1XB, _null);
+      return A.AlertDialog$(_null, _null, A.Column$(A._setArrayType([A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _null, _null, _null, _null, _null, _null, 2, B.InputDecoration_HTr, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, new A._CategorySearchDialogState_build_closure0(this), _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null), B.SizedBox_null_10_null_null, A.SizedBox$(A.ListView$builder(_null, new A._CategorySearchDialogState_build_closure1(filteredList, context), filteredList.length, _null, false), 300, 17976931348623157e292)], type$.JSArray_Widget), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0), B.Text_1XB);
     }
   };
   A._CategorySearchDialogState_build_closure.prototype = {
@@ -277951,7 +277924,7 @@
       var t1 = this.$this;
       return t1.setState$1(new A._CategorySearchDialogState_build__closure0(t1, value));
     },
-    $signature: 32
+    $signature: 31
   };
   A._CategorySearchDialogState_build__closure0.prototype = {
     call$0() {
@@ -277971,7 +277944,7 @@
       t1 = A.Text$(cat.name + " (" + cat.subCategory + ")", _null, _null, _null, _null, _null, _null, _null);
       return A.ListTile$(false, _null, _null, _null, true, _null, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, new A._CategorySearchDialogState_build__closure(this.context, cat), false, _null, _null, _null, _null, _null, A.Text$("HSN: " + cat.hsn + ", GST: " + cat.gst + "%", _null, _null, _null, _null, _null, _null, _null), _null, t1, _null, _null);
     },
-    $signature: 97
+    $signature: 98
   };
   A._CategorySearchDialogState_build__closure.prototype = {
     call$0() {
@@ -278015,7 +277988,7 @@
     call$0() {
       A.Navigator_of(this.$this.get$context(0), false).pop$1$1(this.code, type$.String);
     },
-    $signature: 30
+    $signature: 25
   };
   A._BarcodeScannerScreenState_build_closure.prototype = {
     call$1(capture) {
@@ -278207,7 +278180,7 @@
       t1 = J.$index$asx(acc, "totalCredit");
       return sum + A._asNum(t1 == null ? 0 : t1);
     },
-    $signature: 65
+    $signature: 70
   };
   A._DashboardScreenState_buildLast7DaysAccordion_closure0.prototype = {
     call$2(sum, acc) {
@@ -278216,7 +278189,7 @@
       t1 = J.$index$asx(acc, "totalDebit");
       return sum + A._asNum(t1 == null ? 0 : t1);
     },
-    $signature: 65
+    $signature: 70
   };
   A._DashboardScreenState_buildLast7DaysAccordion_closure1.prototype = {
     call$2(sum, acc) {
@@ -278225,7 +278198,7 @@
       balance = A.Primitives_parseDouble(J.toString$0$(J.$index$asx(acc, "currentBalance")));
       return sum + (balance == null ? 0 : balance);
     },
-    $signature: 65
+    $signature: 70
   };
   A._DashboardScreenState_buildLast7DaysAccordion_closure2.prototype = {
     call$1(acc) {
@@ -278277,7 +278250,7 @@
       t2 === $ && A.throwLateFieldNI("filteredProducts");
       t3 = type$.JSArray_Widget;
       t2 = A.Column$(A._setArrayType([t1, B.SizedBox_null_10_null_null, A.Expanded$(A.ListView$builder(_null, new A._FastBillingDialogState_build_closure(this), t2.length, _null, true), 1)], t3), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._FastBillingDialogState_build_closure0(context), _null)], t3), _null, t2, B.Text_YcE, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._FastBillingDialogState_build_closure0(context), _null)], t3), _null, t2, B.Text_YcE);
     },
     dispose$0() {
       this._searchController.dispose$0();
@@ -278311,7 +278284,7 @@
       t1 = this.query;
       return B.JSString_methods.contains$1($name, t1) || B.JSString_methods.contains$1(barcode, t1);
     },
-    $signature: 170
+    $signature: 171
   };
   A._FastBillingDialogState_build_closure.prototype = {
     call$2(context, index) {
@@ -278328,7 +278301,7 @@
       t2 = A.Text$(A._asString(t2 == null ? "Unnamed" : t2), _null, _null, _null, _null, _null, _null, _null);
       return A.ListTile$(false, _null, _null, _null, true, _null, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, new A._FastBillingDialogState_build__closure(context, product), false, _null, _null, _null, _null, _null, A.Text$("Barcode: " + A.S(t1.$index(product, "barcode")), _null, _null, _null, _null, _null, _null, _null), _null, t2, B.Icon_z7u, _null);
     },
-    $signature: 97
+    $signature: 98
   };
   A._FastBillingDialogState_build__closure.prototype = {
     call$0() {
@@ -278446,9 +278419,9 @@
       type$.BuildContext._as(context);
       t1 = this.passcodeController;
       t2 = A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t1, _null, _null, _null, _null, _null, 2, B.InputDecoration_owC, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_false, _null, _null, _null, 1, _null, _null, true, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_D0e, new A._HomeScreenState__showPasscodeDialog__closure(this.$this, t1, context), _null)], type$.JSArray_Widget), _null, t2, B.Text_Vok, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_D0e, new A._HomeScreenState__showPasscodeDialog__closure(this.$this, t1, context), _null)], type$.JSArray_Widget), _null, t2, B.Text_Vok);
     },
-    $signature: 28
+    $signature: 29
   };
   A._HomeScreenState__showPasscodeDialog__closure.prototype = {
     call$0() {
@@ -278986,7 +278959,7 @@
     _addManualItem$0() {
       var $async$goto = 0,
         $async$completer = A._makeAsyncAwaitCompleter(type$.void),
-        $async$self = this;
+        $async$returnValue, $async$self = this, result, t1, price, quantity, t2, _i, itemNotifier;
       var $async$_addManualItem$0 = A._wrapJsFunctionForAsync(function($async$errorCode, $async$result) {
         if ($async$errorCode === 1)
           return A._asyncRethrow($async$result, $async$completer);
@@ -278994,13 +278967,36 @@
           switch ($async$goto) {
             case 0:
               // Function start
-              $async$goto = 2;
+              $async$goto = 3;
               return A._asyncAwait($async$self.promptRateTypeIfNeeded$1($async$self.get$context(0)), $async$_addManualItem$0);
-            case 2:
+            case 3:
               // returning from await.
-              A.POSDialogs_showManualEntryDialog($async$self.get$context(0), new A._POSScreenState__addManualItem_closure($async$self));
-              // implicit return
-              return A._asyncReturn(null, $async$completer);
+              $async$goto = 4;
+              return A._asyncAwait(A.POSDialogs_showManualEntryDialog($async$self.get$context(0)), $async$_addManualItem$0);
+            case 4:
+              // returning from await.
+              result = $async$result;
+              if (result == null) {
+                // goto return
+                $async$goto = 1;
+                break;
+              }
+              t1 = J.getInterceptor$asx(result);
+              price = A._asDouble(t1.$index(result, "rate"));
+              quantity = A._asInt(t1.$index(result, "quantity"));
+              for (t1 = $.globalInvoice, t2 = t1.length, _i = 0; _i < t1.length; t1.length === t2 || (0, A.throwConcurrentModificationError)(t1), ++_i) {
+                itemNotifier = t1[_i];
+                J.$indexSet$ax(itemNotifier.get$value(itemNotifier), "lastAdded", false);
+                J.$indexSet$ax(itemNotifier.get$value(itemNotifier), "isUpdated", false);
+                J.$indexSet$ax(itemNotifier.get$value(itemNotifier), "isNew", false);
+              }
+              t1 = Date.now();
+              B.JSArray_methods.add$1($.globalInvoice, A.ValueNotifier$(A.LinkedHashMap_LinkedHashMap$_literal(["barcode", "MANUAL-" + t1, "name", "", "price", price, "quantity", quantity, "unit", "Pcs", "unitTotal", price * quantity, "mrp", price, "batch", "", "isNew", true, "isManual", true], type$.String, type$.dynamic), type$.Map_String_dynamic));
+              $async$self.setState$1(new A._POSScreenState__addManualItem_closure());
+              A.BindingBase_checkInstance($.WidgetsBinding__instance, type$.WidgetsBinding).addPostFrameCallback$1(new A._POSScreenState__addManualItem_closure0());
+            case 1:
+              // return
+              return A._asyncReturn($async$returnValue, $async$completer);
           }
       });
       return A._asyncStartSync($async$_addManualItem$0, $async$completer);
@@ -279082,9 +279078,9 @@
       type$.BuildContext._as(context);
       t1 = this.passcodeController;
       t2 = A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t1, _null, _null, _null, _null, _null, 2, B.InputDecoration_owC, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_false, _null, _null, _null, 1, _null, _null, true, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_D0e, new A._POSScreenState__showPasscodeDialog__closure(this.$this, t1, context), _null)], type$.JSArray_Widget), _null, t2, B.Text_Vok, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_D0e, new A._POSScreenState__showPasscodeDialog__closure(this.$this, t1, context), _null)], type$.JSArray_Widget), _null, t2, B.Text_Vok);
     },
-    $signature: 28
+    $signature: 29
   };
   A._POSScreenState__showPasscodeDialog__closure.prototype = {
     call$0() {
@@ -279111,9 +279107,9 @@
       type$.BuildContext._as(context);
       t1 = this.nameController;
       t2 = A.TextField$(_null, B.List_empty0, true, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t1, _null, _null, _null, _null, _null, 2, B.InputDecoration_WAN, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_Qaz, new A._POSScreenState__showInvoiceNameDialog__closure(context), _null), A.TextButton$(B.Text_8Ec, new A._POSScreenState__showInvoiceNameDialog__closure0(this.$this, t1, context), _null)], type$.JSArray_Widget), _null, t2, B.Text_14t, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_Qaz, new A._POSScreenState__showInvoiceNameDialog__closure(context), _null), A.TextButton$(B.Text_8Ec, new A._POSScreenState__showInvoiceNameDialog__closure0(this.$this, t1, context), _null)], type$.JSArray_Widget), _null, t2, B.Text_14t);
     },
-    $signature: 28
+    $signature: 29
   };
   A._POSScreenState__showInvoiceNameDialog__closure.prototype = {
     call$0() {
@@ -279141,9 +279137,9 @@
       type$.BuildContext._as(context);
       t1 = A.Text$("Choose Rate Type", _null, _null, _null, _null, _null, _null, _null);
       t2 = A.Text$("Which rate would you like to use for this session?", _null, _null, _null, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(A.Text$("Retail", _null, _null, _null, _null, _null, _null, _null), new A._POSScreenState_promptRateTypeIfNeeded__closure(context), _null), A.TextButton$(A.Text$("Wholesale", _null, _null, _null, _null, _null, _null, _null), new A._POSScreenState_promptRateTypeIfNeeded__closure0(context), _null)], type$.JSArray_Widget), _null, t2, t1, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(A.Text$("Retail", _null, _null, _null, _null, _null, _null, _null), new A._POSScreenState_promptRateTypeIfNeeded__closure(context), _null), A.TextButton$(A.Text$("Wholesale", _null, _null, _null, _null, _null, _null, _null), new A._POSScreenState_promptRateTypeIfNeeded__closure0(context), _null)], type$.JSArray_Widget), _null, t2, t1);
     },
-    $signature: 28
+    $signature: 29
   };
   A._POSScreenState_promptRateTypeIfNeeded__closure.prototype = {
     call$0() {
@@ -279239,29 +279235,13 @@
     $signature: 0
   };
   A._POSScreenState__addManualItem_closure.prototype = {
-    call$2(price, quantity) {
-      var t1, t2, _i, itemNotifier;
-      for (t1 = $.globalInvoice, t2 = t1.length, _i = 0; _i < t1.length; t1.length === t2 || (0, A.throwConcurrentModificationError)(t1), ++_i) {
-        itemNotifier = t1[_i];
-        J.$indexSet$ax(itemNotifier.get$value(itemNotifier), "lastAdded", false);
-        J.$indexSet$ax(itemNotifier.get$value(itemNotifier), "isUpdated", false);
-        J.$indexSet$ax(itemNotifier.get$value(itemNotifier), "isNew", false);
-      }
-      t1 = Date.now();
-      B.JSArray_methods.add$1($.globalInvoice, A.ValueNotifier$(A.LinkedHashMap_LinkedHashMap$_literal(["barcode", "MANUAL-" + t1, "name", "", "price", price, "quantity", quantity, "unit", "Pcs", "unitTotal", price * quantity, "mrp", price, "batch", "", "isNew", true, "isManual", true], type$.String, type$.dynamic), type$.Map_String_dynamic));
-      this.$this.setState$1(new A._POSScreenState__addManualItem__closure());
-      A.BindingBase_checkInstance($.WidgetsBinding__instance, type$.WidgetsBinding).addPostFrameCallback$1(new A._POSScreenState__addManualItem__closure0());
-    },
-    $signature: 799
-  };
-  A._POSScreenState__addManualItem__closure.prototype = {
     call$0() {
       A.recalculateTotal();
       $.$get$_audioPlayer().play$1(0, new A.AssetSource("sounds/beep.mp3", null));
     },
     $signature: 0
   };
-  A._POSScreenState__addManualItem__closure0.prototype = {
+  A._POSScreenState__addManualItem_closure0.prototype = {
     call$1(__wc0_formal) {
       var t1;
       type$.Duration._as(__wc0_formal);
@@ -279306,7 +279286,7 @@
         return A.ioore(t1, actualIndex);
       return new A.ValueListenableBuilder(t1[actualIndex], new A._POSScreenState_build__closure0(this.$this, index, actualIndex), null, null, type$.ValueListenableBuilder_Map_String_dynamic);
     },
-    $signature: 800
+    $signature: 799
   };
   A._POSScreenState_build__closure0.prototype = {
     call$3(context, item, __wc0_formal) {
@@ -279344,7 +279324,7 @@
         t1 = J.$eq$(t1.$index(item, _s9_), true) ? 18 : 16;
       return new A.Slidable(t6, t3, A.Card$(new A.Padding(B.EdgeInsets_12_12_12_12, A.Column$(A._setArrayType([t4, B.SizedBox_null_4_null_null, A.Row$(A._setArrayType([t8, t9, t10, t11, A.SizedBox$(A.Text$("\u20b9" + A.S(t12), _null, _null, _null, A.TextStyle$(_null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, t1, _null, _null, t13, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, _null), B.TextAlign_1, _null, _null), _null, 100)], t5), B.CrossAxisAlignment_2, B.MainAxisAlignment_3, B.MainAxisSize_1, 0, _null)], t5), B.CrossAxisAlignment_0, B.MainAxisAlignment_0, B.MainAxisSize_1), _null), t7, _null, B.EdgeInsets_0_6_0_6, _null), new A.ValueKey(t2, type$.ValueKey_dynamic));
     },
-    $signature: 801
+    $signature: 800
   };
   A._POSScreenState_build___closure.prototype = {
     call$1(__wc1_formal) {
@@ -279371,15 +279351,14 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 802
+    $signature: 801
   };
   A._POSScreenState_build____closure.prototype = {
     call$1(context) {
-      var _null = null;
       type$.BuildContext._as(context);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._POSScreenState_build_____closure(context), _null), A.TextButton$(B.Text_Jql, new A._POSScreenState_build_____closure0(context), _null)], type$.JSArray_Widget), _null, B.Text_g9r, B.Text_0vo, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._POSScreenState_build_____closure(context), null), A.TextButton$(B.Text_Jql, new A._POSScreenState_build_____closure0(context), null)], type$.JSArray_Widget), null, B.Text_g9r, B.Text_0vo);
     },
-    $signature: 28
+    $signature: 29
   };
   A._POSScreenState_build_____closure.prototype = {
     call$0() {
@@ -279407,7 +279386,7 @@
       var _this = this;
       return _this.$this._editItemDialog$3(_this.context, _this.item, _this.actualIndex);
     },
-    $signature: 803
+    $signature: 802
   };
   A._POSScreenState_build_closure1.prototype = {
     call$0() {
@@ -279473,7 +279452,7 @@
       t1 = A.List_List$_of(t2, A._instanceType(t2)._eval$1("Iterable.E"));
       return new A.FastBillingDialog(t1, null);
     },
-    $signature: 804
+    $signature: 803
   };
   A._POSScreenState__editItemDialog_closure.prototype = {
     call$2(newQuantity, newPrice) {
@@ -279505,7 +279484,7 @@
       t2.set$value(0, A.LinkedHashMap_LinkedHashMap$from(t2.get$value(t2), type$.String, type$.dynamic));
       this.$this.setState$1(new A._POSScreenState__editItemDialog__closure());
     },
-    $signature: 805
+    $signature: 804
   };
   A._POSScreenState__editItemDialog__closure.prototype = {
     call$0() {
@@ -279517,7 +279496,7 @@
     build$1(context) {
       var _null = null,
         t1 = A.SizedBox$(A.ListView$builder(_null, new A.PriceSelectionDialog_build_closure(this), J.get$length$asx(this.prices), _null, true), _null, 17976931348623157e292);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A.PriceSelectionDialog_build_closure0(context), _null)], type$.JSArray_Widget), _null, t1, B.Text_shs, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A.PriceSelectionDialog_build_closure0(context), _null)], type$.JSArray_Widget), _null, t1, B.Text_shs);
     }
   };
   A.PriceSelectionDialog_build_closure.prototype = {
@@ -279530,7 +279509,7 @@
       t2 = A.Text$("MRP: " + A.S(t2 == null ? "N/A" : t2), _null, _null, _null, _null, _null, _null, _null);
       return A.ListTile$(false, _null, _null, _null, true, _null, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, new A.PriceSelectionDialog_build__closure(context, price), false, _null, _null, _null, _null, _null, A.Text$("MRP: \u20b9" + A.S(t1.$index(price, "mrp")) + " | Rate1: \u20b9" + A.S(t1.$index(price, "rate1")) + " | Rate2: \u20b9" + A.S(t1.$index(price, "rate2")), _null, _null, _null, _null, _null, _null, _null), _null, t2, _null, _null);
     },
-    $signature: 97
+    $signature: 98
   };
   A.PriceSelectionDialog_build__closure.prototype = {
     call$0() {
@@ -279673,13 +279652,13 @@
         t1 = true;
       return t1;
     },
-    $signature: 806
+    $signature: 805
   };
   A._ProductListScreenState_fetchProducts_closure.prototype = {
     call$1(item) {
       return A.Product_Product$fromJson(type$.Map_String_dynamic._as(item));
     },
-    $signature: 807
+    $signature: 806
   };
   A._ProductListScreenState_fetchProducts_closure0.prototype = {
     call$0() {
@@ -279693,9 +279672,9 @@
       type$.BuildContext._as(__wc0_formal);
       t1 = A.Text$('Are you sure you want to delete "' + this.product.name + '"?', _null, _null, _null, _null, _null, _null, _null);
       t2 = this.$this;
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._ProductListScreenState_showDeleteConfirmation__closure(t2), _null), A.TextButton$(B.Text_Jql, new A._ProductListScreenState_showDeleteConfirmation__closure0(t2), A.TextButton_styleFrom(_null, _null, _null, _null, _null, _null, _null, _null, _null, B.MaterialColor_nI1, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null))], type$.JSArray_Widget), _null, t1, B.Text_qHy, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._ProductListScreenState_showDeleteConfirmation__closure(t2), _null), A.TextButton$(B.Text_Jql, new A._ProductListScreenState_showDeleteConfirmation__closure0(t2), A.TextButton_styleFrom(_null, _null, _null, _null, _null, _null, _null, _null, _null, B.MaterialColor_nI1, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null))], type$.JSArray_Widget), _null, t1, B.Text_qHy);
     },
-    $signature: 28
+    $signature: 29
   };
   A._ProductListScreenState_showDeleteConfirmation__closure.prototype = {
     call$0() {
@@ -279740,7 +279719,7 @@
       t5 = type$.JSArray_Widget;
       return A.ListTile$(false, _null, _null, _null, true, _null, _null, _null, true, _null, t4, _null, _null, _null, _null, _null, _null, false, _null, _null, _null, _null, _null, A.Column$(A._setArrayType([A.Text$(B.JSArray_methods.join$1(t2, "  \u2022  "), _null, _null, _null, _null, _null, _null, _null), B.SizedBox_null_4_null_null, A.Text$("MRP: \u20b9" + product.mrp + "  \u2022  Rate 1: \u20b9" + product.price + "  \u2022  Rate 2: \u20b9" + product.rate2, _null, _null, _null, B.TextStyle_RBj, _null, _null, _null)], t5), B.CrossAxisAlignment_0, B.MainAxisAlignment_0, B.MainAxisSize_1), _null, t3, A.Row$(A._setArrayType([A.IconButton$(_null, _null, B.Icon_XAA, _null, _null, new A._ProductListScreenState_build__closure0(), _null, _null, _null), A.IconButton$(_null, _null, B.Icon_Htt, _null, _null, new A._ProductListScreenState_build__closure1(t1, product), _null, _null, _null)], t5), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_0, 0, _null), _null);
     },
-    $signature: 97
+    $signature: 98
   };
   A._ProductListScreenState_build__closure0.prototype = {
     call$0() {
@@ -279766,7 +279745,7 @@
       type$.BuildContext._as(__wc0_formal);
       return B.AddProductScreen_null;
     },
-    $signature: 808
+    $signature: 807
   };
   A.TodoEditScreen.prototype = {
     createState$0() {
@@ -280073,9 +280052,9 @@
       t3 = _this.bankController;
       t4 = _this.chequeNumberController;
       t5 = _this.amountController;
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._TodoEditScreenState__showChequeDialog__closure(context), _null), A.ElevatedButton$(B.Text_8Ec, new A._TodoEditScreenState__showChequeDialog__closure0(t1, _this.$this, t2, t3, t4, t5, context), _null)], type$.JSArray_Widget), _null, new A.StatefulBuilder(new A._TodoEditScreenState__showChequeDialog__closure1(t1, t2, t3, t4, t5), _null), B.Text_FSE, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._TodoEditScreenState__showChequeDialog__closure(context), _null), A.ElevatedButton$(B.Text_8Ec, new A._TodoEditScreenState__showChequeDialog__closure0(t1, _this.$this, t2, t3, t4, t5, context), _null)], type$.JSArray_Widget), _null, new A.StatefulBuilder(new A._TodoEditScreenState__showChequeDialog__closure1(t1, t2, t3, t4, t5), _null), B.Text_FSE);
     },
-    $signature: 28
+    $signature: 29
   };
   A._TodoEditScreenState__showChequeDialog__closure1.prototype = {
     call$2(context, setState) {
@@ -280106,31 +280085,31 @@
         t7 = "Not set";
       return A.SingleChildScrollView$(A.Column$(A._setArrayType([t1, t2, t3, t4, B.SizedBox_null_12_null_null, t6, A.ListTile$(false, B.EdgeInsets_0_0_0_0, _null, _null, true, _null, _null, _null, true, _null, _null, _null, _null, _null, _null, _null, _null, false, _null, _null, _null, _null, _null, A.Text$(t7, _null, _null, _null, _null, _null, _null, _null), _null, B.Text_3oR, A.IconButton$(_null, _null, B.Icon_Eji, _null, _null, new A._TodoEditScreenState__showChequeDialog___closure4(t5, context, setState), _null, _null, _null), _null)], type$.JSArray_Widget), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1), _null, B.Axis_1);
     },
-    $signature: 809
+    $signature: 808
   };
   A._TodoEditScreenState__showChequeDialog___closure.prototype = {
     call$1(val) {
       return val == null || B.JSString_methods.trim$0(val).length === 0 ? "Required" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._TodoEditScreenState__showChequeDialog___closure0.prototype = {
     call$1(val) {
       return val == null || B.JSString_methods.trim$0(val).length === 0 ? "Required" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._TodoEditScreenState__showChequeDialog___closure1.prototype = {
     call$1(val) {
       return val == null || B.JSString_methods.trim$0(val).length === 0 ? "Required" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._TodoEditScreenState__showChequeDialog___closure2.prototype = {
     call$1(val) {
       return val == null || B.JSString_methods.trim$0(val).length === 0 ? "Required" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._TodoEditScreenState__showChequeDialog___closure3.prototype = {
     call$0() {
@@ -280299,7 +280278,7 @@
     call$1(val) {
       return val == null || B.JSString_methods.trim$0(val).length === 0 ? "Title required" : null;
     },
-    $signature: 39
+    $signature: 38
   };
   A._TodoEditScreenState_build_closure0.prototype = {
     call$1(val) {
@@ -280308,7 +280287,7 @@
       if (t1._isCheque)
         t1._showChequeDialog$0();
     },
-    $signature: 113
+    $signature: 111
   };
   A._TodoEditScreenState_build__closure.prototype = {
     call$0() {
@@ -280324,7 +280303,7 @@
         return "Enter a valid number";
       return null;
     },
-    $signature: 39
+    $signature: 38
   };
   A.TodoScreen.prototype = {
     createState$0() {
@@ -280706,7 +280685,7 @@
     call$1(todo) {
       return J.$eq$(J.$index$asx(todo, "id"), this.todoId);
     },
-    $signature: 49
+    $signature: 50
   };
   A._TodoScreenState__closeTodo_closure1.prototype = {
     call$0() {
@@ -280733,7 +280712,7 @@
     call$1(todo) {
       return J.$eq$(J.$index$asx(todo, "id"), this.todoId);
     },
-    $signature: 49
+    $signature: 50
   };
   A._TodoScreenState__deleteTodo_closure1.prototype = {
     call$0() {
@@ -280747,9 +280726,9 @@
       type$.BuildContext._as(context);
       t1 = A.Text$(this.title, _null, _null, _null, _null, _null, _null, _null);
       t2 = A.Text$(this.content, _null, _null, _null, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._TodoScreenState__showConfirmationDialog__closure(context), _null), A.ElevatedButton$(A.Text$(this.confirmText, _null, _null, _null, _null, _null, _null, _null), new A._TodoScreenState__showConfirmationDialog__closure0(context), _null)], type$.JSArray_Widget), _null, t2, t1, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._TodoScreenState__showConfirmationDialog__closure(context), _null), A.ElevatedButton$(A.Text$(this.confirmText, _null, _null, _null, _null, _null, _null, _null), new A._TodoScreenState__showConfirmationDialog__closure0(context), _null)], type$.JSArray_Widget), _null, t2, t1);
     },
-    $signature: 28
+    $signature: 29
   };
   A._TodoScreenState__showConfirmationDialog__closure.prototype = {
     call$0() {
@@ -280771,9 +280750,9 @@
       type$.BuildContext._as(context);
       t1 = this.commentController;
       t2 = A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t1, _null, _null, _null, _null, _null, 2, B.InputDecoration_XLg, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 3, _null, _null, false, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._TodoScreenState__showClosingCommentDialog__closure(context), _null), A.ElevatedButton$(B.Text_qnZ, new A._TodoScreenState__showClosingCommentDialog__closure0(this.$this, t1, context, this.todoId), _null)], type$.JSArray_Widget), _null, t2, B.Text_8h2, _null);
+      return A.AlertDialog$(A._setArrayType([A.TextButton$(B.Text_FgL, new A._TodoScreenState__showClosingCommentDialog__closure(context), _null), A.ElevatedButton$(B.Text_qnZ, new A._TodoScreenState__showClosingCommentDialog__closure0(this.$this, t1, context, this.todoId), _null)], type$.JSArray_Widget), _null, t2, B.Text_8h2);
     },
-    $signature: 28
+    $signature: 29
   };
   A._TodoScreenState__showClosingCommentDialog__closure.prototype = {
     call$0() {
@@ -280804,14 +280783,14 @@
         return dateStr;
       }
     },
-    $signature: 25
+    $signature: 28
   };
   A._TodoScreenState_buildTodoCard_closure.prototype = {
     call$1(val) {
       if (val === true)
         this.$this._showClosingCommentDialog$1(this.todoId);
     },
-    $signature: 113
+    $signature: 111
   };
   A._TodoScreenState_buildTodoCard_closure0.prototype = {
     call$0() {
@@ -280883,7 +280862,7 @@
       t1 = this.$this;
       return t1.buildTodoCard$1(J.$index$asx(t1.todos, index));
     },
-    $signature: 63
+    $signature: 67
   };
   A._TodoScreenState_build_closure0.prototype = {
     call$0() {
@@ -280937,7 +280916,7 @@
       t2.push(A.Align$0(B.Alignment_1_00, A.Text$0("Grand Total: Rs. " + B.JSNumber_methods.toStringAsFixed$1(_this.total, 2), _null, _null, A.TextStyle$0(_null, _null, _null, _null, _null, _null, _null, _null, _null, B.List_empty19, _null, _null, 12, _null, B.FontWeight_1, _null, true, _null, _null, _null, _null), _null, _null), _null, _null));
       return A.Container$0(_null, A.Column$0(t2, B.CrossAxisAlignment_00), _null, _null, _null, _null, B.EdgeInsets_10_0_0_0, _null, _null);
     },
-    $signature: 811
+    $signature: 810
   };
   A.InvoiceService_generateAndPrintInvoice__closure.prototype = {
     call$1(index) {
@@ -280950,13 +280929,13 @@
       t1 = J.getInterceptor$asx(item);
       return ["" + (index + 1), t1.$index(item, "name"), J.toString$0$(t1.$index(item, "quantity")), " " + A.S(J.toStringAsFixed$1$n(t1.$index(item, "price"), 2)), " " + A.S(J.toStringAsFixed$1$n(t1.$index(item, "unitTotal"), 2))];
     },
-    $signature: 812
+    $signature: 811
   };
   A.InvoiceService_generateAndPrintInvoice_closure0.prototype = {
     call$1(format) {
       return this.pdf.save$0(0);
     },
-    $signature: 169
+    $signature: 170
   };
   A.InvoiceService_generateAndPrintInvoiceThermal_closure.prototype = {
     call$1(context) {
@@ -280977,7 +280956,7 @@
       t3.push(new A.Row0(B.Axis_00, B.MainAxisAlignment_30, B.MainAxisSize_10, B.CrossAxisAlignment_20, B.VerticalDirection_10, new A.FlexContext(), A._setArrayType([A.Text$0("TOTAL", _null, _null, A.TextStyle$0(_null, _null, _null, _null, _null, _null, t1, _null, _null, B.List_empty19, _null, _null, 12, _null, _null, _null, true, _null, _null, _null, _null), _null, _null), A.Text$0(B.JSNumber_methods.toStringAsFixed$1(_this.total, 2), _null, _null, A.TextStyle$0(_null, _null, _null, _null, _null, _null, t1, _null, _null, B.List_empty19, _null, _null, 12, _null, _null, _null, true, _null, _null, _null, _null), _null, _null)], t2)));
       return new A.Padding0(B.EdgeInsets_5_10_5_10, A.Column$0(t3, B.CrossAxisAlignment_00));
     },
-    $signature: 813
+    $signature: 812
   };
   A.InvoiceService_generateAndPrintInvoiceThermal__closure.prototype = {
     call$1(index) {
@@ -280994,7 +280973,7 @@
       t2 = this.font;
       return new A.Padding0(B.EdgeInsets_0_3_0_3, A.Column$0(A._setArrayType([A.Text$0(A.S(t1.$index(item, "name")), _null, true, A.TextStyle$0(_null, _null, _null, _null, _null, _null, t2, _null, _null, B.List_empty19, _null, _null, 10, _null, _null, _null, true, _null, _null, _null, _null), _null, _null), A.Align$0(B.Alignment_1_00, A.Text$0(B.JSNumber_methods.toStringAsFixed$1(rate, 2) + " x " + qty + " = " + B.JSNumber_methods.toStringAsFixed$1(lineTotal, 2), _null, _null, A.TextStyle$0(_null, _null, _null, _null, _null, _null, t2, _null, _null, B.List_empty19, _null, _null, 10, _null, _null, _null, true, _null, _null, _null, _null), _null, _null), _null, _null)], type$.JSArray_Widget_2), B.CrossAxisAlignment_00));
     },
-    $signature: 814
+    $signature: 813
   };
   A.InvoiceService_generateAndPrintInvoiceThermal_closure0.prototype = {
     call$1(format) {
@@ -281019,7 +280998,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 169
+    $signature: 170
   };
   A.Context.prototype = {
     absolute$1(_, part1) {
@@ -281247,13 +281226,13 @@
     call$1(part) {
       return A._asString(part) !== "";
     },
-    $signature: 40
+    $signature: 41
   };
   A.Context_split_closure.prototype = {
     call$1(part) {
       return A._asString(part).length !== 0;
     },
-    $signature: 40
+    $signature: 41
   };
   A._validateArgList_closure.prototype = {
     call$1(arg) {
@@ -281719,7 +281698,7 @@
       type$.PdfObjectBase_PdfDataType._as(object);
       return input;
     },
-    $signature: 816
+    $signature: 815
   };
   A.PdfDocument__write_closure.prototype = {
     call$1(e) {
@@ -281755,7 +281734,7 @@
       });
       return A._asyncStartSync($async$call$0, $async$completer);
     },
-    $signature: 818
+    $signature: 817
   };
   A.PdfJpegInfo.prototype = {
     get$orientation(_) {
@@ -282620,13 +282599,13 @@
       }
       _this.glyphsMap.$indexSet(0, t2, new A.TtfGlyphInfo(t2, t3, t1));
     },
-    $signature: 70
+    $signature: 63
   };
   A.TtfWriter_withChars_closure0.prototype = {
     call$1(glyph) {
       return type$.TtfGlyphInfo._as(glyph).index === this.compound;
     },
-    $signature: 819
+    $signature: 818
   };
   A.PdfArray.prototype = {
     output$3(o, s, indent) {
@@ -282710,7 +282689,7 @@
       type$.PdfObjectBase_PdfDataType._as(e);
       return new A.PdfIndirect(e.objser, e.objgen);
     },
-    $signature: 820
+    $signature: 819
   };
   A.PdfArray_fromNum_closure.prototype = {
     call$1(e) {
@@ -282719,7 +282698,7 @@
       A.assertHelper(e !== -1 / 0);
       return new A.PdfNum(e);
     },
-    $signature: 821
+    $signature: 820
   };
   A.Ascii85Encoder.prototype = {
     convert$1(input) {
@@ -282943,13 +282922,13 @@
       type$.PdfObjectBase_PdfDataType._as(value);
       return new A.MapEntry(key, new A.PdfIndirect(value.objser, value.objgen), type$.MapEntry_String_PdfIndirect);
     },
-    $signature: 822
+    $signature: 821
   };
   A.PdfDict_output_closure.prototype = {
     call$2(p, e) {
       return Math.max(A._asInt(p), A._asString(e).length);
     },
-    $signature: 823
+    $signature: 822
   };
   A.PdfDict_output_closure0.prototype = {
     call$2(k, v) {
@@ -283466,7 +283445,7 @@
       B.JSArray_methods.add$1(t1, unit >>> 8 & 255);
       B.JSArray_methods.add$1(t1, unit & 255);
     },
-    $signature: 33
+    $signature: 32
   };
   A.PdfCrossRefEntryType.prototype = {
     _enumToString$0() {
@@ -283511,7 +283490,7 @@
         ++t2.ofs;
       }
     },
-    $signature: 824
+    $signature: 823
   };
   A.PdfXrefTable.prototype = {
     _writeBlock$3(s, firstId, block) {
@@ -284924,7 +284903,7 @@
     call$1(e) {
       return B.JSNumber_methods.toInt$0(A._asDouble(e) * 1000);
     },
-    $signature: 138
+    $signature: 147
   };
   A.PdfUnicodeCmap.prototype = {
     prepare$0() {
@@ -285717,7 +285696,7 @@
       type$.PdfFont._as(font);
       return font.get$subtype() === "/Type1" && font.get$fontName() === this.$this.get$fontName();
     },
-    $signature: 827
+    $signature: 826
   };
   A.Font_buildFont_closure0.prototype = {
     call$0() {
@@ -285756,7 +285735,7 @@
           return A.PdfFont_PdfFont$helvetica(_this.pdfDocument);
       }
     },
-    $signature: 828
+    $signature: 827
   };
   A.TtfFont.prototype = {
     buildFont$1(pdfDocument) {
@@ -286177,7 +286156,7 @@
     call$1(_) {
       return new A.SizedBox0(null, null, null);
     },
-    $signature: 829
+    $signature: 828
   };
   A.MultiPage_generate_closure.prototype = {
     call$0() {
@@ -286676,7 +286655,7 @@
     call$2(sum, element) {
       return A._asDouble(sum) + A._asDouble(element);
     },
-    $signature: 91
+    $signature: 84
   };
   A.Table_layout_closure0.prototype = {
     call$2(a, b) {
@@ -286686,13 +286665,13 @@
       b.toString;
       return a + b;
     },
-    $signature: 830
+    $signature: 829
   };
   A.Table_layout_closure1.prototype = {
     call$2(sum, element) {
       return A._asDouble(sum) + A._asDouble(element);
     },
-    $signature: 91
+    $signature: 84
   };
   A._Table_Widget_SpanningWidget.prototype = {};
   A.TextAlign0.prototype = {
@@ -287013,7 +286992,7 @@
       t1._as(b);
       return a.get$height(a) > b.get$height(b) ? a : b;
     },
-    $signature: 831
+    $signature: 830
   };
   A.RichTextContext.prototype = {
     apply$1(other) {
@@ -287274,7 +287253,7 @@
       B.JSArray_methods.add$1(t3, this.$this._addText$4$annotation$baseline$style$text(annotation, t4, style, text));
       return true;
     },
-    $signature: 832
+    $signature: 831
   };
   A.RichText__preProcessSpans__closure.prototype = {
     call$0() {
@@ -287742,7 +287721,7 @@
         return null;
       return A._asJSObject(A._asJSObject(A._asJSObject(t1.window).navigator).mediaDevices);
     },
-    $signature: 145
+    $signature: 166
   };
   A.WebPermissionHandler__htmlPermissions_closure.prototype = {
     call$0() {
@@ -287751,7 +287730,7 @@
         return null;
       return A._asJSObject(A._asJSObject(A._asJSObject(t1.window).navigator).permissions);
     },
-    $signature: 145
+    $signature: 166
   };
   A.PermissionHandlerPlatform.prototype = {};
   A.PlatformInterface.prototype = {
@@ -287964,7 +287943,7 @@
     call$1(input) {
       return type$.Iterable_String._as(input);
     },
-    $signature: 171
+    $signature: 172
   };
   A.PrintingPlugin_layoutPdf_closure1.prototype = {
     call$1($event) {
@@ -288124,7 +288103,7 @@
     call$1(input) {
       return type$.Iterable_String._as(input);
     },
-    $signature: 171
+    $signature: 172
   };
   A.Mutex.prototype = {};
   A.OutputType.prototype = {
@@ -288292,7 +288271,7 @@
       t1 = t1._buildItem$1(t1._widget.positionedIndex - (index + 1));
       return t1;
     },
-    $signature: 63
+    $signature: 67
   };
   A._PositionedListState_build_closure0.prototype = {
     call$2(context, index) {
@@ -288302,7 +288281,7 @@
       t1 = t1._buildItem$1(A._asInt(index) + t1._widget.positionedIndex);
       return t1;
     },
-    $signature: 63
+    $signature: 67
   };
   A._PositionedListState_build_closure1.prototype = {
     call$2(context, index) {
@@ -288312,7 +288291,7 @@
       t1 = t1._buildItem$1(A._asInt(index) + t1._widget.positionedIndex + 1);
       return t1;
     },
-    $signature: 63
+    $signature: 67
   };
   A._PositionedListState__schedulePositionNotificationUpdate_closure.prototype = {
     call$1(_) {
@@ -288745,28 +288724,28 @@
       }
       return A.Listener$(B.HitTestBehavior_0, A.Stack$(B.AlignmentDirectional_m1_m1, t2, B.Clip_1, B.StackFit_0, _null), _null, new A._ScrollablePositionedListState_build__closure1(t1), _null, _null, _null);
     },
-    $signature: 835
+    $signature: 834
   };
   A._ScrollablePositionedListState_build__closure1.prototype = {
     call$1(_) {
       type$.PointerDownEvent._as(_);
       return this.$this._stopScroll$1$canceled(true);
     },
-    $signature: 78
+    $signature: 75
   };
   A._ScrollablePositionedListState_build__closure.prototype = {
     call$1(_) {
       type$.ScrollNotification._as(_);
       return this.$this._isTransitioning;
     },
-    $signature: 48
+    $signature: 51
   };
   A._ScrollablePositionedListState_build__closure0.prototype = {
     call$1(_) {
       type$.ScrollNotification._as(_);
       return false;
     },
-    $signature: 48
+    $signature: 51
   };
   A._ScrollablePositionedListState__scrollTo_closure.prototype = {
     call$1(_) {
@@ -288794,7 +288773,7 @@
       });
       return A._asyncStartSync($async$call$1, $async$completer);
     },
-    $signature: 836
+    $signature: 835
   };
   A._ScrollablePositionedListState__startScroll_closure.prototype = {
     call$1(itemPosition) {
@@ -288893,7 +288872,7 @@
       t1._as(element);
       return value.itemLeadingEdge < element.itemLeadingEdge ? value : element;
     },
-    $signature: 838
+    $signature: 837
   };
   A._ListDisplayDetails.prototype = {};
   A.__ScrollablePositionedListState_State_TickerProviderStateMixin_dispose_closure.prototype = {
@@ -289300,14 +289279,14 @@
     call$1(key) {
       return B.JSString_methods.startsWith$1(A._asString(key), this.prefix);
     },
-    $signature: 40
+    $signature: 41
   };
   A._getAllowedKeys_closure.prototype = {
     call$1(key) {
       A._asString(key);
       return true;
     },
-    $signature: 40
+    $signature: 41
   };
   A.SourceFile.prototype = {
     get$length(_) {
@@ -289774,7 +289753,7 @@
     call$0() {
       return this.color;
     },
-    $signature: 839
+    $signature: 838
   };
   A.Highlighter$__closure.prototype = {
     call$1(line) {
@@ -289782,7 +289761,7 @@
         t2 = A._arrayInstanceType(t1);
       return new A.WhereIterable(t1, t2._eval$1("bool(1)")._as(new A.Highlighter$___closure()), t2._eval$1("WhereIterable<1>")).get$length(0);
     },
-    $signature: 840
+    $signature: 839
   };
   A.Highlighter$___closure.prototype = {
     call$1(highlight) {
@@ -289792,27 +289771,27 @@
       t1 = t1.get$end(t1);
       return t2 !== t1.get$line(t1);
     },
-    $signature: 172
+    $signature: 173
   };
   A.Highlighter$__closure0.prototype = {
     call$1(line) {
       return type$._Line._as(line).url;
     },
-    $signature: 842
+    $signature: 841
   };
   A.Highlighter__collateLines_closure.prototype = {
     call$1(highlight) {
       var t1 = type$._Highlight._as(highlight).span.get$sourceUrl();
       return t1 == null ? new A.Object() : t1;
     },
-    $signature: 843
+    $signature: 842
   };
   A.Highlighter__collateLines_closure0.prototype = {
     call$2(highlight1, highlight2) {
       var t1 = type$._Highlight;
       return t1._as(highlight1).span.compareTo$1(0, t1._as(highlight2).span);
     },
-    $signature: 844
+    $signature: 843
   };
   A.Highlighter__collateLines_closure1.prototype = {
     call$1(entry) {
@@ -289858,7 +289837,7 @@
       }
       return lines;
     },
-    $signature: 845
+    $signature: 844
   };
   A.Highlighter__collateLines__closure.prototype = {
     call$1(highlight) {
@@ -289866,14 +289845,14 @@
       t1 = t1.get$end(t1);
       return t1.get$line(t1) < this.line.number;
     },
-    $signature: 172
+    $signature: 173
   };
   A.Highlighter_highlight_closure.prototype = {
     call$1(highlight) {
       type$._Highlight._as(highlight);
       return true;
     },
-    $signature: 172
+    $signature: 173
   };
   A.Highlighter__writeFileStart_closure.prototype = {
     call$0() {
@@ -289888,7 +289867,7 @@
         t2 = this.startLine === this.line.number ? "\u250c" : "\u2514";
       t1._contents += t2;
     },
-    $signature: 30
+    $signature: 25
   };
   A.Highlighter__writeMultilineHighlights_closure0.prototype = {
     call$0() {
@@ -289896,7 +289875,7 @@
         t2 = this.highlight == null ? "\u2500" : "\u253c";
       t1._contents += t2;
     },
-    $signature: 30
+    $signature: 25
   };
   A.Highlighter__writeMultilineHighlights_closure1.prototype = {
     call$0() {
@@ -289935,7 +289914,7 @@
         }
       }
     },
-    $signature: 30
+    $signature: 25
   };
   A.Highlighter__writeMultilineHighlights__closure.prototype = {
     call$0() {
@@ -289943,13 +289922,13 @@
         t2 = this._box_0.openedOnThisLine ? "\u252c" : "\u250c";
       t1._contents += t2;
     },
-    $signature: 30
+    $signature: 25
   };
   A.Highlighter__writeMultilineHighlights__closure0.prototype = {
     call$0() {
       this.$this._highlighter$_buffer._contents += this.vertical;
     },
-    $signature: 30
+    $signature: 25
   };
   A.Highlighter__writeHighlightedText_closure.prototype = {
     call$0() {
@@ -289981,7 +289960,7 @@
       t2._contents = t1;
       return t1.length - t3.length;
     },
-    $signature: 83
+    $signature: 74
   };
   A.Highlighter__writeIndicator_closure0.prototype = {
     call$0() {
@@ -290004,7 +289983,7 @@
       }
       return t2._contents.length - t3.length;
     },
-    $signature: 83
+    $signature: 74
   };
   A.Highlighter__writeSidebar_closure.prototype = {
     call$0() {
@@ -290018,7 +289997,7 @@
       t3 = this.end;
       t2._contents = t1 + (t3 == null ? "\u2502" : t3);
     },
-    $signature: 30
+    $signature: 25
   };
   A._Highlight.prototype = {
     toString$0(_) {
@@ -290047,7 +290026,7 @@
       }
       return A._Highlight__normalizeEndOfLine(A._Highlight__normalizeTrailingNewline(A._Highlight__normalizeNewlines(newSpan)));
     },
-    $signature: 846
+    $signature: 845
   };
   A._Line.prototype = {
     toString$0(_) {
@@ -292482,55 +292461,55 @@
       _instance_0_i = hunkHelpers._instance_0i,
       _instance = hunkHelpers.installInstanceTearOff,
       _instance_2_i = hunkHelpers._instance_2i;
-    _static_2(A, "_engine__canvasKitWasmModuleUrl$closure", "canvasKitWasmModuleUrl", 848);
+    _static_2(A, "_engine__canvasKitWasmModuleUrl$closure", "canvasKitWasmModuleUrl", 847);
     _static(A, "_engine___defaultFactory$closure", 1, function() {
       return {params: null};
     }, ["call$2$params", "call$1"], ["_defaultFactory", function(viewId) {
       return A._defaultFactory(viewId, null);
-    }], 849, 0);
-    _static_1(A, "_engine___noopCallback$closure", "_noopCallback", 47);
+    }], 848, 0);
+    _static_1(A, "_engine___noopCallback$closure", "_noopCallback", 46);
     _static_0(A, "_engine_SizedSpanRepresentation__updateSizes$closure", "SizedSpanRepresentation__updateSizes", 0);
-    _static_1(A, "_engine___emptyCallback$closure", "_emptyCallback", 70);
-    _static_1(A, "_engine___isGenericFont$closure", "_isGenericFont", 173);
-    _static_1(A, "_engine___isAppleFont$closure", "_isAppleFont", 173);
+    _static_1(A, "_engine___emptyCallback$closure", "_emptyCallback", 63);
+    _static_1(A, "_engine___isGenericFont$closure", "_isGenericFont", 159);
+    _static_1(A, "_engine___isAppleFont$closure", "_isAppleFont", 159);
     _instance_0_u(A.AlarmClock.prototype, "get$_timerDidFire", "_timerDidFire$0", 0);
     _instance_0_u(A.CkSurface.prototype, "get$onContextLost", "onContextLost$0", 0);
     _instance_0_u(A.DisplayCanvasFactory.prototype, "get$dispose", "dispose$0", 0);
     _instance_0_u(A.SurfaceProvider.prototype, "get$createSurface", "createSurface$0", "SurfaceProvider.C()");
     var _;
     _instance_0_u(_ = A.FallbackFontService.prototype, "get$__engine$_process", "__engine$_process$0", 0);
-    _instance_1_u(_, "get$_startDownloadTask", "_startDownloadTask$1", 423);
+    _instance_1_u(_, "get$_startDownloadTask", "_startDownloadTask$1", 425);
     _instance_0_u(A.FrameService.prototype, "get$_dispose", "_dispose$0", 0);
-    _instance_1_u(_ = A.KeyboardBinding.prototype, "get$_onKeyData", "_onKeyData$1", 158);
+    _instance_1_u(_ = A.KeyboardBinding.prototype, "get$_onKeyData", "_onKeyData$1", 133);
     _instance_0_u(_, "get$_reset", "_reset$0", 0);
-    _instance_1_u(A.NWayCanvas.prototype, "get$addCanvas", "addCanvas$1", 508);
+    _instance_1_u(A.NWayCanvas.prototype, "get$addCanvas", "addCanvas$1", 509);
     _instance_1_i(A.MultiEntriesBrowserHistory.prototype, "get$onPopState", "onPopState$1", 19);
     _instance_1_i(A.SingleEntryBrowserHistory.prototype, "get$onPopState", "onPopState$1", 19);
     _instance_0_u(_ = A.EnginePlatformDispatcher.prototype, "get$dispose", "dispose$0", 0);
-    _instance_1_u(_, "get$invokeOnViewFocusChange", "invokeOnViewFocusChange$1", 195);
-    _instance_1_u(_, "get$_setAppLifecycleState", "_setAppLifecycleState$1", 200);
+    _instance_1_u(_, "get$invokeOnViewFocusChange", "invokeOnViewFocusChange$1", 248);
+    _instance_1_u(_, "get$_setAppLifecycleState", "_setAppLifecycleState$1", 267);
     _instance_1_u(_, "get$_updatePlatformBrightness", "_updatePlatformBrightness$1", 13);
     _instance_1_u(_, "get$_updateHighContrast", "_updateHighContrast$1", 13);
     _instance_1_u(_, "get$_updateReducedMotion", "_updateReducedMotion$1", 13);
-    _instance_1_u(A._BrowserAppLifecycleState.prototype, "get$_onViewCountChanged", "_onViewCountChanged$1", 33);
-    _instance_1_u(A.MediaQueryManager.prototype, "get$__engine$_removeListeners", "__engine$_removeListeners$1", 32);
-    _instance_1_u(A._MediaQueryListeners.prototype, "get$__engine$_removeListener", "__engine$_removeListener$1", 714);
-    _instance_1_u(A.ViewFocusBinding.prototype, "get$_handleViewCreated", "_handleViewCreated$1", 33);
-    _instance_1_u(A.PlatformViewEmbedder.prototype, "get$disposeView", "disposeView$1", 33);
+    _instance_1_u(A._BrowserAppLifecycleState.prototype, "get$_onViewCountChanged", "_onViewCountChanged$1", 32);
+    _instance_1_u(A.MediaQueryManager.prototype, "get$__engine$_removeListeners", "__engine$_removeListeners$1", 31);
+    _instance_1_u(A._MediaQueryListeners.prototype, "get$__engine$_removeListener", "__engine$_removeListener$1", 715);
+    _instance_1_u(A.ViewFocusBinding.prototype, "get$_handleViewCreated", "_handleViewCreated$1", 32);
+    _instance_1_u(A.PlatformViewEmbedder.prototype, "get$disposeView", "disposeView$1", 32);
     _instance_0_u(A.PointerBinding.prototype, "get$dispose", "dispose$0", 0);
-    _instance_2_u(_ = A.ClickDebouncer.prototype, "get$onPointerData", "onPointerData$2", 774);
+    _instance_2_u(_ = A.ClickDebouncer.prototype, "get$onPointerData", "onPointerData$2", 781);
     _instance_0_u(_, "get$_doStartDebouncing", "_doStartDebouncing$0", 0);
     _instance_0_u(_, "get$_onTimerExpired", "_onTimerExpired$0", 0);
     _instance_0_i(_, "get$reset", "reset$0", 0);
     _instance_0_i(A._GlobalPointerState.prototype, "get$reset", "reset$0", 0);
-    _instance_1_u(_ = A.Renderer.prototype, "get$_onViewCreated", "_onViewCreated$1", 33);
-    _instance_1_u(_, "get$_onViewDisposed", "_onViewDisposed$1", 33);
+    _instance_1_u(_ = A.Renderer.prototype, "get$_onViewCreated", "_onViewCreated$1", 32);
+    _instance_1_u(_, "get$_onViewDisposed", "_onViewDisposed$1", 32);
     _instance_0_u(A.SemanticMenu.prototype, "get$_updateMenuItemId", "_updateMenuItemId$0", 0);
     _instance_0_u(A.SemanticMenuBar.prototype, "get$_updateMenuItemId", "_updateMenuItemId$0", 0);
     _instance_0_u(_ = A.SemanticRole.prototype, "get$_updateLocale", "_updateLocale$0", 0);
     _instance_0_u(_, "get$_updateTraversalParent", "_updateTraversalParent$0", 0);
-    _instance(_ = A.TestUrlStrategy.prototype, "get$pushState", 1, 3, null, ["call$3"], ["pushState$3"], 370, 0, 0);
-    _instance(_, "get$replaceState", 1, 3, null, ["call$3"], ["replaceState$3"], 375, 0, 0);
+    _instance(_ = A.TestUrlStrategy.prototype, "get$pushState", 1, 3, null, ["call$3"], ["pushState$3"], 376, 0, 0);
+    _instance(_, "get$replaceState", 1, 3, null, ["call$3"], ["replaceState$3"], 377, 0, 0);
     _instance_1_u(_ = A.CompositionAwareMixin.prototype, "get$_handleCompositionStart", "_handleCompositionStart$1", 3);
     _instance_1_u(_, "get$_handleCompositionUpdate", "_handleCompositionUpdate$1", 3);
     _instance_1_u(_, "get$_handleCompositionEnd", "_handleCompositionEnd$1", 3);
@@ -292539,29 +292518,29 @@
     _instance_1_u(_, "get$handleBlur", "handleBlur$1", 3);
     _instance_1_u(_, "get$handleClipboardEvent", "handleClipboardEvent$1", 3);
     _instance_1_u(_, "get$maybeSendAction", "maybeSendAction$1", 3);
-    _instance_1_u(_ = A.HybridTextEditing.prototype, "get$_addFocusReceivedListenerToView", "_addFocusReceivedListenerToView$1", 33);
+    _instance_1_u(_ = A.HybridTextEditing.prototype, "get$_addFocusReceivedListenerToView", "_addFocusReceivedListenerToView$1", 32);
     _instance_1_u(_, "get$_handleFocusReceived", "_handleFocusReceived$1", 3);
     _instance_1_u(A.FullPageDimensionsProvider.prototype, "get$_onVisualViewportResize", "_onVisualViewportResize$1", 3);
     _instance_1_u(A.DisplayDprStream.prototype, "get$_onDprMediaQueryChange", "_onDprMediaQueryChange$1", 3);
-    _instance_1_u(A.FlutterViewManager.prototype, "get$disposeAndUnregisterView", "disposeAndUnregisterView$1", 152);
+    _instance_1_u(A.FlutterViewManager.prototype, "get$disposeAndUnregisterView", "disposeAndUnregisterView$1", 143);
     _instance_0_u(_ = A.EngineFlutterView.prototype, "get$dispose", "dispose$0", 0);
-    _instance_1_u(_, "get$_handleBrowserResize", "_handleBrowserResize$1", 414);
+    _instance_1_u(_, "get$_handleBrowserResize", "_handleBrowserResize$1", 420);
     _instance_0_u(A.EngineFlutterWindow.prototype, "get$dispose", "dispose$0", 0);
-    _static_2(J, "_interceptors_JSArray__compareAny$closure", "JSArray__compareAny", 149);
+    _static_2(J, "_interceptors_JSArray__compareAny$closure", "JSArray__compareAny", 145);
     _instance_1_i(_ = J.JSArray.prototype, "get$add", "add$1", 19);
     _instance_1_i(_, "get$remove", "remove$1", 36);
     _instance_1_u(A.CastStreamSubscription.prototype, "get$__internal$_onData", "__internal$_onData$1", 19);
     _instance_1_i(A._CastIterableBase.prototype, "get$contains", "contains$1", 36);
-    _static_0(A, "_js_helper_Primitives_dateNow$closure", "Primitives_dateNow", 83);
+    _static_0(A, "_js_helper_Primitives_dateNow$closure", "Primitives_dateNow", 74);
     _instance_1_i(A.ConstantStringSet.prototype, "get$contains", "contains$1", 36);
     _instance_1_i(A.GeneralConstantSet.prototype, "get$contains", "contains$1", 36);
     _instance_1_i(A.JsLinkedHashMap.prototype, "get$containsKey", "containsKey$1", 36);
     _instance_1_i(A.LinkedHashMapKeysIterable.prototype, "get$contains", "contains$1", 36);
-    _static_1(A, "async__AsyncRun__scheduleImmediateJsOverride$closure", "_AsyncRun__scheduleImmediateJsOverride", 76);
-    _static_1(A, "async__AsyncRun__scheduleImmediateWithSetImmediate$closure", "_AsyncRun__scheduleImmediateWithSetImmediate", 76);
-    _static_1(A, "async__AsyncRun__scheduleImmediateWithTimer$closure", "_AsyncRun__scheduleImmediateWithTimer", 76);
+    _static_1(A, "async__AsyncRun__scheduleImmediateJsOverride$closure", "_AsyncRun__scheduleImmediateJsOverride", 77);
+    _static_1(A, "async__AsyncRun__scheduleImmediateWithSetImmediate$closure", "_AsyncRun__scheduleImmediateWithSetImmediate", 77);
+    _static_1(A, "async__AsyncRun__scheduleImmediateWithTimer$closure", "_AsyncRun__scheduleImmediateWithTimer", 77);
     _static_0(A, "async___startMicrotaskLoop$closure", "_startMicrotaskLoop", 0);
-    _static_1(A, "async___nullDataHandler$closure", "_nullDataHandler", 70);
+    _static_1(A, "async___nullDataHandler$closure", "_nullDataHandler", 63);
     _static_2(A, "async___nullErrorHandler$closure", "_nullErrorHandler", 22);
     _static_0(A, "async___nullDoneHandler$closure", "_nullDoneHandler", 0);
     _instance_0_u(_ = A._BroadcastSubscription.prototype, "get$_onPause", "_onPause$0", 0);
@@ -292569,10 +292548,10 @@
     _instance_1_i(_ = A._BroadcastStreamController.prototype, "get$add", "add$1", 19);
     _instance(_, "get$addError", 0, 1, function() {
       return [null];
-    }, ["call$2", "call$1"], ["addError$2", "addError$1"], 106, 0, 0);
+    }, ["call$2", "call$1"], ["addError$2", "addError$1"], 109, 0, 0);
     _instance(A._Completer.prototype, "get$completeError", 0, 1, function() {
       return [null];
-    }, ["call$2", "call$1"], ["completeError$2", "completeError$1"], 106, 0, 0);
+    }, ["call$2", "call$1"], ["completeError$2", "completeError$1"], 109, 0, 0);
     _instance_1_u(_ = A._Future.prototype, "get$_complete", "_complete$1", 19);
     _instance_2_u(_, "get$_completeError", "_completeError$2", 22);
     _instance_1_i(A._StreamController.prototype, "get$add", "add$1", 19);
@@ -292584,59 +292563,59 @@
     _instance_0_u(_ = A._ForwardingStreamSubscription.prototype, "get$_onPause", "_onPause$0", 0);
     _instance_0_u(_, "get$_onResume", "_onResume$0", 0);
     _instance_1_u(_, "get$_handleData", "_handleData$1", 19);
-    _instance_2_u(_, "get$_handleError", "_handleError$2", 516);
+    _instance_2_u(_, "get$_handleError", "_handleError$2", 558);
     _instance_0_u(_, "get$_handleDone", "_handleDone$0", 0);
-    _static_2(A, "collection___defaultEquals$closure", "_defaultEquals", 134);
-    _static_1(A, "collection___defaultHashCode$closure", "_defaultHashCode", 136);
-    _static_2(A, "collection_ListBase__compareAny$closure", "ListBase__compareAny", 149);
-    _static_2(A, "collection___dynamicCompare$closure", "_dynamicCompare", 149);
+    _static_2(A, "collection___defaultEquals$closure", "_defaultEquals", 140);
+    _static_1(A, "collection___defaultHashCode$closure", "_defaultHashCode", 169);
+    _static_2(A, "collection_ListBase__compareAny$closure", "ListBase__compareAny", 145);
+    _static_2(A, "collection___dynamicCompare$closure", "_dynamicCompare", 145);
     _instance_1_i(A._LinkedCustomHashMap.prototype, "get$containsKey", "containsKey$1", 36);
     _instance_1_i(A._HashSet.prototype, "get$contains", "contains$1", 36);
-    _instance(_ = A._LinkedHashSet.prototype, "get$_newSimilarSet", 0, 0, null, ["call$1$0", "call$0"], ["_newSimilarSet$1$0", "_newSimilarSet$0"], 235, 0, 0);
+    _instance(_ = A._LinkedHashSet.prototype, "get$_newSimilarSet", 0, 0, null, ["call$1$0", "call$0"], ["_newSimilarSet$1$0", "_newSimilarSet$0"], 266, 0, 0);
     _instance_1_i(_, "get$contains", "contains$1", 36);
-    _instance(A._LinkedIdentityHashSet.prototype, "get$_newSimilarSet", 0, 0, null, ["call$1$0", "call$0"], ["_newSimilarSet$1$0", "_newSimilarSet$0"], 235, 0, 0);
+    _instance(A._LinkedIdentityHashSet.prototype, "get$_newSimilarSet", 0, 0, null, ["call$1$0", "call$0"], ["_newSimilarSet$1$0", "_newSimilarSet$0"], 266, 0, 0);
     _instance_1_i(A.SplayTreeSet.prototype, "get$contains", "contains$1", 36);
-    _static_1(A, "convert___defaultToEncodable$closure", "_defaultToEncodable", 137);
+    _static_1(A, "convert___defaultToEncodable$closure", "_defaultToEncodable", 130);
     _instance_0_i(A._JsonDecoderSink.prototype, "get$close", "close$0", 0);
     _instance_1_i(_ = A._ByteCallbackSink.prototype, "get$add", "add$1", 19);
     _instance_0_i(_, "get$close", "close$0", 0);
-    _static_1(A, "core__identityHashCode$closure", "identityHashCode", 136);
-    _static_2(A, "core__identical$closure", "identical", 134);
-    _static_2(A, "core_Comparable_compare$closure", "Comparable_compare", 852);
-    _static_1(A, "core_Uri_decodeComponent$closure", "Uri_decodeComponent", 25);
-    _static_0(A, "core__Uri__createList$closure", "_Uri__createList", 196);
-    _static_2(A, "core___toUnmodifiableStringList$closure", "_toUnmodifiableStringList", 853);
+    _static_1(A, "core__identityHashCode$closure", "identityHashCode", 169);
+    _static_2(A, "core__identical$closure", "identical", 140);
+    _static_2(A, "core_Comparable_compare$closure", "Comparable_compare", 851);
+    _static_1(A, "core_Uri_decodeComponent$closure", "Uri_decodeComponent", 28);
+    _static_0(A, "core__Uri__createList$closure", "_Uri__createList", 195);
+    _static_2(A, "core___toUnmodifiableStringList$closure", "_toUnmodifiableStringList", 852);
     _instance_1_i(A.Iterable.prototype, "get$contains", "contains$1", 36);
-    _instance(A.StringBuffer.prototype, "get$writeln", 0, 0, null, ["call$1", "call$0"], ["writeln$1", "writeln$0"], 620, 0, 0);
-    _instance_2_i(A.HttpRequest.prototype, "get$setRequestHeader", "setRequestHeader$2", 115);
+    _instance(A.StringBuffer.prototype, "get$writeln", 0, 0, null, ["call$1", "call$0"], ["writeln$1", "writeln$0"], 622, 0, 0);
+    _instance_2_i(A.HttpRequest.prototype, "get$setRequestHeader", "setRequestHeader$2", 125);
     _static(A, "math__min$closure", 2, null, ["call$1$2", "call$2"], ["min", function(a, b) {
       return A.min(a, b, type$.num);
     }], 303, 1);
     _static(A, "math__max$closure", 2, null, ["call$1$2", "call$2"], ["max", function(a, b) {
       return A.max(a, b, type$.num);
     }], 303, 1);
-    _static(A, "ui_Size_lerp$closure", 3, null, ["call$3"], ["Size_lerp"], 855, 0);
-    _static(A, "ui__lerpDouble$closure", 3, null, ["call$3"], ["lerpDouble"], 856, 0);
-    _static(A, "ui_Color_lerp$closure", 3, null, ["call$3"], ["Color_lerp"], 857, 0);
-    _instance_1_u(A._StoredMessage.prototype, "get$invoke", "invoke$1", 47);
+    _static(A, "ui_Size_lerp$closure", 3, null, ["call$3"], ["Size_lerp"], 854, 0);
+    _static(A, "ui__lerpDouble$closure", 3, null, ["call$3"], ["lerpDouble"], 855, 0);
+    _static(A, "ui_Color_lerp$closure", 3, null, ["call$3"], ["Color_lerp"], 856, 0);
+    _instance_1_u(A._StoredMessage.prototype, "get$invoke", "invoke$1", 46);
     _instance_0_u(A._Channel.prototype, "get$_drainStep", "_drainStep$0", 0);
-    _instance(A.PointerData.prototype, "get$respond", 0, 0, null, ["call$1$allowPlatformDefault"], ["respond$1$allowPlatformDefault"], 722, 0, 0);
-    _instance(_ = A.HashUrlStrategy.prototype, "get$pushState", 1, 3, null, ["call$3"], ["pushState$3"], 259, 0, 0);
-    _instance(_, "get$replaceState", 1, 3, null, ["call$3"], ["replaceState$3"], 259, 0, 0);
-    _instance(A.ZLibEncoder.prototype, "get$encode", 0, 1, null, ["call$3$level$output", "call$1"], ["encode$3$level$output", "encode$1"], 755, 0, 0);
-    _static_1(A, "audio_logger_AudioLogger_log$closure", "AudioLogger_log", 32);
+    _instance(A.PointerData.prototype, "get$respond", 0, 0, null, ["call$1$allowPlatformDefault"], ["respond$1$allowPlatformDefault"], 729, 0, 0);
+    _instance(_ = A.HashUrlStrategy.prototype, "get$pushState", 1, 3, null, ["call$3"], ["pushState$3"], 287, 0, 0);
+    _instance(_, "get$replaceState", 1, 3, null, ["call$3"], ["replaceState$3"], 287, 0, 0);
+    _instance(A.ZLibEncoder.prototype, "get$encode", 0, 1, null, ["call$3$level$output", "call$1"], ["encode$3$level$output", "encode$1"], 759, 0, 0);
+    _static_1(A, "audio_logger_AudioLogger_log$closure", "AudioLogger_log", 31);
     _static(A, "audio_logger_AudioLogger_error$closure", 1, function() {
       return [null];
     }, ["call$2", "call$1"], ["AudioLogger_error", function(o) {
       return A.AudioLogger_error(o, null);
-    }], 106, 0);
-    _instance_0_i(A.AudioPlayer.prototype, "get$getCurrentPosition", "getCurrentPosition$0", 759);
-    _instance_1_u(A.FramePositionUpdater.prototype, "get$_position_updater$_tick", "_position_updater$_tick$1", 837);
-    _instance_2_u(_ = A.DeepCollectionEquality.prototype, "get$equals", "equals$2", 134);
-    _instance_1_i(_, "get$hash", "hash$1", 136);
+    }], 109, 0);
+    _instance_0_i(A.AudioPlayer.prototype, "get$getCurrentPosition", "getCurrentPosition$0", 760);
+    _instance_1_u(A.FramePositionUpdater.prototype, "get$_position_updater$_tick", "_position_updater$_tick$1", 840);
+    _instance_2_u(_ = A.DeepCollectionEquality.prototype, "get$equals", "equals$2", 140);
+    _instance_1_i(_, "get$hash", "hash$1", 169);
     _instance_1_u(_, "get$isValidKey", "isValidKey$1", 36);
-    _instance(_ = A.AnimationController.prototype, "get$reverse", 1, 0, null, ["call$1$from", "call$0"], ["reverse$1$from", "reverse$0"], 314, 0, 0);
-    _instance_1_u(_, "get$_directionSetter", "_directionSetter$1", 316);
+    _instance(_ = A.AnimationController.prototype, "get$reverse", 1, 0, null, ["call$1$from", "call$0"], ["reverse$1$from", "reverse$0"], 316, 0, 0);
+    _instance_1_u(_, "get$_directionSetter", "_directionSetter$1", 320);
     _instance_1_u(_, "get$_animation_controller$_tick", "_animation_controller$_tick$1", 4);
     _instance_1_u(A.ReverseAnimation.prototype, "get$_statusChangeHandler", "_statusChangeHandler$1", 10);
     _instance_1_u(A.CurvedAnimation.prototype, "get$_updateCurveDirection", "_updateCurveDirection$1", 10);
@@ -292646,76 +292625,76 @@
     _instance_0_u(_, "get$_maybeNotifyListeners", "_maybeNotifyListeners$0", 0);
     _instance_0_u(A.AnimationLocalListenersMixin.prototype, "get$notifyListeners", "notifyListeners$0", 0);
     _instance_1_u(A.AnimationLocalStatusListenersMixin.prototype, "get$notifyStatusListeners", "notifyStatusListeners$1", 10);
-    _instance_1_u(_ = A._CupertinoButtonState.prototype, "get$_button0$_handleTapDown", "_button0$_handleTapDown$1", 51);
-    _instance_1_u(_, "get$_handleTapUp", "_handleTapUp$1", 122);
+    _instance_1_u(_ = A._CupertinoButtonState.prototype, "get$_button0$_handleTapDown", "_button0$_handleTapDown$1", 48);
+    _instance_1_u(_, "get$_handleTapUp", "_handleTapUp$1", 119);
     _instance_0_u(_, "get$_handleTapCancel", "_handleTapCancel$0", 0);
-    _instance_1_u(_, "get$_handleTapMove", "_handleTapMove$1", 331);
+    _instance_1_u(_, "get$_handleTapMove", "_handleTapMove$1", 334);
     _instance(_, "get$_button0$_handleTap", 0, 0, function() {
       return [null];
-    }, ["call$1", "call$0"], ["_button0$_handleTap$1", "_button0$_handleTap$0"], 146, 0, 0);
+    }, ["call$1", "call$0"], ["_button0$_handleTap$1", "_button0$_handleTap$0"], 137, 0, 0);
     _instance_1_u(_, "get$_onShowFocusHighlight", "_onShowFocusHighlight$1", 13);
-    _instance_1_u(_ = A._CupertinoDesktopTextSelectionToolbarButtonState.prototype, "get$_onEnter", "_onEnter$1", 62);
-    _instance_1_u(_, "get$_onExit", "_onExit$1", 56);
+    _instance_1_u(_ = A._CupertinoDesktopTextSelectionToolbarButtonState.prototype, "get$_onEnter", "_onEnter$1", 58);
+    _instance_1_u(_, "get$_onExit", "_onExit$1", 52);
     _instance_0_u(A._CupertinoTextMagnifierState.prototype, "get$_magnifier0$_determineMagnifierPositionAndFocalPoint", "_magnifier0$_determineMagnifierPositionAndFocalPoint$0", 0);
     _static(A, "route_CupertinoPageTransition_delegatedTransition$closure", 5, null, ["call$5"], ["CupertinoPageTransition_delegatedTransition"], 304, 0);
-    _instance_1_u(_ = A._CupertinoBackGestureDetectorState.prototype, "get$_handleDragStart", "_handleDragStart$1", 46);
+    _instance_1_u(_ = A._CupertinoBackGestureDetectorState.prototype, "get$_handleDragStart", "_handleDragStart$1", 47);
     _instance_1_u(_, "get$_handleDragUpdate", "_handleDragUpdate$1", 23);
-    _instance_1_u(_, "get$_handleDragEnd", "_handleDragEnd$1", 43);
+    _instance_1_u(_, "get$_handleDragEnd", "_handleDragEnd$1", 42);
     _instance_0_u(_, "get$_handleDragCancel", "_handleDragCancel$0", 0);
-    _instance_1_u(_, "get$_route$_handlePointerDown", "_route$_handlePointerDown$1", 78);
-    _instance_1_u(A._CupertinoScrollbarState.prototype, "get$handleTrackTapDown", "handleTrackTapDown$1", 51);
-    _static(A, "text_selection_toolbar0_CupertinoTextSelectionToolbar__defaultToolbarBuilder$closure", 4, null, ["call$4"], ["CupertinoTextSelectionToolbar__defaultToolbarBuilder"], 859, 0);
-    _instance_1_u(_ = A._CupertinoTextSelectionToolbarContentState.prototype, "get$_onHorizontalDragEnd", "_onHorizontalDragEnd$1", 43);
+    _instance_1_u(_, "get$_route$_handlePointerDown", "_route$_handlePointerDown$1", 75);
+    _instance_1_u(A._CupertinoScrollbarState.prototype, "get$handleTrackTapDown", "handleTrackTapDown$1", 48);
+    _static(A, "text_selection_toolbar0_CupertinoTextSelectionToolbar__defaultToolbarBuilder$closure", 4, null, ["call$4"], ["CupertinoTextSelectionToolbar__defaultToolbarBuilder"], 858, 0);
+    _instance_1_u(_ = A._CupertinoTextSelectionToolbarContentState.prototype, "get$_onHorizontalDragEnd", "_onHorizontalDragEnd$1", 42);
     _instance_0_u(_, "get$_handleNextPage", "_handleNextPage$0", 0);
     _instance_0_u(_, "get$_handlePreviousPage", "_handlePreviousPage$0", 0);
     _instance_1_u(_, "get$_statusListener", "_statusListener$1", 10);
-    _instance_1_u(_ = A._CupertinoTextSelectionToolbarButtonState.prototype, "get$_onTapDown", "_onTapDown$1", 51);
-    _instance_1_u(_, "get$_onTapUp", "_onTapUp$1", 122);
+    _instance_1_u(_ = A._CupertinoTextSelectionToolbarButtonState.prototype, "get$_onTapDown", "_onTapDown$1", 48);
+    _instance_1_u(_, "get$_onTapUp", "_onTapUp$1", 119);
     _instance_0_u(_, "get$_onTapCancel", "_onTapCancel$0", 0);
     _static(A, "assertions_FlutterError_dumpErrorToConsole$closure", 1, null, ["call$2$forceReport", "call$1"], ["FlutterError_dumpErrorToConsole", function(details) {
       return A.FlutterError_dumpErrorToConsole(details, false);
-    }], 860, 0);
-    _static_1(A, "assertions_FlutterError_defaultStackFilter$closure", "FlutterError_defaultStackFilter", 171);
-    _static_1(A, "assertions_DiagnosticsStackTrace__createStackFrame$closure", "DiagnosticsStackTrace__createStackFrame", 861);
+    }], 859, 0);
+    _static_1(A, "assertions_FlutterError_defaultStackFilter$closure", "FlutterError_defaultStackFilter", 172);
+    _static_1(A, "assertions_DiagnosticsStackTrace__createStackFrame$closure", "DiagnosticsStackTrace__createStackFrame", 860);
     _instance_0_u(_ = A.BindingBase.prototype, "get$reassembleApplication", "reassembleApplication$0", 7);
-    _instance(_, "get$registerServiceExtension", 0, 0, null, ["call$2$callback$name"], ["registerServiceExtension$2$callback$name"], 416, 0, 0);
-    _instance_1_i(_ = A.ChangeNotifier.prototype, "get$addListener", "addListener$1", 76);
-    _instance_1_i(_, "get$removeListener", "removeListener$1", 76);
+    _instance(_, "get$registerServiceExtension", 0, 0, null, ["call$2$callback$name"], ["registerServiceExtension$2$callback$name"], 419, 0, 0);
+    _instance_1_i(_ = A.ChangeNotifier.prototype, "get$addListener", "addListener$1", 77);
+    _instance_1_i(_, "get$removeListener", "removeListener$1", 77);
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
     _instance_0_u(_, "get$notifyListeners", "notifyListeners$0", 0);
-    _static_1(A, "debug__debugFormatDouble$closure", "debugFormatDouble", 862);
-    _instance_1_i(A.DiagnosticPropertiesBuilder.prototype, "get$add", "add$1", 133);
-    _instance_1_u(_ = A.FlutterMemoryAllocations.prototype, "get$_imageOnCreate", "_imageOnCreate$1", 181);
-    _instance_1_u(_, "get$_pictureOnCreate", "_pictureOnCreate$1", 197);
-    _instance_1_u(_, "get$_imageOnDispose", "_imageOnDispose$1", 181);
-    _instance_1_u(_, "get$_pictureOnDispose", "_pictureOnDispose$1", 197);
+    _static_1(A, "debug__debugFormatDouble$closure", "debugFormatDouble", 861);
+    _instance_1_i(A.DiagnosticPropertiesBuilder.prototype, "get$add", "add$1", 138);
+    _instance_1_u(_ = A.FlutterMemoryAllocations.prototype, "get$_imageOnCreate", "_imageOnCreate$1", 209);
+    _instance_1_u(_, "get$_pictureOnCreate", "_pictureOnCreate$1", 262);
+    _instance_1_u(_, "get$_imageOnDispose", "_imageOnDispose$1", 209);
+    _instance_1_u(_, "get$_pictureOnDispose", "_pictureOnDispose$1", 262);
     _static(A, "print__debugPrintThrottled$closure", 1, function() {
       return {wrapWidth: null};
     }, ["call$2$wrapWidth", "call$1"], ["debugPrintThrottled", function(message) {
       return A.debugPrintThrottled(message, null);
-    }], 863, 0);
+    }], 862, 0);
     _static_0(A, "print___debugPrintTask$closure", "_debugPrintTask", 0);
-    _static_1(A, "stack_frame_StackFrame_fromStackTraceLine$closure", "StackFrame_fromStackTraceLine", 864);
+    _static_1(A, "stack_frame_StackFrame_fromStackTraceLine$closure", "StackFrame_fromStackTraceLine", 863);
     _instance_1_u(_ = A.GestureBinding.prototype, "get$_handlePointerDataPacket", "_handlePointerDataPacket$1", 464);
     _instance_1_u(_, "get$_handleHitTest", "_handleHitTest$1", 469);
     _instance_1_u(_, "get$_devicePixelRatioForView", "_devicePixelRatioForView$1", 471);
-    _instance_1_u(_, "get$cancelPointer", "cancelPointer$1", 33);
+    _instance_1_u(_, "get$cancelPointer", "cancelPointer$1", 32);
     _instance_0_u(_, "get$_flushPointerEventQueue", "_flushPointerEventQueue$0", 0);
     _instance_1_u(_, "get$_handlePointerEventImmediately", "_handlePointerEventImmediately$1", 44);
     _instance_0_u(_, "get$_handleSampleTimeChanged", "_handleSampleTimeChanged$0", 0);
-    _static(A, "force_press_ForcePressGestureRecognizer__inverseLerp$closure", 3, null, ["call$3"], ["ForcePressGestureRecognizer__inverseLerp"], 865, 0);
+    _static(A, "force_press_ForcePressGestureRecognizer__inverseLerp$closure", 3, null, ["call$3"], ["ForcePressGestureRecognizer__inverseLerp"], 864, 0);
     _instance_1_u(A.ForcePressGestureRecognizer.prototype, "get$handleEvent", "handleEvent$1", 44);
-    _static_1(A, "long_press_LongPressGestureRecognizer__defaultButtonAcceptBehavior$closure", "LongPressGestureRecognizer__defaultButtonAcceptBehavior", 74);
-    _static_1(A, "monodrag_DragGestureRecognizer__defaultBuilder$closure", "DragGestureRecognizer__defaultBuilder", 311);
-    _static_1(A, "monodrag_DragGestureRecognizer__defaultButtonAcceptBehavior$closure", "DragGestureRecognizer__defaultButtonAcceptBehavior", 74);
+    _static_1(A, "long_press_LongPressGestureRecognizer__defaultButtonAcceptBehavior$closure", "LongPressGestureRecognizer__defaultButtonAcceptBehavior", 78);
+    _static_1(A, "monodrag_DragGestureRecognizer__defaultBuilder$closure", "DragGestureRecognizer__defaultBuilder", 241);
+    _static_1(A, "monodrag_DragGestureRecognizer__defaultButtonAcceptBehavior$closure", "DragGestureRecognizer__defaultButtonAcceptBehavior", 78);
     _instance_1_u(A.DragGestureRecognizer.prototype, "get$handleEvent", "handleEvent$1", 44);
-    _static_1(A, "multitap_DoubleTapGestureRecognizer__defaultButtonAcceptBehavior$closure", "DoubleTapGestureRecognizer__defaultButtonAcceptBehavior", 74);
+    _static_1(A, "multitap_DoubleTapGestureRecognizer__defaultButtonAcceptBehavior$closure", "DoubleTapGestureRecognizer__defaultButtonAcceptBehavior", 78);
     _instance_0_u(A._CountdownZoned.prototype, "get$_onTimeout", "_onTimeout$0", 0);
     _instance_1_u(_ = A.DoubleTapGestureRecognizer.prototype, "get$_multitap$_handleEvent", "_multitap$_handleEvent$1", 44);
     _instance_1_u(_, "get$_reject", "_reject$1", 493);
     _instance_0_u(_, "get$_multitap$_reset", "_multitap$_reset$0", 0);
-    _static_1(A, "recognizer_GestureRecognizer__defaultButtonAcceptBehavior$closure", "GestureRecognizer__defaultButtonAcceptBehavior", 74);
-    _instance(A.OneSequenceGestureRecognizer.prototype, "get$stopTrackingPointer", 0, 1, null, ["call$1"], ["stopTrackingPointer$1"], 33, 0, 1);
+    _static_1(A, "recognizer_GestureRecognizer__defaultButtonAcceptBehavior$closure", "GestureRecognizer__defaultButtonAcceptBehavior", 78);
+    _instance(A.OneSequenceGestureRecognizer.prototype, "get$stopTrackingPointer", 0, 1, null, ["call$1"], ["stopTrackingPointer$1"], 32, 0, 1);
     _instance_1_u(A.PrimaryPointerGestureRecognizer.prototype, "get$handleEvent", "handleEvent$1", 44);
     _instance_1_u(_ = A._TapStatusTrackerMixin.prototype, "get$handleEvent", "handleEvent$1", 44);
     _instance_0_u(_, "get$_consecutiveTapTimerTimeout", "_consecutiveTapTimerTimeout$0", 0);
@@ -292725,18 +292704,18 @@
     }, ["call$4$key$onPressed$semanticsLabel"], ["_exitWidgetSelectionButtonBuilder$4$key$onPressed$semanticsLabel"], 536, 0, 0);
     _instance(_, "get$_moveExitWidgetSelectionButtonBuilder", 0, 1, null, ["call$4$onPressed$semanticsLabel$usesDefaultAlignment"], ["_moveExitWidgetSelectionButtonBuilder$4$onPressed$semanticsLabel$usesDefaultAlignment"], 543, 0, 0);
     _instance(_, "get$_tapBehaviorButtonBuilder", 0, 1, null, ["call$4$onPressed$selectionOnTapEnabled$semanticsLabel"], ["_tapBehaviorButtonBuilder$4$onPressed$selectionOnTapEnabled$semanticsLabel"], 555, 0, 0);
-    _instance_2_u(_, "get$_materialBuilder", "_materialBuilder$2", 64);
-    _instance_1_u(A._AppBarState.prototype, "get$_app_bar$_handleScrollNotification", "_app_bar$_handleScrollNotification$1", 202);
-    _instance_1_u(_ = A._BottomSheetState.prototype, "get$_bottom_sheet$_handleDragStart", "_bottom_sheet$_handleDragStart$1", 46);
+    _instance_2_u(_, "get$_materialBuilder", "_materialBuilder$2", 65);
+    _instance_1_u(A._AppBarState.prototype, "get$_app_bar$_handleScrollNotification", "_app_bar$_handleScrollNotification$1", 218);
+    _instance_1_u(_ = A._BottomSheetState.prototype, "get$_bottom_sheet$_handleDragStart", "_bottom_sheet$_handleDragStart$1", 47);
     _instance_1_u(_, "get$_bottom_sheet$_handleDragUpdate", "_bottom_sheet$_handleDragUpdate$1", 23);
-    _instance_1_u(_, "get$_bottom_sheet$_handleDragEnd", "_bottom_sheet$_handleDragEnd$1", 43);
+    _instance_1_u(_, "get$_bottom_sheet$_handleDragEnd", "_bottom_sheet$_handleDragEnd$1", 42);
     _instance_1_u(_, "get$extentChanged", "extentChanged$1", 575);
     _instance_1_u(_, "get$_handleDragHandleHover", "_handleDragHandleHover$1", 13);
     _instance_1_u(_ = A._RenderBottomSheetLayoutWithSizeListener.prototype, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
-    _instance_1_u(_ = A._ModalBottomSheetState.prototype, "get$handleDragStart", "handleDragStart$1", 46);
+    _instance_1_u(_ = A._ModalBottomSheetState.prototype, "get$handleDragStart", "handleDragStart$1", 47);
     _instance(_, "get$handleDragEnd", 0, 1, null, ["call$2$isClosing", "call$1"], ["handleDragEnd$2$isClosing", "handleDragEnd$1"], 577, 0, 0);
     _instance_1_u(_ = A._RenderInputPadding0.prototype, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
@@ -292748,20 +292727,20 @@
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _static_2(A, "calendar_date_picker___reportAnnouncementError$closure", "_reportAnnouncementError", 22);
-    _instance_1_u(_ = A._CalendarDatePickerState.prototype, "get$_handleMonthChanged", "_handleMonthChanged$1", 93);
-    _instance_1_u(_, "get$_handleYearChanged", "_handleYearChanged$1", 93);
-    _instance_1_u(_, "get$_handleDayChanged", "_handleDayChanged$1", 93);
-    _instance_1_u(_ = A._MonthPickerState.prototype, "get$_handleDateSelected", "_handleDateSelected$1", 93);
-    _instance_1_u(_, "get$_handleMonthPageChanged", "_handleMonthPageChanged$1", 33);
+    _instance_1_u(_ = A._CalendarDatePickerState.prototype, "get$_handleMonthChanged", "_handleMonthChanged$1", 86);
+    _instance_1_u(_, "get$_handleYearChanged", "_handleYearChanged$1", 86);
+    _instance_1_u(_, "get$_handleDayChanged", "_handleDayChanged$1", 86);
+    _instance_1_u(_ = A._MonthPickerState.prototype, "get$_handleDateSelected", "_handleDateSelected$1", 86);
+    _instance_1_u(_, "get$_handleMonthPageChanged", "_handleMonthPageChanged$1", 32);
     _instance_0_u(_, "get$_handleNextMonth", "_handleNextMonth$0", 0);
     _instance_0_u(_, "get$_handlePreviousMonth", "_handlePreviousMonth$0", 0);
     _instance_1_u(_, "get$_handleGridFocusChange", "_handleGridFocusChange$1", 13);
     _instance_1_u(_, "get$_handleGridNextFocus", "_handleGridNextFocus$1", 692);
     _instance_1_u(_, "get$_handleGridPreviousFocus", "_handleGridPreviousFocus$1", 695);
     _instance_1_u(_, "get$_handleDirectionFocus", "_handleDirectionFocus$1", 708);
-    _instance_2_u(_, "get$_buildItems", "_buildItems$2", 63);
-    _instance_2_u(A._YearPickerState.prototype, "get$_buildYearItem", "_buildYearItem$2", 63);
-    _instance_1_u(_ = A._RawChipState.prototype, "get$_chip$_handleTapDown", "_chip$_handleTapDown$1", 51);
+    _instance_2_u(_, "get$_buildItems", "_buildItems$2", 67);
+    _instance_2_u(A._YearPickerState.prototype, "get$_buildYearItem", "_buildYearItem$2", 67);
+    _instance_1_u(_ = A._RawChipState.prototype, "get$_chip$_handleTapDown", "_chip$_handleTapDown$1", 48);
     _instance_0_u(_, "get$_chip$_handleTapCancel", "_chip$_handleTapCancel$0", 0);
     _instance_0_u(_, "get$_chip$_handleTap", "_chip$_handleTap$0", 0);
     _instance_1_u(_ = A._RenderChip.prototype, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
@@ -292769,19 +292748,19 @@
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _instance_1_u(_ = A.TableRowInkWell.prototype, "get$getRectCallback", "getRectCallback$1", 754);
-    _instance_1_u(_, "get$debugCheckContext", "debugCheckContext$1", 302);
+    _instance_1_u(_, "get$debugCheckContext", "debugCheckContext$1", 297);
     _instance_0_u(_ = A._DatePickerDialogState.prototype, "get$_handleOk", "_handleOk$0", 0);
     _instance_0_u(_, "get$_handleCancel", "_handleCancel$0", 0);
     _instance_0_u(_, "get$_handleEntryModeToggle", "_handleEntryModeToggle$0", 0);
-    _instance_1_u(_, "get$_handleDateChanged", "_handleDateChanged$1", 93);
+    _instance_1_u(_, "get$_handleDateChanged", "_handleDateChanged$1", 86);
     _static(A, "dialog___buildMaterialDialogTransitions$closure", 4, null, ["call$4"], ["_buildMaterialDialogTransitions"], 305, 0);
     _instance_0_u(_ = A.DrawerControllerState.prototype, "get$_animationChanged", "_animationChanged$0", 0);
     _instance_1_u(_, "get$_animationStatusChanged", "_animationStatusChanged$1", 10);
     _instance_0_u(_, "get$_handleHistoryEntryRemoved", "_handleHistoryEntryRemoved$0", 0);
-    _instance_1_u(_, "get$_handleDragDown", "_handleDragDown$1", 114);
+    _instance_1_u(_, "get$_handleDragDown", "_handleDragDown$1", 107);
     _instance_0_u(_, "get$_drawer$_handleDragCancel", "_drawer$_handleDragCancel$0", 0);
     _instance_1_u(_, "get$_move", "_move$1", 23);
-    _instance_1_u(_, "get$_settle", "_settle$1", 43);
+    _instance_1_u(_, "get$_settle", "_settle$1", 42);
     _instance_0_i(_, "get$close", "close$0", 0);
     _instance_1_u(_ = A._DropdownMenuItemButtonState.prototype, "get$_dropdown$_handleFocusChange", "_dropdown$_handleFocusChange$1", 13);
     _instance_0_u(_, "get$_handleOnTap", "_handleOnTap$0", 0);
@@ -292789,39 +292768,39 @@
     _instance_0_u(_, "get$_dropdown$_handleTap", "_dropdown$_handleTap$0", 0);
     _instance_1_u(A._DropdownButtonFormFieldState.prototype, "get$didChange", "didChange$1", 19);
     _instance_0_u(_ = A._ExpansionTileState.prototype, "get$_onExpansionChanged", "_onExpansionChanged$0", 0);
-    _instance_2_u(_, "get$_buildHeader", "_buildHeader$2", 143);
-    _instance_2_u(_, "get$_buildBody", "_buildBody$2", 143);
-    _instance(_, "get$_buildExpansible", 0, 4, null, ["call$4"], ["_buildExpansible$4"], 841, 0, 0);
+    _instance_2_u(_, "get$_buildHeader", "_buildHeader$2", 135);
+    _instance_2_u(_, "get$_buildBody", "_buildBody$2", 135);
+    _instance(_, "get$_buildExpansible", 0, 4, null, ["call$4"], ["_buildExpansible$4"], 313, 0, 0);
     _instance_1_u(_ = A._RenderChildOverflowBox.prototype, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_0_u(_ = A._InkState.prototype, "get$_handleRemoved", "_handleRemoved$0", 0);
-    _instance_1_u(_, "get$_build", "_build$1", 27);
+    _instance_1_u(_, "get$_build", "_build$1", 30);
     _instance_0_u(A.InkDecoration.prototype, "get$_handleChanged", "_handleChanged$0", 0);
     _instance_1_u(A.InkHighlight.prototype, "get$_handleAlphaStatusChanged", "_handleAlphaStatusChanged$1", 10);
     _instance_1_u(A.InkRipple.prototype, "get$_ink_ripple$_handleAlphaStatusChanged", "_ink_ripple$_handleAlphaStatusChanged$1", 10);
     _instance_1_u(A.InkSplash.prototype, "get$_ink_splash$_handleAlphaStatusChanged", "_ink_splash$_handleAlphaStatusChanged$1", 10);
-    _instance_1_u(_ = A.InkResponse.prototype, "get$getRectCallback", "getRectCallback$1", 850);
-    _instance_1_u(_, "get$debugCheckContext", "debugCheckContext$1", 302);
-    _instance_1_u(_ = A._InkResponseState.prototype, "get$activateOnIntent", "activateOnIntent$1", 851);
-    _instance(_, "get$simulateTap", 0, 0, null, ["call$1", "call$0"], ["simulateTap$1", "simulateTap$0"], 146, 0, 0);
+    _instance_1_u(_ = A.InkResponse.prototype, "get$getRectCallback", "getRectCallback$1", 849);
+    _instance_1_u(_, "get$debugCheckContext", "debugCheckContext$1", 297);
+    _instance_1_u(_ = A._InkResponseState.prototype, "get$activateOnIntent", "activateOnIntent$1", 850);
+    _instance(_, "get$simulateTap", 0, 0, null, ["call$1", "call$0"], ["simulateTap$1", "simulateTap$0"], 137, 0, 0);
     _instance_0_u(_, "get$simulateLongPress", "simulateLongPress$0", 0);
     _instance_0_u(_, "get$handleStatesControllerChange", "handleStatesControllerChange$0", 0);
-    _instance_1_u(_, "get$handleFocusHighlightModeChange", "handleFocusHighlightModeChange$1", 210);
+    _instance_1_u(_, "get$handleFocusHighlightModeChange", "handleFocusHighlightModeChange$1", 187);
     _instance_1_u(_, "get$handleFocusUpdate", "handleFocusUpdate$1", 13);
-    _instance_1_u(_, "get$handleTapDown", "handleTapDown$1", 51);
-    _instance_1_u(_, "get$handleTapUp", "handleTapUp$1", 122);
-    _instance_1_u(_, "get$handleSecondaryTapDown", "handleSecondaryTapDown$1", 51);
-    _instance_1_u(_, "get$handleSecondaryTapUp", "handleSecondaryTapUp$1", 122);
+    _instance_1_u(_, "get$handleTapDown", "handleTapDown$1", 48);
+    _instance_1_u(_, "get$handleTapUp", "handleTapUp$1", 119);
+    _instance_1_u(_, "get$handleSecondaryTapDown", "handleSecondaryTapDown$1", 48);
+    _instance_1_u(_, "get$handleSecondaryTapUp", "handleSecondaryTapUp$1", 119);
     _instance_0_u(_, "get$handleTap", "handleTap$0", 0);
     _instance_0_u(_, "get$handleTapCancel", "handleTapCancel$0", 0);
     _instance_0_u(_, "get$handleLongPress", "handleLongPress$0", 0);
     _instance_0_u(_, "get$handleSecondaryTap", "handleSecondaryTap$0", 0);
     _instance_0_u(_, "get$handleSecondaryTapCancel", "handleSecondaryTapCancel$0", 0);
-    _instance_1_u(_, "get$handleMouseEnter", "handleMouseEnter$1", 62);
-    _instance_1_u(_, "get$handleMouseExit", "handleMouseExit$1", 56);
-    _instance_1_u(_ = A._InputDatePickerFormFieldState.prototype, "get$_validateDate", "_validateDate$1", 39);
-    _instance_1_u(_, "get$_handleSaved", "_handleSaved$1", 67);
-    _instance_1_u(_, "get$_handleSubmitted", "_handleSubmitted$1", 32);
+    _instance_1_u(_, "get$handleMouseEnter", "handleMouseEnter$1", 58);
+    _instance_1_u(_, "get$handleMouseExit", "handleMouseExit$1", 52);
+    _instance_1_u(_ = A._InputDatePickerFormFieldState.prototype, "get$_validateDate", "_validateDate$1", 38);
+    _instance_1_u(_, "get$_handleSaved", "_handleSaved$1", 68);
+    _instance_1_u(_, "get$_handleSubmitted", "_handleSubmitted$1", 31);
     _static_2(A, "input_decorator__RenderDecoration__getBaseline$closure", "_RenderDecoration__getBaseline", 306);
     _static_2(A, "input_decorator__RenderDecoration__getDryBaseline$closure", "_RenderDecoration__getDryBaseline", 306);
     _instance_0_u(A._HelperErrorState.prototype, "get$_input_decorator$_handleChange", "_input_decorator$_handleChange$0", 0);
@@ -292830,9 +292809,9 @@
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _instance_2_u(_, "get$_paintLabel", "_paintLabel$2", 21);
-    _instance_1_u(_, "get$_childSemanticsConfigurationDelegate", "_childSemanticsConfigurationDelegate$1", 218);
+    _instance_1_u(_, "get$_childSemanticsConfigurationDelegate", "_childSemanticsConfigurationDelegate$1", 185);
     _instance_0_u(A._InputDecoratorState.prototype, "get$_input_decorator$_handleChange", "_input_decorator$_handleChange$0", 0);
-    _static_2(A, "list_tile__RenderListTile__positionBox$closure", "_RenderListTile__positionBox", 868);
+    _static_2(A, "list_tile__RenderListTile__positionBox$closure", "_RenderListTile__positionBox", 867);
     _instance_1_u(_ = A._RenderListTile.prototype, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
@@ -292845,19 +292824,19 @@
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
     _instance_1_u(_ = A._ZoomExitTransitionPainter.prototype, "get$_onStatusChange", "_onStatusChange$1", 10);
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
-    _instance_1_u(_ = A.RefreshIndicatorState.prototype, "get$_refresh_indicator$_handleScrollNotification", "_refresh_indicator$_handleScrollNotification$1", 48);
+    _instance_1_u(_ = A.RefreshIndicatorState.prototype, "get$_refresh_indicator$_handleScrollNotification", "_refresh_indicator$_handleScrollNotification$1", 51);
     _instance_1_u(_, "get$_handleIndicatorNotification", "_handleIndicatorNotification$1", 332);
-    _static_2(A, "scaffold_Scaffold__defaultBottomSheetScrimBuilder$closure", "Scaffold__defaultBottomSheetScrimBuilder", 143);
+    _static_2(A, "scaffold_Scaffold__defaultBottomSheetScrimBuilder$closure", "Scaffold__defaultBottomSheetScrimBuilder", 135);
     _instance_1_u(A.ScaffoldMessengerState.prototype, "get$_handleSnackBarStatusChanged", "_handleSnackBarStatusChanged$1", 10);
     _instance_1_u(_ = A._FloatingActionButtonTransitionState.prototype, "get$_handlePreviousAnimationStatusChanged", "_handlePreviousAnimationStatusChanged$1", 10);
     _instance_0_u(_, "get$_onProgressChanged", "_onProgressChanged$0", 0);
     _instance_1_u(A.ScaffoldState.prototype, "get$_endDrawerOpenedCallback", "_endDrawerOpenedCallback$1", 13);
-    _static(A, "scrollbar_theme___lerpBool$closure", 3, null, ["call$3"], ["_lerpBool"], 869, 0);
+    _static(A, "scrollbar_theme___lerpBool$closure", 3, null, ["call$3"], ["_lerpBool"], 868, 0);
     _instance_1_u(A._SnackBarState.prototype, "get$_onAnimationStatusChanged", "_onAnimationStatusChanged$1", 10);
-    _instance_1_u(_ = A._MaterialSwitchState.prototype, "get$_switch$_handleDragStart", "_switch$_handleDragStart$1", 46);
+    _instance_1_u(_ = A._MaterialSwitchState.prototype, "get$_switch$_handleDragStart", "_switch$_handleDragStart$1", 47);
     _instance_1_u(_, "get$_switch$_handleDragUpdate", "_switch$_handleDragUpdate$1", 23);
-    _instance_1_u(_, "get$_switch$_handleDragEnd", "_switch$_handleDragEnd$1", 43);
-    _instance_1_u(_, "get$_switch$_handleChanged", "_switch$_handleChanged$1", 113);
+    _instance_1_u(_, "get$_switch$_handleDragEnd", "_switch$_handleDragEnd$1", 42);
+    _instance_1_u(_, "get$_switch$_handleChanged", "_switch$_handleChanged$1", 111);
     _instance_0_u(_ = A._SwitchPainter.prototype, "get$_handleDecorationChanged", "_handleDecorationChanged$0", 0);
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
     _static_2(A, "text_field_TextField__defaultContextMenuBuilder$closure", "TextField__defaultContextMenuBuilder", 307);
@@ -292868,18 +292847,18 @@
     _instance_0_u(_, "get$_handleStatesControllerChange", "_handleStatesControllerChange$0", 0);
     _static_2(A, "text_form_field_TextFormField__defaultContextMenuBuilder$closure", "TextFormField__defaultContextMenuBuilder", 307);
     _instance_0_u(A._TextFormFieldState.prototype, "get$_handleControllerChanged", "_handleControllerChanged$0", 0);
-    _static_2(A, "text_selection_toolbar_TextSelectionToolbar__defaultToolbarBuilder$closure", "TextSelectionToolbar__defaultToolbarBuilder", 871);
+    _static_2(A, "text_selection_toolbar_TextSelectionToolbar__defaultToolbarBuilder$closure", "TextSelectionToolbar__defaultToolbarBuilder", 870);
     _instance_1_u(A.TooltipState.prototype, "get$_getDefaultPositionDelegate", "_getDefaultPositionDelegate$1", 348);
-    _static(A, "borders_OutlinedBorder_lerp$closure", 3, null, ["call$3"], ["OutlinedBorder_lerp"], 872, 0);
-    _static(A, "edge_insets_EdgeInsetsGeometry_lerp$closure", 3, null, ["call$3"], ["EdgeInsetsGeometry_lerp"], 873, 0);
+    _static(A, "borders_OutlinedBorder_lerp$closure", 3, null, ["call$3"], ["OutlinedBorder_lerp"], 871, 0);
+    _static(A, "edge_insets_EdgeInsetsGeometry_lerp$closure", 3, null, ["call$3"], ["EdgeInsetsGeometry_lerp"], 872, 0);
     _static_2(A, "matrix_utils_MatrixUtils_transformRect$closure", "MatrixUtils_transformRect", 308);
     _static_2(A, "matrix_utils_MatrixUtils_inverseTransformRect$closure", "MatrixUtils_inverseTransformRect", 308);
     _instance_2_u(A.WordBoundary.prototype, "get$_skipSpacesAndPunctuations", "_skipSpacesAndPunctuations$2", 360);
-    _static(A, "text_style_TextStyle_lerp$closure", 3, null, ["call$3"], ["TextStyle_lerp"], 875, 0);
+    _static(A, "text_style_TextStyle_lerp$closure", 3, null, ["call$3"], ["TextStyle_lerp"], 874, 0);
     _instance_1_i(_ = A.FrictionSimulation.prototype, "get$x", "x$1", 2);
     _instance_1_i(_, "get$dx", "dx$1", 2);
     _instance_1_u(A.RenderAnimatedSize.prototype, "get$_animationStatusListener", "_animationStatusListener$1", 10);
-    _static_1(A, "binding4__DefaultRootPipelineOwner__onSemanticsUpdate$closure", "_DefaultRootPipelineOwner__onSemanticsUpdate", 131);
+    _static_1(A, "binding4__DefaultRootPipelineOwner__onSemanticsUpdate$closure", "_DefaultRootPipelineOwner__onSemanticsUpdate", 142);
     _instance_1_u(_ = A.RendererBinding.prototype, "get$_handleWebFirstFrame", "_handleWebFirstFrame$1", 4);
     _instance_1_u(_, "get$_handlePersistentFrameCallback", "_handlePersistentFrameCallback$1", 4);
     _instance_0_u(A._BindingPipelineManifold.prototype, "get$dispose", "dispose$0", 0);
@@ -292888,7 +292867,7 @@
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$_computeDryLayout", "_computeDryLayout$1", 369);
-    _instance_1_u(_, "get$_computeDryBaseline", "_computeDryBaseline$1", 282);
+    _instance_1_u(_, "get$_computeDryBaseline", "_computeDryBaseline$1", 279);
     _instance_0_u(_, "get$markNeedsLayout", "markNeedsLayout$0", 0);
     _instance_2_u(A.RenderBoxContainerDefaultsMixin.prototype, "get$defaultPaint", "defaultPaint$2", 21);
     _instance_1_u(A.MultiChildLayoutDelegate.prototype, "get$_debugDescribeChild", "_debugDescribeChild$1", 371);
@@ -292902,7 +292881,7 @@
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _instance_0_u(_ = A.RenderEditable.prototype, "get$markNeedsPaint", "markNeedsPaint$0", 0);
     _instance_0_u(_, "get$_showHideCursor", "_showHideCursor$0", 0);
-    _instance_1_u(_, "get$_handleSetText", "_handleSetText$1", 32);
+    _instance_1_u(_, "get$_handleSetText", "_handleSetText$1", 31);
     _instance_1_u(_, "get$_handleSetSelection", "_handleSetSelection$1", 372);
     _instance_1_u(_, "get$_handleMoveCursorForwardByCharacter", "_handleMoveCursorForwardByCharacter$1", 13);
     _instance_1_u(_, "get$_handleMoveCursorBackwardByCharacter", "_handleMoveCursorBackwardByCharacter$1", 13);
@@ -292912,7 +292891,7 @@
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
-    _instance_1_u(_, "get$_editable$_handleTapDown", "_editable$_handleTapDown$1", 51);
+    _instance_1_u(_, "get$_editable$_handleTapDown", "_editable$_handleTapDown$1", 48);
     _instance_0_u(_, "get$_editable$_handleTap", "_editable$_handleTap$0", 0);
     _instance_0_u(_, "get$_editable$_handleLongPress", "_editable$_handleLongPress$0", 0);
     _instance_2_u(_, "get$_paintContents", "_paintContents$2", 21);
@@ -292926,7 +292905,7 @@
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
-    _static_1(A, "object__RenderObjectSemantics_debugCheckForBuilds$closure", "_RenderObjectSemantics_debugCheckForBuilds", 309);
+    _static_1(A, "object__RenderObjectSemantics_debugCheckForBuilds$closure", "_RenderObjectSemantics_debugCheckForBuilds", 301);
     _static_1(A, "object__RenderObjectSemantics_shouldDrop$closure", "_RenderObjectSemantics_shouldDrop", 35);
     _instance_0_u(A.PipelineOwner.prototype, "get$_updateSemanticsOwner", "_updateSemanticsOwner$0", 0);
     _instance_1_u(_ = A.RenderObject.prototype, "get$redepthChild", "redepthChild$1", 14);
@@ -292934,7 +292913,7 @@
     _instance_0_u(_, "get$markNeedsPaint", "markNeedsPaint$0", 0);
     _instance(_, "get$paint", 0, 2, null, ["call$2"], ["paint$2"], 21, 0, 1);
     _instance_0_u(_, "get$markNeedsSemanticsUpdate", "markNeedsSemanticsUpdate$0", 0);
-    _instance(_, "get$showOnScreen", 0, 0, null, ["call$4$curve$descendant$duration$rect", "call$0", "call$1$rect", "call$3$curve$duration$rect", "call$2$descendant$rect"], ["showOnScreen$4$curve$descendant$duration$rect", "showOnScreen$0", "showOnScreen$1$rect", "showOnScreen$3$curve$duration$rect", "showOnScreen$2$descendant$rect"], 135, 0, 0);
+    _instance(_, "get$showOnScreen", 0, 0, null, ["call$4$curve$descendant$duration$rect", "call$0", "call$1$rect", "call$3$curve$duration$rect", "call$2$descendant$rect"], ["showOnScreen$4$curve$descendant$duration$rect", "showOnScreen$0", "showOnScreen$1$rect", "showOnScreen$3$curve$duration$rect", "showOnScreen$2$descendant$rect"], 144, 0, 0);
     _instance_1_u(_ = A.ContainerRenderObjectMixin.prototype, "get$childBefore", "childBefore$1", "ContainerRenderObjectMixin.0?(Object?)");
     _instance_1_u(_, "get$childAfter", "childAfter$1", "ContainerRenderObjectMixin.0?(Object?)");
     _instance_0_u(A.RelayoutWhenSystemFontsChangeMixin.prototype, "get$_scheduleSystemFontsUpdate", "_scheduleSystemFontsUpdate$0", 0);
@@ -292952,10 +292931,10 @@
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
-    _instance_1_u(_, "get$_childSemanticsConfigurationsDelegate", "_childSemanticsConfigurationsDelegate$1", 218);
-    _instance_1_u(_ = A._SelectableFragment.prototype, "get$_getWordBoundaryAtPosition", "_getWordBoundaryAtPosition$1", 178);
+    _instance_1_u(_, "get$_childSemanticsConfigurationsDelegate", "_childSemanticsConfigurationsDelegate$1", 185);
+    _instance_1_u(_ = A._SelectableFragment.prototype, "get$_getWordBoundaryAtPosition", "_getWordBoundaryAtPosition$1", 177);
     _instance_2_u(_, "get$_getParagraphBoundaryAtPosition", "_getParagraphBoundaryAtPosition$2", 398);
-    _instance_1_u(_, "get$_getClampedParagraphBoundaryAtPosition", "_getClampedParagraphBoundaryAtPosition$1", 178);
+    _instance_1_u(_, "get$_getClampedParagraphBoundaryAtPosition", "_getClampedParagraphBoundaryAtPosition$1", 177);
     _instance_1_u(A._PlatformViewGestureRecognizer.prototype, "get$handleEvent", "handleEvent$1", 44);
     _instance_1_u(_ = A.RenderProxyBoxMixin.prototype, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
@@ -293024,16 +293003,16 @@
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _instance_2_u(_, "get$_viewport$_paintContents", "_viewport$_paintContents$2", 21);
-    _instance(_, "get$showOnScreen", 0, 0, null, ["call$4$curve$descendant$duration$rect", "call$0", "call$1$rect", "call$3$curve$duration$rect", "call$2$descendant$rect"], ["showOnScreen$4$curve$descendant$duration$rect", "showOnScreen$0", "showOnScreen$1$rect", "showOnScreen$3$curve$duration$rect", "showOnScreen$2$descendant$rect"], 135, 0, 0);
-    _static_1(A, "wrap_RenderWrap__getChildSize$closure", "RenderWrap__getChildSize", 185);
-    _static_2(A, "wrap_RenderWrap__setChildPosition$closure", "RenderWrap__setChildPosition", 184);
+    _instance(_, "get$showOnScreen", 0, 0, null, ["call$4$curve$descendant$duration$rect", "call$0", "call$1$rect", "call$3$curve$duration$rect", "call$2$descendant$rect"], ["showOnScreen$4$curve$descendant$duration$rect", "showOnScreen$0", "showOnScreen$1$rect", "showOnScreen$3$curve$duration$rect", "showOnScreen$2$descendant$rect"], 144, 0, 0);
+    _static_1(A, "wrap_RenderWrap__getChildSize$closure", "RenderWrap__getChildSize", 184);
+    _static_2(A, "wrap_RenderWrap__setChildPosition$closure", "RenderWrap__setChildPosition", 183);
     _instance_1_u(_ = A.RenderWrap.prototype, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
-    _static_2(A, "binding1_SchedulerBinding__taskSorter$closure", "SchedulerBinding__taskSorter", 876);
-    _static(A, "binding1__defaultSchedulingStrategy$closure", 0, null, ["call$2$priority$scheduler"], ["defaultSchedulingStrategy"], 877, 0);
-    _instance_1_u(_ = A.SchedulerBinding.prototype, "get$_executeTimingsCallbacks", "_executeTimingsCallbacks$1", 139);
+    _static_2(A, "binding1_SchedulerBinding__taskSorter$closure", "SchedulerBinding__taskSorter", 875);
+    _static(A, "binding1__defaultSchedulingStrategy$closure", 0, null, ["call$2$priority$scheduler"], ["defaultSchedulingStrategy"], 876, 0);
+    _instance_1_u(_ = A.SchedulerBinding.prototype, "get$_executeTimingsCallbacks", "_executeTimingsCallbacks$1", 148);
     _instance_0_u(_, "get$_runTasks", "_runTasks$0", 0);
     _instance_1_u(_, "get$_handleBeginFrame", "_handleBeginFrame$1", 4);
     _instance_0_u(_, "get$_handleDrawFrame", "_handleDrawFrame$0", 0);
@@ -293042,7 +293021,7 @@
     _instance_1_u(A.Ticker.prototype, "get$_ticker$_tick", "_ticker$_tick$1", 4);
     _instance_0_u(_ = A.SemanticsBinding.prototype, "get$_didDisposeSemanticsHandle", "_didDisposeSemanticsHandle$0", 0);
     _instance_0_u(_, "get$_handleSemanticsEnabledChanged", "_handleSemanticsEnabledChanged$0", 0);
-    _instance_1_u(_, "get$_handleSemanticsActionEvent", "_handleSemanticsActionEvent$1", 140);
+    _instance_1_u(_, "get$_handleSemanticsActionEvent", "_handleSemanticsActionEvent$1", 149);
     _instance_0_u(_, "get$_handleFrameworkSemanticsEnabledChanged", "_handleFrameworkSemanticsEnabledChanged$0", 0);
     _static_1(A, "semantics__DebugSemanticsRoleChecks__unimplemented$closure", "_DebugSemanticsRoleChecks__unimplemented", 20);
     _static_1(A, "semantics__DebugSemanticsRoleChecks__noCheckRequired$closure", "_DebugSemanticsRoleChecks__noCheckRequired", 20);
@@ -293067,38 +293046,38 @@
     _static_1(A, "semantics__DebugSemanticsRoleChecks__semanticsNavigation$closure", "_DebugSemanticsRoleChecks__semanticsNavigation", 20);
     _static_1(A, "semantics__DebugSemanticsRoleChecks__semanticsRegion$closure", "_DebugSemanticsRoleChecks__semanticsRegion", 20);
     _instance_1_u(A.ChildSemanticsConfigurationsResultBuilder.prototype, "get$markAsSiblingMergeGroup", "markAsSiblingMergeGroup$1", 421);
-    _instance_1_u(_ = A.SemanticsNode.prototype, "get$_redepthChild", "_redepthChild$1", 189);
-    _instance_1_u(_, "get$_updateChildMergeFlagRecursively", "_updateChildMergeFlagRecursively$1", 189);
+    _instance_1_u(_ = A.SemanticsNode.prototype, "get$_redepthChild", "_redepthChild$1", 188);
+    _instance_1_u(_, "get$_updateChildMergeFlagRecursively", "_updateChildMergeFlagRecursively$1", 188);
     _instance_0_u(A.SemanticsOwner.prototype, "get$dispose", "dispose$0", 0);
     _instance_1_u(_ = A.SemanticsConfiguration.prototype, "get$addTagForChildren", "addTagForChildren$1", 437);
     _instance_1_u(_, "get$absorb", "absorb$1", 61);
-    _static_1(A, "binding5_ServicesBinding__parseLicenses$closure", "ServicesBinding__parseLicenses", 879);
+    _static_1(A, "binding5_ServicesBinding__parseLicenses$closure", "ServicesBinding__parseLicenses", 878);
     _instance_0_u(_ = A.ServicesBinding.prototype, "get$_addLicenses", "_addLicenses$0", 440);
     _instance_1_u(_, "get$_handleLifecycleMessage", "_handleLifecycleMessage$1", 441);
-    _instance_1_u(_, "get$_handlePlatformMessage", "_handlePlatformMessage$1", 88);
-    _instance_0_u(A.HardwareKeyboard.prototype, "get$_debugPressedKeysDetails", "_debugPressedKeysDetails$0", 196);
-    _instance_1_u(_ = A.KeyEventManager.prototype, "get$handleKeyData", "handleKeyData$1", 158);
+    _instance_1_u(_, "get$_handlePlatformMessage", "_handlePlatformMessage$1", 89);
+    _instance_0_u(A.HardwareKeyboard.prototype, "get$_debugPressedKeysDetails", "_debugPressedKeysDetails$0", 195);
+    _instance_1_u(_ = A.KeyEventManager.prototype, "get$handleKeyData", "handleKeyData$1", 133);
     _instance_1_u(_, "get$handleRawKeyMessage", "handleRawKeyMessage$1", 445);
     _instance_1_u(_, "get$_convertRawEventAndStore", "_convertRawEventAndStore$1", 446);
-    _instance_1_u(_ = A.RestorationManager.prototype, "get$_methodHandler", "_methodHandler$1", 142);
+    _instance_1_u(_ = A.RestorationManager.prototype, "get$_methodHandler", "_methodHandler$1", 152);
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
     _instance_1_u(_ = A.RestorationBucket.prototype, "get$_dropChild", "_dropChild$1", 198);
     _instance_1_u(_, "get$_recursivelyUpdateManager", "_recursivelyUpdateManager$1", 198);
-    _instance_1_u(A.TextInput.prototype, "get$_loudlyHandleTextInputInvocation", "_loudlyHandleTextInputInvocation$1", 88);
-    _instance_1_u(A.UndoManager.prototype, "get$_handleUndoManagerInvocation", "_handleUndoManagerInvocation$1", 88);
+    _instance_1_u(A.TextInput.prototype, "get$_loudlyHandleTextInputInvocation", "_loudlyHandleTextInputInvocation$1", 89);
+    _instance_1_u(A.UndoManager.prototype, "get$_handleUndoManagerInvocation", "_handleUndoManagerInvocation$1", 89);
     _instance_1_u(A._HtmlElementViewController.prototype, "get$dispatchPointerEvent", "dispatchPointerEvent$1", 467);
     _instance_1_u(A._ActionsState.prototype, "get$_handleActionChanged", "_handleActionChanged$1", 472);
-    _instance_1_u(_ = A._FocusableActionDetectorState.prototype, "get$_handleFocusHighlightModeChange", "_handleFocusHighlightModeChange$1", 210);
-    _instance_1_u(_, "get$_actions$_handleMouseEnter", "_actions$_handleMouseEnter$1", 62);
-    _instance_1_u(_, "get$_actions$_handleMouseExit", "_actions$_handleMouseExit$1", 56);
+    _instance_1_u(_ = A._FocusableActionDetectorState.prototype, "get$_handleFocusHighlightModeChange", "_handleFocusHighlightModeChange$1", 187);
+    _instance_1_u(_, "get$_actions$_handleMouseEnter", "_actions$_handleMouseEnter$1", 58);
+    _instance_1_u(_, "get$_actions$_handleMouseExit", "_actions$_handleMouseExit$1", 52);
     _instance_1_u(_, "get$_actions$_handleFocusChange", "_actions$_handleFocusChange$1", 13);
-    _static_2(A, "animated_switcher_AnimatedSwitcher_defaultTransitionBuilder$closure", "AnimatedSwitcher_defaultTransitionBuilder", 880);
-    _static_2(A, "animated_switcher_AnimatedSwitcher_defaultLayoutBuilder$closure", "AnimatedSwitcher_defaultLayoutBuilder", 881);
+    _static_2(A, "animated_switcher_AnimatedSwitcher_defaultTransitionBuilder$closure", "AnimatedSwitcher_defaultTransitionBuilder", 879);
+    _static_2(A, "animated_switcher_AnimatedSwitcher_defaultLayoutBuilder$closure", "AnimatedSwitcher_defaultLayoutBuilder", 880);
     _instance_1_u(A._AnimatedSwitcherState.prototype, "get$_updateTransitionForEntry", "_updateTransitionForEntry$1", 474);
     _instance_1_u(_ = A._WidgetsAppState.prototype, "get$_defaultOnNavigationNotification", "_defaultOnNavigationNotification$1", 205);
     _instance_1_u(_, "get$_onGenerateRoute", "_onGenerateRoute$1", 478);
     _instance_1_u(_, "get$_onUnknownRoute", "_onUnknownRoute$1", 479);
-    _static_1(A, "autocomplete_RawAutocomplete_defaultStringForOption$closure", "RawAutocomplete_defaultStringForOption", 109);
+    _static_1(A, "autocomplete_RawAutocomplete_defaultStringForOption$closure", "RawAutocomplete_defaultStringForOption", 105);
     _instance_0_u(_ = A._RawAutocompleteState.prototype, "get$_onFocusChange", "_onFocusChange$0", 0);
     _instance_0_u(_, "get$_onChangedField", "_onChangedField$0", 7);
     _instance_0_u(_, "get$_onFieldSubmitted", "_onFieldSubmitted$0", 0);
@@ -293114,19 +293093,19 @@
     _instance_1_u(A._AutomaticKeepAliveState.prototype, "get$_addClient", "_addClient$1", 491);
     _instance_0_u(A.KeepAliveHandle.prototype, "get$dispose", "dispose$0", 0);
     _instance_0_u(_ = A.WidgetsBinding.prototype, "get$handleLocaleChanged", "handleLocaleChanged$0", 0);
-    _instance_1_u(_, "get$_handleStatusBarActions", "_handleStatusBarActions$1", 142);
+    _instance_1_u(_, "get$_handleStatusBarActions", "_handleStatusBarActions$1", 152);
     _instance_1_u(_, "get$_handleNavigationInvocation", "_handleNavigationInvocation$1", 498);
-    _instance_1_u(_, "get$_handleBackGestureInvocation", "_handleBackGestureInvocation$1", 88);
+    _instance_1_u(_, "get$_handleBackGestureInvocation", "_handleBackGestureInvocation$1", 89);
     _instance_0_u(_, "get$_handleBuildScheduled", "_handleBuildScheduled$0", 0);
     _instance_0_u(_ = A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding.prototype, "get$handleMetricsChanged", "handleMetricsChanged$0", 0);
     _instance_0_u(_, "get$handleTextScaleFactorChanged", "handleTextScaleFactorChanged$0", 0);
     _instance_0_u(_, "get$handlePlatformBrightnessChanged", "handlePlatformBrightnessChanged$0", 0);
-    _instance_1_u(_, "get$handleViewFocusChanged", "handleViewFocusChanged$1", 195);
+    _instance_1_u(_, "get$handleViewFocusChanged", "handleViewFocusChanged$1", 248);
     _instance_0_u(_, "get$performReassemble", "performReassemble$0", 7);
-    _instance_1_u(_ = A._DismissibleState.prototype, "get$_dismissible$_handleDragStart", "_dismissible$_handleDragStart$1", 46);
+    _instance_1_u(_ = A._DismissibleState.prototype, "get$_dismissible$_handleDragStart", "_dismissible$_handleDragStart$1", 47);
     _instance_1_u(_, "get$_dismissible$_handleDragUpdate", "_dismissible$_handleDragUpdate$1", 23);
     _instance_0_u(_, "get$_handleDismissUpdateValueChanged", "_handleDismissUpdateValueChanged$0", 0);
-    _instance_1_u(_, "get$_dismissible$_handleDragEnd", "_dismissible$_handleDragEnd$1", 43);
+    _instance_1_u(_, "get$_dismissible$_handleDragEnd", "_dismissible$_handleDragEnd$1", 42);
     _instance_1_u(_, "get$_handleDismissStatusChanged", "_handleDismissStatusChanged$1", 503);
     _instance_1_u(A._DualTransitionBuilderState.prototype, "get$_animationListener", "_animationListener$1", 10);
     _instance_0_u(_ = A.EditableTextState.prototype, "get$_onChangedClipboardStatus", "_onChangedClipboardStatus$0", 0);
@@ -293135,7 +293114,7 @@
     _instance_0_u(_, "get$_onFloatingCursorResetTick", "_onFloatingCursorResetTick$0", 0);
     _instance_0_u(_, "get$_restartConnectionIfNeeded", "_restartConnectionIfNeeded$0", 0);
     _instance_0_u(_, "get$_unflagInternalFocus", "_unflagInternalFocus$0", 0);
-    _instance_1_u(_, "get$_handleContextMenuOnParentScroll", "_handleContextMenuOnParentScroll$1", 202);
+    _instance_1_u(_, "get$_handleContextMenuOnParentScroll", "_handleContextMenuOnParentScroll$1", 218);
     _instance_0_u(_, "get$_onCursorColorTick", "_onCursorColorTick$0", 0);
     _instance_0_u(_, "get$_onCursorTick", "_onCursorTick$0", 0);
     _instance_0_u(_, "get$_didChangeTextEditingValue", "_didChangeTextEditingValue$0", 0);
@@ -293144,14 +293123,14 @@
     _instance(_, "get$_schedulePeriodicPostFrameCallbacks", 0, 0, function() {
       return [null];
     }, ["call$1", "call$0"], ["_schedulePeriodicPostFrameCallbacks$1", "_schedulePeriodicPostFrameCallbacks$0"], 213, 0, 0);
-    _instance_1_u(_, "get$performSelector", "performSelector$1", 32);
+    _instance_1_u(_, "get$performSelector", "performSelector$1", 31);
     _instance(_, "get$_moveBeyondTextBoundary", 0, 3, null, ["call$3"], ["_moveBeyondTextBoundary$3"], 214, 0, 0);
     _instance(_, "get$_moveToTextBoundary", 0, 3, null, ["call$3"], ["_moveToTextBoundary$3"], 214, 0, 0);
-    _instance_0_u(_, "get$_characterBoundary", "_characterBoundary$0", 99);
-    _instance_0_u(_, "get$_nextWordBoundary", "_nextWordBoundary$0", 99);
-    _instance_0_u(_, "get$_linebreak", "_linebreak$0", 99);
-    _instance_0_u(_, "get$_paragraphBoundary", "_paragraphBoundary$0", 99);
-    _instance_0_u(_, "get$_documentBoundary", "_documentBoundary$0", 99);
+    _instance_0_u(_, "get$_characterBoundary", "_characterBoundary$0", 93);
+    _instance_0_u(_, "get$_nextWordBoundary", "_nextWordBoundary$0", 93);
+    _instance_0_u(_, "get$_linebreak", "_linebreak$0", 93);
+    _instance_0_u(_, "get$_paragraphBoundary", "_paragraphBoundary$0", 93);
+    _instance_0_u(_, "get$_documentBoundary", "_documentBoundary$0", 93);
     _instance_1_u(_, "get$_transposeCharacters", "_transposeCharacters$1", 510);
     _instance_1_u(_, "get$_replaceText", "_replaceText$1", 511);
     _instance_1_u(_, "get$_scrollToDocumentBoundary", "_scrollToDocumentBoundary$1", 512);
@@ -293165,11 +293144,11 @@
     _instance_0_u(_ = A.FocusNode.prototype, "get$dispose", "dispose$0", 0);
     _instance(_, "get$requestFocus", 0, 0, null, ["call$1", "call$0"], ["requestFocus$1", "requestFocus$0"], 525, 0, 0);
     _instance_0_u(_ = A.FocusManager.prototype, "get$dispose", "dispose$0", 0);
-    _instance_1_u(_, "get$_appLifecycleChange", "_appLifecycleChange$1", 200);
+    _instance_1_u(_, "get$_appLifecycleChange", "_appLifecycleChange$1", 267);
     _instance_0_u(_, "get$applyFocusChangesIfNeeded", "applyFocusChangesIfNeeded$0", 0);
     _instance_1_u(_ = A._HighlightModeManager.prototype, "get$handlePointerEvent", "handlePointerEvent$1", 44);
     _instance_1_u(_, "get$handleKeyMessage", "handleKeyMessage$1", 530);
-    _instance_1_u(_, "get$handleSemanticsAction", "handleSemanticsAction$1", 140);
+    _instance_1_u(_, "get$handleSemanticsAction", "handleSemanticsAction$1", 149);
     _instance_0_u(A._FocusState.prototype, "get$_handleFocusChanged", "_handleFocusChanged$0", 0);
     _static(A, "focus_traversal_FocusTraversalPolicy_defaultTraversalRequestFocusCallback$closure", 1, null, ["call$5$alignment$alignmentPolicy$curve$duration", "call$1", "call$2$alignmentPolicy", "call$2$duration"], ["FocusTraversalPolicy_defaultTraversalRequestFocusCallback", function(node) {
       var _null = null;
@@ -293178,25 +293157,25 @@
       return A.FocusTraversalPolicy_defaultTraversalRequestFocusCallback(node, null, alignmentPolicy, null, null);
     }, function(node, duration) {
       return A.FocusTraversalPolicy_defaultTraversalRequestFocusCallback(node, null, null, null, duration);
-    }], 882, 0);
+    }], 881, 0);
     _static_1(A, "framework__InactiveElements__unmount$closure", "_InactiveElements__unmount", 17);
     _static_1(A, "framework__InactiveElements__deactivateRecursively$closure", "_InactiveElements__deactivateRecursively", 17);
-    _static_2(A, "framework_Element__sort$closure", "Element__sort", 883);
+    _static_2(A, "framework_Element__sort$closure", "Element__sort", 882);
     _static_1(A, "framework_Element__deactivateFailedSubtreeRecursively$closure", "Element__deactivateFailedSubtreeRecursively", 17);
     _static_1(A, "framework_Element__activateRecursively$closure", "Element__activateRecursively", 17);
-    _instance_1_u(A.State.prototype, "get$setState", "setState$1", 76);
+    _instance_1_u(A.State.prototype, "get$setState", "setState$1", 77);
     _instance_0_u(A._InactiveElements.prototype, "get$_unmountAll", "_unmountAll$0", 0);
     _instance_1_u(_ = A.Element.prototype, "get$_debugRemoveGlobalKeyReservation", "_debugRemoveGlobalKeyReservation$1", 17);
     _instance_1_u(_, "get$deactivateChild", "deactivateChild$1", 17);
-    _instance_1_u(_ = A.RawGestureDetectorState.prototype, "get$_gesture_detector$_handlePointerDown", "_gesture_detector$_handlePointerDown$1", 78);
+    _instance_1_u(_ = A.RawGestureDetectorState.prototype, "get$_gesture_detector$_handlePointerDown", "_gesture_detector$_handlePointerDown$1", 75);
     _instance_1_u(_, "get$_handlePointerPanZoomStart", "_handlePointerPanZoomStart$1", 564);
     _instance_1_u(_, "get$_updateSemanticsForRenderObject", "_updateSemanticsForRenderObject$1", 565);
-    _instance_1_u(_ = A._HeroFlight.prototype, "get$_buildOverlay", "_buildOverlay$1", 27);
+    _instance_1_u(_ = A._HeroFlight.prototype, "get$_buildOverlay", "_buildOverlay$1", 30);
     _instance_1_u(_, "get$_handleAnimationUpdate", "_handleAnimationUpdate$1", 10);
     _instance_0_u(_, "get$onTick", "onTick$0", 0);
     _instance_1_u(_ = A.HeroController.prototype, "get$_handleFlightEnded", "_handleFlightEnded$1", 569);
     _instance(_, "get$_defaultHeroFlightShuttleBuilder", 0, 5, null, ["call$5"], ["_defaultHeroFlightShuttleBuilder$5"], 570, 0, 0);
-    _static(A, "icon_theme_data_IconThemeData_lerp$closure", 3, null, ["call$3"], ["IconThemeData_lerp"], 884, 0);
+    _static(A, "icon_theme_data_IconThemeData_lerp$closure", 3, null, ["call$3"], ["IconThemeData_lerp"], 883, 0);
     _instance_0_u(A.AnimatedWidgetBaseState.prototype, "get$_handleAnimationChanged", "_handleAnimationChanged$0", 0);
     _instance_0_u(A._InheritedNotifierElement.prototype, "get$_handleUpdate", "_handleUpdate$0", 0);
     _instance_0_u(_ = A._LayoutBuilderElement.prototype, "get$_scheduleRebuild", "_scheduleRebuild$0", 0);
@@ -293207,27 +293186,27 @@
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _instance_0_u(A.LocalizationsResolver.prototype, "get$dispose", "dispose$0", 0);
-    _static(A, "magnifier_TextMagnifierConfiguration__none$closure", 3, null, ["call$3"], ["TextMagnifierConfiguration__none"], 885, 0);
-    _static_2(A, "navigator_Page__defaultPopInvokedHandler$closure", "Page__defaultPopInvokedHandler", 187);
-    _static_2(A, "navigator_Navigator_defaultGenerateInitialRoutes$closure", "Navigator_defaultGenerateInitialRoutes", 886);
-    _static_1(A, "navigator__RouteEntry_isPresentPredicate$closure", "_RouteEntry_isPresentPredicate", 85);
-    _static_1(A, "navigator__RouteEntry_suitableForTransitionAnimationPredicate$closure", "_RouteEntry_suitableForTransitionAnimationPredicate", 85);
-    _static_1(A, "navigator__RouteEntry_willBePresentPredicate$closure", "_RouteEntry_willBePresentPredicate", 85);
-    _instance_1_u(A._NavigatorPushObservation.prototype, "get$notify", "notify$1", 119);
-    _instance_1_u(A._NavigatorPopObservation.prototype, "get$notify", "notify$1", 119);
-    _instance_1_u(A._NavigatorRemoveObservation.prototype, "get$notify", "notify$1", 119);
-    _instance_1_u(A._NavigatorReplaceObservation.prototype, "get$notify", "notify$1", 119);
+    _static(A, "magnifier_TextMagnifierConfiguration__none$closure", 3, null, ["call$3"], ["TextMagnifierConfiguration__none"], 884, 0);
+    _static_2(A, "navigator_Page__defaultPopInvokedHandler$closure", "Page__defaultPopInvokedHandler", 238);
+    _static_2(A, "navigator_Navigator_defaultGenerateInitialRoutes$closure", "Navigator_defaultGenerateInitialRoutes", 885);
+    _static_1(A, "navigator__RouteEntry_isPresentPredicate$closure", "_RouteEntry_isPresentPredicate", 96);
+    _static_1(A, "navigator__RouteEntry_suitableForTransitionAnimationPredicate$closure", "_RouteEntry_suitableForTransitionAnimationPredicate", 96);
+    _static_1(A, "navigator__RouteEntry_willBePresentPredicate$closure", "_RouteEntry_willBePresentPredicate", 96);
+    _instance_1_u(A._NavigatorPushObservation.prototype, "get$notify", "notify$1", 117);
+    _instance_1_u(A._NavigatorPopObservation.prototype, "get$notify", "notify$1", 117);
+    _instance_1_u(A._NavigatorRemoveObservation.prototype, "get$notify", "notify$1", 117);
+    _instance_1_u(A._NavigatorReplaceObservation.prototype, "get$notify", "notify$1", 117);
     _instance_0_u(_ = A.NavigatorState.prototype, "get$_handleHistoryChanged", "_handleHistoryChanged$0", 0);
     _instance_0_u(_, "get$_recordLastFocus", "_recordLastFocus$0", 0);
-    _instance(_, "get$pop", 0, 0, null, ["call$1$1", "call$1", "call$0", "call$1$0"], ["pop$1$1", "pop$1", "pop$0", "pop$1$0"], 597, 0, 0);
-    _instance_1_u(_, "get$_handlePointerDown", "_handlePointerDown$1", 78);
+    _instance(_, "get$pop", 0, 0, null, ["call$1$1", "call$1", "call$0", "call$1$0"], ["pop$1$1", "pop$1", "pop$0", "pop$1$0"], 897, 0, 0);
+    _instance_1_u(_, "get$_handlePointerDown", "_handlePointerDown$1", 75);
     _instance_1_u(_, "get$_handlePointerUpOrCancel", "_handlePointerUpOrCancel$1", 44);
     _instance_1_u(_ = A._RenderOverflowBar.prototype, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _static_1(A, "overlay__RenderTheater__detachChild$closure", "_RenderTheater__detachChild", 14);
-    _instance_1_u(A.OverlayState.prototype, "get$_debugCanInsertEntry", "_debugCanInsertEntry$1", 84);
+    _instance_1_u(A.OverlayState.prototype, "get$_debugCanInsertEntry", "_debugCanInsertEntry$1", 97);
     _instance(A._RenderTheaterMixin.prototype, "get$paint", 0, 2, null, ["call$2"], ["paint$2"], 21, 0, 1);
     _instance_1_u(_ = A._RenderTheater.prototype, "get$computeMinIntrinsicWidth", "computeMinIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
@@ -293238,24 +293217,24 @@
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$_overlay$_frameCallback", "_overlay$_frameCallback$1", 4);
-    _instance_1_u(A._GlowingOverscrollIndicatorState.prototype, "get$_overscroll_indicator$_handleScrollNotification", "_overscroll_indicator$_handleScrollNotification$1", 48);
+    _instance_1_u(A._GlowingOverscrollIndicatorState.prototype, "get$_overscroll_indicator$_handleScrollNotification", "_overscroll_indicator$_handleScrollNotification$1", 51);
     _instance_0_u(_ = A._GlowController.prototype, "get$dispose", "dispose$0", 0);
     _instance_1_u(_, "get$_changePhase", "_changePhase$1", 10);
     _instance_1_u(_, "get$_tickDisplacement", "_tickDisplacement$1", 4);
-    _instance_1_u(A._StretchingOverscrollIndicatorState.prototype, "get$_overscroll_indicator$_handleScrollNotification", "_overscroll_indicator$_handleScrollNotification$1", 48);
+    _instance_1_u(A._StretchingOverscrollIndicatorState.prototype, "get$_overscroll_indicator$_handleScrollNotification", "_overscroll_indicator$_handleScrollNotification$1", 51);
     _static(A, "pages___defaultTransitionsBuilder$closure", 4, null, ["call$4"], ["_defaultTransitionsBuilder"], 305, 0);
-    _instance_1_u(A.DefaultPlatformMenuDelegate.prototype, "get$_methodCallHandler", "_methodCallHandler$1", 142);
-    _instance_1_u(_ = A._PlatformViewLinkState.prototype, "get$_onPlatformViewCreated", "_onPlatformViewCreated$1", 33);
+    _instance_1_u(A.DefaultPlatformMenuDelegate.prototype, "get$_methodCallHandler", "_methodCallHandler$1", 152);
+    _instance_1_u(_ = A._PlatformViewLinkState.prototype, "get$_onPlatformViewCreated", "_onPlatformViewCreated$1", 32);
     _instance_1_u(_, "get$_handleFrameworkFocusChanged", "_handleFrameworkFocusChanged$1", 13);
     _instance_1_u(_ = A.RawTooltipState.prototype, "get$_raw_tooltip$_handleStatusChanged", "_raw_tooltip$_handleStatusChanged$1", 10);
-    _instance_1_u(_, "get$_raw_tooltip$_handlePointerDown", "_raw_tooltip$_handlePointerDown$1", 78);
+    _instance_1_u(_, "get$_raw_tooltip$_handlePointerDown", "_raw_tooltip$_handlePointerDown$1", 75);
     _instance_1_u(_, "get$_handleGlobalPointerEvent", "_handleGlobalPointerEvent$1", 44);
     _instance_0_u(_, "get$_handleTapToDismiss", "_handleTapToDismiss$0", 0);
     _instance_0_u(_, "get$_raw_tooltip$_handleTap", "_raw_tooltip$_handleTap$0", 0);
     _instance_0_u(_, "get$_handleLongPress", "_handleLongPress$0", 0);
     _instance_0_u(_, "get$_handlePressUp", "_handlePressUp$0", 0);
-    _instance_1_u(_, "get$_handleMouseEnter", "_handleMouseEnter$1", 62);
-    _instance_1_u(_, "get$_handleMouseExit", "_handleMouseExit$1", 56);
+    _instance_1_u(_, "get$_handleMouseEnter", "_handleMouseEnter$1", 58);
+    _instance_1_u(_, "get$_handleMouseExit", "_handleMouseExit$1", 52);
     _instance_2_u(_, "get$_buildTooltipOverlay", "_buildTooltipOverlay$2", 312);
     _instance_0_u(A._RootRestorationScopeState.prototype, "get$_replaceRootBucket", "_replaceRootBucket$0", 0);
     _instance_0_u(A.RestorableProperty.prototype, "get$dispose", "dispose$0", 0);
@@ -293268,30 +293247,30 @@
     _instance_0_u(_, "get$_handleRouterDelegateNotification", "_handleRouterDelegateNotification$0", 0);
     _instance_1_u(A.TransitionRoute.prototype, "get$_handleStatusChanged", "_handleStatusChanged$1", 10);
     _instance_0_u(_ = A.ModalRoute.prototype, "get$_maybeDispatchNavigationNotification", "_maybeDispatchNavigationNotification$0", 0);
-    _instance_1_u(_, "get$_buildModalBarrier", "_buildModalBarrier$1", 27);
-    _instance_1_u(_, "get$_buildModalScope", "_buildModalScope$1", 27);
+    _instance_1_u(_, "get$_buildModalBarrier", "_buildModalBarrier$1", 30);
+    _instance_1_u(_, "get$_buildModalScope", "_buildModalScope$1", 30);
     _instance_0_u(_ = A.BallisticScrollActivity.prototype, "get$_scroll_activity$_tick", "_scroll_activity$_tick$0", 0);
     _instance_0_u(_, "get$_scroll_activity$_end", "_scroll_activity$_end$0", 0);
     _instance_0_u(_ = A.DrivenScrollActivity.prototype, "get$_scroll_activity$_tick", "_scroll_activity$_tick$0", 0);
     _instance_0_u(_, "get$_scroll_activity$_end", "_scroll_activity$_end$0", 0);
     _instance_0_u(A.ScrollController.prototype, "get$dispose", "dispose$0", 0);
-    _static_2(A, "scroll_delegate___kDefaultSemanticIndexCallback$closure", "_kDefaultSemanticIndexCallback", 887);
-    _instance_1_i(_ = A._SelectionKeepAliveState.prototype, "get$add", "add$1", 77);
-    _instance_1_i(_, "get$remove", "remove$1", 77);
-    _static_1(A, "scroll_notification__defaultScrollNotificationPredicate$closure", "defaultScrollNotificationPredicate", 48);
+    _static_2(A, "scroll_delegate___kDefaultSemanticIndexCallback$closure", "_kDefaultSemanticIndexCallback", 886);
+    _instance_1_i(_ = A._SelectionKeepAliveState.prototype, "get$add", "add$1", 83);
+    _instance_1_i(_, "get$remove", "remove$1", 83);
+    _static_1(A, "scroll_notification__defaultScrollNotificationPredicate$closure", "defaultScrollNotificationPredicate", 51);
     _instance_0_u(_ = A.ScrollPosition.prototype, "get$didUpdateScrollMetrics", "didUpdateScrollMetrics$0", 0);
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
     _instance_0_u(A.ScrollPositionWithSingleContext.prototype, "get$dispose", "dispose$0", 0);
-    _instance_1_u(_ = A.ScrollableState.prototype, "get$_scrollable$_handleDragDown", "_scrollable$_handleDragDown$1", 114);
-    _instance_1_u(_, "get$_scrollable$_handleDragStart", "_scrollable$_handleDragStart$1", 46);
+    _instance_1_u(_ = A.ScrollableState.prototype, "get$_scrollable$_handleDragDown", "_scrollable$_handleDragDown$1", 107);
+    _instance_1_u(_, "get$_scrollable$_handleDragStart", "_scrollable$_handleDragStart$1", 47);
     _instance_1_u(_, "get$_scrollable$_handleDragUpdate", "_scrollable$_handleDragUpdate$1", 23);
-    _instance_1_u(_, "get$_scrollable$_handleDragEnd", "_scrollable$_handleDragEnd$1", 43);
+    _instance_1_u(_, "get$_scrollable$_handleDragEnd", "_scrollable$_handleDragEnd$1", 42);
     _instance_0_u(_, "get$_scrollable$_handleDragCancel", "_scrollable$_handleDragCancel$0", 0);
     _instance_0_u(_, "get$_disposeHold", "_disposeHold$0", 0);
     _instance_0_u(_, "get$_disposeDrag", "_disposeDrag$0", 0);
     _instance_1_u(_, "get$_receivedPointerSignal", "_receivedPointerSignal$1", 245);
     _instance_1_u(_, "get$_scrollable$_handlePointerScroll", "_scrollable$_handlePointerScroll$1", 44);
-    _instance_1_u(_, "get$_handleScrollMetricsNotification", "_handleScrollMetricsNotification$1", 156);
+    _instance_1_u(_, "get$_handleScrollMetricsNotification", "_handleScrollMetricsNotification$1", 160);
     _instance_0_u(_ = A._ScrollableSelectionContainerDelegate.prototype, "get$_scheduleLayoutChange", "_scheduleLayoutChange$0", 0);
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
     _instance_1_u(A._RenderScrollSemantics.prototype, "get$_onScrollToOffset", "_onScrollToOffset$1", 630);
@@ -293299,23 +293278,23 @@
     _instance_1_u(_ = A.RawScrollbarState.prototype, "get$_validateInteractions", "_validateInteractions$1", 10);
     _instance_0_u(_, "get$_disposeThumbDrag", "_disposeThumbDrag$0", 0);
     _instance_0_u(_, "get$_disposeThumbHold", "_disposeThumbHold$0", 0);
-    _instance_1_u(_, "get$handleTrackTapDown", "handleTrackTapDown$1", 51);
-    _instance_1_u(_, "get$_scrollbar$_handleScrollMetricsNotification", "_scrollbar$_handleScrollMetricsNotification$1", 156);
-    _instance_1_u(_, "get$_handleScrollNotification", "_handleScrollNotification$1", 48);
-    _instance_1_u(_, "get$_handleThumbDragDown", "_handleThumbDragDown$1", 114);
-    _instance_1_u(_, "get$_handleThumbDragStart", "_handleThumbDragStart$1", 46);
+    _instance_1_u(_, "get$handleTrackTapDown", "handleTrackTapDown$1", 48);
+    _instance_1_u(_, "get$_scrollbar$_handleScrollMetricsNotification", "_scrollbar$_handleScrollMetricsNotification$1", 160);
+    _instance_1_u(_, "get$_handleScrollNotification", "_handleScrollNotification$1", 51);
+    _instance_1_u(_, "get$_handleThumbDragDown", "_handleThumbDragDown$1", 107);
+    _instance_1_u(_, "get$_handleThumbDragStart", "_handleThumbDragStart$1", 47);
     _instance_1_u(_, "get$_handleThumbDragUpdate", "_handleThumbDragUpdate$1", 23);
-    _instance_1_u(_, "get$_handleThumbDragEnd", "_handleThumbDragEnd$1", 43);
+    _instance_1_u(_, "get$_handleThumbDragEnd", "_handleThumbDragEnd$1", 42);
     _instance_0_u(_, "get$_handleThumbDragCancel", "_handleThumbDragCancel$0", 0);
     _instance_1_u(_, "get$_initThumbDragGestureRecognizer", "_initThumbDragGestureRecognizer$1", 633);
     _instance_1_u(_, "get$_handlePointerScroll", "_handlePointerScroll$1", 44);
     _instance_1_u(_, "get$_scrollbar$_receivedPointerSignal", "_scrollbar$_receivedPointerSignal$1", 245);
-    _static_2(A, "selectable_region_MultiSelectableSelectionContainerDelegate__compareScreenOrder$closure", "MultiSelectableSelectionContainerDelegate__compareScreenOrder", 310);
-    _instance_1_u(_ = A.StaticSelectionContainerDelegate.prototype, "get$clearInternalSelectionStateForSelectable", "clearInternalSelectionStateForSelectable$1", 77);
-    _instance_1_i(_, "get$remove", "remove$1", 77);
+    _static_2(A, "selectable_region_MultiSelectableSelectionContainerDelegate__compareScreenOrder$closure", "MultiSelectableSelectionContainerDelegate__compareScreenOrder", 250);
+    _instance_1_u(_ = A.StaticSelectionContainerDelegate.prototype, "get$clearInternalSelectionStateForSelectable", "clearInternalSelectionStateForSelectable$1", 83);
+    _instance_1_i(_, "get$remove", "remove$1", 83);
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
-    _instance_1_i(_ = A.MultiSelectableSelectionContainerDelegate.prototype, "get$add", "add$1", 77);
-    _instance_1_i(_, "get$remove", "remove$1", 77);
+    _instance_1_i(_ = A.MultiSelectableSelectionContainerDelegate.prototype, "get$add", "add$1", 83);
+    _instance_1_i(_, "get$remove", "remove$1", 83);
     _instance_0_u(_, "get$_handleSelectableGeometryChange", "_handleSelectableGeometryChange$0", 0);
     _instance_0_u(_, "get$dispose", "dispose$0", 0);
     _instance_2_u(A._ShortcutsState.prototype, "get$_handleOnKeyEvent", "_handleOnKeyEvent$2", 206);
@@ -293326,32 +293305,32 @@
     _instance_1_u(_, "get$computeMaxIntrinsicWidth", "computeMaxIntrinsicWidth$1", 2);
     _instance_1_u(_, "get$computeMinIntrinsicHeight", "computeMinIntrinsicHeight$1", 2);
     _instance_1_u(_, "get$computeMaxIntrinsicHeight", "computeMaxIntrinsicHeight$1", 2);
-    _instance(_, "get$showOnScreen", 0, 0, null, ["call$4$curve$descendant$duration$rect", "call$0", "call$1$rect", "call$3$curve$duration$rect", "call$2$descendant$rect"], ["showOnScreen$4$curve$descendant$duration$rect", "showOnScreen$0", "showOnScreen$1$rect", "showOnScreen$3$curve$duration$rect", "showOnScreen$2$descendant$rect"], 135, 0, 0);
+    _instance(_, "get$showOnScreen", 0, 0, null, ["call$4$curve$descendant$duration$rect", "call$0", "call$1$rect", "call$3$curve$duration$rect", "call$2$descendant$rect"], ["showOnScreen$4$curve$descendant$duration$rect", "showOnScreen$0", "showOnScreen$1$rect", "showOnScreen$3$curve$duration$rect", "showOnScreen$2$descendant$rect"], 144, 0, 0);
     _instance_1_u(A.SliverMultiBoxAdaptorElement.prototype, "get$removeChild", "removeChild$1", 647);
     _instance_0_u(A._RenderSnapshotWidget.prototype, "get$_onRasterValueChanged", "_onRasterValueChanged$0", 0);
     _instance_0_u(A._DefaultSnapshotPainter.prototype, "get$dispose", "dispose$0", 0);
-    _instance_1_u(A.RenderTapRegionSurface.prototype, "get$_handleSemanticsAction", "_handleSemanticsAction$1", 140);
-    _static_2(A, "text__SelectableTextContainerDelegate__compareScreenOrder$closure", "_SelectableTextContainerDelegate__compareScreenOrder", 310);
+    _instance_1_u(A.RenderTapRegionSurface.prototype, "get$_handleSemanticsAction", "_handleSemanticsAction$1", 149);
+    _static_2(A, "text__SelectableTextContainerDelegate__compareScreenOrder$closure", "_SelectableTextContainerDelegate__compareScreenOrder", 250);
     _instance_0_u(_ = A.TextSelectionOverlay.prototype, "get$_updateTextSelectionOverlayVisibilities", "_updateTextSelectionOverlayVisibilities$0", 0);
-    _instance_1_u(_, "get$_handleSelectionEndHandleDragStart", "_handleSelectionEndHandleDragStart$1", 46);
+    _instance_1_u(_, "get$_handleSelectionEndHandleDragStart", "_handleSelectionEndHandleDragStart$1", 47);
     _instance_1_u(_, "get$_handleSelectionEndHandleDragUpdate", "_handleSelectionEndHandleDragUpdate$1", 23);
-    _instance_1_u(_, "get$_handleSelectionStartHandleDragStart", "_handleSelectionStartHandleDragStart$1", 46);
+    _instance_1_u(_, "get$_handleSelectionStartHandleDragStart", "_handleSelectionStartHandleDragStart$1", 47);
     _instance_1_u(_, "get$_handleSelectionStartHandleDragUpdate", "_handleSelectionStartHandleDragUpdate$1", 23);
-    _instance_1_u(_, "get$_handleAnyDragEnd", "_handleAnyDragEnd$1", 43);
-    _instance_1_u(_ = A.SelectionOverlay.prototype, "get$_handleStartHandleDragStart", "_handleStartHandleDragStart$1", 46);
+    _instance_1_u(_, "get$_handleAnyDragEnd", "_handleAnyDragEnd$1", 42);
+    _instance_1_u(_ = A.SelectionOverlay.prototype, "get$_handleStartHandleDragStart", "_handleStartHandleDragStart$1", 47);
     _instance_1_u(_, "get$_handleStartHandleDragUpdate", "_handleStartHandleDragUpdate$1", 23);
-    _instance_1_u(_, "get$_handleStartHandleDragEnd", "_handleStartHandleDragEnd$1", 43);
-    _instance_1_u(_, "get$_handleEndHandleDragStart", "_handleEndHandleDragStart$1", 46);
+    _instance_1_u(_, "get$_handleStartHandleDragEnd", "_handleStartHandleDragEnd$1", 42);
+    _instance_1_u(_, "get$_handleEndHandleDragStart", "_handleEndHandleDragStart$1", 47);
     _instance_1_u(_, "get$_handleEndHandleDragUpdate", "_handleEndHandleDragUpdate$1", 23);
-    _instance_1_u(_, "get$_handleEndHandleDragEnd", "_handleEndHandleDragEnd$1", 43);
-    _instance_1_u(_, "get$_buildToolbar", "_buildToolbar$1", 27);
+    _instance_1_u(_, "get$_handleEndHandleDragEnd", "_handleEndHandleDragEnd$1", 42);
+    _instance_1_u(_, "get$_buildToolbar", "_buildToolbar$1", 30);
     _instance_0_u(A._SelectionToolbarWrapperState.prototype, "get$_toolbarVisibilityChanged", "_toolbarVisibilityChanged$0", 0);
     _instance_0_u(A._SelectionHandleOverlayState.prototype, "get$_handleVisibilityChanged", "_handleVisibilityChanged$0", 0);
     _instance_0_u(_ = A.TextSelectionGestureDetectorBuilder.prototype, "get$onTapTrackStart", "onTapTrackStart$0", 0);
     _instance_0_u(_, "get$onTapTrackReset", "onTapTrackReset$0", 0);
-    _instance_1_u(_, "get$onTapDown", "onTapDown$1", 124);
-    _instance_1_u(_, "get$onForcePressStart", "onForcePressStart$1", 117);
-    _instance_1_u(_, "get$onForcePressEnd", "onForcePressEnd$1", 117);
+    _instance_1_u(_, "get$onTapDown", "onTapDown$1", 121);
+    _instance_1_u(_, "get$onForcePressStart", "onForcePressStart$1", 122);
+    _instance_1_u(_, "get$onForcePressEnd", "onForcePressEnd$1", 122);
     _instance_1_u(_, "get$onSingleTapUp", "onSingleTapUp$1", 251);
     _instance_0_u(_, "get$onSingleTapCancel", "onSingleTapCancel$0", 0);
     _instance_1_u(_, "get$onSingleLongTapStart", "onSingleLongTapStart$1", 252);
@@ -293359,22 +293338,22 @@
     _instance_1_u(_, "get$onSingleLongTapEnd", "onSingleLongTapEnd$1", 254);
     _instance_0_u(_, "get$onSingleLongTapCancel", "onSingleLongTapCancel$0", 0);
     _instance_0_u(_, "get$onSecondaryTap", "onSecondaryTap$0", 0);
-    _instance_1_u(_, "get$onSecondaryTapDown", "onSecondaryTapDown$1", 51);
-    _instance_1_u(_, "get$onDoubleTapDown", "onDoubleTapDown$1", 124);
-    _instance_1_u(_, "get$onTripleTapDown", "onTripleTapDown$1", 124);
+    _instance_1_u(_, "get$onSecondaryTapDown", "onSecondaryTapDown$1", 48);
+    _instance_1_u(_, "get$onDoubleTapDown", "onDoubleTapDown$1", 121);
+    _instance_1_u(_, "get$onTripleTapDown", "onTripleTapDown$1", 121);
     _instance_1_u(_, "get$onDragSelectionStart", "onDragSelectionStart$1", 255);
     _instance_1_u(_, "get$onDragSelectionUpdate", "onDragSelectionUpdate$1", 256);
     _instance_1_u(_, "get$onDragSelectionEnd", "onDragSelectionEnd$1", 257);
     _instance_0_u(_ = A._TextSelectionGestureDetectorState.prototype, "get$_handleTapTrackStart", "_handleTapTrackStart$0", 0);
     _instance_0_u(_, "get$_handleTapTrackReset", "_handleTapTrackReset$0", 0);
-    _instance_1_u(_, "get$_text_selection$_handleTapDown", "_text_selection$_handleTapDown$1", 124);
+    _instance_1_u(_, "get$_text_selection$_handleTapDown", "_text_selection$_handleTapDown$1", 121);
     _instance_1_u(_, "get$_text_selection$_handleTapUp", "_text_selection$_handleTapUp$1", 251);
     _instance_0_u(_, "get$_text_selection$_handleTapCancel", "_text_selection$_handleTapCancel$0", 0);
     _instance_1_u(_, "get$_text_selection$_handleDragStart", "_text_selection$_handleDragStart$1", 255);
     _instance_1_u(_, "get$_text_selection$_handleDragUpdate", "_text_selection$_handleDragUpdate$1", 256);
     _instance_1_u(_, "get$_text_selection$_handleDragEnd", "_text_selection$_handleDragEnd$1", 257);
-    _instance_1_u(_, "get$_forcePressStarted", "_forcePressStarted$1", 117);
-    _instance_1_u(_, "get$_forcePressEnded", "_forcePressEnded$1", 117);
+    _instance_1_u(_, "get$_forcePressStarted", "_forcePressStarted$1", 122);
+    _instance_1_u(_, "get$_forcePressEnded", "_forcePressEnded$1", 122);
     _instance_1_u(_, "get$_handleLongPressStart", "_handleLongPressStart$1", 252);
     _instance_1_u(_, "get$_handleLongPressMoveUpdate", "_handleLongPressMoveUpdate$1", 253);
     _instance_1_u(_, "get$_handleLongPressEnd", "_handleLongPressEnd$1", 254);
@@ -293382,16 +293361,16 @@
     _instance_0_u(A.ClipboardStatusNotifier.prototype, "get$dispose", "dispose$0", 0);
     _instance_0_u(A.SingleTickerProviderStateMixin.prototype, "get$_updateTicker", "_updateTicker$0", 0);
     _instance_0_u(A.TickerProviderStateMixin.prototype, "get$_updateTickers", "_updateTickers$0", 0);
-    _instance_1_u(_ = A.ToggleableStateMixin.prototype, "get$_handleTapDown", "_handleTapDown$1", 51);
+    _instance_1_u(_ = A.ToggleableStateMixin.prototype, "get$_handleTapDown", "_handleTapDown$1", 48);
     _instance(_, "get$_toggleable$_handleTap", 0, 0, function() {
       return [null];
-    }, ["call$1", "call$0"], ["_toggleable$_handleTap$1", "_toggleable$_handleTap$0"], 146, 0, 0);
+    }, ["call$1", "call$0"], ["_toggleable$_handleTap$1", "_toggleable$_handleTap$0"], 137, 0, 0);
     _instance(_, "get$_handleTapEnd", 0, 0, null, ["call$1", "call$0"], ["_handleTapEnd$1", "_handleTapEnd$0"], 679, 0, 0);
     _instance_1_u(_, "get$_handleFocusHighlightChanged", "_handleFocusHighlightChanged$1", 13);
     _instance_1_u(_, "get$_handleHoverChanged", "_handleHoverChanged$1", 13);
     _instance_0_u(A.ToggleablePainter.prototype, "get$dispose", "dispose$0", 0);
-    _static_1(A, "transitions_ScaleTransition__handleScaleMatrix$closure", "ScaleTransition__handleScaleMatrix", 132);
-    _static_1(A, "transitions_RotationTransition__handleTurnsMatrix$closure", "RotationTransition__handleTurnsMatrix", 132);
+    _static_1(A, "transitions_ScaleTransition__handleScaleMatrix$closure", "ScaleTransition__handleScaleMatrix", 136);
+    _static_1(A, "transitions_RotationTransition__handleTurnsMatrix$closure", "RotationTransition__handleTurnsMatrix", 136);
     _instance_0_u(A._AnimatedState.prototype, "get$_handleChange", "_handleChange$0", 0);
     _instance_0_u(_ = A.UndoHistoryState.prototype, "get$undo", "undo$0", 0);
     _instance_0_u(_, "get$redo", "redo$0", 0);
@@ -293404,35 +293383,35 @@
     _instance_0_u(A._ViewState.prototype, "get$_scopeFocusChangeListener", "_scopeFocusChangeListener$0", 0);
     _instance_0_u(_ = A._RawViewElement.prototype, "get$_handleSemanticsOwnerCreated", "_handleSemanticsOwnerCreated$0", 0);
     _instance_0_u(_, "get$_handleSemanticsOwnerDisposed", "_handleSemanticsOwnerDisposed$0", 0);
-    _instance_1_u(_, "get$_handleSemanticsUpdate", "_handleSemanticsUpdate$1", 131);
-    _static_1(A, "widget_inspector__debugTransformDebugCreator$closure", "debugTransformDebugCreator", 889);
+    _instance_1_u(_, "get$_handleSemanticsUpdate", "_handleSemanticsUpdate$1", 142);
+    _static_1(A, "widget_inspector__debugTransformDebugCreator$closure", "debugTransformDebugCreator", 888);
     _instance_1_u(_ = A.WidgetInspectorService.prototype, "get$_reportStructuredError", "_reportStructuredError$1", 683);
     _instance_1_u(_, "get$_decrementReferenceCount", "_decrementReferenceCount$1", 684);
     _instance(_, "get$isWidgetTreeReady", 0, 0, null, ["call$1", "call$0"], ["isWidgetTreeReady$1", "isWidgetTreeReady$0"], 685, 0, 0);
-    _instance_1_u(_, "get$pubRootDirectories", "pubRootDirectories$1", 42);
+    _instance_1_u(_, "get$pubRootDirectories", "pubRootDirectories$1", 43);
     _instance(_, "get$setSelectionById", 0, 1, null, ["call$2", "call$1"], ["setSelectionById$2", "setSelectionById$1"], 686, 0, 0);
     _instance_2_u(_, "get$_getParentChain", "_getParentChain$2", 687);
-    _instance_2_u(_, "get$_getProperties", "_getProperties$2", 118);
-    _instance_2_u(_, "get$_getChildren", "_getChildren$2", 118);
-    _instance_2_u(_, "get$_getChildrenSummaryTree", "_getChildrenSummaryTree$2", 118);
-    _instance_2_u(_, "get$_getChildrenDetailsSubtree", "_getChildrenDetailsSubtree$2", 118);
+    _instance_2_u(_, "get$_getProperties", "_getProperties$2", 123);
+    _instance_2_u(_, "get$_getChildren", "_getChildren$2", 123);
+    _instance_2_u(_, "get$_getChildrenSummaryTree", "_getChildrenSummaryTree$2", 123);
+    _instance_2_u(_, "get$_getChildrenDetailsSubtree", "_getChildrenDetailsSubtree$2", 123);
     _instance_1_u(_, "get$_getRootWidget", "_getRootWidget$1", 689);
     _instance(_, "get$_getRootWidgetSummaryTree", 0, 1, null, ["call$2$addAdditionalPropertiesCallback", "call$1"], ["_getRootWidgetSummaryTree$2$addAdditionalPropertiesCallback", "_getRootWidgetSummaryTree$1"], 690, 0, 0);
     _instance_1_u(_, "get$_getRootWidgetSummaryTreeWithPreviews", "_getRootWidgetSummaryTreeWithPreviews$1", 54);
     _instance_1_u(_, "get$_getRootWidgetTree", "_getRootWidgetTree$1", 54);
     _instance_1_u(_, "get$_getLayoutExplorerNode", "_getLayoutExplorerNode$1", 54);
-    _instance_1_u(_, "get$_setFlexFit", "_setFlexFit$1", 42);
-    _instance_1_u(_, "get$_setFlexFactor", "_setFlexFactor$1", 42);
-    _instance_1_u(_, "get$_setFlexProperties", "_setFlexProperties$1", 42);
+    _instance_1_u(_, "get$_setFlexFit", "_setFlexFit$1", 43);
+    _instance_1_u(_, "get$_setFlexFactor", "_setFlexFactor$1", 43);
+    _instance_1_u(_, "get$_setFlexProperties", "_setFlexProperties$1", 43);
     _instance_2_u(_, "get$_getSelectedWidget", "_getSelectedWidget$2", 260);
     _instance_2_u(_, "get$_getSelectedSummaryWidget", "_getSelectedSummaryWidget$2", 260);
     _instance_0_u(_, "get$isWidgetCreationTracked", "isWidgetCreationTracked$0", 1);
     _instance_1_u(_, "get$_onFrameStart", "_onFrameStart$1", 4);
     _instance_1_u(_, "get$_onFrameEnd", "_onFrameEnd$1", 4);
     _instance_0_u(_ = A._WidgetInspectorState.prototype, "get$_selectionInformationChanged", "_selectionInformationChanged$0", 0);
-    _instance_1_u(_, "get$_handlePanDown", "_handlePanDown$1", 114);
+    _instance_1_u(_, "get$_handlePanDown", "_handlePanDown$1", 107);
     _instance_1_u(_, "get$_handlePanUpdate", "_handlePanUpdate$1", 23);
-    _instance_1_u(_, "get$_handlePanEnd", "_handlePanEnd$1", 43);
+    _instance_1_u(_, "get$_handlePanEnd", "_handlePanEnd$1", 42);
     _instance_0_u(_, "get$_handleTap", "_handleTap$0", 0);
     _instance_0_u(_ = A._WidgetInspectorButtonGroupState.prototype, "get$_exitWidgetSelectionMode", "_exitWidgetSelectionMode$0", 0);
     _instance(_, "get$_changeSelectionOnTapMode", 0, 0, function() {
@@ -293452,15 +293431,15 @@
     _instance_0_u(A._SlidableDismissalState.prototype, "get$handleResizeRequestChanged", "handleResizeRequestChanged$0", 0);
     _instance_0_u(_ = A._RenderFlexEntranceTransition.prototype, "get$markNeedsOffsets", "markNeedsOffsets$0", 0);
     _instance_1_u(_, "get$updateChildOffsets", "updateChildOffsets$1", 14);
-    _instance_1_u(_ = A._SlidableGestureDetectorState.prototype, "get$handleDragStart", "handleDragStart$1", 46);
+    _instance_1_u(_ = A._SlidableGestureDetectorState.prototype, "get$handleDragStart", "handleDragStart$1", 47);
     _instance_1_u(_, "get$handleDragUpdate", "handleDragUpdate$1", 23);
-    _instance_1_u(_, "get$handleDragEnd", "handleDragEnd$1", 43);
+    _instance_1_u(_, "get$handleDragEnd", "handleDragEnd$1", 42);
     _instance_0_u(A._SlidableScrollingBehaviorState.prototype, "get$handleScrollingChanged", "handleScrollingChanged$0", 0);
     _instance_0_u(_ = A._ActionPaneState.prototype, "get$handleEndGestureChanged", "handleEndGestureChanged$0", 0);
     _instance_0_u(_, "get$handleRatioChanged", "handleRatioChanged$0", 0);
     _instance_0_u(A._SlidableState.prototype, "get$handleActionPanelTypeChanged", "handleActionPanelTypeChanged$0", 0);
     _instance(A.Registrar.prototype, "get$handleFrameworkMessage", 0, 3, null, ["call$3"], ["handleFrameworkMessage$3"], 707, 0, 0);
-    _static_1(A, "case_insensitive_map_CaseInsensitiveMap__canonicalizer$closure", "CaseInsensitiveMap__canonicalizer", 25);
+    _static_1(A, "case_insensitive_map_CaseInsensitiveMap__canonicalizer$closure", "CaseInsensitiveMap__canonicalizer", 28);
     _instance(A.IfdValue.prototype, "get$toInt", 1, 0, function() {
       return [0];
     }, ["call$1", "call$0"], ["toInt$1", "toInt$0"], 55, 0, 0);
@@ -293488,66 +293467,66 @@
     _instance(A.IfdValueSRational.prototype, "get$toInt", 1, 0, function() {
       return [0];
     }, ["call$1", "call$0"], ["toInt$1", "toInt$0"], 55, 0, 0);
-    _instance_2_u(_ = A.JpegScan.prototype, "get$_decodeBaseline", "_decodeBaseline$2", 90);
-    _instance_2_u(_, "get$_decodeDCFirst", "_decodeDCFirst$2", 90);
-    _instance_2_u(_, "get$_decodeDCSuccessive", "_decodeDCSuccessive$2", 90);
-    _instance_2_u(_, "get$_decodeACFirst", "_decodeACFirst$2", 90);
-    _instance_2_u(_, "get$_decodeACSuccessive", "_decodeACSuccessive$2", 90);
-    _static_1(A, "vp8_filter_VP8Filter__ve4$closure", "VP8Filter__ve4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__he4$closure", "VP8Filter__he4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__dc4$closure", "VP8Filter__dc4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__tm4$closure", "VP8Filter__tm4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__tm8uv$closure", "VP8Filter__tm8uv", 15);
-    _static_1(A, "vp8_filter_VP8Filter__tm16$closure", "VP8Filter__tm16", 15);
-    _static_1(A, "vp8_filter_VP8Filter__rd4$closure", "VP8Filter__rd4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__ld4$closure", "VP8Filter__ld4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__vr4$closure", "VP8Filter__vr4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__vl4$closure", "VP8Filter__vl4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__hu4$closure", "VP8Filter__hu4", 15);
-    _static_1(A, "vp8_filter_VP8Filter__hd4$closure", "VP8Filter__hd4", 15);
-    _static_1(A, "vp8_filter_VP8Filter_ve16$closure", "VP8Filter_ve16", 15);
-    _static_1(A, "vp8_filter_VP8Filter_he16$closure", "VP8Filter_he16", 15);
-    _static_1(A, "vp8_filter_VP8Filter_dc16$closure", "VP8Filter_dc16", 15);
-    _static_1(A, "vp8_filter_VP8Filter_dc16NoTop$closure", "VP8Filter_dc16NoTop", 15);
-    _static_1(A, "vp8_filter_VP8Filter_dc16NoLeft$closure", "VP8Filter_dc16NoLeft", 15);
-    _static_1(A, "vp8_filter_VP8Filter_dc16NoTopLeft$closure", "VP8Filter_dc16NoTopLeft", 15);
-    _static_1(A, "vp8_filter_VP8Filter_ve8uv$closure", "VP8Filter_ve8uv", 15);
-    _static_1(A, "vp8_filter_VP8Filter_he8uv$closure", "VP8Filter_he8uv", 15);
-    _static_1(A, "vp8_filter_VP8Filter_dc8uv$closure", "VP8Filter_dc8uv", 15);
-    _static_1(A, "vp8_filter_VP8Filter_dc8uvNoLeft$closure", "VP8Filter_dc8uvNoLeft", 15);
-    _static_1(A, "vp8_filter_VP8Filter_dc8uvNoTop$closure", "VP8Filter_dc8uvNoTop", 15);
-    _static_1(A, "vp8_filter_VP8Filter_dc8uvNoTopLeft$closure", "VP8Filter_dc8uvNoTopLeft", 15);
-    _instance_1_u(A.VP8L.prototype, "get$_processRows", "_processRows$1", 33);
-    _instance_1_u(A.InternalVP8L.prototype, "get$extractAlphaRows", "extractAlphaRows$1", 33);
-    _static(A, "vp8l_transform_VP8LTransform__predictor0$closure", 3, null, ["call$3"], ["VP8LTransform__predictor0"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor1$closure", 3, null, ["call$3"], ["VP8LTransform__predictor1"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor2$closure", 3, null, ["call$3"], ["VP8LTransform__predictor2"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor3$closure", 3, null, ["call$3"], ["VP8LTransform__predictor3"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor4$closure", 3, null, ["call$3"], ["VP8LTransform__predictor4"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor5$closure", 3, null, ["call$3"], ["VP8LTransform__predictor5"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor6$closure", 3, null, ["call$3"], ["VP8LTransform__predictor6"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor7$closure", 3, null, ["call$3"], ["VP8LTransform__predictor7"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor8$closure", 3, null, ["call$3"], ["VP8LTransform__predictor8"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor9$closure", 3, null, ["call$3"], ["VP8LTransform__predictor9"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor10$closure", 3, null, ["call$3"], ["VP8LTransform__predictor10"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor11$closure", 3, null, ["call$3"], ["VP8LTransform__predictor11"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor12$closure", 3, null, ["call$3"], ["VP8LTransform__predictor12"], 41, 0);
-    _static(A, "vp8l_transform_VP8LTransform__predictor13$closure", 3, null, ["call$3"], ["VP8LTransform__predictor13"], 41, 0);
-    _static_1(A, "date_format_DateFormat_localeExists$closure", "DateFormat_localeExists", 173);
+    _instance_2_u(_ = A.JpegScan.prototype, "get$_decodeBaseline", "_decodeBaseline$2", 92);
+    _instance_2_u(_, "get$_decodeDCFirst", "_decodeDCFirst$2", 92);
+    _instance_2_u(_, "get$_decodeDCSuccessive", "_decodeDCSuccessive$2", 92);
+    _instance_2_u(_, "get$_decodeACFirst", "_decodeACFirst$2", 92);
+    _instance_2_u(_, "get$_decodeACSuccessive", "_decodeACSuccessive$2", 92);
+    _static_1(A, "vp8_filter_VP8Filter__ve4$closure", "VP8Filter__ve4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__he4$closure", "VP8Filter__he4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__dc4$closure", "VP8Filter__dc4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__tm4$closure", "VP8Filter__tm4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__tm8uv$closure", "VP8Filter__tm8uv", 16);
+    _static_1(A, "vp8_filter_VP8Filter__tm16$closure", "VP8Filter__tm16", 16);
+    _static_1(A, "vp8_filter_VP8Filter__rd4$closure", "VP8Filter__rd4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__ld4$closure", "VP8Filter__ld4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__vr4$closure", "VP8Filter__vr4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__vl4$closure", "VP8Filter__vl4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__hu4$closure", "VP8Filter__hu4", 16);
+    _static_1(A, "vp8_filter_VP8Filter__hd4$closure", "VP8Filter__hd4", 16);
+    _static_1(A, "vp8_filter_VP8Filter_ve16$closure", "VP8Filter_ve16", 16);
+    _static_1(A, "vp8_filter_VP8Filter_he16$closure", "VP8Filter_he16", 16);
+    _static_1(A, "vp8_filter_VP8Filter_dc16$closure", "VP8Filter_dc16", 16);
+    _static_1(A, "vp8_filter_VP8Filter_dc16NoTop$closure", "VP8Filter_dc16NoTop", 16);
+    _static_1(A, "vp8_filter_VP8Filter_dc16NoLeft$closure", "VP8Filter_dc16NoLeft", 16);
+    _static_1(A, "vp8_filter_VP8Filter_dc16NoTopLeft$closure", "VP8Filter_dc16NoTopLeft", 16);
+    _static_1(A, "vp8_filter_VP8Filter_ve8uv$closure", "VP8Filter_ve8uv", 16);
+    _static_1(A, "vp8_filter_VP8Filter_he8uv$closure", "VP8Filter_he8uv", 16);
+    _static_1(A, "vp8_filter_VP8Filter_dc8uv$closure", "VP8Filter_dc8uv", 16);
+    _static_1(A, "vp8_filter_VP8Filter_dc8uvNoLeft$closure", "VP8Filter_dc8uvNoLeft", 16);
+    _static_1(A, "vp8_filter_VP8Filter_dc8uvNoTop$closure", "VP8Filter_dc8uvNoTop", 16);
+    _static_1(A, "vp8_filter_VP8Filter_dc8uvNoTopLeft$closure", "VP8Filter_dc8uvNoTopLeft", 16);
+    _instance_1_u(A.VP8L.prototype, "get$_processRows", "_processRows$1", 32);
+    _instance_1_u(A.InternalVP8L.prototype, "get$extractAlphaRows", "extractAlphaRows$1", 32);
+    _static(A, "vp8l_transform_VP8LTransform__predictor0$closure", 3, null, ["call$3"], ["VP8LTransform__predictor0"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor1$closure", 3, null, ["call$3"], ["VP8LTransform__predictor1"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor2$closure", 3, null, ["call$3"], ["VP8LTransform__predictor2"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor3$closure", 3, null, ["call$3"], ["VP8LTransform__predictor3"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor4$closure", 3, null, ["call$3"], ["VP8LTransform__predictor4"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor5$closure", 3, null, ["call$3"], ["VP8LTransform__predictor5"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor6$closure", 3, null, ["call$3"], ["VP8LTransform__predictor6"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor7$closure", 3, null, ["call$3"], ["VP8LTransform__predictor7"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor8$closure", 3, null, ["call$3"], ["VP8LTransform__predictor8"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor9$closure", 3, null, ["call$3"], ["VP8LTransform__predictor9"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor10$closure", 3, null, ["call$3"], ["VP8LTransform__predictor10"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor11$closure", 3, null, ["call$3"], ["VP8LTransform__predictor11"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor12$closure", 3, null, ["call$3"], ["VP8LTransform__predictor12"], 39, 0);
+    _static(A, "vp8l_transform_VP8LTransform__predictor13$closure", 3, null, ["call$3"], ["VP8LTransform__predictor13"], 39, 0);
+    _static_1(A, "date_format_DateFormat_localeExists$closure", "DateFormat_localeExists", 159);
     _static_1(A, "intl_helpers__canonicalizedLocale$closure", "canonicalizedLocale", 292);
-    _static_1(A, "intl_helpers__deprecatedLocale$closure", "deprecatedLocale", 25);
-    _static_1(A, "intl_helpers__languageOnlyLocale$closure", "languageOnlyLocale", 25);
-    _static_1(A, "intl_helpers__languageRegionOnlyLocale$closure", "languageRegionOnlyLocale", 25);
-    _static_1(A, "material_dynamic_colors_MaterialDynamicColors_highestSurface$closure", "MaterialDynamicColors_highestSurface", 16);
+    _static_1(A, "intl_helpers__deprecatedLocale$closure", "deprecatedLocale", 28);
+    _static_1(A, "intl_helpers__languageOnlyLocale$closure", "languageOnlyLocale", 28);
+    _static_1(A, "intl_helpers__languageRegionOnlyLocale$closure", "languageRegionOnlyLocale", 28);
+    _static_1(A, "material_dynamic_colors_MaterialDynamicColors_highestSurface$closure", "MaterialDynamicColors_highestSurface", 15);
     _instance_1_u(_ = A.MethodChannelMobileScanner.prototype, "get$_parseBarcode", "_parseBarcode$1", 735);
     _instance_2_u(_, "get$_parseBarcodeError", "_parseBarcodeError$2", 274);
     _instance_1_u(A._RotatedPreviewState.prototype, "get$onDeviceOrientationEvent", "onDeviceOrientationEvent$1", 276);
     _static_2(A, "mobile_scanner_MobileScanner__onDetectErrorHandler$closure", "MobileScanner__onDetectErrorHandler", 22);
     _instance_0_u(A.MobileScannerController.prototype, "get$dispose", "dispose$0", 7);
-    _static_1(A, "address_Address___fromNative_tearOff$closure", "Address___fromNative_tearOff", 892);
-    _static_1(A, "barcode_Barcode___fromNative_tearOff$closure", "Barcode___fromNative_tearOff", 893);
-    _static_1(A, "email_Email___fromNative_tearOff$closure", "Email___fromNative_tearOff", 894);
-    _static_1(A, "phone_Phone___fromNative_tearOff$closure", "Phone___fromNative_tearOff", 895);
+    _static_1(A, "address_Address___fromNative_tearOff$closure", "Address___fromNative_tearOff", 891);
+    _static_1(A, "barcode_Barcode___fromNative_tearOff$closure", "Barcode___fromNative_tearOff", 892);
+    _static_1(A, "email_Email___fromNative_tearOff$closure", "Email___fromNative_tearOff", 893);
+    _static_1(A, "phone_Phone___fromNative_tearOff$closure", "Phone___fromNative_tearOff", 894);
     _instance_1_u(A.MobileScannerWeb.prototype, "get$_handleMediaTrackSettingsChange", "_handleMediaTrackSettingsChange$1", 3);
     _instance_0_u(_ = A._ManualEntryDialogState.prototype, "get$_onBackspace", "_onBackspace$0", 0);
     _instance_0_u(_, "get$_onClear", "_onClear$0", 0);
@@ -293557,14 +293536,14 @@
     _instance_0_u(A._AccountListScreenState.prototype, "get$_onSearchChanged", "_onSearchChanged$0", 0);
     _instance_0_u(A._AccountTransactionsScreenState.prototype, "get$_exportToPdf", "_exportToPdf$0", 0);
     _instance_0_u(A._AddEditCategoryScreenState.prototype, "get$submitCategory", "submitCategory$0", 7);
-    _instance_1_u(_ = A._AddProductScreenState.prototype, "get$checkProductExists", "checkProductExists$1", 94);
+    _instance_1_u(_ = A._AddProductScreenState.prototype, "get$checkProductExists", "checkProductExists$1", 91);
     _instance_0_u(_, "get$submitProductUpdate", "submitProductUpdate$0", 7);
     _instance_0_u(_, "get$submitProduct", "submitProduct$0", 7);
     _instance_0_u(_, "get$scanBarcodeWithMobileScanner", "scanBarcodeWithMobileScanner$0", 7);
     _instance_0_u(A._FastBillingDialogState.prototype, "get$_filterList", "_filterList$0", 0);
     _instance_0_u(A._HomeScreenState.prototype, "get$_homescreen$_showPasscodeDialog", "_homescreen$_showPasscodeDialog$0", 0);
     _instance_0_u(_ = A._POSScreenState.prototype, "get$_showPasscodeDialog", "_showPasscodeDialog$0", 0);
-    _instance_1_u(_, "get$fetchProduct", "fetchProduct$1", 94);
+    _instance_1_u(_, "get$fetchProduct", "fetchProduct$1", 91);
     _instance_0_u(_, "get$_addManualItem", "_addManualItem$0", 7);
     _instance_0_u(_, "get$_handleScan", "_handleScan$0", 0);
     _instance_0_u(_, "get$_onWillPop", "_onWillPop$0", 24);
@@ -293574,17 +293553,17 @@
     _instance_0_u(_, "get$_pickDueDate", "_pickDueDate$0", 7);
     _instance_1_u(A.PdfTtfFont.prototype, "get$glyphMetrics", "glyphMetrics$1", 295);
     _instance_1_u(A.PdfType1Font.prototype, "get$glyphMetrics", "glyphMetrics$1", 295);
-    _static_1(A, "method_channel_MethodChannelPrinting__handleMethod$closure", "MethodChannelPrinting__handleMethod", 88);
+    _static_1(A, "method_channel_MethodChannelPrinting__handleMethod$closure", "MethodChannelPrinting__handleMethod", 89);
     _instance_0_u(A._PositionedListState.prototype, "get$_schedulePositionNotificationUpdate", "_schedulePositionNotificationUpdate$0", 0);
     _instance_0_u(A._ScrollablePositionedListState.prototype, "get$_updatePositions", "_updatePositions$0", 0);
-    _static_1(A, "link_LinkViewController__viewFactory$closure", "LinkViewController__viewFactory", 896);
+    _static_1(A, "link_LinkViewController__viewFactory$closure", "LinkViewController__viewFactory", 895);
     _static_2(A, "layout_helper_ChildLayoutHelper_dryLayoutChild$closure", "ChildLayoutHelper_dryLayoutChild", 69);
     _static_2(A, "layout_helper_ChildLayoutHelper_layoutChild$closure", "ChildLayoutHelper_layoutChild", 69);
-    _static(A, "layout_helper_ChildLayoutHelper_getDryBaseline$closure", 3, null, ["call$3"], ["ChildLayoutHelper_getDryBaseline"], 269, 0);
-    _static(A, "layout_helper_ChildLayoutHelper_getBaseline$closure", 3, null, ["call$3"], ["ChildLayoutHelper_getBaseline"], 269, 0);
-    _static(A, "webp_filters_WebPFilters_horizontalUnfilter$closure", 6, null, ["call$6"], ["WebPFilters_horizontalUnfilter"], 154, 0);
-    _static(A, "webp_filters_WebPFilters_verticalUnfilter$closure", 6, null, ["call$6"], ["WebPFilters_verticalUnfilter"], 154, 0);
-    _static(A, "webp_filters_WebPFilters_gradientUnfilter$closure", 6, null, ["call$6"], ["WebPFilters_gradientUnfilter"], 154, 0);
+    _static(A, "layout_helper_ChildLayoutHelper_getDryBaseline$closure", 3, null, ["call$3"], ["ChildLayoutHelper_getDryBaseline"], 286, 0);
+    _static(A, "layout_helper_ChildLayoutHelper_getBaseline$closure", 3, null, ["call$3"], ["ChildLayoutHelper_getBaseline"], 286, 0);
+    _static(A, "webp_filters_WebPFilters_horizontalUnfilter$closure", 6, null, ["call$6"], ["WebPFilters_horizontalUnfilter"], 158, 0);
+    _static(A, "webp_filters_WebPFilters_verticalUnfilter$closure", 6, null, ["call$6"], ["WebPFilters_verticalUnfilter"], 158, 0);
+    _static(A, "webp_filters_WebPFilters_gradientUnfilter$closure", 6, null, ["call$6"], ["WebPFilters_gradientUnfilter"], 158, 0);
   })();
   (function inheritance() {
     var _mixin = hunkHelpers.mixin,
@@ -293593,8 +293572,8 @@
       _inherit = hunkHelpers.inherit;
     _inheritMany(null, [A.Object, A.CustomRenderShrinkWrappingViewport]);
     _inheritMany(A.Object, [A.AlarmClock, A.AppBootstrap, A.Closure, A.Arena, A.CkCanvas, A.CkColorFilter, A.SkiaFontCollection, A.RegisteredFont, A.UnregisteredFont, A.FontDownloadResult, A.SkiaFallbackRegistry, A.CkImageDelegate, A.CkImageFilter, A.UniqueRef, A.CountedRef, A.CkPaint, A.CkPath, A.CkPathBuilder, A.CkPathConstructors, A.CkPicture, A.CkPictureRecorder, A.Renderer, A.SimpleCkShader, A.Surface, A.CkParagraphStyle, A.CkTextStyle, A.CkStrutStyle, A.CkParagraph, A.CkLineMetrics, A.CkParagraphBuilder, A.WebParagraphPainter, A.ClipboardMessageHandler, A.ClipboardStrategy, A._Enum, A.EngineColorFilter, A.CanvasProvider, A.Composition, A.CompositionEntity, A.DisplayCanvasFactory, A.Rasterizer, A.ViewRasterizer, A.DisplayCanvas, A.RenderQueue, A.SurfaceProvider, A.FlutterConfiguration, A.Display, A.ScreenOrientation, A.HttpFetchResponseImpl, A.HttpFetchPayloadImpl, A.HttpFetchNoPayloadError, A.HttpFetchError, A.DomSubscription, A.DomPoint, A._DomListIterator, A.Iterable, A.DomIteratorWrapper, A.FallbackFontService, A.FontFallbackManager, A._UnicodePropertyLookup, A.FontAsset, A.FontFamily, A.FontManifest, A.Error, A.AssetFontsResult, A.FrameService, A.FrameTimingRecorder, A.KeyboardBinding, A.FlutterHtmlKeyboardEvent, A.KeyboardConverter, A.Layer, A.LayerScene, A.LayerSceneBuilder, A.LayerTree, A.Frame, A.CompositorContext, A.LayerVisitor, A.NWayCanvas, A.ContextMenu, A.MouseCursor0, A.NativeMemoryFinalizer, A.BrowserHistory, A.NotoFont, A.FallbackFontComponent, A.OcclusionMapEmpty, A.OcclusionMapLeaf, A.OcclusionMapBranch, A.OcclusionMap, A.PlatformDispatcher, A.ViewConfiguration0, A.PlatformConfiguration, A.NavigationTarget, A.AppLifecycleState0, A.MediaQueryManager, A._MediaQueryListeners, A.ViewFocusBinding, A.PlatformViewManager, A.PlatformViewEmbedder, A.ViewClipChain, A.EmbeddedViewParams, A.Mutator, A.SceneElement, A.EmbedderFrameContext, A.PlatformViewMessageHandler, A.SafariPointerEventWorkaround, A.PointerBinding, A.ClickDebouncer, A.PointerSupportDetector, A.Listener, A._BaseAdapter, A._WheelEventListenerMixin, A._SanitizedDetails, A._ButtonSanitizer, A._PointerDeviceState, A._GlobalPointerState, A.PointerDataConverter, A.EngineImage, A.MoveToCommand, A.LineToCommand, A.RelativeLineToCommand, A.CubicToCommand, A.ConicToCommand, A.ArcToCommand, A.ArcToPointCommand, A.AddRectCommand, A.AddOvalCommand, A.AddArcCommand, A.AddPolygonCommand, A.AddRRectCommand, A.AddRSuperellipseCommand, A.ShiftInPlaceCommand, A.AddPathCommand, A.ClosePathCommand, A.EnginePath, A.Profiler, A.RawKeyboard, A.AccessibilityAnnouncements, A.SemanticRole, A.SemanticBehavior, A.AccessibilityFocusManager, A.LabelRepresentationBehavior, A.EngineAccessibilityFeatures, A.SemanticsUpdate, A.SemanticsNodeUpdate, A.SemanticsObject, A.EngineSemantics, A.EngineSemanticsOwner, A.SemanticsHelper, A.SemanticsEnabler, A._DefaultTextEditingStrategy_Object_CompositionAwareMixin, A.ListBase, A.MethodCall, A.PlatformException, A.StringCodec, A.JSONMessageCodec, A.JSONMethodCodec, A.StandardMessageCodec, A.StandardMethodCodec, A.WriteBuffer0, A.ReadBuffer0, A.TestHistoryEntry, A.TestUrlStrategy, A.LineBreakFragment, A.EngineLineMetrics, A.BrowserAutofillHints, A.CompositionAwareMixin, A.EngineInputAction, A.EngineInputType, A.TextCapitalizationConfig, A.EngineAutofillForm, A.FieldItem, A.AutofillInfo, A.TextEditingDeltaState, A.EditingState, A.InputConfiguration, A.TextInputCommand, A.TextEditingChannel, A.HybridTextEditing, A.EditableTextStyle, A.EditableTextGeometry, A.LruCache, A.BitmapSize, A.Matrix40, A.DimensionsProvider, A.DisplayDprStream, A.DomManager, A.CustomElementEmbeddingStrategy, A.FullPageEmbeddingStrategy, A.FlutterViewManager, A.GlobalHtmlAttributes, A.HotRestartCacheHandler, A.BidiRun, A.AllCodeUnitFlags, A.WebFontCollection, A.TextLayout, A._TextClusterMapping, A.WebCluster, A.LineBlock, A.TextLine, A.WebParagraphStyle, A.SharedTextStyle, A.ClusterRange, A.TextRange, A.WebParagraph, A.WebParagraphBuilder, A.StyleNode, A.TextWrapper, A._LineBuilder, A.EngineFlutterView, A.ViewPadding, A.ViewConstraints, A.JS_CONST, J.Interceptor, A.SafeToStringHook, J.ArrayIterator, A.Stream, A.CastStreamSubscription, A._CopyingBytesBuilder, A.CastIterator, A.MapBase, A.SentinelValue, A.ListIterator, A.MappedIterator, A.WhereIterator, A.ExpandIterator, A.TakeIterator, A.SkipIterator, A.SkipWhileIterator, A.EmptyIterator, A.FollowedByIterator, A.WhereTypeIterator, A.FixedLengthListMixin, A.UnmodifiableListMixin, A.Symbol, A._Record, A.MapView, A.ConstantMap, A._KeysOrValuesOrElementsIterator, A.SetBase, A.JSInvocationMirror, A.TypeErrorDecoder, A.NullThrownFromJavaScriptException, A.ExceptionAndStackTrace, A._StackTrace, A.LinkedHashMapCell, A.LinkedHashMapKeyIterator, A.LinkedHashMapValueIterator, A.LinkedHashMapEntryIterator, A.JSSyntaxRegExp, A._MatchImplementation, A._AllMatchesIterator, A.StringMatch, A._StringAllMatchesIterator, A._Cell, A._InitializedCell, A._UnmodifiableNativeByteBufferView, A.Rti, A._FunctionParameters, A._Type, A._StringStream, A.LocaleKeymap, A.EmbeddedTestFont, A._TimerImpl, A._AsyncAwaitCompleter, A._SyncStarIterator, A.AsyncError, A._BufferingStreamSubscription, A._BroadcastStreamController, A.TimeoutException, A._Completer, A._FutureListener, A._Future, A._AsyncCallbackEntry, A._StreamController, A._SyncStreamControllerDispatch, A._AsyncStreamControllerDispatch, A._DelayedEvent, A._DelayedDone, A._PendingEvents, A._DoneStreamSubscription, A._StreamIterator, A._Zone, A._HashMapKeyIterator, A._HashSetIterator, A._LinkedHashSetCell, A._LinkedHashSetIterator, A._LinkedListIterator, A.LinkedListEntry, A._MapBaseValueIterator, A._UnmodifiableMapMixin, A._DoubleLinkedQueueEntry, A._DoubleLinkedQueueIterator, A._ListQueueIterator, A._SplayTreeNode, A._SplayTree, A._SplayTreeIterator, A.StringConversionSink, A.Codec, A.Converter, A.ByteConversionSink, A._Base64Encoder, A.ChunkedConversionSink, A._SimpleCallbackSink, A._JsonStringifier, A._JsonPrettyPrintMixin, A._ClosableStringSink, A._StringConversionSinkAsStringSinkAdapter, A._Utf8Encoder, A._Utf8Decoder, A._WeakReferenceWrapper, A.DateTime, A.Duration, A.OutOfMemoryError, A.StackOverflowError, A._Exception, A.FormatException, A.MapEntry, A.Null, A._StringStackTrace, A.Stopwatch, A.RuneIterator, A.StringBuffer, A._Uri, A.UriData, A._SimpleUri, A.Expando, A._FakeUserTag, A.ServiceExtensionResponse, A.TimelineTask, A._AsyncBlock, A._SyncBlock, A.CssStyleDeclarationBase, A.EventStreamProvider, A._EventStreamSubscription, A.ImmutableListMixin, A.FixedSizeListIterator, A._AcceptStructuredClone, A.NullRejectionException, A._JSSecureRandom, A.Endian, A._ChannelCallbackRecord, A._StoredMessage, A._Channel, A.ChannelBuffers, A.OffsetBase, A.Rect, A.Radius, A._RRectLike, A.KeyData, A.Color, A.MaskFilter, A._IdentityColorTransform, A._ClampTransform, A._P3ToSrgbTransform, A._SrgbToP3Transform, A.ImageFilter, A.Shadow, A.FrameTiming, A.Locale, A.SemanticsActionEvent, A.ViewFocusEvent, A.HitTestResponse, A.PointerData, A.PointerDataPacket, A._ConicParam, A._RSuperellipseOctant, A._RSuperellipseQuadrant, A._RSuperellipsePathBuilder, A._RSuperellipseCacheKey, A._RSuperellipseCache, A.SemanticsAction, A.SemanticsFlags, A.SemanticsUpdateBuilder, A.FontWeight, A.FontVariation, A.GlyphInfo, A.TextDecoration, A.TextHeightBehavior, A.TextBox, A.TextPosition, A.ParagraphConstraints, A.CallbackHandle, A.FrameData, A.GestureSettings, A.AssetManager, A.BrowserDetection, A.BrowserPlatformLocation, A.HashUrlStrategy, A.PlatformViewRegistry, A.TestEnvironment, A.InputStreamBase, A.OutputStreamBase, A.ZLibDecoderBase, A.Deflate, A._DeflaterConfig, A._HuffmanTree, A._StaticTree, A.HuffmanTable, A.Inflate, A.ZLibDecoder, A.ZLibEncoder, A.AudioCache, A.AudioPlayerException, A.AudioPlayer, A.GlobalAudioScope, A.PositionUpdater, A.Source, A.AudioEvent, A.GlobalAudioEvent, A.PlatformInterface, A.MethodChannelAudioplayersPlatform, A.EventChannelAudioplayersPlatform, A.GlobalAudioplayersPlatformInterface, A.MethodChannelGlobalAudioplayersPlatform, A.EventChannelGlobalAudioplayersPlatform, A.WrappedPlayer, A.BidiString, A._CanonicalClass, A.Paragraph, A._CharData, A.Normalization, A._Stack, A.StringCharacterRange, A.Breaks, A.BackBreaks, A.CanonicalizedMap, A.DefaultEquality, A._UnorderedEquality, A._MapEntry, A.MapEquality, A.DeepCollectionEquality, A.HeapPriorityQueue, A.Digest, A.DigestSink, A.HashSink, A.FirebaseWebService, A.Listenable, A.Simulation, A._AnimationStyle_Object_Diagnosticable, A.AnimationWithParentMixin, A.ParametricCurve, A.AnimationLazyListenerMixin, A.AnimationEagerListenerMixin, A.AnimationLocalListenersMixin, A.AnimationLocalStatusListenersMixin, A.Animatable, A.TweenSequenceItem, A._Interval, A._DiagnosticableTree_Object_Diagnosticable, A._State_Object_Diagnosticable, A._CupertinoDynamicColor_Object_Diagnosticable, A.TextSelectionControls, A._IconThemeData_Object_Diagnosticable, A.LocalizationsDelegate, A.DefaultCupertinoLocalizations, A._CupertinoBackGestureController, A._Decoration_Object_Diagnosticable, A.BoxPainter, A.PageTransitionsBuilder, A._RenderObject_Object_DiagnosticableTreeMixin, A._CupertinoTextThemeData_Object_Diagnosticable, A._TextThemeDefaultsBuilder, A.NoDefaultCupertinoThemeData, A._CupertinoThemeDefaults, A._CupertinoTextThemeDefaults, A.PartialStackFrame, A.StackFilter, A.DiagnosticsNode, A._FlutterErrorDetails_Object_Diagnosticable, A.BindingBase, A.ChangeNotifier, A.TextTreeConfiguration, A._PrefixedStringBuilder, A._NoDefaultValue, A.TextTreeRenderer, A.DiagnosticPropertiesBuilder, A.Diagnosticable, A.DiagnosticableTreeMixin, A.Key, A.LicenseEntry, A.ObjectEvent, A.FlutterMemoryAllocations, A.PersistentHashMap, A._TrieNode, A.WriteBuffer, A.ReadBuffer, A.StackFrame, A.SynchronousFuture, A.GestureArenaMember, A.GestureArenaEntry, A._GestureArena, A.GestureArenaManager, A.SamplingClock, A._Resampler, A.GestureBinding, A._DragDownDetails_Object_Diagnosticable, A._DragStartDetails_Object_Diagnosticable, A._DragUpdateDetails_Object_Diagnosticable, A._DragEndDetails_Object_Diagnosticable, A._PointerEvent_Object_Diagnosticable, A._PointerEventDescription, A._AbstractPointerEvent, A._CopyPointerAddedEvent, A._CopyPointerRemovedEvent, A._CopyPointerHoverEvent, A._CopyPointerEnterEvent, A._CopyPointerExitEvent, A._CopyPointerDownEvent, A._CopyPointerMoveEvent, A._CopyPointerUpEvent, A._RespondablePointerEvent, A._CopyPointerScrollEvent, A._CopyPointerScrollInertiaCancelEvent, A._CopyPointerScaleEvent, A._CopyPointerPanZoomStartEvent, A._CopyPointerPanZoomUpdateEvent, A._CopyPointerPanZoomEndEvent, A._CopyPointerCancelEvent, A._ForcePressDetails_Object_Diagnosticable, A.DeviceGestureSettings, A.HitTestEntry, A._TransformPart, A.HitTestResult, A._LongPressStartDetails_Object_Diagnosticable, A._LongPressMoveUpdateDetails_Object_Diagnosticable, A._LongPressEndDetails_Object_Diagnosticable, A._Vector, A._Matrix, A.PolynomialFit, A.LeastSquaresSolver, A._CountdownZoned, A._TapTracker, A.PointerRouter, A.PointerSignalResolver, A.OffsetPair, A._RecognizerEventData, A._TapDownDetails_Object_Diagnosticable, A._TapUpDetails_Object_Diagnosticable, A.TapMoveDetails, A._TapDragDownDetails_Object_Diagnosticable, A._TapDragUpDetails_Object_Diagnosticable, A._TapDragStartDetails_Object_Diagnosticable, A._TapDragUpdateDetails_Object_Diagnosticable, A._TapDragEndDetails_Object_Diagnosticable, A._TapStatusTrackerMixin, A._CombiningGestureArenaEntry, A.GestureArenaTeam, A.Velocity, A.VelocityEstimate, A._PointAtTime, A.VelocityTracker, A._ActionIconThemeData_Object_Diagnosticable, A.ScrollBehavior, A.SingleChildLayoutDelegate, A._AppBarThemeData_Object_Diagnosticable, A._Diagonal, A._BadgeThemeData_Object_Diagnosticable, A._MaterialBannerThemeData_Object_Diagnosticable, A._BottomAppBarThemeData_Object_Diagnosticable, A._BottomNavigationBarThemeData_Object_Diagnosticable, A._RoutePlaceholder, A._BottomSheetThemeData_Object_Diagnosticable, A._ButtonBarThemeData_Object_Diagnosticable, A._ButtonStyle_Object_Diagnosticable, A._MouseCursor_Object_Diagnosticable, A._ButtonThemeData_Object_Diagnosticable, A.SliverGridDelegate, A._CardThemeData_Object_Diagnosticable, A._CarouselViewThemeData_Object_Diagnosticable, A._CheckboxThemeData_Object_Diagnosticable, A.WidgetStateProperty, A._ChipRenderTheme, A._ChipSizes, A._ChipThemeData_Object_Diagnosticable, A._ColorScheme_Object_Diagnosticable, A.DataColumn, A.DataRow, A.DataCell, A.TableColumnWidth, A._DataTableThemeData_Object_Diagnosticable, A.CalendarDelegate, A._DatePickerThemeData_Object_Diagnosticable, A.RouteSettings, A._DialogThemeData_Object_Diagnosticable, A._DividerThemeData_Object_Diagnosticable, A._DrawerThemeData_Object_Diagnosticable, A._DropdownRouteResult, A._MenuLimits, A._DropdownMenuThemeData_Object_Diagnosticable, A._ElevatedButtonThemeData_Object_Diagnosticable, A._ElevationOpacity, A._ExpansionTileThemeData_Object_Diagnosticable, A._FilledButtonThemeData_Object_Diagnosticable, A._DefaultHeroTag, A._FloatingActionButtonThemeData_Object_Diagnosticable, A.FloatingActionButtonLocation, A.FabFloatOffsetY, A.FabEndOffsetX, A.FloatingActionButtonAnimator, A._IconButtonThemeData_Object_Diagnosticable, A.InkFeature, A.InteractiveInkFeatureFactory, A.ShapeBorder, A.FloatingLabelAlignment, A._Decoration, A._RenderDecorationLayout, A.InputDecoration, A._InputDecorationThemeData_Object_Diagnosticable, A._ListTileThemeData_Object_Diagnosticable, A.DefaultMaterialLocalizations, A.MaterialStateMixin, A._MenuThemeData_Object_Diagnosticable, A._MenuButtonThemeData_Object_Diagnosticable, A._MenuStyle_Object_Diagnosticable, A._NavigationBarThemeData_Object_Diagnosticable, A._NavigationDrawerThemeData_Object_Diagnosticable, A._NavigationRailThemeData_Object_Diagnosticable, A._OutlinedButtonThemeData_Object_Diagnosticable, A.MaterialRouteTransitionMixin, A._PageTransitionsTheme_Object_Diagnosticable, A._ZoomTransitionBase, A._PopupMenuThemeData_Object_Diagnosticable, A._ProgressIndicatorThemeData_Object_Diagnosticable, A._RadioThemeData_Object_Diagnosticable, A.ScaffoldPrelayoutGeometry, A.ScaffoldGeometry, A.Constraints, A.MultiChildLayoutDelegate, A._Action_Object_Diagnosticable, A.ScaffoldFeatureController, A._ScrollbarThemeData_Object_Diagnosticable, A._SearchBarThemeData_Object_Diagnosticable, A._SearchViewThemeData_Object_Diagnosticable, A._SegmentedButtonThemeData_Object_Diagnosticable, A._SliderThemeData_Object_Diagnosticable, A._SnackBarThemeData_Object_Diagnosticable, A.Adaptation, A._SwitchConfig, A._SwitchThemeData_Object_Diagnosticable, A.__SwitchConfigCupertino_Object__SwitchConfig, A.__SwitchConfigM3_Object__SwitchConfig, A._TabBarThemeData_Object_Diagnosticable, A._TextButtonThemeData_Object_Diagnosticable, A.TextSelectionGestureDetectorBuilder, A._TextSelectionThemeData_Object_Diagnosticable, A._TextTheme_Object_Diagnosticable, A._ThemeData_Object_Diagnosticable, A.CupertinoBasedMaterialThemeData, A._IdentityThemeDataCacheKey, A._FifoCache, A._VisualDensity_Object_Diagnosticable, A._TimePickerThemeData_Object_Diagnosticable, A._ToggleButtonsThemeData_Object_Diagnosticable, A._TooltipThemeData_Object_Diagnosticable, A._Typography_Object_Diagnosticable, A.AlignmentGeometry, A.TextAlignVertical, A.PaintingBinding, A.BorderRadiusGeometry, A._BorderSide_Object_Diagnosticable, A.FittedSizes0, A.ClipContext, A.HSVColor, A.HSLColor, A._BlendedDecorationImage, A._BlendedDecorationImagePainter, A.EdgeInsetsGeometry, A.ImageCache, A.ImageConfiguration, A.Accumulator, A.InlineSpanSemanticsInformation, A._RRectLikeBorder, A._StrutStyle_Object_Diagnosticable, A.PlaceholderDimensions, A.TextBoundary, A._TextLayout, A._TextPainterLayoutCacheWithOffset, A._LineCaretMetrics, A.TextPainter, A.TextScaler, A._LinearTextScaler, A._ClampedTextScaler, A._TextStyle_Object_Diagnosticable, A.SpringDescription, A._CriticalSolution, A._OverdampedSolution, A._UnderdampedSolution, A.Tolerance, A.RendererBinding, A._PipelineOwner_Object_DiagnosticableTreeMixin, A.ParentData, A._DryLayout, A._Baseline, A._LayoutCacheStorage, A.RenderBoxContainerDefaultsMixin, A._OverflowRegionData, A.DebugOverflowIndicatorMixin, A.TextSelectionPoint, A.VerticalCaretMovementRun, A._LayoutSizes, A.ImageFilterConfig, A.AnnotationEntry, A.AnnotationResult, A._Layer_Object_DiagnosticableTreeMixin, A.LayerHandle, A.LayerLink, A._MouseState, A.__MouseTrackerUpdateDetails_Object_Diagnosticable, A.RenderObjectWithChildMixin, A.RenderObjectWithLayoutCallbackMixin, A.ContainerParentDataMixin, A.ContainerRenderObjectMixin, A.RelayoutWhenSystemFontsChangeMixin, A.SemanticsAnnotationsMixin, A._SemanticsParentData, A._SemanticsConfigurationProvider, A._SemanticsFragment, A._SemanticsGeometry, A.SemanticsTag, A.RenderInlineChildrenContainerDefaults, A.__SelectableFragment_Object_Selectable, A._PlatformViewGestureMixin, A.RenderProxyBoxMixin, A.RenderAnimatedOpacityMixin, A.Selectable0, A.SelectionRegistrant, A.SelectionEvent, A._SelectionGeometry_Object_Diagnosticable, A._SelectionPoint_Object_Diagnosticable, A.SliverLayoutDimensions, A._SliverGeometry_Object_Diagnosticable, A.RenderSliverHelpers, A.SliverGridGeometry, A.SliverGridLayout, A.KeepAliveParentDataMixin, A.RenderSliverWithKeepAliveMixin, A.RelativeRect, A._Index, A.ViewConfiguration, A.ScrollCacheExtent, A.RevealedOffset, A._RunMetrics, A._FrameCallbackEntry, A.PerformanceModeRequestHandle, A.SchedulerBinding, A.Ticker, A.TickerFuture, A.TickerCanceled, A.SemanticsBinding, A.SemanticsHandle, A.ChildSemanticsConfigurationsResult, A.ChildSemanticsConfigurationsResultBuilder, A.CustomSemanticsAction, A.AttributedString, A._SemanticsData_Object_Diagnosticable, A._SemanticsNode_Object_DiagnosticableTreeMixin, A._BoxEdge, A._SemanticsSortGroup, A._TraversalSortNode, A.SemanticsConfiguration, A._SemanticsSortKey_Object_Diagnosticable, A.SemanticsEvent, A.AssetBundle, A.AutofillConfiguration, A.BinaryMessenger, A.ServicesBinding, A.SystemContextMenuClient, A.BrowserContextMenu, A.ClipboardData, A._KeyEvent_Object_Diagnosticable, A.HardwareKeyboard, A.KeyMessage, A.KeyEventManager, A.KeyboardInsertedContent, A._KeyboardKey_Object_Diagnosticable, A.MethodCall0, A.PlatformException0, A.MissingPluginException, A.StringCodec0, A.JSONMessageCodec0, A.JSONMethodCodec0, A.StandardMessageCodec0, A.StandardMethodCodec0, A.MouseCursorManager, A.MouseCursorSession, A._ProfiledBinaryMessenger, A._PlatformChannelStats, A.BasicMessageChannel, A.MethodChannel, A.EventChannel, A.PlatformViewsRegistry, A.PlatformViewController, A.PredictiveBackEvent, A.ProcessTextAction, A.DefaultProcessTextService, A._RawKeyEventData_Object_Diagnosticable, A._RawKeyEvent_Object_Diagnosticable, A.RawKeyboard0, A._ModifierSidePair, A.RestorationBucket, A.SuggestionSpan, A.SpellCheckResults, A.ApplicationSwitcherDescription, A._SystemUiOverlayStyle_Object_Diagnosticable, A._TextEditingDelta_Object_Diagnosticable, A.TextInputFormatter, A._MutableTextRange, A._TextEditingValueAccumulator, A.TextInputType, A.TextInputConfiguration, A.RawFloatingCursorPoint, A.TextEditingValue, A.TextSelectionDelegate, A.TextInputClient, A.SelectionRect, A._TextInputStyle_Object_Diagnosticable, A.TextInputConnection, A.TextInput, A.TextInputControl, A.__PlatformTextInputControl_Object_TextInputControl, A._SystemContextMenuController_Object_SystemContextMenuClient, A.IOSSystemContextMenuItemData, A.UndoManager, A.UndoManagerClient, A.Violation, A.EvaluationResult, A.AccessibilityEvaluation, A._ContrastReport, A.DialogWindowControllerDelegate, A.WindowingOwner, A.WindowEntry, A._Intent_Object_Diagnosticable, A._ActionDispatcher_Object_Diagnosticable, A._OverridableActionMixin, A._ChildEntry, A._AppLifecycleListener_Object_WidgetsBindingObserver, A.Notification0, A.AutomaticKeepAliveClientMixin, A.WidgetsBindingObserver, A.WidgetsBinding, A.ContextMenuButtonItem, A.ContextMenuController, A.ToolbarOptions, A._KeyFrame, A.ScrollPhysics, A._ScribbleCacheKey, A._Autofocus, A.FocusAttachment, A._FocusNode_Object_DiagnosticableTreeMixin, A._FocusManager_Object_DiagnosticableTreeMixin, A._HighlightModeManager, A._FocusTraversalGroupInfo, A._FocusTraversalPolicy_Object_Diagnosticable, A._DirectionalPolicyDataEntry, A._DirectionalPolicyData, A.DirectionalFocusTraversalPolicyMixin, A.__ReadingOrderSortData_Object_Diagnosticable, A.__ReadingOrderDirectionalGroupData_Object_Diagnosticable, A._InactiveElements, A.BuildScope, A.BuildOwner, A.NotifiableElementMixin, A._NotificationNode, A.RootElementMixin, A.DebugCreator, A.IndexedSlot, A.GestureRecognizerFactory, A.SemanticsGestureDelegate, A._HeroFlightManifest, A._HeroFlight, A.NavigatorObserver, A.IconData, A.CapturedThemes, A.RenderAbstractLayoutBuilderMixin, A._Pending, A.DefaultWidgetsLocalizations, A.MagnifierInfo, A.TextMagnifierConfiguration, A.MagnifierController, A.MagnifierDecoration, A.MediaQueryData, A._UnspecifiedTextScaler1, A.RouteTransitionRecord, A.TransitionDelegate, A._NavigatorObservation, A._RestorationInformation, A.OverlayEntry, A._RenderTheaterMixin, A.OverlayPortalController, A._StorageEntryIdentifier, A.PageStorageBucket, A._FixedScrollMetrics_Object_ScrollMetrics, A.MenuSerializableShortcut, A.PlatformMenuDelegate, A.PlatformViewCreationParams, A.TooltipPositionContext, A.RestorationMixin, A.RouteInformation, A.LocalHistoryEntry, A.LocalHistoryRoute, A.ScrollActivity, A.ScrollDragController, A._WrappedScrollBehavior, A.SliverChildDelegate, A.ScrollMetrics, A.ViewportNotificationMixin, A.ViewportElementMixin, A.SelectionContainerDelegate, A.ScrollableDetails, A.EdgeDraggingAutoScroller, A._SingleActivator_Object_Diagnosticable, A.__ActivatorIntentPair_Object_Diagnosticable, A._ShortcutManager_Object_Diagnosticable, A._ShortcutRegistry_Object_ChangeNotifier, A.SlottedMultiChildRenderObjectWidgetMixin, A.SlottedContainerRenderObjectMixin, A._DefaultSnapshotPainter, A.SpellCheckConfiguration, A.IOSSystemContextMenuItem, A.TableRow, A._TableElementRow, A.__TableSlot_Object_Diagnosticable, A.TextSelectionOverlay, A.SelectionOverlay, A.TextSelectionHandleControls, A.TextSelectionToolbarAnchors, A.SingleTickerProviderStateMixin, A.TickerProviderStateMixin, A.TickerModeData, A._ConstantTickerModeDataListenable, A.ToggleableStateMixin, A.UndoHistoryValue, A._UndoStack, A._MulticastCanvas, A._ScreenshotData, A._DiagnosticsPathNode, A.InspectorReferenceData, A.__WidgetInspectorService_Object_WidgetInspectorService, A.WidgetInspectorService, A._ElementLocationStatsTracker, A._InspectorSelection_Object_ChangeNotifier, A._TransformedRect, A._InspectorOverlayRenderState, A.InspectorSerializationDelegate, A.WeakMap, A.WidgetStatesConstraint, A.__AnyWidgetStates_Object_WidgetStatesConstraint, A._LerpSides, A._LerpProperties, A._WidgetStatePropertyWith, A._WidgetStateMapper_Object_Diagnosticable, A.WidgetStatePropertyAll, A.SlidableAutoCloseNotification, A.SlidableAutoCloseBarrierNotification, A.EndGesture, A.SlidableController, A.ActionPaneData, A.BaseClient, A.BaseRequest, A.BaseResponse, A.ClientException, A.MediaType, A.ChannelIterator, A.IfdContainer, A._ExifEntry, A.ExifTag, A.IfdDirectory, A.IfdValue, A.BmpFileHeader, A.BmpInfo, A.Decoder, A.DecodeInfo, A.ExrAttribute, A.ExrCompressor, A.ExrChannel, A.ExrHufDec, A.ExrImage, A.ExrPart, A._PizChannelData, A.GifColorMap, A.GifImageDesc, A.GifInfo, A.IcoInfo, A.IcoInfoImage, A.ComponentData, A.HuffmanNode, A.JpegAdobe, A.JpegComponent, A.JpegData, A._JpegHuffman, A.JpegFrame, A.JpegInfo, A.JpegJfif, A.JpegScan, A.PngFrame, A.PngInfo, A.PsdChannel, A.PsdImage, A.PvrColorRgbCore, A.Pvr2Info, A.Pvr3Info, A.PvrAppleInfo, A.PvrPacket, A.TgaInfo, A.TiffBitReader, A.TiffEntry, A.TiffFaxDecoder, A.TiffImage, A.TiffInfo, A.LzwDecoder, A.VP8, A.VP8BitReader, A.VP8Filter, A.VP8FrameHeader, A.VP8PictureHeader, A.VP8SegmentHeader, A.VP8BandProbas, A.VP8Proba, A.VP8FilterHeader, A.VP8FInfo, A.VP8MB, A.VP8QuantMatrix, A.VP8MBData, A.VP8TopSamples, A.VP8L, A.VP8LBitReader, A.VP8LColorCache, A.VP8LTransform, A.WebPAlpha, A.WebPFrame, A.HuffmanTree, A.HTreeGroup, A.WebPInfo, A.IccProfile, A.Palette, A.PixelRangeIterator, A.ImageException, A.InputBuffer, A.OutputBuffer, A.Rational, A.ImagePicker, A.DateSymbols, A.DateFormat, A._DateFormatField, A.UninitializedLocaleData, A.LocaleDataException, A.DynamicColor, A.DynamicScheme, A.ContrastCurve, A.ToneDeltaPair, A.Cam16, A.Hct, A.ViewingConditions, A.TonalPalette, A.KeyColor, A.TemperatureCache, A.AndroidSurfaceProducerDelegate, A.MobileScannerException, A.MobileScannerErrorDetails, A.MobileScannerBarcodeException, A.MobileScannerViewAttributes, A.Address, A.Barcode, A.BarcodeBytes, A.BarcodeCapture, A.CalendarEvent, A.ContactInfo, A.DriverLicense, A.Email, A.GeoPoint, A.MobileScannerState, A.PersonName, A.Phone, A.SMS, A.StartOptions, A.UrlBookmark, A.WiFi, A.BarcodeReader, A.MediaTrackConstraintsDelegate, A.PreferredDeviceStorage, A.Category, A.Category0, A.Product, A.Context, A.Style, A.ParsedPath, A.PathException, A.PdfColor, A.PdfDocument, A.PdfJpegInfo, A.PdfFontMetrics, A.TtfGlyphInfo, A.TtfBitmapInfo, A.TtfParser, A.TtfWriter, A.PdfDataType, A.PdfDiagnostic, A.PdfSettings, A._PdfObjectBase_Object_PdfDiagnostic, A.PdfStream, A._PdfGraphicsContext, A.PdfGraphics, A.PdfGraphicStream, A.PdfPageFormat, A.PdfPoint, A.PdfRasterBase, A.PdfRect, A.Widget0, A.BorderStyle0, A.BoxBorder0, A.BorderSide0, A.BoxDecoration0, A.Document, A.WidgetContext, A.Font, A.BoxConstraints0, A.EdgeInsetsGeometry0, A.AlignmentGeometry0, A.FittedSizes, A.ImageProvider, A.SpanningWidget, A._MultiPageWidget, A._MultiPageInstance, A.Page0, A.TooManyPagesException, A.PageTheme, A.TableRow0, A.ColumnLayout, A.TableColumnWidth0, A._Span, A._TextDecoration, A.InlineSpan0, A._Line0, A.TextDecoration0, A.TextStyle0, A.Inherited, A.Context0, A.Mutex, A.PrintJob, A.PrintJobs, A.ItemPosition, A.ItemPositionsNotifier, A.ItemScrollController, A._ListDisplayDetails, A.SharedPreferences, A.PreferencesFilter, A.GetAllParameters, A.SourceFile, A.SourceLocationMixin, A.SourceSpanMixin, A.Highlighter, A._Highlight, A._Line, A.SourceLocation, A.SourceSpanException, A.StringScanner, A.WebViewConfiguration, A.BrowserConfiguration, A.InAppWebViewConfiguration, A.LaunchOptions, A.RNG, A.Uuid, A.Matrix3, A.Matrix4, A.Quaternion, A.Vector3, A.Vector4, A.EventStreamProvider0, A._EventStreamSubscription0]);
-    _inheritMany(A.Closure, [A.Closure0Args, A.AppBootstrap_prepareEngineInitializer_closure0, A.AppBootstrap__prepareAppRunner_closure, A.AppBootstrap__prepareFlutterApp_closure, A.AppBootstrap__prepareFlutterApp_closure0, A.CkCanvas_saveLayerWithFilter_closure, A._canvasKitJsUrls_closure, A.CkColorFilter_filterBounds_closure, A.SkiaFontCollection_registerDownloadedFonts_makeRegisterFont, A.CkImageFilter_filterBounds_closure, A._CkComposeImageFilter_withSkImageFilter_closure, A._CkComposeImageFilter_withSkImageFilter__closure, A.CkUniqueRef_closure, A.CkCountedRef_closure, A.CkPaint_toSkPaint_closure, A.CanvasKitRenderer__createRasterizer_closure, A.CanvasKitRenderer__createRasterizer_closure0, A._computeCombinedFontFamilies_closure, A.ClipboardMessageHandler_setDataMethodCall_closure, A.ClipboardMessageHandler_setDataMethodCall_closure0, A.ClipboardMessageHandler_getDataMethodCall_closure, A.ClipboardMessageHandler_getDataMethodCall_closure0, A.ClipboardMessageHandler_hasStringsMethodCall_closure, A.ClipboardMessageHandler_hasStringsMethodCall_closure0, A.CanvasProvider_acquireCanvas_closure, A.DomConsole_get_warn_closure, A.createImageBitmap_closure, A.DomNavigator_get_languages_closure, A.rawHttpGet_closure, A.DomResponse_arrayBuffer_closure, A._DomStreamReader_read_closure, A.DomFontFace_load_closure, A.DomClipboard_readText_closure, A.DomOffscreenCanvas_convertToBlob_closure, A.Closure2Args, A._ttPolicy_closure, A.sendFontChangeMessage_closure, A.sendFontChangeMessage__closure, A.FallbackFontService_addMissingCodePoints_closure, A.FallbackFontService__process__closure1, A.FallbackFontService__process__closure0, A.FallbackFontService__process__closure, A.FallbackFontService__findFontsForComponents_closure, A.FallbackFontService__selectBestFont_closure, A.FallbackFontService__selectBestFont_closure0, A.FallbackFontService__selectBestFont_closure1, A.FallbackFontService__findFontsWithMaxCoverage_closure, A.fetchFontManifest_closure, A.fetchFontManifest_closure0, A.fetchFontManifest_closure1, A.fetchFontManifest__closure, A.FrameService_scheduleFrame_closure, A.FlutterApp_constructor__closure, A.FlutterEngineInitializer_constructor__closure, A.FlutterAppRunner_constructor__closure, A.CustomFutureOfJSAnyToJSPromise_get_toPromise__closure, A._kLogicalKeyToModifierGetter_closure, A._kLogicalKeyToModifierGetter_closure0, A._kLogicalKeyToModifierGetter_closure1, A._kLogicalKeyToModifierGetter_closure2, A._kLogicalKeyToModifierGetter_closure3, A._kLogicalKeyToModifierGetter_closure4, A._kLogicalKeyToModifierGetter_closure5, A._kLogicalKeyToModifierGetter_closure6, A.KeyboardBinding$__closure, A.KeyboardBinding$__closure0, A.KeyboardBinding__addEventListener_loggedHandler, A.KeyboardBinding__onKeyData_closure, A.KeyboardConverter__scheduleAsyncEvent_closure, A.KeyboardConverter_handleEvent_closure, A.preventDefaultListener_closure, A.NativeMemoryFinalizer_closure, A.UniqueRef_finalizer_closure, A.MultiEntriesBrowserHistory_onPopState_closure, A.SingleEntryBrowserHistory_onPopState_closure, A.SingleEntryBrowserHistory_onPopState_closure0, A.EnginePlatformDispatcher_closure, A.EnginePlatformDispatcher__zonedPlatformMessageResponseCallback_closure, A.EnginePlatformDispatcher__sendPlatformMessage_closure1, A.EnginePlatformDispatcher__sendPlatformMessage_closure2, A.EnginePlatformDispatcher__sendPlatformMessage_closure3, A.EnginePlatformDispatcher__addLocaleChangedListener_closure, A.EnginePlatformDispatcher__setAppLifecycleState_closure, A.EnginePlatformDispatcher_replyToPlatformMessage_closure, A.EnginePlatformDispatcher__addNavigationFocusHandler_closure, A._BrowserAppLifecycleState__focusListener_closure, A._BrowserAppLifecycleState__blurListener_closure, A._BrowserAppLifecycleState__visibilityChangeListener_closure, A.MediaQueryManager_addListener_closure, A.ViewFocusBinding__handleFocusin_closure, A.ViewFocusBinding__handleFocusout_closure, A.ViewFocusBinding__handleKeyDown_closure, A.ViewFocusBinding__handleKeyUp_closure, A.PlatformViewEmbedder_submitFrame_closure, A.PlatformViewEmbedder_submitFrame_closure0, A.PlatformViewEmbedder__updateDomForNewComposition_closure, A.SafariPointerEventWorkaround_workAroundMissingPointerEvents_closure, A._BaseAdapter_addEventListener_loggedHandler, A._WheelEventListenerMixin__convertWheelEventToPointerData_closure, A._PointerAdapter__addPointerEventListener_closure, A._PointerAdapter_setup_closure, A._PointerAdapter_setup_closure0, A._PointerAdapter_setup_closure1, A._PointerAdapter_setup_closure2, A._PointerAdapter_setup_closure3, A._PointerAdapter_setup_closure4, A._PointerAdapter_setup_closure5, A._PointerAdapter_setup_closure6, A.EngineImage_closure, A.EngineImage_closure0, A.RawKeyboard_handleHtmlEvent_closure0, A.AccessibilityFocusManager_manage_closure, A.AccessibilityFocusManager_manage_closure0, A.SemanticIncrementable_closure, A.SemanticIncrementable_closure0, A._computeLabelValue_closure, A.SemanticMenu__updateMenuItemId_closure, A.SemanticMenuBar__updateMenuItemId_closure, A.SemanticRouteBase__setDefaultFocus_closure, A.SemanticScrollable_update_closure0, A.SemanticScrollable_update_closure1, A.SemanticRole_addSemanticBehavior_closure, A.SemanticRole__updateTraversalParent_closure, A.SemanticsObject__debugVisitRenderedSemanticNodesDepthFirst_closure, A.EngineSemanticsOwner__finalizeTree_closure, A.EngineSemanticsOwner__computeNodeMapConsistencyMessage_closure, A.DesktopSemanticsEnabler__prepareAccessibilityPlaceholder_closure, A.MobileSemanticsEnabler__prepareAccessibilityPlaceholder_closure, A.Tappable_update_closure, A.SemanticTextField__initializeEditableElement_closure, A.SemanticTextField__initializeEditableElement_closure0, A.SemanticTextField__initializeEditableElement_closure1, A.TestUrlStrategy__nextEventLoop_closure, A.EngineAutofillForm_addInputEventListeners_addSubscriptionForKey, A.EngineAutofillForm_addInputEventListeners_addSubscriptionForKey_closure, A.DefaultTextEditingStrategy_preventDefaultForMouseEvents_closure, A.DefaultTextEditingStrategy_preventDefaultForMouseEvents_closure0, A.DefaultTextEditingStrategy_preventDefaultForMouseEvents_closure1, A.IOSTextEditingStrategy_addEventHandlers_closure, A.IOSTextEditingStrategy__addTapListener_closure, A.FirefoxTextEditingStrategy_addEventHandlers_closure, A.TextEditingChannel_onFocusReceived_closure, A.HybridTextEditing__startEditing_closure, A.EditableTextGeometry_EditableTextGeometry$fromFrameworkMessage_closure, A.Matrix4_toString_closure_fmt, A.CustomElementDimensionsProvider_closure, A.VisualOrder_inVisualOrder_closure, A.ViewConstraints_toString_describe, A._CastListBase_removeWhere_closure, A.CastSet_removeWhere_closure, A.CastMap_entries_closure, A.Instantiation, A.TearOffClosure, A.assertInteropArgs_closure, A.JsLinkedHashMap_containsValue_closure, A.initHooks_closure, A.initHooks_closure1, A._StringStream__goalToEventCode_closure, A._AsyncRun__initializeScheduleImmediate_internalCallback, A._AsyncRun__initializeScheduleImmediate_closure, A._awaitOnObject_closure, A._SyncBroadcastStreamController__sendData_closure, A._SyncBroadcastStreamController__sendError_closure, A._SyncBroadcastStreamController__sendDone_closure, A.Future_wait_closure, A._Future__chainForeignFuture_closure, A._Future__propagateToListeners_handleWhenCompleteCallback_closure, A._Future_timeout_closure0, A.Stream_length_closure, A.Stream_first_closure0, A.Stream_firstWhere_closure0, A.Stream_firstWhere__closure0, A._RootZone_bindUnaryCallback_closure, A._RootZone_bindUnaryCallbackGuarded_closure, A._HashMap_values_closure, A._HashMap_containsValue_closure, A._CustomHashMap_closure, A._LinkedCustomHashMap_closure, A.MapBase_entries_closure, A.SplayTreeMap_containsValue_visit, A._JsonMap_values_closure, A.DateTime_parse_parseIntOrZero, A.DateTime_parse_parseMilliAndMicroseconds, A._Uri__makePath_closure, A._Uri__splitQueryStringAll_parsePair, A.MidiInputMap_containsValue_closure, A.MidiOutputMap_containsValue_closure, A.RtcStatsReport_containsValue_closure, A.Storage_containsValue_closure, A._EventStreamSubscription_closure, A._EventStreamSubscription_onData_closure, A.jsify__convert, A.promiseToFuture_closure, A.promiseToFuture_closure0, A.dartify_convert, A.KeyData__quotedCharCode_closure, A._Transform_makeComposite_closure, A._Transform_makeTranslate_closure, A._Transform_makeScale_closure, A._Transform_kFlip_closure, A.bootstrapEngine_closure, A.BrowserPlatformLocation_getOrCreateDomEventListener_closure0, A.HashUrlStrategy_addPopStateListener_wrappedFn, A.HashUrlStrategy__waitForPopState_closure, A.AudioParamMap_containsValue_closure, A.AudioPlayer_onPlayerComplete_closure, A.AudioPlayer__onPrepared_closure, A.AudioPlayer__onPrepared_closure0, A.AudioPlayer_onLog_closure, A.AudioPlayer_onLog_closure0, A.AudioPlayer_closure, A.AudioPlayer_closure0, A.AudioPlayer_closure1, A.AudioPlayer_closure2, A.AudioPlayer__completePrepared_closure, A.GlobalAudioScope_onLog_closure, A.GlobalAudioScope_onLog_closure0, A.EventChannelAudioplayersPlatform_createEventStream_closure, A.EventChannelGlobalAudioplayersPlatform_getGlobalEventStream_closure, A.WebGlobalAudioplayersPlatform_init_closure, A.WrappedPlayer__setupStreams_closure, A.WrappedPlayer__setupStreams_closure0, A.WrappedPlayer__setupStreams_closure1, A.WrappedPlayer__setupStreams_closure2, A.WrappedPlayer__setupStreams_closure3, A.CanonicalizedMap_containsValue_closure, A.CanonicalizedMap_entries_closure, A.CanonicalizedMap_keys_closure, A.CanonicalizedMap_values_closure, A._CupertinoButtonState__defaultCursor_closure, A._CupertinoButtonState__animate_closure, A._CupertinoButtonState_build_closure0, A._CupertinoBackGestureDetectorState_dispose_closure, A._CupertinoBackGestureController_dragEnd_closure, A._CupertinoEdgeShadowDecoration_lerp_closure, A._CupertinoEdgeShadowDecoration_lerp_closure0, A._CupertinoScrollbarState_handleThumbPress_closure, A._CupertinoTextSelectionToolbarContentState_build_closure, A._CupertinoTextSelectionToolbarItemsElement_mount_closure, A._RenderCupertinoTextSelectionToolbarItems_performLayout_closure, A._RenderCupertinoTextSelectionToolbarItems_performLayout_closure0, A._RenderCupertinoTextSelectionToolbarItems_paint_closure, A._RenderCupertinoTextSelectionToolbarItems_redepthChildren_closure, A._RenderCupertinoTextSelectionToolbarItems_visitChildrenForSemantics_closure, A._RenderCupertinoTextSelectionToolbarItems_debugDescribeChildren_closure, A.CupertinoThemeData_resolveFrom_convertColor, A.NoDefaultCupertinoThemeData_resolveFrom_convertColor, A._CupertinoThemeDefaults_resolveFrom_convertColor, A.FlutterErrorDetails_summary_closure, A.FlutterErrorDetails_debugFillProperties_closure, A.FlutterError_FlutterError_closure, A.FlutterError$fromParts__closure, A.FlutterError_defaultStackFilter_closure, A.FlutterError_defaultStackFilter_closure0, A.FlutterError_toString_closure, A.debugPrintStack_closure, A.BindingBase_initServiceExtensions_closure1, A.BindingBase_initServiceExtensions_closure3, A.BindingBase_initServiceExtensions__closure, A.BindingBase_initServiceExtensions__closure0, A.BindingBase_registerSignalServiceExtension_closure, A.BindingBase_registerBoolServiceExtension_closure, A.BindingBase_registerNumericServiceExtension_closure, A.BindingBase_registerStringServiceExtension_closure, A._PrefixedStringBuilder__wordWrapLine_noWrap, A.TextTreeRenderer__debugRender_visitor, A.TextTreeRenderer__debugRender_closure, A.DiagnosticsNode_toJsonList_closure, A.DiagnosticsNode__toJson_closure, A.IterableProperty_valueToString_closure, A.IterableProperty_toJsonMap_closure, A.FlagsSummary__hasNonNullEntry_closure, A.FlagsSummary__formattedValues_closure, A.FlagsSummary__formattedValues_closure0, A.FlutterMemoryAllocations__tryDefragmentListeners_closure, A.FlutterMemoryAllocations_hasListeners_closure, A.HashedObserverList_toList_closure, A.debugPrintThrottled_closure, A.StackFrame_fromStackString_closure, A.SynchronousFuture_whenComplete_closure, A._GestureArena_toString_closure, A.GestureBinding__handleHitTest_closure, A.PointerEventConverter_expand_closure, A.PointerEventConverter_expand_closure0, A.HitTestResult__debugVectorMoreOrLessEquals__closure, A.PolynomialFit_toString_closure, A.BackButtonIcon_build_closure, A.BackButtonIcon_build_closure0, A.BackButtonIcon_build_closure1, A.CloseButtonIcon_build_closure, A.CloseButtonIcon_build_closure0, A.CloseButtonIcon_build_closure1, A.DrawerButtonIcon_build_closure, A.DrawerButtonIcon_build_closure0, A.DrawerButtonIcon_build_closure1, A.EndDrawerButtonIcon_build_closure, A.EndDrawerButtonIcon_build_closure0, A.EndDrawerButtonIcon_build_closure1, A.AdaptiveTextSelectionToolbar_getAdaptiveButtons_closure, A.AdaptiveTextSelectionToolbar_getAdaptiveButtons_closure0, A.AdaptiveTextSelectionToolbar_getAdaptiveButtons_closure1, A._MaterialAppState__buildWidgetApp_closure, A.MaterialRectArcTween__initialize_closure, A.Autocomplete_build_closure, A._AutocompleteOptionsListState_didUpdateWidget_closure, A._AutocompleteOptionsListState_build__closure, A._DragHandle_build_closure, A._DragHandle_build_closure0, A._ModalBottomSheetState_build__closure, A.ModalBottomSheetRoute_buildPage_closure, A._BottomSheetGestureDetector_build_closure0, A._ButtonStyleState_build_effectiveValue, A._ButtonStyleState_build_resolve, A._ButtonStyleState_build_resolve_closure, A._ButtonStyleState_build_closure, A._ButtonStyleState_build_closure0, A._ButtonStyleState_build_closure1, A._ButtonStyleState_build_closure2, A._ButtonStyleState_build_closure3, A._ButtonStyleState_build_closure4, A._ButtonStyleState_build_closure5, A._ButtonStyleState_build_closure6, A._ButtonStyleState_build_closure7, A._ButtonStyleState_build_closure8, A._ButtonStyleState_build_closure9, A._ButtonStyleState_build_closure10, A._ButtonStyleState_build_closure11, A._ButtonStyleState_build_closure21, A._ButtonStyleState_build__closure0, A._ButtonStyleState_build_closure22, A._ButtonStyleState_build__closure, A._ButtonStyleState_build_closure12, A._ButtonStyleState_build_closure13, A._ButtonStyleState_build_closure14, A._ButtonStyleState_build_closure15, A._ButtonStyleState_build_closure16, A._ButtonStyleState_build_closure17, A._ButtonStyleState_build_closure18, A._ButtonStyleState_build_closure19, A._ButtonStyleState_build_closure20, A._DayState_build_effectiveValue, A._DayState_build_resolve, A._DayState_build_resolve_closure, A._DayState_build_closure, A._DayState_build_closure0, A._DayState_build_closure3, A._DayState_build__closure, A._DayState_build_closure1, A._YearPickerState__buildYearItem_effectiveValue, A._YearPickerState__buildYearItem_resolve, A._YearPickerState__buildYearItem_resolve_closure, A._YearPickerState__buildYearItem_closure, A._YearPickerState__buildYearItem_closure0, A._YearPickerState__buildYearItem_closure3, A._YearPickerState__buildYearItem__closure, A._YearPickerState__buildYearItem_closure1, A._CheckboxState__widgetFillColor_closure, A._CheckboxState_build_closure, A._CheckboxDefaultsM3_side_closure, A._CheckboxDefaultsM3_fillColor_closure, A._CheckboxDefaultsM3_checkColor_closure, A._CheckboxDefaultsM3_overlayColor_closure, A._RawChipState_build_closure1, A._RawChipState_build_closure, A._ChoiceChipDefaultsM3_color_closure, A.DataRow__debugInteractive_closure, A.DataTable_closure, A.DataTable__debugInteractive_closure, A.DataTable__debugInteractive_closure0, A.DataTable_build_closure3, A.DataTable_build_closure, A.DataTable_build_closure0, A.DataTable_build_closure1, A.DataTable_build_closure2, A.DataTable_build_closure4, A.showDatePicker_closure, A._DatePickerDefaultsM3_dayForegroundColor_closure, A._DatePickerDefaultsM3_dayBackgroundColor_closure, A._DatePickerDefaultsM3_dayOverlayColor_closure, A._DatePickerDefaultsM3_todayForegroundColor_closure, A._DatePickerDefaultsM3_yearForegroundColor_closure, A._DatePickerDefaultsM3_yearBackgroundColor_closure, A._DatePickerDefaultsM3_yearOverlayColor_closure, A._DatePickerDefaultsM3_rangeSelectionOverlayColor_closure, A._DialogPopScope_build_closure, A._DialogContentPage_createRoute_closure, A.showDialog_closure, A.showDialog__closure, A.DialogRoute_closure, A._DropdownRoutePageState_build_closure, A.DropdownButton$_formField_closure, A._DropdownButtonState_initState_closure, A._DropdownButtonState_initState_closure0, A._DropdownButtonState__updateSelectedIndex_closure, A._DropdownButtonState__updateSelectedIndex_closure0, A._DropdownButtonState__handleTap_closure, A._DropdownButtonState__handleTap_closure0, A._DropdownButtonState_build_closure, A._DropdownButtonState_build_closure0, A.DropdownButtonFormField_closure, A.DropdownButtonFormField_closure0, A.DropdownButtonFormField__closure, A._ElevatedButtonDefaultsM3_backgroundColor_closure, A._ElevatedButtonDefaultsM3_foregroundColor_closure, A._ElevatedButtonDefaultsM3_overlayColor_closure, A._ElevatedButtonDefaultsM3_elevation_closure, A._ElevatedButtonDefaultsM3_iconColor_closure, A._IconButtonDefaultsM3_foregroundColor_closure, A._IconButtonDefaultsM3_overlayColor_closure, A._FilledIconButtonDefaultsM3_backgroundColor_closure, A._FilledIconButtonDefaultsM3_foregroundColor_closure, A._FilledIconButtonDefaultsM3_overlayColor_closure, A._FilledTonalIconButtonDefaultsM3_backgroundColor_closure, A._FilledTonalIconButtonDefaultsM3_foregroundColor_closure, A._FilledTonalIconButtonDefaultsM3_overlayColor_closure, A._OutlinedIconButtonDefaultsM3_backgroundColor_closure, A._OutlinedIconButtonDefaultsM3_foregroundColor_closure, A._OutlinedIconButtonDefaultsM3_overlayColor_closure, A._OutlinedIconButtonDefaultsM3_side_closure, A._InkResponseState_highlightsExist_closure, A._InkResponseState_build_getHighlightColorForType, A._InputDatePickerFormFieldState_didUpdateWidget_closure, A._HelperErrorState__buildError_closure, A._RenderDecoration_paint_doPaint, A._RenderDecoration__childSemanticsConfigurationDelegate_closure, A._InputDecoratorState_build_closure, A._InputDecoratorDefaultsM3_hintStyle_closure, A._InputDecoratorDefaultsM3_fillColor_closure, A._InputDecoratorDefaultsM3_activeIndicatorBorder_closure, A._InputDecoratorDefaultsM3_outlineBorder_closure, A._InputDecoratorDefaultsM3_prefixIconColor_closure, A._InputDecoratorDefaultsM3_suffixIconColor_closure, A._InputDecoratorDefaultsM3_labelStyle_closure, A._InputDecoratorDefaultsM3_floatingLabelStyle_closure, A._InputDecoratorDefaultsM3_helperStyle_closure, A._InputDecoratorDefaultsM3_errorStyle_closure, A.ListTile_build_resolveColor, A.ListTile__findIntermediateWidget_closure, A._RenderListTile_paint_doPaint, A.ListTileTheme_merge_closure, A.TextMagnifier_adaptiveMagnifierConfiguration_closure, A._MaterialState_build_closure, A._MaterialInteriorState_forEachTween_closure, A._MaterialInteriorState_forEachTween_closure0, A._MaterialInteriorState_forEachTween_closure1, A._MaterialInteriorState_forEachTween_closure2, A.MaterialStateMixin_updateMaterialState_closure, A._OutlinedButtonDefaultsM3_foregroundColor_closure, A._OutlinedButtonDefaultsM3_overlayColor_closure, A._OutlinedButtonDefaultsM3_iconColor_closure, A._OutlinedButtonDefaultsM3_side_closure, A._ZoomPageTransition_build_closure, A._ZoomPageTransition_build_closure0, A._FadeForwardsPageTransition_build_closure, A._FadeForwardsPageTransition_build_closure0, A.FadeForwardsPageTransitionsBuilder__delegatedTransition_closure, A.FadeForwardsPageTransitionsBuilder__delegatedTransition_closure0, A.ZoomPageTransitionsBuilder_delegatedTransition_closure, A.ZoomPageTransitionsBuilder__snapshotAwareDelegatedTransition_closure, A.ZoomPageTransitionsBuilder__snapshotAwareDelegatedTransition_closure0, A.PageTransitionsTheme__all_closure, A.PredictiveBackPageTransitionsBuilder_buildTransitions_closure, A._CircularProgressIndicatorState_build_closure, A.RefreshIndicatorState__show_closure, A.ScaffoldMessengerState_hideCurrentSnackBar_closure, A.ScaffoldState_build_closure, A._HitTestableAtOrigin_hitTestableAtOrigin_closure, A._MaterialScrollbarState__trackVisibility_closure, A._MaterialScrollbarState__thumbColor_closure, A._MaterialScrollbarState__trackColor_closure, A._MaterialScrollbarState__trackBorderColor_closure, A._MaterialScrollbarState__thickness_closure, A._SnackBarState_build_closure_message, A._SnackBarState_build_closure0, A._SnackBarState_build_closure2, A._SnackBarState_build_closure3, A._SnackbarDefaultsM3_actionTextColor_closure, A._MaterialSwitchState__widgetThumbColor_closure, A._MaterialSwitchState__widgetTrackColor_closure, A._MaterialSwitchState_build_closure, A._SwitchPainter_paint_thumbSizeAnimation, A._SwitchDefaultsCupertino_mouseCursor_closure, A._SwitchDefaultsCupertino_trackColor_closure, A._SwitchDefaultsCupertino_overlayColor_closure, A._SwitchConfigCupertino_iconColor_closure, A._SwitchDefaultsM3_thumbColor_closure, A._SwitchDefaultsM3_trackColor_closure, A._SwitchDefaultsM3_trackOutlineColor_closure, A._SwitchDefaultsM3_overlayColor_closure, A._SwitchDefaultsM3_mouseCursor_closure, A._SwitchConfigM3_iconColor_closure, A._TextButtonDefaultsM3_foregroundColor_closure, A._TextButtonDefaultsM3_overlayColor_closure, A._TextButtonDefaultsM3_iconColor_closure, A._TextFieldState_build_closure7, A._TextFieldState_build_closure8, A._m3StateInputStyle_closure, A.TextFormField_closure, A.TextFormField_closure_onChangedHandler, A._RenderTextSelectionToolbarItemsLayout__layoutChildren_closure, A._RenderTextSelectionToolbarItemsLayout__placeChildrenHorizontally_closure, A._RenderTextSelectionToolbarItemsLayout__placeChildrenVertically_closure, A._RenderTextSelectionToolbarItemsLayout__resizeChildrenWhenOverflow_closure, A._RenderTextSelectionToolbarItemsLayout_paint_closure, A._RenderTextSelectionToolbarItemsLayout_visitChildrenForSemantics_closure, A._AnimatedThemeState_forEachTween_closure, A.ThemeData__lerpThemeExtensions_closure0, A.TimePickerThemeData_dayPeriodColor_closure, A._CompoundBorder_closure, A._CompoundBorder_scale_closure, A._CompoundBorder_preferPaintInterior_closure, A._CompoundBorder_toString_closure, A.ClipContext_clipPathAndPaint_closure, A.ClipContext_clipRRectAndPaint_closure, A.ClipContext_clipRectAndPaint_closure, A.InlineSpan_getSpanForPosition_closure, A.InlineSpan_codeUnitAt_closure, A._ShapeDecorationPainter__precache_closure, A._ShapeDecorationPainter__precache_closure0, A._ShapeDecorationPainter__precache_closure1, A._ShapeDecorationPainter__paintShadows_debugHandleDisabledShadowStart, A.StrutStyle_debugFillProperties_closure, A.TextPainter_inlinePlaceholderBoxes_closure, A.TextPainter_setPlaceholderDimensions__closure, A.TextPainter_getBoxesForSelection_closure, A.TextPainter_computeLineMetrics_closure, A.TextSpan_debugDescribeChildren_closure, A.TextStyle_lerp__closure, A.TextStyle_debugFillProperties_closure, A.FrictionSimulation_closure, A.RendererBinding_pipelineOwner_closure1, A.RendererBinding__handleWebFirstFrame_closure, A.RendererBinding__scheduleMouseTrackerUpdate_closure0, A.RendererBinding__forceRepaint_closure, A.BoxConstraints_debugAssertIsValid_closure_throwError, A.BoxConstraints_toString_describe, A.RenderBox_getDistanceToActualBaseline_closure, A.RenderEditable_getBoxesForSelection_closure, A.RenderEditable_describeSemanticsConfiguration_closure, A.RenderFlex__computeDryDistanceToHighestBaseline_constraintsForChild, A.RenderFlex__computeDryDistanceToFirstBaseline_constraintsForChild, A.TransformLayer_transform_closure, A.LayerLink__debugScheduleLeadersCleanUpCheck__closure, A.RenderListBody_computeMinIntrinsicWidth_closure, A.RenderListBody_computeMinIntrinsicWidth_closure0, A.RenderListBody_computeMaxIntrinsicWidth_closure, A.RenderListBody_computeMaxIntrinsicWidth_closure0, A.RenderListBody_computeMinIntrinsicHeight_closure, A.RenderListBody_computeMinIntrinsicHeight_closure0, A.RenderListBody_computeMaxIntrinsicHeight_closure, A.RenderListBody_computeMaxIntrinsicHeight_closure0, A.MouseTracker__handleDeviceUpdate_closure, A.MouseTracker__handleDeviceUpdateMouseEvents_closure0, A.PipelineOwner_flushSemantics_closure0, A.PipelineOwner_flushSemantics_closure3, A.RenderObject_reassemble_closure, A.RenderObject__updateCompositingBits_closure, A.RenderObject__updateCompositingBits_closure0, A.RenderObject__paintWithContext__closure, A.RenderObject_clearSemantics_closure, A.RenderObjectWithLayoutCallbackMixin_runLayoutCallback_closure, A.RelayoutWhenSystemFontsChangeMixin__scheduleSystemFontsUpdate_closure, A._SemanticsConfigurationProvider_absorbAll_closure, A._RenderObjectSemantics_debugCheckForParentData_debugCheckParentDataNotDirty, A._RenderObjectSemantics_isBlockingPreviousSibling_closure, A._RenderObjectSemantics_updateChildren_closure, A._RenderObjectSemantics_updateChildren_closure0, A._RenderObjectSemantics_updateChildren_closure1, A._RenderObjectSemantics_updateChildren_closure2, A._RenderObjectSemantics_updateChildren_closure3, A._RenderObjectSemantics_updateChildren_closure4, A._RenderObjectSemantics__getNonBlockedChildren_closure, A._RenderObjectSemantics__collectChildMergeUpAndSiblingGroup_closure, A._RenderObjectSemantics__collectChildMergeUpAndSiblingGroup_closure0, A._RenderObjectSemantics__updateChildGeometry_closure, A._RenderObjectSemantics__updateChildGeometry_closure0, A._RenderObjectSemantics__buildSemanticsSubtree_closure, A._RenderObjectSemantics__mergeSiblingGroup_closure, A._RenderObjectSemantics__mergeSiblingGroup_closure0, A._RenderObjectSemantics_debugDescribeChildren_closure, A.RenderParagraph_markNeedsLayout_closure, A.RenderParagraph_selectionColor_closure, A.RenderParagraph_performLayout_closure, A._factoriesTypeSet_closure, A._PlatformViewGestureRecognizer_closure, A.RenderFittedBox__updatePaintData_closure, A.SliverConstraints_debugAssertIsValid_closure_verifyDouble, A.SliverGeometry_debugAssertIsValid_closure_verify, A.RenderSliverHelpers_hitTestBoxChild_closure, A.RenderSliverMultiBoxAdaptor__createOrObtainChild_closure, A.RenderSliverMultiBoxAdaptor_collectGarbage_closure, A.RenderSliverMultiBoxAdaptor_collectGarbage__closure, A.RenderSliverMultiBoxAdaptor_collectGarbage__closure0, A.RenderSliverEdgeInsetsPadding_performLayout_paintOffset, A.RenderSliverEdgeInsetsPadding_performLayout_cacheOffset, A.RenderStack_computeMinIntrinsicWidth_closure, A.RenderStack_computeMaxIntrinsicWidth_closure, A.RenderStack_computeMinIntrinsicHeight_closure, A.RenderStack_computeMaxIntrinsicHeight_closure, A.RenderTable_assembleSemanticsNode_rectWithOffset, A.RenderTable_assembleSemanticsNode_findRowIndex, A.RenderTable_assembleSemanticsNode_findColumnIndex, A.RenderTable_assembleSemanticsNode_shiftTransform, A.RenderViewportBase_visitChildrenForSemantics_closure, A.RenderViewportBase_hitTestChildren_closure, A.RenderWrap_computeDryBaseline_getChildSize, A.SchedulerBinding_endOfFrame_closure, A.SchedulerBinding__handleDrawFrame_closure, A.TickerFuture_whenCompleteOrCancel_thunk, A._DebugSemanticsRoleChecks__semanticsTabBar_closure, A._DebugSemanticsRoleChecks__semanticsTable_closure, A._DebugSemanticsRoleChecks__semanticsRow_closure, A._DebugSemanticsRoleChecks__semanticsRadioGroup_validateRadioGroupChildren, A.SemanticsData_debugFillProperties_closure, A.SemanticsNode__replaceChildren_closure, A.SemanticsNode__replaceChildren__closure, A.SemanticsNode_detach_closure0, A.SemanticsNode_getSemanticsData_closure, A.SemanticsNode__childrenIdInHitTestOrder_closure, A.SemanticsNode__childrenInTraversalOrder_closure, A.SemanticsNode_sendEvent_closure, A.SemanticsNode_debugFillProperties_closure, A.SemanticsNode_debugFillProperties_closure0, A.SemanticsNode_debugFillProperties_closure1, A.SemanticsNode_debugFillProperties_closure2, A.SemanticsNode_debugDescribeChildren_closure, A._SemanticsSortGroup_sortedWithinVerticalGroup_closure, A._SemanticsSortGroup_sortedWithinKnot_search, A._SemanticsSortGroup_sortedWithinKnot_closure0, A._SemanticsSortGroup_sortedWithinKnot_closure1, A._childrenInDefaultOrder_closure, A.SemanticsOwner_sendSemanticsUpdate_closure_findInvisibleNodes, A.SemanticsOwner_sendSemanticsUpdate_closure_nodeToMessage, A.SemanticsOwner_sendSemanticsUpdate_closure0, A.SemanticsOwner_sendSemanticsUpdate_closure3, A.SemanticsOwner__getSemanticsActionHandlerForId_closure, A.SemanticsConfiguration__addArgumentlessAction_closure, A.SemanticsConfiguration_onScrollToOffset_closure, A.SemanticsConfiguration_onMoveCursorForwardByCharacter_closure, A.SemanticsConfiguration_onMoveCursorBackwardByCharacter_closure, A.SemanticsConfiguration_onMoveCursorForwardByWord_closure, A.SemanticsConfiguration_onMoveCursorBackwardByWord_closure, A.SemanticsConfiguration_onSetSelection_closure, A.SemanticsConfiguration_onSetText_closure, A.PlatformAssetBundle_load_closure, A.ServicesBinding__initKeyboard_closure, A._DefaultBinaryMessenger_send_closure, A.LogicalKeyboardKey_expandSynonyms_closure, A.BasicMessageChannel_setMessageHandler_closure, A.MethodChannel_setMethodCallHandler_closure, A.EventChannel_receiveBroadcastStream__closure, A.RestorationManager_handleRestorationUpdateFromEngine_closure, A.RestorationManager_scheduleSerializationFor_closure, A.RestorationBucket__debugAssertIntegrity__closure, A.RestorationBucket__visitChildren_closure, A.SystemChrome_setSystemUIOverlayStyle__closure, A.FilteringTextInputFormatter__processRegion_adjustIndex, A.TextEditingValue_replaced_adjustIndex, A.TextInput__handleTextInputInvocation_closure, A.TextInput__handleTextInputInvocation_closure0, A.TextInput__handleTextInputInvocation_closure1, A._PlatformTextInputControl_attach_closure, A._PlatformTextInputControl_detach_closure, A._PlatformTextInputControl_updateConfig_closure, A._PlatformTextInputControl_setEditingState_closure, A._PlatformTextInputControl_show_closure, A._PlatformTextInputControl_hide_closure, A._PlatformTextInputControl_setEditableSizeAndTransform_closure, A._PlatformTextInputControl_setComposingRect_closure, A._PlatformTextInputControl_setCaretRect_closure, A._PlatformTextInputControl_setSelectionRects_closure, A._PlatformTextInputControl_setSelectionRects_closure0, A._PlatformTextInputControl_updateStyle_closure, A._PlatformTextInputControl_requestAutofill_closure, A.SystemContextMenuController_showWithItems_closure, A.UndoManager__setUndoState_closure, A.MinimumTapTargetEvaluation__traverse_closure, A.LabeledTapTargetEvaluation__traverse_closure, A._ContrastEvaluation__evaluateNode_closure, A._colorsWithinRect_getPixel, A._colorsWithinRect_closure, A._collectElementsByText_closure, A.HtmlElementViewImpl_get__createController_closure, A.HtmlElementViewImpl__createController_closure, A.WindowScope_updateShouldNotifyDependent_closure, A._WindowManagerState_build__closure, A._getParent_closure, A.Actions__findDispatcher_closure, A.Actions_maybeFind_closure, A.Actions__maybeFindWithoutDependingOn_closure, A.Actions_invoke_closure0, A.Actions_maybeInvoke_closure, A._FocusableActionDetectorState_initState_closure, A._FocusableActionDetectorState__mayTriggerCallback_shouldShowHoverHighlight, A._FocusableActionDetectorState__mayTriggerCallback_canRequestFocus, A._FocusableActionDetectorState__mayTriggerCallback_shouldShowFocusHighlight, A._FocusableActionDetectorState_didUpdateWidget_closure, A._AnimatedSwitcherState__newEntry_closure, A._AnimatedSwitcherState__rebuildOutgoingWidgetsIfNeeded_closure, A._AnimatedSwitcherState_build_closure, A._WidgetsAppState__onGenerateRoute_closure, A._WidgetsAppState_build_closure, A._WidgetsAppState_build__closure, A._RawAutocompleteState__buildOptionsView_closure, A._AutomaticKeepAliveState__addClient_closure, A._AutomaticKeepAliveState__getChildElement_closure, A._UbiquitousInheritedElement_notifyClients_closure, A._UbiquitousInheritedElement__recurseChildren_closure, A.ClipPath_shape_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure2, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure4, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure6, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure7, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure9, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure11, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure13, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure2, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure4, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure6, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_initInstances_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_initServiceExtensions_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_initInstances__closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initInstances_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initInstances_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions__closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions_closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure2, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure4, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure6, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure7, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions__closure0, A.WidgetsBinding__formatEvaluationResult_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure0, A.ContextMenuController_show_closure, A.DefaultSelectionStyle_merge_closure, A.showRawDialog_closure, A._DialogWindowRoute_install_closure, A.DisplayFeatureSubScreen_avoidBounds_closure, A.DisplayFeatureSubScreen_avoidBounds_closure0, A.EditableTextState_cutSelection_closure, A.EditableTextState__pasteText_closure, A.EditableTextState__startLiveTextInput_closure, A.EditableTextState__isPasswordInput_closure, A.EditableTextState_didChangeDependencies_closure, A.EditableTextState_didChangeDependencies_closure0, A.EditableTextState_didUpdateWidget_closure, A.EditableTextState_didUpdateWidget_closure0, A.EditableTextState_didUpdateWidget_closure1, A.EditableTextState_didUpdateWidget_closure2, A.EditableTextState__scheduleShowCaretOnScreen_closure, A.EditableTextState_didChangeMetrics_closure, A.EditableTextState__startCursorBlink_closure, A.EditableTextState__onCursorTick_closure1, A.EditableTextState_build_closure, A.EditableTextState_build__closure, A.EditableTextState_build__closure5, A.EditableTextState_build__closure2, A.EditableTextState_build__closure1, A.EditableTextState_build__closure3, A._ScribbleFocusableState_isInScribbleRect_closure, A._OverridingTextStyleTextSpanUtils__applyTextStyleOverrides_closure0, A._ExpansibleState__toggleExpansion__closure, A.FocusNode_traversalDescendants_closure, A.FocusNode__removeChild_closure, A.FocusNode_debugDescribeChildren_closure, A.FocusScopeNode_debugFillProperties_closure, A._getAncestor_closure, A.FocusTraversalPolicy__findInitialFocus_closure, A.FocusTraversalPolicy__sortAllDescendants_visitGroups, A.FocusTraversalPolicy__sortAllDescendants_closure, A._ReadingOrderTraversalPolicy_FocusTraversalPolicy_DirectionalFocusTraversalPolicyMixin_changedScope_closure, A.DirectionalFocusTraversalPolicyMixin__findNextFocusInDirection_closure, A.DirectionalFocusTraversalPolicyMixin__findNextFocusInDirection_closure0, A.DirectionalFocusTraversalPolicyMixin__findNextFocusInDirection_closure1, A.DirectionalFocusTraversalPolicyMixin__findNextFocusInDirection_closure2, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterHorizontally_closure, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterHorizontally_closure0, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterVertically_closure, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterVertically_closure0, A.DirectionalFocusTraversalPolicyMixin__popPolicyDataIfNeeded_popOrInvalidate, A._ReadingOrderSortData_commonDirectionalityOf_closure, A._ReadingOrderSortData_directionalAncestors_getDirectionalityAncestors, A._ReadingOrderDirectionalGroupData_rect_closure, A._ReadingOrderDirectionalGroupData_debugFillProperties_closure, A.ReadingOrderTraversalPolicy__pickNext_inBand_closure, A.FormState__fieldDidChange_closure, A.FormState_build_closure, A.FormFieldState_didChangeDependencies_closure, A.FormFieldState_build_closure, A._InactiveElements__unmount_closure0, A.BuildScope__flushDirtyElements__closure, A.BuildOwner__debugVerifyGlobalKeyReservation____closure, A.BuildOwner__debugVerifyGlobalKeyReservation____closure0, A.BuildOwner_finalizeTree__closure, A.BuildOwner_finalizeTree__closure0, A.BuildOwner_finalizeTree__closure1, A.BuildOwner_finalizeTree__closure2, A.Element_reassemble_closure, A.Element_renderObjectAttachingChild_closure, A.Element_describeMissingAncestor_closure, A.Element_describeElements_closure, A.Element_updateChildren_replaceWithNullIfForgotten, A.Element_updateChildren_closure, A.Element_updateSlotForChild_visit, A.Element__updateDepth_closure, A.Element__updateBuildScopeRecursively_closure, A.Element_detachRenderObject_closure, A.Element_attachRenderObject_closure, A.Element_debugFillProperties_closure0, A.Element_debugDescribeChildren_closure, A.ParentDataElement__applyParentData_applyParentDataToChild, A.RenderObjectElement__debugCheckCompetingAncestors__closure, A.RenderObjectElement__findAncestorParentDataElements_closure, A.MultiChildRenderObjectElement_children_closure, A.GestureDetector_build_closure0, A.GestureDetector_build_closure2, A.GestureDetector_build_closure4, A.GestureDetector_build_closure6, A.GestureDetector_build_closure8, A.GestureDetector_build_closure10, A.RawGestureDetectorState_debugFillProperties_closure, A._DefaultSemanticsGestureDelegate__getHorizontalDragUpdateHandler_closure, A._DefaultSemanticsGestureDelegate__getHorizontalDragUpdateHandler_closure0, A._DefaultSemanticsGestureDelegate__getHorizontalDragUpdateHandler_closure1, A._DefaultSemanticsGestureDelegate__getVerticalDragUpdateHandler_closure, A._DefaultSemanticsGestureDelegate__getVerticalDragUpdateHandler_closure0, A._DefaultSemanticsGestureDelegate__getVerticalDragUpdateHandler_closure1, A.Hero__allHeroesFor_visitor, A.HeroController_didStopUserGesture_isInvalidFlight, A.HeroController__maybeStartHeroTransition_closure, A.IconTheme_merge_closure, A.ImplicitlyAnimatedWidgetState_initState_closure, A.ImplicitlyAnimatedWidgetState_didUpdateWidget_closure, A.ImplicitlyAnimatedWidgetState__constructTweens_closure, A._AnimatedContainerState_forEachTween_closure, A._AnimatedContainerState_forEachTween_closure0, A._AnimatedContainerState_forEachTween_closure1, A._AnimatedContainerState_forEachTween_closure2, A._AnimatedContainerState_forEachTween_closure3, A._AnimatedContainerState_forEachTween_closure4, A._AnimatedContainerState_forEachTween_closure5, A._AnimatedContainerState_forEachTween_closure6, A._AnimatedPaddingState_forEachTween_closure, A._AnimatedPositionedState_forEachTween_closure, A._AnimatedPositionedState_forEachTween_closure0, A._AnimatedPositionedState_forEachTween_closure1, A._AnimatedPositionedState_forEachTween_closure2, A._AnimatedPositionedState_forEachTween_closure3, A._AnimatedPositionedState_forEachTween_closure4, A._AnimatedOpacityState_forEachTween_closure, A._AnimatedDefaultTextStyleState_forEachTween_closure, A._AnimatedPhysicalModelState_forEachTween_closure, A._AnimatedPhysicalModelState_forEachTween_closure0, A._AnimatedPhysicalModelState_forEachTween_closure1, A._AnimatedPhysicalModelState_forEachTween_closure2, A.IndexedStack_build_closure, A.Visibility_of_closure, A.InheritedTheme_capture_closure0, A._loadAll_closure, A._loadAll_closure0, A._loadAll_closure1, A.Localizations_closure, A._LocalizationsState_load_closure, A._LocalizationsState_load_closure0, A.LocalizationsResolver__debugCheckLocalizations__closure, A.LookupBoundary_findAncestorWidgetOfExactType_closure, A.LookupBoundary_findAncestorRenderObjectOfType_closure, A.LookupBoundary_debugIsHidingAncestorWidgetOfExactType__closure, A.LookupBoundary_debugIsHidingAncestorStateOfType__closure, A.LookupBoundary_debugIsHidingAncestorRenderObjectOfType__closure, A.MagnifierController_show_closure, A.MediaQueryData_removeDisplayFeatures_closure, A.MediaQuery_withNoTextScaling_closure, A.MediaQuery_withClampedTextScaling_closure, A.MediaQuery_updateShouldNotifyDependent_closure, A.Route_didPush_closure, A.Route_didAdd_closure, A.Navigator_defaultGenerateInitialRoutes_closure2, A._RouteEntry_handleDidPopNext_closure, A._RouteEntry_dispose_closure, A._RouteEntry_dispose__closure, A._RouteEntry_isRoutePredicate_closure, A.NavigatorState__handleHistoryChanged_closure, A.NavigatorState_restoreState_closure, A.NavigatorState__forcedDisposeAllRouteEntries_closure, A.NavigatorState__updateHeroController__closure, A.NavigatorState__afterNavigation_closure, A.NavigatorState_build_closure, A.OverlayEntry_remove_closure, A.OverlayState_rearrange_closure, A.OverlayState_rearrange_closure0, A._RenderTheater_computeMinIntrinsicWidth_closure, A._RenderTheater_computeMaxIntrinsicWidth_closure, A._RenderTheater_computeMinIntrinsicHeight_closure, A._RenderTheater_computeMaxIntrinsicHeight_closure, A._RenderTheater_debugDescribeChildren_closure, A.OverlayPortal$overlayChildLayoutBuilder_closure, A._RenderTheaterMarker__rootRenderTheaterMarkerOf_closure, A._RenderDeferredLayoutBox__childrenInPaintOrder_closure, A._RenderDeferredLayoutBox__doLayoutFrom_closure, A._RenderLayoutBuilder__childrenInPaintOrder_closure, A.PageStorageBucket__allKeys_closure, A._PageViewState_build_closure, A._PlatformViewPlaceholderBox_performLayout_closure, A._extension_0_disposePostFrame_closure, A.RawTooltipState__handleMouseEnter_closure, A._RootRestorationScopeState__loadRootBucketIfNecessary_closure, A.RestorationMixin_registerForRestoration_closure, A.RestorationMixin__doRestore__closure, A._RouterState__processParsedRouteInformation_closure, A._RouterState__handleRoutePopped_closure, A.TransitionRoute__updateSecondaryAnimation_jumpOnAnimationEnd, A.TransitionRoute__setSecondaryAnimation_closure, A.TransitionRoute__handleDragEnd_closure, A.LocalHistoryRoute_removeLocalHistoryEntry_closure, A._ModalScopeStatus_updateShouldNotifyDependent_closure, A._ModalScopeState_build_closure0, A._ModalScopeState_build__closure, A.ModalRoute__maybeDispatchNavigationNotification_closure, A.ScrollBehavior_velocityTrackerBuilder_closure, A.ScrollBehavior_velocityTrackerBuilder_closure0, A.ScrollBehavior_velocityTrackerBuilder_closure1, A.ScrollNotificationObserverState_build_closure, A.ScrollNotificationObserverState_build_closure0, A.ScrollPosition_forcePixels_closure, A.ScrollView_build_closure0, A.Scrollable_ensureVisible_closure, A.ScrollableState_setCanDrag_closure0, A.ScrollableState_setCanDrag_closure2, A._ScrollableSelectionContainerDelegate__scheduleLayoutChange_closure, A.ScrollbarPainter__debugAssertIsValidOrientation_closure_isVerticalOrientation, A.RawScrollbarState__debugScheduleCheckHasValidScrollPosition_closure, A.RawScrollbarState__gestures_closure2, A.RawScrollbarState_build_closure, A.RawScrollbarState_build_closure0, A.StaticSelectionContainerDelegate_didChangeSelectables_closure, A.StaticSelectionContainerDelegate_didChangeSelectables_closure0, A.MultiSelectableSelectionContainerDelegate__scheduleSelectableUpdate_runScheduledTask, A.MultiSelectableSelectionContainerDelegate_getSelectionGeometry_closure, A.MultiSelectableSelectionContainerDelegate_getSelectionGeometry_closure0, A.ShortcutMapProperty_valueToString_closure, A.SingleChildScrollView_build_closure0, A.SliverMultiBoxAdaptorElement_performRebuild_processElement, A.SliverMultiBoxAdaptorElement_visitChildren_closure, A._SystemContextMenuState_build_closure, A.Table__closure2, A.Table___closure, A.Table__closure0, A.Table__closure1, A.Table_closure1, A.Table_closure2, A.Table__closure, A._TableElement_mount_closure, A._TableElement_mount__closure, A._TableElement_update_closure, A._TableElement_update_closure0, A._TableElement__updateRenderObjectChildren_closure, A._TableElement__updateRenderObjectChildren__closure, A._TableElement_visitChildren_closure, A.RenderTapRegionSurface__classifyRegions_closure, A._OverridingTextStyleTextSpanUtils__applyTextStyleOverrides_closure, A.SelectionOverlay_showMagnifier_closure, A.SelectionOverlay_showHandles_closure, A.SelectionOverlay_showHandles_closure0, A.SelectionOverlay_showToolbar_closure, A.SelectionOverlay_markNeedsBuild_closure, A.SelectionOverlay__buildToolbar_closure, A._SelectionHandleOverlayState_build_closure0, A.TextSelectionGestureDetectorBuilder_onTapDown_closure, A._TextSelectionGestureDetectorState_build_closure0, A._TextSelectionGestureDetectorState_build_closure2, A._TextSelectionGestureDetectorState_build_closure4, A._TextSelectionGestureDetectorState_build_closure6, A._TextSelectionGestureDetectorState_build_closure8, A.UndoHistoryState_initState_closure, A._throttle_closure, A._MultiChildComponentElement__debugCheckMustAttachRenderObject_closure, A.Viewport_closure, A._calculateSubtreeBoundsHelper_closure, A.WidgetInspectorService__registerSignalServiceExtension_closure, A.WidgetInspectorService__registerObjectGroupServiceExtension_closure, A.WidgetInspectorService__registerBoolServiceExtension_closure, A.WidgetInspectorService__registerServiceExtensionWithArg_closure, A.WidgetInspectorService__registerServiceExtensionVarArgs_closure, A.WidgetInspectorService_initServiceExtensions_closure1, A.WidgetInspectorService_initServiceExtensions_closure3, A.WidgetInspectorService_initServiceExtensions_closure5, A.WidgetInspectorService_initServiceExtensions_closure7, A.WidgetInspectorService_initServiceExtensions_closure8, A.WidgetInspectorService_initServiceExtensions_closure9, A.WidgetInspectorService_initServiceExtensions_closure10, A.WidgetInspectorService_initServiceExtensions_closure11, A.WidgetInspectorService_addPubRootDirectories_closure, A.WidgetInspectorService_removePubRootDirectories_closure, A.WidgetInspectorService__truncateNodes_closure, A._WidgetInspectorState_hitTest_area, A._filterInspectorHitCandidatesToModalRouteScope_closure, A._filterInspectorHitCandidatesToModalRouteScope_closure0, A._InspectorOverlayLayer__isInInspectorRenderObjectTree_closure, A._WidgetInspectorButtonState_build_closure, A._WidgetInspectorButtonState_build_closure0, A.InspectorSerializationDelegate_filterProperties_closure, A.WidgetSpan_extractFromInlineSpan_visitSubtree, A.SlidableAction_build_closure, A.SlidableAutoCloseBehaviorListener_build_closure, A.SlidableAutoCloseNotificationSender_build_closure, A._SlidableAutoCloseBarrierNotificationSenderState_dispose_closure, A._SlidableAutoCloseBarrierBehaviorListenerState_build_closure, A._SlidableDismissalState_handleResizeRequestChanged_closure, A._RenderFlexEntranceTransition_getTotalFlex_closure, A._RenderFlexEntranceTransition_performLayout_closure, A.Registrar_send_closure, A.get_closure, A.post_closure, A.put_closure, A.delete_closure, A.BaseRequest_closure0, A.BrowserClient_send_closure, A.BrowserClient_send_closure0, A.ByteStream_toBytes_closure, A.MediaType_toString__closure, A.expectQuotedString_closure, A.BmpDecoder_decodeFrame_closure, A.ExrPart_closure, A.JpegData__readSOS_closure, A.PnmDecoder__getNextToken_closure, A.Image_getPixelLinear_linear, A.Image_getPixelCubic_cubic, A.DateFormat_dateTimeConstructor_closure, A.verifiedLocale_closure, A.verifiedLocale_closure0, A.verifiedLocale_closure1, A.MaterialDynamicColors_background_closure, A.MaterialDynamicColors_background_closure0, A.MaterialDynamicColors_onBackground_closure0, A.MaterialDynamicColors_onBackground_closure1, A.MaterialDynamicColors_onBackground_closure, A.MaterialDynamicColors_surface_closure, A.MaterialDynamicColors_surface_closure0, A.MaterialDynamicColors_surfaceDim_closure, A.MaterialDynamicColors_surfaceDim_closure0, A.MaterialDynamicColors_surfaceBright_closure, A.MaterialDynamicColors_surfaceBright_closure0, A.MaterialDynamicColors_surfaceContainerLowest_closure, A.MaterialDynamicColors_surfaceContainerLowest_closure0, A.MaterialDynamicColors_surfaceContainerLow_closure, A.MaterialDynamicColors_surfaceContainerLow_closure0, A.MaterialDynamicColors_surfaceContainer_closure, A.MaterialDynamicColors_surfaceContainer_closure0, A.MaterialDynamicColors_surfaceContainerHigh_closure, A.MaterialDynamicColors_surfaceContainerHigh_closure0, A.MaterialDynamicColors_surfaceContainerHighest_closure, A.MaterialDynamicColors_surfaceContainerHighest_closure0, A.MaterialDynamicColors_onSurface_closure, A.MaterialDynamicColors_onSurface_closure0, A.MaterialDynamicColors_surfaceVariant_closure, A.MaterialDynamicColors_surfaceVariant_closure0, A.MaterialDynamicColors_onSurfaceVariant_closure, A.MaterialDynamicColors_onSurfaceVariant_closure0, A.MaterialDynamicColors_inverseSurface_closure, A.MaterialDynamicColors_inverseSurface_closure0, A.MaterialDynamicColors_inverseOnSurface_closure0, A.MaterialDynamicColors_inverseOnSurface_closure1, A.MaterialDynamicColors_inverseOnSurface_closure, A.MaterialDynamicColors_outline_closure, A.MaterialDynamicColors_outline_closure0, A.MaterialDynamicColors_outlineVariant_closure, A.MaterialDynamicColors_outlineVariant_closure0, A.MaterialDynamicColors_shadow_closure, A.MaterialDynamicColors_shadow_closure0, A.MaterialDynamicColors_scrim_closure, A.MaterialDynamicColors_scrim_closure0, A.MaterialDynamicColors_primary_closure, A.MaterialDynamicColors_primary_closure0, A.MaterialDynamicColors_primary_closure1, A.MaterialDynamicColors_onPrimary_closure0, A.MaterialDynamicColors_onPrimary_closure1, A.MaterialDynamicColors_onPrimary_closure, A.MaterialDynamicColors_primaryContainer_closure, A.MaterialDynamicColors_primaryContainer_closure0, A.MaterialDynamicColors_primaryContainer_closure1, A.MaterialDynamicColors_onPrimaryContainer_closure0, A.MaterialDynamicColors_onPrimaryContainer_closure1, A.MaterialDynamicColors_onPrimaryContainer_closure, A.MaterialDynamicColors_inversePrimary_closure0, A.MaterialDynamicColors_inversePrimary_closure1, A.MaterialDynamicColors_inversePrimary_closure, A.MaterialDynamicColors_secondary_closure, A.MaterialDynamicColors_secondary_closure0, A.MaterialDynamicColors_secondary_closure1, A.MaterialDynamicColors_onSecondary_closure0, A.MaterialDynamicColors_onSecondary_closure1, A.MaterialDynamicColors_onSecondary_closure, A.MaterialDynamicColors_secondaryContainer_closure, A.MaterialDynamicColors_secondaryContainer_closure0, A.MaterialDynamicColors_secondaryContainer_closure1, A.MaterialDynamicColors_onSecondaryContainer_closure0, A.MaterialDynamicColors_onSecondaryContainer_closure1, A.MaterialDynamicColors_onSecondaryContainer_closure, A.MaterialDynamicColors_tertiary_closure, A.MaterialDynamicColors_tertiary_closure0, A.MaterialDynamicColors_tertiary_closure1, A.MaterialDynamicColors_onTertiary_closure0, A.MaterialDynamicColors_onTertiary_closure1, A.MaterialDynamicColors_onTertiary_closure, A.MaterialDynamicColors_tertiaryContainer_closure, A.MaterialDynamicColors_tertiaryContainer_closure0, A.MaterialDynamicColors_tertiaryContainer_closure1, A.MaterialDynamicColors_onTertiaryContainer_closure0, A.MaterialDynamicColors_onTertiaryContainer_closure1, A.MaterialDynamicColors_onTertiaryContainer_closure, A.MaterialDynamicColors_error_closure, A.MaterialDynamicColors_error_closure0, A.MaterialDynamicColors_error_closure1, A.MaterialDynamicColors_onError_closure0, A.MaterialDynamicColors_onError_closure1, A.MaterialDynamicColors_onError_closure, A.MaterialDynamicColors_errorContainer_closure, A.MaterialDynamicColors_errorContainer_closure0, A.MaterialDynamicColors_errorContainer_closure1, A.MaterialDynamicColors_onErrorContainer_closure0, A.MaterialDynamicColors_onErrorContainer_closure1, A.MaterialDynamicColors_onErrorContainer_closure, A.MaterialDynamicColors_primaryFixed_closure, A.MaterialDynamicColors_primaryFixed_closure0, A.MaterialDynamicColors_primaryFixed_closure1, A.MaterialDynamicColors_primaryFixedDim_closure, A.MaterialDynamicColors_primaryFixedDim_closure0, A.MaterialDynamicColors_primaryFixedDim_closure1, A.MaterialDynamicColors_onPrimaryFixed_closure0, A.MaterialDynamicColors_onPrimaryFixed_closure2, A.MaterialDynamicColors_onPrimaryFixed_closure, A.MaterialDynamicColors_onPrimaryFixed_closure1, A.MaterialDynamicColors_onPrimaryFixedVariant_closure0, A.MaterialDynamicColors_onPrimaryFixedVariant_closure2, A.MaterialDynamicColors_onPrimaryFixedVariant_closure, A.MaterialDynamicColors_onPrimaryFixedVariant_closure1, A.MaterialDynamicColors_secondaryFixed_closure, A.MaterialDynamicColors_secondaryFixed_closure0, A.MaterialDynamicColors_secondaryFixed_closure1, A.MaterialDynamicColors_secondaryFixedDim_closure, A.MaterialDynamicColors_secondaryFixedDim_closure0, A.MaterialDynamicColors_secondaryFixedDim_closure1, A.MaterialDynamicColors_onSecondaryFixed_closure0, A.MaterialDynamicColors_onSecondaryFixed_closure2, A.MaterialDynamicColors_onSecondaryFixed_closure, A.MaterialDynamicColors_onSecondaryFixed_closure1, A.MaterialDynamicColors_onSecondaryFixedVariant_closure0, A.MaterialDynamicColors_onSecondaryFixedVariant_closure2, A.MaterialDynamicColors_onSecondaryFixedVariant_closure, A.MaterialDynamicColors_onSecondaryFixedVariant_closure1, A.MaterialDynamicColors_tertiaryFixed_closure, A.MaterialDynamicColors_tertiaryFixed_closure0, A.MaterialDynamicColors_tertiaryFixed_closure1, A.MaterialDynamicColors_tertiaryFixedDim_closure, A.MaterialDynamicColors_tertiaryFixedDim_closure0, A.MaterialDynamicColors_tertiaryFixedDim_closure1, A.MaterialDynamicColors_onTertiaryFixed_closure0, A.MaterialDynamicColors_onTertiaryFixed_closure2, A.MaterialDynamicColors_onTertiaryFixed_closure, A.MaterialDynamicColors_onTertiaryFixed_closure1, A.MaterialDynamicColors_onTertiaryFixedVariant_closure0, A.MaterialDynamicColors_onTertiaryFixedVariant_closure2, A.MaterialDynamicColors_onTertiaryFixedVariant_closure, A.MaterialDynamicColors_onTertiaryFixedVariant_closure1, A.MethodChannelMobileScanner_deviceOrientationChangedStream_closure, A.MethodChannelMobileScanner_barcodesStream_closure, A.MethodChannelMobileScanner_torchStateStream_closure, A.MethodChannelMobileScanner_torchStateStream_closure0, A.MethodChannelMobileScanner_zoomScaleStateStream_closure, A.MethodChannelMobileScanner_zoomScaleStateStream_closure0, A._MobileScannerState_build_closure, A.MobileScannerController__setupListeners_closure, A.MobileScannerController__setupListeners_closure0, A.MobileScannerController__setupListeners_closure1, A.MobileScannerController__setupListeners_closure2, A.MobileScannerController__setupListeners_closure3, A.CameraPreview_build_closure, A.Barcode_Barcode$fromNative_closure, A.BarcodeDetectorReader__buildDetector_closure, A.BarcodeReader_maybeLoadLibrary_closure, A.BarcodeReader_maybeLoadLibrary_closure0, A.MobileScannerWeb_torchStateStream_closure, A.MobileScannerWeb_zoomScaleStateStream_closure, A.MobileScannerWeb__createVideoElement_closure, A.MobileScannerWeb__createVideoElement_closure0, A.MobileScannerWeb__createVideoElement_closure1, A.MobileScannerWeb__applyVideoConstraints_closure, A.MobileScannerWeb__applyVideoConstraints_closure0, A.MobileScannerWeb__applyVideoConstraints_closure1, A.MobileScannerWeb__isValidDeviceId_closure, A.MobileScannerWeb_start_closure, A.MobileScannerWeb_start_closure0, A.PollingBarcodeReader__startDecodeLoop_closure, A.isInsideScanWindow_closure, A.isInsideScanWindow_closure0, A.isInsideScanWindow_closure1, A.isInsideScanWindow_closure2, A.computeBoundingBoxSize_closure, A.computeBoundingBoxSize_closure0, A.mirrorBarcodeX_closure, A.POSDialogs_promptClearCart_closure, A.POSDialogs_showInvalidBarcodeDialog_closure, A.POSDialogs_onWillPop_closure, A.POSDialogs_showManualEntryDialog_closure, A.POSDialogs_showEditItemDialog_closure, A._CategoryListScreenState__onSearchChanged__closure, A._CategoryListScreenState_fetchCategories_closure, A._CategoryListScreenState_showDeleteConfirmation_closure, A._CategoryListScreenState_navigateToEdit_closure, A._CategoryListScreenState_showRateInputPopup_closure, A._CategoryListScreenState_build__closure, A._AccountListScreenState__onSearchChanged__closure, A._AccountListScreenState_openTransactionsScreen_closure, A._AccountListScreenState__showAddOrEditDialog_validateForm, A._AccountListScreenState__showAddOrEditDialog_closure, A._AccountListScreenState__showAddOrEditDialog___closure, A._AccountListScreenState__showAddOrEditDialog___closure0, A._AccountListScreenState__showAddOrEditDialog___closure1, A._AccountListScreenState__showAddOrEditDialog___closure2, A._AccountListScreenState__confirmDeleteAccount_closure, A._AccountListScreenState__confirmDeleteAccount___closure, A._AccountListScreenState__showAccountOptions_closure, A._AccountTransactionsScreenState_findExistingTransaction_closure, A._AccountTransactionsScreenState__showTransactionDialog_closure, A._AccountTransactionsScreenState__showTransactionDialog__closure_onTypeChange, A._AccountTransactionsScreenState__showTransactionDialog___closure0, A._AccountTransactionsScreenState__showTransactionDialog___closure, A._AccountTransactionsScreenState__showTransactionDialog___closure1, A._AccountTransactionsScreenState__showTransactionDialog___closure2, A._AccountTransactionsScreenState__showTransactionDialog____closure0, A._AccountTransactionsScreenState__createDefaultTodoForTransaction_safeToDouble, A._AccountTransactionsScreenState__deleteTransaction_closure, A._AccountTransactionsScreenState_build_closure, A._AccountTransactionsScreenState_build_closure1, A._AccountTransactionsScreenState_generateLedgerPdf_closure, A._AccountTransactionsScreenState_generateLedgerPdf_closure1, A._AccountTransactionsScreenState_generateLedgerPdf_closure3, A._AccountTransactionsScreenState_generateLedgerPdf__closure, A._AccountTransactionsScreenState_generateLedgerPdf_closure4, A._AddEditCategoryScreenState_build_closure3, A._AddEditCategoryScreenState_build__closure, A._AddEditCategoryScreenState_build_closure2, A._AddEditCategoryScreenState_build_closure1, A._AddEditCategoryScreenState_build__closure1, A._AddEditCategoryScreenState_build__closure2, A._AddEditCategoryScreenState_build_closure, A._AddEditCategoryScreenState_build_closure0, A._AddProductScreenState_fetchCategories__closure, A._AddProductScreenState_checkProductExists_closure0, A._AddProductScreenState_submitProductUpdate_closure, A._AddProductScreenState_submitProductUpdate_closure0, A._AddProductScreenState_submitProduct_closure1, A._AddProductScreenState_submitProduct_closure2, A._AddProductScreenState_scanBarcodeWithMobileScanner_closure, A._AddProductScreenState_showPriceEditDialog_closure, A._AddProductScreenState_showPriceEditDialog___closure, A._AddProductScreenState_showPriceEditDialog___closure0, A._AddProductScreenState_showPriceEditDialog___closure1, A._AddProductScreenState_showPriceEditDialog___closure2, A._AddProductScreenState_showPriceEditDialog___closure3, A._AddProductScreenState_showPriceEditDialog___closure4, A._AddProductScreenState_showPriceEditDialog___closure5, A._AddProductScreenState_build_closure, A._AddProductScreenState_build_closure0, A._AddProductScreenState_build__closure3, A._AddProductScreenState_build__closure1, A._AddProductScreenState_build___closure0, A._AddProductScreenState_build_closure3, A._CategorySearchDialogState_build_closure, A._CategorySearchDialogState_build_closure0, A._BarcodeScannerScreenState_build_closure, A._DashboardScreenState_buildLast7DaysAccordion_closure2, A._DashboardScreenState_buildInactive60DaysAccordion_closure, A._FastBillingDialogState__filterList__closure, A._HomeScreenState__showPasscodeDialog_closure, A._HomeScreenState__navigate_closure, A._HomeScreenState__navigate_closure0, A._HomeScreenState__navigate_closure1, A._HomeScreenState__navigate_closure2, A._HomeScreenState__navigate_closure3, A._HomeScreenState__navigate_closure4, A._POSScreenState_initState_closure, A._POSScreenState__showPasscodeDialog_closure, A._POSScreenState__showInvoiceNameDialog_closure, A._POSScreenState_promptRateTypeIfNeeded_closure, A._POSScreenState_fetchProduct_closure3, A._POSScreenState_fetchProduct_closure6, A._POSScreenState_fetchProduct_closure8, A._POSScreenState__addManualItem__closure0, A._POSScreenState__handleScan_closure, A._POSScreenState_build__closure0, A._POSScreenState_build___closure, A._POSScreenState_build____closure, A._POSScreenState_build___closure0, A._POSScreenState_build__closure, A._ProductListScreenState__onSearchChanged__closure, A._ProductListScreenState_fetchProducts_closure, A._ProductListScreenState_showDeleteConfirmation_closure, A._ProductListScreenState_build__closure, A._TodoEditScreenState__showChequeDialog_closure, A._TodoEditScreenState__showChequeDialog___closure, A._TodoEditScreenState__showChequeDialog___closure0, A._TodoEditScreenState__showChequeDialog___closure1, A._TodoEditScreenState__showChequeDialog___closure2, A._TodoEditScreenState_build_closure, A._TodoEditScreenState_build_closure0, A._TodoEditScreenState_build_closure1, A._TodoScreenState__closeTodo__closure, A._TodoScreenState__deleteTodo__closure, A._TodoScreenState__showConfirmationDialog_closure, A._TodoScreenState__showClosingCommentDialog_closure, A._TodoScreenState_buildTodoCard_formatDate, A._TodoScreenState_buildTodoCard_closure, A._TodoScreenState_buildTodoCard__closure, A._TodoScreenState_build__closure, A.InvoiceService_generateAndPrintInvoice_closure, A.InvoiceService_generateAndPrintInvoice__closure, A.InvoiceService_generateAndPrintInvoice_closure0, A.InvoiceService_generateAndPrintInvoiceThermal_closure, A.InvoiceService_generateAndPrintInvoiceThermal__closure, A.InvoiceService_generateAndPrintInvoiceThermal_closure0, A.Context_joinAll_closure, A.Context_split_closure, A._validateArgList_closure, A.PdfDocument__write_closure, A.TtfWriter_withChars_addGlyph, A.TtfWriter_withChars_closure0, A.PdfArray_fromObjects_closure, A.PdfArray_fromNum_closure, A.PdfString__encodeUtf16be_add, A.PdfPage_prepare_closure, A.PdfType1Font$create_closure0, A.Font_buildFont_closure, A.MultiPage_closure, A.RichText__preProcessSpans_closure, A.PrintingPlugin_layoutPdf_closure0, A.PrintingPlugin_layoutPdf_closure1, A.MethodChannelPrinting__handleMethod_closure0, A._PositionedListState__schedulePositionNotificationUpdate_closure, A._ScrollablePositionedListState_build__closure1, A._ScrollablePositionedListState_build__closure, A._ScrollablePositionedListState_build__closure0, A._ScrollablePositionedListState__scrollTo_closure, A._ScrollablePositionedListState__startScroll_closure, A._ScrollablePositionedListState__startScroll__closure, A._ScrollablePositionedListState__updatePositions_closure, A.SharedPreferencesPlugin__getPrefixedKeys_closure, A._getAllowedKeys_closure, A.Highlighter$__closure, A.Highlighter$___closure, A.Highlighter$__closure0, A.Highlighter__collateLines_closure, A.Highlighter__collateLines_closure1, A.Highlighter__collateLines__closure, A.Highlighter_highlight_closure, A.MethodChannelUrlLauncher_canLaunch_closure, A.MethodChannelUrlLauncher_launch_closure, A._EventStreamSubscription_closure0, A._EventStreamSubscription_onData_closure0]);
-    _inheritMany(A.Closure0Args, [A.AppBootstrap_prepareEngineInitializer_closure, A.SkiaFontCollection__registerWithFontProvider_closure, A.SkiaFontCollection__registerWithFontProvider_closure0, A.CkPaint_toString_closure, A.CkPicture_dispose_closure, A.CkPicture__initStackTrace_closure, A.CanvasKitRenderer_initialize_closure, A.CkGradientLinear_closure, A.CkParagraphStyle_toString_closure, A.CkTextStyle_skTextStyle_closure, A.CkTextStyle_toString_closure, A.CkParagraphBuilder_pop_closure, A.DisplayCanvasFactory_closure, A.MultiSurfaceRasterizer_createViewRasterizer_closure, A.OffscreenCanvasRasterizer_createViewRasterizer_closure, A.OffscreenCanvasViewRasterizer_displayFactory_closure, A.FlutterConfiguration$legacy_closure, A.FallbackFontService__process_closure, A.FallbackFontService__process_closure0, A.FallbackFontService__process_closure1, A.FallbackFontService__notifyFontsChanged_closure, A.FrameService_scheduleWarmUpFrame_closure, A.FrameService_scheduleWarmUpFrame_closure0, A.initializeEngineServices_closure, A.initializeEngineServices_initializeRendererCallback, A.initializeEngineUi_closure, A.FlutterEngineInitializer_constructor__closure0, A._cached_closure, A.KeyboardBinding_initInstance_closure, A.KeyboardConverter__scheduleAsyncEvent_closure0, A.KeyboardConverter__startGuardingKey_closure, A.KeyboardConverter__startGuardingKey_closure0, A.KeyboardConverter__handleEvent_closure, A.KeyboardConverter__handleEvent_closure0, A.KeyboardConverter__handleEvent_closure1, A.Frame_raster_closure, A.Frame_raster_closure0, A.PaintVisitor_visitPicture_closure, A.CountedRef_closure, A.EnginePlatformDispatcher_invokeOnKeyData_closure, A.EnginePlatformDispatcher__sendPlatformMessage_closure, A.EnginePlatformDispatcher__sendPlatformMessage_closure0, A.EnginePlatformDispatcher_invokeOnSemanticsAction_sendActionToFramework, A.invoke2_closure, A.MediaQueryManager_addListener_closure0, A.PlatformViewManager_renderContent_closure, A.PlatformViewEmbedder__compositeWithParams_closure, A.PointerBinding_closure, A.ClickDebouncer_closure, A._PointerAdapter__ensureSanitizer_closure, A._PointerAdapter_setup__closure, A._GlobalPointerState_closure, A._GlobalPointerState_ensurePointerDeviceState_closure, A.EngineImage__init_closure, A.RawKeyboard$__closure, A.RawKeyboard_handleHtmlEvent_closure, A.AccessibilityAnnouncements_announce_closure, A.AccessibilityAnnouncements_announce_closure0, A.AccessibilityFocusManager_changeFocus_closure, A.AccessibilityFocusManager_changeFocus_closure0, A.SemanticRouteBase_closure, A.SemanticRouteBase_update_closure, A.RouteName_update_closure, A.SemanticScrollable_update_closure, A.SemanticRole__updateControls_closure, A.SemanticsObject_toString_closure, A.EngineSemantics__now_closure, A.EngineSemantics__getGestureModeClock_closure, A.EngineSemanticsOwner_closure, A.EngineSemanticsOwner_updateSemantics_closure, A.EngineSemanticsOwner_updateSemantics_closure0, A.MobileSemanticsEnabler_tryEnableSemantics_closure, A.SemanticTextField_update_closure, A.TestUrlStrategy_go_closure, A.TestUrlStrategy_addPopStateListener_closure, A.TestUrlStrategy_addPopStateListener__closure, A.EngineLineMetrics_toString_closure, A.fontWeightIndexToCss_closure, A.EditingState_toString_closure, A.IOSTextEditingStrategy__schedulePlacement_closure, A.TextEditingChannel_handleTextInput_closure, A.Matrix4_toString_closure, A.CustomElementDimensionsProvider_closure1, A.FullPageEmbeddingStrategy__applyViewportMeta_closure, A.FlutterViewManager_safeBlur_closure, A.FlutterViewManager_safeRemove_closure, A._hotRestartCache_closure, A._hotRestartCache__closure, A.applyGlobalCssRulesToSheet_closure, A.WebParagraphDebug_log_closure, A.WebParagraphDebug_apiTrace_closure, A.WebFontCollection_loadAssetFonts_closure, A.TextLayout_addLine_closure, A.WebParagraphPainter_paint_closure, A.WebParagraphStyle_toString_closure, A.WebTextStyle_toString_closure, A._LineBuilder_hasPendingText_closure, A.EngineFlutterView__computePhysicalSize_closure, A.EngineFlutterWindow_handleNavigationMessage_closure, A.CastMap_putIfAbsent_closure, A.nullFuture_closure, A.Primitives_initTicker_closure, A._AsyncRun__scheduleImmediateJsOverride_internalCallback, A._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback, A._TimerImpl_internalCallback, A._TimerImpl$periodic_closure, A.Future_Future_closure, A.Future_Future$delayed_closure, A._Future__addListener_closure, A._Future__prependListeners_closure, A._Future__chainForeignFuture_closure1, A._Future__chainCoreFuture_closure, A._Future__asyncCompleteWithValue_closure, A._Future__asyncCompleteErrorObject_closure, A._Future__propagateToListeners_handleWhenCompleteCallback, A._Future__propagateToListeners_handleValueCallback, A._Future__propagateToListeners_handleError, A._Future_timeout_closure, A.Stream_length_closure0, A.Stream_first_closure, A.Stream_firstWhere_closure, A.Stream_firstWhere__closure, A._StreamController__subscribe_closure, A._StreamController__recordCancel_complete, A._BufferingStreamSubscription__sendError_sendError, A._BufferingStreamSubscription__sendDone_sendDone, A._PendingEvents_schedule_closure, A._cancelAndError_closure, A._cancelAndValue_closure, A._RootZone_bindCallbackGuarded_closure, A._rootHandleError_closure, A._Utf8Decoder__decoder_closure, A._Utf8Decoder__decoderNonfatal_closure, A.DateTime$_internal_closure, A._performance_closure, A._json_closure, A.ChannelBuffers_push_closure, A.ChannelBuffers_push_closure0, A.ChannelBuffers_setListener_closure, A.ChannelBuffers_allowOverflow_closure, A.bootstrapEngine_closure0, A.BrowserPlatformLocation_getOrCreateDomEventListener_closure, A.HashUrlStrategy_addPopStateListener_closure, A.AudioPlayer__completePrepared_closure0, A.AudioPlayer_setSourceAsset_closure, A.CanonicalizedMap_putIfAbsent_closure, A.FirebaseCoreWeb_registerService_closure, A.AnimationController_forward_closure, A.AnimationController_reverse_closure, A.AnimationController_animateTo_closure, A.AnimationController_animateBack_closure, A.AnimationController_repeat_closure, A.AnimationController_dispose_closure, A.AnimationController_toStringDetails_closure, A.CurvedAnimation_value_closure, A.AnimationLocalListenersMixin_notifyListeners_closure, A.AnimationLocalListenersMixin_notifyListeners__closure, A.AnimationLocalStatusListenersMixin_notifyStatusListeners_closure, A.AnimationLocalStatusListenersMixin_notifyStatusListeners__closure, A.Tween_lerp_closure, A.__CupertinoActivityIndicatorState_State_SingleTickerProviderStateMixin_dispose_closure, A._CupertinoButtonState__handleTapDown_closure, A._CupertinoButtonState__handleTapUp_closure, A._CupertinoButtonState__handleTapCancel_closure, A._CupertinoButtonState__onShowFocusHighlight_closure, A._CupertinoButtonState_build_closure, A.__CupertinoButtonState_State_SingleTickerProviderStateMixin_dispose_closure, A.CupertinoDynamicColor_resolveFrom_closure, A.debugCheckHasCupertinoLocalizations_closure, A._CupertinoDesktopTextSelectionToolbarButtonState__onEnter_closure, A._CupertinoDesktopTextSelectionToolbarButtonState__onExit_closure, A._CupertinoTextMagnifierState_initState_closure, A._CupertinoTextMagnifierState_initState__closure, A._CupertinoTextMagnifierState__determineMagnifierPositionAndFocalPoint_closure, A.__CupertinoTextMagnifierState_State_SingleTickerProviderStateMixin_dispose_closure, A.CupertinoRouteTransitionMixin__startPopGesture_closure0, A.CupertinoRouteTransitionMixin__startPopGesture_closure, A.CupertinoRouteTransitionMixin_buildPageTransitions_closure, A.CupertinoRouteTransitionMixin_buildPageTransitions_closure0, A._CupertinoScrollbarState_initState_closure, A._RenderCupertinoTextSelectionToolbarShape_debugPaintSize_closure, A._CupertinoTextSelectionToolbarContentState__statusListener_closure, A.__CupertinoTextSelectionToolbarContentState_State_TickerProviderStateMixin_dispose_closure, A._CupertinoTextSelectionToolbarButtonState__onTapDown_closure, A._CupertinoTextSelectionToolbarButtonState__onTapUp_closure, A._CupertinoTextSelectionToolbarButtonState__onTapCancel_closure, A._testPlatform_closure, A.FlutterErrorDetails_summary_formatException, A.FlutterErrorDetails_summary_closure0, A.FlutterError$fromParts_closure, A.FlutterError_dumpErrorToConsole_closure, A.BindingBase_closure, A.BindingBase_initInstances_closure, A.BindingBase_checkInstance_closure, A.BindingBase_debugCheckZone_closure, A.BindingBase_initServiceExtensions_closure, A.BindingBase_initServiceExtensions_closure0, A.BindingBase_initServiceExtensions_closure2, A.BindingBase_initServiceExtensions_closure4, A.BindingBase_initServiceExtensions_closure5, A.BindingBase_lockEvents_closure, A.BindingBase_registerServiceExtension__closure, A.BindingBase_registerServiceExtension__closure0, A.ChangeNotifier_debugAssertNotDisposed_closure, A.ChangeNotifier_maybeDispatchObjectCreation_closure, A.ChangeNotifier_dispose_closure, A.ChangeNotifier_notifyListeners_closure, A.debugInstrumentAction_closure, A.DiagnosticsNode_toJsonMap_closure, A.DiagnosticsNode_toJsonMapIterative_closure, A.DiagnosticsNode_toString_closure, A.DiagnosticsNode_toStringDeep_closure, A.DiagnosticableNode_builder_closure, A.DiagnosticableNode_toDescription_closure, A.DiagnosticPropertiesBuilder_add_closure, A.Diagnosticable_toString_closure, A.FlutterMemoryAllocations_dispatchObjectEvent_closure, A.objectRuntimeType_closure, A.GestureArenaManager_add_closure, A.GestureArenaManager__tryToResolveArena_closure, A.GestureArenaManager__debugLogDiagnostic_closure, A.GestureBinding__handlePointerEventImmediately_closure, A.GestureBinding__handlePointerEventImmediately_closure0, A.GestureBinding_dispatchEvent_closure, A.GestureBinding_dispatchEvent_closure0, A.GestureBinding_samplingClock_closure, A.ForcePressGestureRecognizer_handleEvent_closure, A.ForcePressGestureRecognizer_acceptGesture_closure, A.ForcePressGestureRecognizer_didStopTrackingLastPointer_closure, A.HitTestResult__debugVectorMoreOrLessEquals_closure, A.LongPressGestureRecognizer__checkLongPressStart_closure, A.LongPressGestureRecognizer__checkLongPressMoveUpdate_closure, A.LongPressGestureRecognizer__checkLongPressEnd_closure, A.DragGestureRecognizer__checkDown_closure, A.DragGestureRecognizer__checkStart_closure, A.DragGestureRecognizer__checkUpdate_closure, A.DragGestureRecognizer__checkEnd_closure, A.DragGestureRecognizer__checkEnd_closure0, A.DragGestureRecognizer__checkEnd_closure1, A.DragGestureRecognizer__checkEnd_closure2, A.PointerRouter_addRoute_closure, A.PointerRouter__dispatch_closure, A.PointerRouter__dispatch__closure, A.PointerSignalResolver_resolve_closure, A.PointerSignalResolver_resolve__closure, A.GestureRecognizer_invokeCallback_closure, A.GestureRecognizer_invokeCallback_closure0, A.GestureRecognizer_invokeCallback__closure, A.PrimaryPointerGestureRecognizer_addAllowedPointer_closure, A.TapGestureRecognizer_handleTapDown_closure, A.TapGestureRecognizer_handleTapDown_closure0, A.TapGestureRecognizer_handleTapUp_closure, A.TapGestureRecognizer_handleTapUp_closure0, A.TapGestureRecognizer_handleTapUp_closure1, A.TapGestureRecognizer_handleTapMove_closure, A.BaseTapAndDragGestureRecognizer__handleDragUpdateThrottled_closure, A.BaseTapAndDragGestureRecognizer_addAllowedPointer_closure, A.BaseTapAndDragGestureRecognizer__checkTapDown_closure, A.BaseTapAndDragGestureRecognizer__checkTapUp_closure, A.BaseTapAndDragGestureRecognizer__checkDragStart_closure, A.BaseTapAndDragGestureRecognizer__checkDragUpdate_closure, A.BaseTapAndDragGestureRecognizer__checkDragEnd_closure, A.GestureArenaTeam_add_closure, A.VelocityTracker_getVelocityEstimate_closure, A.VelocityTracker_getVelocityEstimate_closure0, A.IOSScrollViewFlingVelocityTracker_addPosition_closure, A._ActionButton_build_closure, A._MaterialAppState_build_closure, A.AppBar__getEffectiveCenterTitle_platformCenter, A._AppBarState__handleScrollNotification_closure, A.MaterialPointArcTween__initialize_sweepAngle, A._AutocompleteOptionsListState_build__closure0, A._BottomSheetState__handleDragStart_closure, A._BottomSheetState__handleDragEnd_closure, A._BottomSheetState__handleDragHandleHover_closure, A._ModalBottomSheetState_build_closure0, A._BottomSheetGestureDetector_build_closure, A._ButtonStyleState_handleStatesControllerChange_closure, A._ButtonStyleState_build_effectiveIconColor, A._ButtonStyleState_build__closure1, A.__ButtonStyleState_State_TickerProviderStateMixin_dispose_closure, A._CalendarDatePickerState__handleModeChanged_closure, A._CalendarDatePickerState__handleMonthChanged_closure, A._CalendarDatePickerState__handleYearChanged_closure, A._CalendarDatePickerState__handleDayChanged_closure, A._CalendarDatePickerState_build_closure, A._MonthPickerState__handleMonthPageChanged_closure, A._MonthPickerState__handleGridFocusChange_closure, A._MonthPickerState__handleDirectionFocus_closure, A._DayState_build_closure2, A._YearPickerState__buildYearItem_closure2, A.__DatePickerModeToggleButtonState_State_SingleTickerProviderStateMixin_dispose_closure, A.__CheckboxState_State_TickerProviderStateMixin_dispose_closure, A._RawChipState_initState_closure, A._RawChipState_initState__closure, A._RawChipState__handleTapDown_closure, A._RawChipState__handleTapCancel_closure, A._RawChipState__handleTap_closure, A._RawChipState_didUpdateWidget_closure, A._RawChipState_didUpdateWidget_closure0, A._RawChipState_didUpdateWidget_closure1, A.__RawChipState_State_TickerProviderStateMixin_dispose_closure, A.TableRowInkWell_getRectCallback_closure, A._DatePickerDialogState__handleOk_closure, A._DatePickerDialogState__handleEntryModeToggle_closure, A._DatePickerDialogState__handleDateChanged_closure, A._DatePickerDialogState_build_calendarDatePicker, A._DatePickerDialogState_build_inputDatePicker, A.debugCheckHasMaterial_closure, A.debugCheckHasMaterialLocalizations_closure, A.debugCheckHasScaffoldMessenger_closure, A.DrawerControllerState__animationChanged_closure, A._DrawerControllerState_State_SingleTickerProviderStateMixin_dispose_closure, A._DropdownMenuState_build_closure, A._DropdownMenuRouteLayout_getPositionForChild_closure, A._DropdownButtonState__handleFocusChanged_closure, A._DropdownButtonState__handleTap__closure, A._DropdownButtonState__handleTap_closure1, A._DropdownButtonState_build__closure0, A._DropdownButtonState_build__closure, A._ExpansionTileState__onExpansionChanged_closure, A._getClipCallback_closure0, A._getClipCallback_closure, A._InkResponseState_activateOnIntent_closure, A._InkResponseState_handleStatesControllerChange_closure, A._InkResponseState_updateHighlight_handleInkRemoval, A._InkResponseState__createSplash_onRemoved, A._InkResponseState_handleFocusHighlightModeChange_closure, A._InputDatePickerFormFieldState_didUpdateWidget__closure, A._HelperErrorState__handleChange_closure, A._RenderDecoration__childSemanticsConfigurationDelegate_closure0, A._InputDecoratorState__handleChange_closure, A.__HelperErrorState_State_SingleTickerProviderStateMixin_dispose_closure, A.__BorderContainerState_State_TickerProviderStateMixin_dispose_closure, A.__InputDecoratorState_State_TickerProviderStateMixin_dispose_closure, A.ListTile__debugCheckBackgroundIsHidden_closure, A.ListTile__debugCheckBackgroundIsHidden__closure, A._RenderListTile__computeSizes_closure, A._TextMagnifierState__determineMagnifierPositionAndFocalPoint_closure, A._TextMagnifierState__determineMagnifierPositionAndFocalPoint__closure, A._TextMagnifierState__determineMagnifierPositionAndFocalPoint_closure0, A.Material_of_closure, A.InkFeature_dispose_closure, A.__MaterialState_State_TickerProviderStateMixin_dispose_closure, A.MaterialStateMixin_addMaterialState_closure, A.MaterialStateMixin_removeMaterialState_closure, A._PredictiveBackGestureDetectorState_phase_closure, A._PredictiveBackGestureDetectorState_startBackEvent_closure, A._PredictiveBackGestureDetectorState_currentBackEvent_closure, A.__PredictiveBackSharedElementPageTransitionState_State_SingleTickerProviderStateMixin_dispose_closure, A.__CircularProgressIndicatorState_State_SingleTickerProviderStateMixin_dispose_closure, A.RefreshIndicatorState__handleScrollNotification_closure, A.RefreshIndicatorState__dismiss_closure, A.RefreshIndicatorState__dismiss_closure0, A.RefreshIndicatorState__show__closure, A.RefreshIndicatorState__show__closure0, A.RefreshIndicatorState_build_closure, A._RefreshIndicatorState_State_TickerProviderStateMixin_dispose_closure, A.ScaffoldMessengerState_showSnackBar_closure, A.ScaffoldMessengerState_showSnackBar_closure0, A.ScaffoldMessengerState_showSnackBar_closure1, A.ScaffoldMessengerState__handleSnackBarStatusChanged_closure, A.ScaffoldMessengerState__handleSnackBarStatusChanged_closure0, A.ScaffoldMessengerState_build_closure, A._ScaffoldLayout_performLayout_closure, A._FloatingActionButtonTransitionState__handlePreviousAnimationStatusChanged_closure, A.ScaffoldState__endDrawerOpenedCallback_closure, A.ScaffoldState__updateSnackBar_closure, A.ScaffoldState__updateMaterialBanner_closure, A._ScaffoldMessengerState_State_TickerProviderStateMixin_dispose_closure, A._ScaffoldState_State_TickerProviderStateMixin_dispose_closure, A.__FloatingActionButtonTransitionState_State_TickerProviderStateMixin_dispose_closure, A._MaterialScrollbarState_initState_closure, A._MaterialScrollbarState_handleThumbPressStart_closure, A._MaterialScrollbarState_handleThumbPressEnd_closure, A._MaterialScrollbarState_handleHover_closure, A._MaterialScrollbarState_handleHover_closure0, A._MaterialScrollbarState_handleHoverExit_closure, A._SnackBarState_build_closure, A._SnackBarState_build_closure1, A._MaterialSwitchState__handleDragEnd_closure, A.__MaterialSwitchState_State_TickerProviderStateMixin_dispose_closure, A.SwitchListTile_build_closure, A._TextFieldState__handleFocusChanged_closure, A._TextFieldState__handleSelectionChanged_closure, A._TextFieldState__handleHover_closure, A._TextFieldState__handleStatesControllerChange_closure, A._TextFieldState_build_closure, A._TextFieldState_build_closure0, A._TextFieldState_build_closure1, A._TextFieldState_build_closure2, A._TextFieldState_build_closure3, A._TextFieldState_build_closure4, A._TextFieldState_build__closure, A._TextFieldState_build__closure0, A._TextSelectionToolbarOverflowableState_build_closure, A._TextSelectionToolbarOverflowableState_build__closure, A.__TextSelectionToolbarOverflowableState_State_TickerProviderStateMixin_dispose_closure, A.ThemeData_copyWith_closure, A.ThemeData_localize_closure, A._TooltipState_State_SingleTickerProviderStateMixin_dispose_closure, A.Border_paint_closure, A.Border_paint_closure0, A.Border_paint_closure1, A._BoxDecorationPainter__paintShadows_closure, A._BoxDecorationPainter__paintShadows_closure0, A.BoxShadow_toPaint_closure, A.debugCheckCanResolveTextDirection_closure, A._TextLayout__computeEndOfTextCaretAnchorOffset_closure, A.TextPainter_markNeedsLayout_closure, A.TextPainter_textWidthBasis_closure, A.TextPainter_setPlaceholderDimensions_closure, A.TextPainter__createParagraph_closure, A.TextPainter_layout_closure, A.TextPainter_paint_closure, A.TextPainter_debugDisposed_closure, A.TextPainter_dispose_closure, A.TextSpan_debugAssertIsValid_closure, A.TextStyle_copyWith_closure, A.TextStyle_apply_closure, A.TextStyle_merge_closure, A.TextStyle_lerp_closure, A.TextStyle_lerp_closure0, A.RenderAnimatedSize_closure, A.RendererBinding_pipelineOwner_closure, A.RendererBinding_pipelineOwner_closure0, A.RendererBinding__scheduleMouseTrackerUpdate_closure, A.RendererBinding__scheduleMouseTrackerUpdate__closure, A.BoxConstraints__debugPropagateDebugSize_closure, A.BoxConstraints_constrain_closure, A.BoxConstraints_constrainSizeAndAttemptToPreserveAspectRatio_closure, A.BoxConstraints_constrainSizeAndAttemptToPreserveAspectRatio_closure0, A.BoxConstraints_debugAssertIsValid_closure, A._DryLayout_memoize_closure, A._Baseline_memoize_ifAbsent, A._IntrinsicDimension_memoize_closure, A.RenderBox__computeIntrinsics_closure, A.RenderBox__computeWithTimeline_closure, A.RenderBox_getMinIntrinsicWidth_closure, A.RenderBox_getMaxIntrinsicWidth_closure, A.RenderBox_getMinIntrinsicHeight_closure, A.RenderBox_getMaxIntrinsicHeight_closure, A.RenderBox__computeDryLayout_closure, A.RenderBox__computeDryLayout_closure0, A.RenderBox__computeDryBaseline_closure, A.RenderBox__computeDryBaseline_closure0, A.RenderBox_debugCannotComputeDryLayout_closure, A.RenderBox_size_closure, A.RenderBox_size_closure0, A.RenderBox_size_closure1, A.RenderBox_size_closure2, A.RenderBox_debugAdoptSize_closure, A.RenderBox_debugAssertDoesMeetConstraints_closure, A.RenderBox_performLayout_closure, A.RenderBox_hitTest_closure, A.RenderBox_applyPaintTransform_closure, A.RenderBox_debugHandleEvent_closure, A.RenderBox_debugPaint_closure, A.RenderBox_debugPaintSize_closure, A.RenderBox_debugPaintBaselines_closure, A.MultiChildLayoutDelegate_layoutChild_closure, A.MultiChildLayoutDelegate_positionChild_closure, A.MultiChildLayoutDelegate__callPerformLayout_closure, A.MultiChildLayoutDelegate__callPerformLayout_closure0, A.MultiChildLayoutDelegate__callPerformLayout_closure1, A.MultiChildLayoutDelegate__callPerformLayout_closure2, A.MultiChildLayoutDelegate__callPerformLayout_closure3, A.RenderCustomPaint__paintWithPainter_closure, A.RenderCustomPaint__paintWithPainter_closure0, A.RenderCustomPaint_assembleSemanticsNode_closure, A.RenderCustomPaint__updateSemanticsChildren_closure, A.RenderCustomPaint__updateSemanticsChildren_closure0, A.debugPaintPadding_closure, A.debugCheckHasBoundedAxis_closure, A.DebugOverflowIndicatorMixin__reportOverflow_closure, A.RenderEditable__createShowOnScreenFor_closure, A.RenderErrorBox__initBackgroundColor_closure, A.RenderErrorBox__initTextStyle_closure, A._RenderFlex_RenderBox_ContainerRenderObjectMixin_RenderBoxContainerDefaultsMixin_DebugOverflowIndicatorMixin_reassemble_closure, A.RenderFlex_computeDryLayout_closure, A.RenderFlex__debugCheckConstraints_closure, A.RenderFlex_performLayout_closure, A.RenderFlex_paint_closure, A.Layer_addCompositionCallback_closure, A.Layer_addCompositionCallback__closure, A.Layer_addCompositionCallback__closure0, A.Layer_addCompositionCallback_closure0, A.Layer_debugDisposed_closure, A.Layer_debugHandleCount_closure, A.Layer_dispose_closure, A.ContainerLayer_append_closure, A.ContainerLayer__adoptChild_closure, A.ClipRectLayer_addToScene_closure, A.ClipRRectLayer_addToScene_closure, A.ClipPathLayer_addToScene_closure, A.OpacityLayer_addToScene_closure, A.LayerLink__registerLeader_closure, A.LayerLink__debugScheduleLeadersCleanUpCheck_closure, A.RenderListBody__debugCheckConstraints_closure, A.RenderListBody__debugCheckConstraints_closure0, A.MouseTracker__deviceUpdatePhase_closure, A.MouseTracker__deviceUpdatePhase_closure0, A.MouseTracker_updateWithEvent_closure, A.MouseTracker_updateWithEvent__closure, A.MouseTracker_updateAllDevices_closure, A.PaintingContext__repaintCompositedChild_closure, A.PaintingContext__repaintCompositedChild_closure0, A.PaintingContext__repaintCompositedChild_closure1, A.PaintingContext_updateLayerProperties_closure, A.PaintingContext_debugInstrumentRepaintCompositedChild_closure, A.PaintingContext_paintChild_closure, A.PaintingContext__compositeChild_closure, A.PaintingContext__isRecording_closure, A.PaintingContext_stopRecordingIfNeeded_closure, A.PaintingContext_pushClipRect_closure, A.PaintingContext_pushClipRRect_closure, A.PaintingContext_pushClipPath_closure, A.PipelineOwner_flushLayout_closure, A.PipelineOwner_flushLayout_closure0, A.PipelineOwner_flushLayout_closure2, A.PipelineOwner_flushLayout_closure3, A.PipelineOwner__enableMutationsToDirtySubtrees_closure, A.PipelineOwner__enableMutationsToDirtySubtrees_closure0, A.PipelineOwner_flushPaint_closure, A.PipelineOwner_flushPaint_closure0, A.PipelineOwner_flushPaint_closure2, A.PipelineOwner_flushSemantics_closure, A.PipelineOwner_flushSemantics_closure2, A.PipelineOwner_flushSemantics_closure5, A.PipelineOwner_flushSemantics_closure6, A.RenderObject_debugDisposed_closure, A.RenderObject_dispose_closure, A.RenderObject_adoptChild_closure, A.RenderObject__reportException_closure, A.RenderObject__withDebugActiveLayoutCleared_closure, A.RenderObject__withDebugActiveLayoutCleared_closure0, A.RenderObject__debugCanPerformMutations_closure, A.RenderObject_debugLayoutParent_closure, A.RenderObject_markNeedsLayout_closure, A.RenderObject_scheduleInitialLayout_closure, A.RenderObject__layoutWithoutResize_closure, A.RenderObject__layoutWithoutResize_closure0, A.RenderObject_layout_closure, A.RenderObject_layout_closure0, A.RenderObject_layout_closure1, A.RenderObject_layout_closure2, A.RenderObject_layout_closure3, A.RenderObject_layout_closure4, A.RenderObject_layout_closure5, A.RenderObject_layout_closure6, A.RenderObject_layout_closure7, A.RenderObject_layout_closure8, A.RenderObject_layout_closure9, A.RenderObject_invokeLayoutCallback_closure, A.RenderObject_debugLayer_closure, A.RenderObject_markNeedsPaint_closure, A.RenderObject_markNeedsPaint_closure0, A.RenderObject__paintWithContext_closure, A.RenderObject__paintWithContext_closure0, A.RenderObject__paintWithContext_closure1, A.RenderObject__paintWithContext_closure2, A.RenderObject__paintWithContext_closure3, A.RenderObject_toStringDeep_closure, A.RenderObjectWithChildMixin_debugValidateChild_closure, A.ContainerRenderObjectMixin_debugValidateChild_closure, A.RenderInlineChildrenContainerDefaults_positionInlineChildren_closure, A.RenderParagraph_paint_closure, A.RenderParagraph_paint_closure0, A.RenderParagraph__createShowOnScreenFor_closure, A.RenderConstrainedBox_debugPaintSize_closure, A.RenderBackdropFilter_paint_closure, A._RenderCustomClip_debugPaintSize_closure, A.RenderClipRect_debugPaintSize_closure, A.RenderClipRRect_debugPaintSize_closure, A.RenderClipPath_debugPaintSize_closure, A.RenderPhysicalModel_paint_closure, A.RenderPhysicalModel_paint_closure1, A.RenderPhysicalShape_paint_closure, A.RenderPhysicalShape_paint_closure1, A.RenderDecoratedBox_paint_closure, A.RenderDecoratedBox_paint_closure0, A.RenderTransform_paint_closure, A.RenderRepaintBoundary_debugRegisterRepaintBoundaryPaint_closure, A.RenderRepaintBoundary_debugFillProperties_closure, A.RenderLeaderLayer_paint_closure, A.RenderFollowerLayer_paint_closure, A.RenderPadding_debugPaintSize_closure, A.RenderPositionedBox_debugPaintSize_closure, A.SliverConstraints_debugAssertIsValid_closure, A.SliverGeometry_debugAssertIsValid_closure, A.RenderSliver_geometry_closure, A.RenderSliver_debugAssertDoesMeetConstraints_closure, A.RenderSliver_debugAssertDoesMeetConstraints_closure0, A.RenderSliver_applyPaintTransform_closure, A.RenderSliver__debugDrawArrow_closure, A.RenderSliver_debugPaint_closure, A.RenderSliverFixedExtentBoxAdaptor_debugAssertDoesMeetConstraints_closure, A.RenderSliverList_performLayout_advance, A.RenderSliverMultiBoxAdaptor_closure, A.RenderSliverMultiBoxAdaptor_debugChildIntegrityEnabled_closure, A.RenderSliverMultiBoxAdaptor_move_closure, A.RenderSliverMultiBoxAdaptor_move_closure0, A.RenderSliverMultiBoxAdaptor_remove_closure, A.RenderSliverMultiBoxAdaptor_debugAssertChildListIsNonEmptyAndContiguous_closure, A.RenderSliverEdgeInsetsPadding_debugPaint_closure, A.RenderTable_assembleSemanticsNode_closure, A.RenderTable_assembleSemanticsNode_closure0, A.RenderView_paint_closure, A.RenderView_compositeFrame_closure, A.RenderView_debugFillProperties_closure, A.RenderAbstractViewport_of_closure, A.RenderViewportBase_debugThrowIfNotCheckingIntrinsics_closure, A.RenderViewportBase_debugPaintSize_closure, A.RenderViewport_performLayout_closure, A.RenderShrinkWrappingViewport_debugThrowIfNotCheckingIntrinsics_closure, A.RenderShrinkWrappingViewport__debugCheckHasBoundedCrossAxis_closure, A._FrameCallbackEntry_closure, A._FrameCallbackEntry__closure, A.SchedulerBinding__executeTimingsCallbacks_closure, A.SchedulerBinding__executeTimingsCallbacks__closure, A.SchedulerBinding_handleEventLoopCallback_closure, A.SchedulerBinding_addPostFrameCallback_closure, A.SchedulerBinding_scheduleFrame_closure, A.SchedulerBinding_scheduleForcedFrame_closure, A.SchedulerBinding_scheduleWarmUpFrame_closure, A.SchedulerBinding_scheduleWarmUpFrame_closure0, A.SchedulerBinding_scheduleWarmUpFrame_closure1, A.SchedulerBinding_handleBeginFrame_closure, A.SchedulerBinding_handleDrawFrame_closure, A.SchedulerBinding__invokeFrameCallback_closure, A.SchedulerBinding__invokeFrameCallback_closure0, A.SchedulerBinding__invokeFrameCallback_closure1, A.Ticker_closure, A.Ticker_start_closure, A.Ticker_dispose_closure, A.Ticker_toString_closure, A.Ticker_toString_closure0, A.SemanticsBinding_disableAnimations_closure, A.ChildSemanticsConfigurationsResultBuilder_build_closure, A.AttributedString_closure, A.SemanticsNode__replaceChildren_closure0, A.SemanticsNode__replaceChildren_closure1, A.SemanticsNode__adoptChild_closure, A.SemanticsNode__addToUpdate_closure, A.SemanticsNode_sendEvent__closure, A.SemanticsNode__debugIsActionBlocked_closure, A.SemanticsOwner_sendSemanticsUpdate_closure, A.SemanticsOwner_sendSemanticsUpdate_closure5, A.ServicesBinding__addLicenses_closure, A.ServicesBinding__generateStateTransitions_closure, A.HardwareKeyboard__logEventIfIrregular_closure, A.HardwareKeyboard__logEventIfIrregular__closure, A.HardwareKeyboard__logEventIfIrregular__closure0, A.HardwareKeyboard__logEventIfIrregular__closure1, A.HardwareKeyboard__dispatchKeyEvent_closure, A.HardwareKeyboard__dispatchKeyEvent__closure, A.HardwareKeyboard_handleKeyEvent_closure, A.HardwareKeyboard_handleKeyEvent_closure0, A.HardwareKeyboard_handleKeyEvent_closure1, A.KeyEventManager__dispatchKeyMessage_closure, A.KeyEventManager__dispatchKeyMessage__closure, A.LogicalKeyboardKey_debugName_closure, A.PhysicalKeyboardKey_debugName_closure, A.EventChannel_receiveBroadcastStream_closure, A.EventChannel_receiveBroadcastStream_closure0, A.RawKeyEventData_modifiersPressed_closure, A.RawKeyEvent_RawKeyEvent$fromMessage_dataFromWeb, A.RawKeyboard_handleRawKeyEvent_closure, A.RawKeyboard_handleRawKeyEvent__closure, A.RawKeyboard__synchronizeModifiers_closure, A.RestorationManager__doSerialization_closure, A.RestorationManager__doSerialization_closure0, A.RestorationBucket$empty_closure, A.RestorationBucket$root_closure, A.RestorationBucket$child_closure, A.RestorationBucket__rawChildren_closure, A.RestorationBucket__rawValues_closure, A.RestorationBucket__debugAssertIntegrity_closure, A.RestorationBucket__addChildData_closure, A.RestorationBucket__debugAssertNotDisposed_closure, A.debugIsSerializableForRestoration_closure, A.SystemChrome_setSystemUIOverlayStyle_closure, A.SystemChrome_handleAppLifecycleStateChanged_closure, A.TextInput__debugEnsureInputActionWorksOnPlatform_closure, A.TextInput__loudlyHandleTextInputInvocation_closure, A.TextInput__handleTextInputInvocation_closure2, A.TextInput__scheduleHide_closure, A._colorsWithinRect_closure0, A.Actions_maybeFind_closure0, A.Actions_invoke_closure, A._ActionsState__handleActionChanged_closure, A._FocusableActionDetectorState__updateHighlightMode_closure, A._FocusableActionDetectorState__handleMouseEnter_closure, A._FocusableActionDetectorState__handleMouseExit_closure, A._FocusableActionDetectorState__handleFocusChange_closure, A._OverridableActionMixin__invokeOverride_closure, A._OverridableActionMixin__invokeOverride_closure0, A._OverridableActionMixin__isOverrideActionEnabled_closure, A._OverridableActionMixin__isOverrideActionEnabled_closure0, A._OverridableActionMixin_isEnabled_closure, A._OverridableActionMixin_isEnabled_closure0, A._OverridableActionMixin_consumesKey_closure, A._OverridableActionMixin_consumesKey_closure0, A._OverridableContextAction__invokeOverride_closure, A._OverridableContextAction__invokeOverride_closure0, A.__AnimatedSizeState_State_SingleTickerProviderStateMixin_dispose_closure, A._AnimatedSwitcherState__newEntry__closure, A.__AnimatedSwitcherState_State_TickerProviderStateMixin_dispose_closure, A._WidgetsAppState__onUnknownRoute_closure, A._WidgetsAppState__onUnknownRoute_closure0, A._WidgetsAppState_build_closure0, A.AppLifecycleListener_dispose_closure, A.AppLifecycleListener__debugAssertNotDisposed_closure, A._RawAutocompleteState__actionMap_closure, A._RawAutocompleteState__actionMap_closure0, A._RawAutocompleteState__actionMap_closure1, A._RawAutocompleteState__actionMap_closure2, A._RawAutocompleteState__actionMap_closure3, A._RawAutocompleteState__actionMap_closure4, A._AutomaticKeepAliveState__createCallback_closure, A._AutomaticKeepAliveState__createCallback__closure, A._AutomaticKeepAliveState__createCallback__closure0, A._AutomaticKeepAliveState__createCallback__closure1, A._AutomaticKeepAliveState__createCallback___closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure3, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure5, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure8, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure10, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure12, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure3, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure5, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_initServiceExtensions_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_initInstances_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions__closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initInstances_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initInstances_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure3, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure5, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure8, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions__closure, A.WidgetsBinding__handleBuildScheduled_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure2, A.WidgetsBinding_scheduleAttachRootWidget_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_performReassemble_closure, A.RootWidget_attach_closure, A.RootWidget_attach_closure0, A.debugChildrenHaveDuplicateKeys_closure, A.debugCheckHasTable_closure, A.debugCheckHasMediaQuery_closure, A.debugCheckHasDirectionality_closure, A.debugWidgetBuilderValue_closure, A.debugCheckHasWidgetsLocalizations_closure, A.debugCheckHasOverlay_closure, A._DismissibleState__handleDragStart_closure, A._DismissibleState__handleDragUpdate_closure, A._DismissibleState_build_closure, A.__DismissibleState_State_TickerProviderStateMixin_dispose_closure, A._DiscreteKeyFrameSimulation$__closure, A.EditableTextState__onChangedClipboardStatus_closure, A.EditableTextState__inferSpellCheckConfiguration_closure, A.EditableTextState_buttonItemsForToolbarOptions_closure, A.EditableTextState_buttonItemsForToolbarOptions_closure0, A.EditableTextState_buttonItemsForToolbarOptions_closure1, A.EditableTextState_buttonItemsForToolbarOptions_closure2, A.EditableTextState_contextMenuButtonItems_closure, A.EditableTextState_contextMenuButtonItems_closure0, A.EditableTextState_contextMenuButtonItems_closure1, A.EditableTextState_contextMenuButtonItems_closure2, A.EditableTextState_contextMenuButtonItems_closure3, A.EditableTextState_contextMenuButtonItems_closure4, A.EditableTextState_contextMenuButtonItems_closure5, A.EditableTextState_contextMenuButtonItems_closure6, A.EditableTextState__textProcessingActionButtonItems_closure, A.EditableTextState__onCursorTick_closure, A.EditableTextState__onCursorTick_closure0, A.EditableTextState__didChangeTextEditingValue_closure, A.EditableTextState__handleFocusChanged_closure, A.EditableTextState_insertTextPlaceholder_closure, A.EditableTextState_removeTextPlaceholder_closure, A.EditableTextState_showAutocorrectionPromptRect_closure, A.EditableTextState__semanticsOnCopy_closure, A.EditableTextState__semanticsOnCut_closure, A.EditableTextState__semanticsOnPaste_closure, A.EditableTextState_build___closure, A._EditableTextState_State_AutomaticKeepAliveClientMixin_WidgetsBindingObserver_TickerProviderStateMixin_dispose_closure, A._ExpansibleState__toggleExpansion_closure, A._ExpansibleState__toggleExpansion___closure, A.__ExpansibleState_State_SingleTickerProviderStateMixin_dispose_closure, A._Autofocus_applyIfValid_closure, A._Autofocus_applyIfValid_closure0, A.FocusAttachment_detach_closure, A.FocusAttachment_detach_closure0, A.FocusNode_debugLabel_closure, A.FocusNode_unfocus_closure, A.FocusNode_unfocus_closure0, A.FocusNode__doRequestFocus_closure, A.FocusNode__doRequestFocus_closure0, A.FocusNode__setAsFocusedChildForScope_closure, A.FocusNode__setAsFocusedChildForScope_closure0, A.FocusScopeNode_setFirstFocus_closure, A.FocusScopeNode_setFirstFocus_closure0, A.FocusScopeNode_autofocus_closure, A.FocusManager__appLifecycleChange_closure, A.FocusManager__appLifecycleChange_closure0, A.FocusManager__appLifecycleChange_closure1, A.FocusManager__markDetached_closure, A.FocusManager__markPropertiesChanged_closure, A.FocusManager__markNeedsUpdate_closure, A.FocusManager_applyFocusChangesIfNeeded_closure, A.FocusManager_applyFocusChangesIfNeeded_closure0, A.FocusManager_applyFocusChangesIfNeeded_closure1, A.FocusManager_applyFocusChangesIfNeeded_closure2, A.FocusManager_applyFocusChangesIfNeeded_closure3, A._HighlightModeManager_notifyListeners_closure, A._HighlightModeManager_notifyListeners__closure, A._HighlightModeManager_handleKeyMessage_closure, A._HighlightModeManager_handleKeyMessage_closure0, A._HighlightModeManager_handleKeyMessage_closure1, A._HighlightModeManager_handleKeyMessage_closure2, A._HighlightModeManager_handleKeyMessage_closure3, A._HighlightModeManager_handleKeyMessage_closure4, A._HighlightModeManager_handleKeyMessage_closure5, A._HighlightModeManager_handleKeyMessage_closure6, A._HighlightModeManager_handleKeyMessage_closure7, A._FocusState_didUpdateWidget_closure, A._FocusState__handleFocusChanged_closure, A._FocusState__handleFocusChanged_closure0, A._FocusState__handleFocusChanged_closure1, A._FocusState__handleFocusChanged_closure2, A._FocusState_build_closure, A.FocusTraversalPolicy__sortAllDescendants_closure0, A.FocusTraversalGroup_of_closure, A.FormState__forceRebuild_closure, A.FormState__validate_closure, A.FormFieldState_reset_closure, A.FormFieldState_validate_closure, A.FormFieldState_didChange_closure, A.FormFieldState_build__closure, A.State_context_closure, A.State_setState_closure, A.State_setState_closure0, A.State_dispose_closure, A.State_debugFillProperties_closure, A._InactiveElements__unmount_closure, A._InactiveElements__deactivateRecursively_closure, A.BuildScope__tryRebuild_closure, A.BuildScope__tryRebuild_closure0, A.BuildScope__flushDirtyElements_closure, A.BuildScope__dirtyElementIndexAfter_closure, A.BuildOwner_scheduleBuildFor_closure, A.BuildOwner_scheduleBuildFor_closure0, A.BuildOwner_scheduleBuildFor_closure1, A.BuildOwner_lockState_closure, A.BuildOwner_lockState_closure0, A.BuildOwner_buildScope_closure, A.BuildOwner_buildScope_closure0, A.BuildOwner_buildScope_closure1, A.BuildOwner_buildScope_closure2, A.BuildOwner_buildScope_closure3, A.BuildOwner__debugTrackElementThatWillNeedToBeRebuiltDueToGlobalKeyShenanigans_closure, A.BuildOwner__debugRemoveGlobalKeyReservationFor_closure, A.BuildOwner__registerGlobalKey_closure, A.BuildOwner__unregisterGlobalKey_closure, A.BuildOwner__debugReserveGlobalKeyFor_closure, A.BuildOwner__debugVerifyGlobalKeyReservation_closure, A.BuildOwner__debugVerifyIllFatedPopulation_closure, A.BuildOwner__debugVerifyIllFatedPopulation__closure, A.BuildOwner_finalizeTree_closure, A.Element_depth_closure, A.Element_debugIsDefunct_closure, A.Element_debugIsActive_closure, A.Element_visitChildElements_closure, A.Element_updateChild_closure, A.Element_updateChild_closure0, A.Element_updateChild_closure1, A.Element_updateChild_closure2, A.Element_update_closure, A.Element__retakeInactiveElement_closure, A.Element__retakeInactiveElement_closure0, A.Element_inflateWidget_closure, A.Element_inflateWidget_closure0, A.Element__debugCheckForCycles_closure, A.Element_deactivateChild_closure, A.Element_forgetChild_closure, A.Element__activateWithParent_closure, A.Element_findRenderObject_closure, A.Element_size_closure, A.Element_size_closure0, A.Element__debugCheckStateIsActiveForAncestorLookup_closure, A.Element__debugCheckOwnerBuildTargetExists_closure, A.Element_markNeedsBuild_closure, A.Element_rebuild_closure, A.Element_rebuild_closure0, A.Element_rebuild_closure1, A.ErrorWidget__defaultErrorWidgetBuilder_closure, A.ComponentElement_performRebuild_closure, A.ComponentElement_performRebuild_closure0, A.ComponentElement_performRebuild_closure1, A.ComponentElement_performRebuild_closure2, A.StatefulElement_closure, A.StatefulElement__firstBuild_closure, A.StatefulElement__firstBuild_closure0, A.StatefulElement__firstBuild_closure1, A.StatefulElement_update_closure, A.StatefulElement_unmount_closure, A.StatefulElement_dependOnInheritedElement_closure, A.ParentDataElement_debugParentDataType_closure, A.InheritedElement_notifyClients_closure, A.RenderObjectElement__findAncestorRenderObjectElement_closure, A.RenderObjectElement__findAncestorRenderObjectElement_closure0, A.RenderObjectElement__debugCheckCompetingAncestors_closure, A.RenderObjectElement__findAncestorParentDataElements_closure0, A.RenderObjectElement_mount_closure, A.RenderObjectElement_mount_closure0, A.RenderObjectElement_mount_closure1, A.RenderObjectElement_update_closure, A.RenderObjectElement__debugUpdateRenderObjectOwner_closure, A.RenderObjectElement__performRebuild_closure, A.RenderObjectElement__performRebuild_closure0, A.RenderObjectElement__updateParentData_closure, A.RenderObjectElement_attachRenderObject_closure, A.MultiChildRenderObjectElement__debugCheckHasAssociatedRenderObject_closure, A.GestureDetector_closure, A.GestureDetector_build_closure, A.GestureDetector_build_closure1, A.GestureDetector_build_closure3, A.GestureDetector_build_closure5, A.GestureDetector_build_closure7, A.GestureDetector_build_closure9, A.RawGestureDetectorState_replaceGestureRecognizers_closure, A.RawGestureDetectorState_replaceSemanticsActions_closure, A._DefaultSemanticsGestureDelegate__getTapHandler_closure, A._DefaultSemanticsGestureDelegate__getLongPressHandler_closure, A.Hero__allHeroesFor_inviteHero_closure, A._HeroState_startFlight_closure, A._HeroState_endFlight_closure, A._HeroFlight__handleAnimationUpdate_delayedPerformAnimationUpdate, A._HeroFlight_start_closure, A.AnimatedWidgetBaseState__handleAnimationChanged_closure, A._ImplicitlyAnimatedWidgetState_State_SingleTickerProviderStateMixin_dispose_closure, A.InheritedTheme_capture_closure, A.InheritedTheme_capture__closure, A._LayoutBuilderElement__rebuildWithConstraints_updateChildCallback, A._LayoutBuilderElement__rebuildWithConstraints_updateChildCallback_closure, A._LayoutBuilderElement__rebuildWithConstraints_updateChildCallback_closure0, A._RenderLayoutBuilder__debugThrowIfNotCheckingIntrinsics_closure, A._LocalizationsState_load__closure, A.LocalizationsResolver__debugCheckLocalizations_closure, A.LocalizationsResolver__debugCheckLocalizations__closure0, A.LookupBoundary_debugIsHidingAncestorWidgetOfExactType_closure, A.LookupBoundary_debugIsHidingAncestorStateOfType_closure, A.LookupBoundary_debugIsHidingAncestorRenderObjectOfType_closure, A._MediaQueryFromViewState__updateData_closure, A.ModalBarrier_build_handleDismiss, A.TransitionDelegate__transition_closure, A.Navigator_of_closure, A.Navigator_defaultGenerateInitialRoutes_closure, A.Navigator_defaultGenerateInitialRoutes_closure0, A.Navigator_defaultGenerateInitialRoutes_closure1, A._RouteEntry_handlePush_closure, A._RouteEntry_handlePush__closure, A._RouteEntry_handlePush__closure0, A._RouteEntry_dispose_closure0, A._RouteEntry_dispose__closure0, A._RouteEntry_markForPop_closure, A.NavigatorState_restoreState_closure0, A.NavigatorState_restoreState_closure1, A.NavigatorState__updateHeroController_closure, A.NavigatorState_didUpdateWidget_closure, A.NavigatorState__debugCheckDuplicatedPageKeys_closure, A.NavigatorState_dispose_closure, A.NavigatorState__updatePages_closure, A.NavigatorState__updatePages_closure0, A.NavigatorState__updatePages_closure1, A.NavigatorState__updatePages_closure2, A.NavigatorState__updatePages_closure3, A.NavigatorState__updatePages_closure4, A.NavigatorState__updatePages_closure5, A.NavigatorState__updatePages_closure6, A.NavigatorState__updatePages_closure7, A.NavigatorState__routeNamed_closure, A.NavigatorState__routeNamed_closure0, A.NavigatorState__routeNamed_closure1, A.NavigatorState__pushEntry_closure, A.NavigatorState__pushEntry_closure0, A.NavigatorState_pop_closure, A.NavigatorState_pop_closure0, A.NavigatorState_pop_closure1, A.NavigatorState_removeRoute_closure, A.NavigatorState_removeRoute_closure0, A.NavigatorState_finalizeRoute_closure, A.NavigatorState_finalizeRoute_closure0, A.NavigatorState__cancelActivePointers_closure, A._NavigatorState_State_TickerProviderStateMixin_dispose_closure, A._RenderOverflowBar_performLayout_nextChild, A._OverlayEntryWidgetState__markNeedsBuild_closure, A.Overlay_of_closure, A.OverlayState_insert_closure, A.OverlayState_insertAll_closure, A.OverlayState_rearrange_closure1, A.OverlayState__markDirty_closure, A.OverlayState__didChangeEntryOpacity_closure, A._TheaterElement_moveRenderObjectChild_closure, A._OverlayPortalState__getLocation_closure, A._OverlayPortalState_show_closure, A._OverlayPortalState_hide_closure, A._OverlayEntryLocation__debugMarkLocationInvalid_closure, A._RenderDeferredLayoutBox_performLayout_closure, A._RenderDeferredLayoutBox_performLayout_closure0, A._RenderLayoutSurrogateProxyBox_attach_closure, A._RenderLayoutBuilder__computeNewLayoutInfo_closure, A._OverlayState_State_TickerProviderStateMixin_dispose_closure, A._GlowController_pull_closure, A._StretchController_animate_closure, A._StretchController_animate_closure0, A.__GlowingOverscrollIndicatorState_State_TickerProviderStateMixin_dispose_closure, A.__StretchingOverscrollIndicatorState_State_TickerProviderStateMixin_dispose_closure, A.PageStorage_of_closure, A._PlatformViewLinkState__onPlatformViewCreated_closure, A.PrimaryScrollController_of_closure, A.RawTooltipState__scheduleShowTooltip_show, A._RawTooltipState_State_SingleTickerProviderStateMixin_dispose_closure, A._RootRestorationScopeState__loadRootBucketIfNecessary__closure, A.RestorationMixin_registerForRestoration_listener, A.RestorationMixin_registerForRestoration_closure0, A.RestorationMixin__doRestore_closure, A.RestorationMixin__doRestore_closure0, A.RestorationMixin__unregister_closure, A._RouterState_restoreState_closure, A._RouterState_restoreState_closure0, A._RouterState_didChangeDependencies_closure, A._RouterState__handleRouteInformationProviderNotification_closure, A._RouterState__rebuild_closure, A._RouterState__handleRouterDelegateNotification_closure, A.TransitionRoute_debugTransitionCompleted_closure, A.TransitionRoute__updateSecondaryAnimation_closure, A.TransitionRoute__updateSecondaryAnimation_closure0, A._ModalScopeState__forceRebuildPage_closure, A.ModalRoute_offstage_closure, A.ModalRoute_changedInternalState_closure, A._SelectionKeepAliveState_listensTo_closure, A.ScrollNotificationObserverState__debugAssertNotDisposed_closure, A.ScrollNotificationObserverState__notifyListeners_closure, A.ClampingScrollPhysics_applyBoundaryConditions_closure, A.ScrollPosition_setPixels_closure, A.ScrollPosition_applyBoundaryConditions_closure, A.ClampingScrollSimulation__flingDistance_closure, A.ScrollView_buildViewport_closure, A.ScrollableState_setCanDrag_closure, A.ScrollableState_setCanDrag_closure1, A._ScrollableState_State_TickerProviderStateMixin_dispose_closure, A.ScrollAction_invoke_closure, A.ScrollbarPainter__debugAssertIsValidOrientation_closure, A.RawScrollbarState__debugCheckHasValidScrollPosition_closure, A.RawScrollbarState__debugCheckHasValidScrollPosition_closure0, A.RawScrollbarState__maybeStartFadeoutTimer_closure, A.RawScrollbarState__handleScrollMetricsNotification_closure, A.RawScrollbarState__handleScrollMetricsNotification_closure0, A.RawScrollbarState__gestures_closure, A.RawScrollbarState__gestures_closure0, A.RawScrollbarState__gestures_closure1, A._RawScrollbarState_State_TickerProviderStateMixin_dispose_closure, A.MultiSelectableSelectionContainerDelegate__adjustSelection_closure, A.SingleActivator_debugDescribeKeys_closure, A.ShortcutManager__indexShortcuts__closure, A.ShortcutManager_handleKeypress_closure, A.SizeChangedLayoutNotifier_createRenderObject_closure, A.SliverMultiBoxAdaptorElement_performRebuild_closure, A.SliverMultiBoxAdaptorElement_performRebuild_closure0, A.SliverMultiBoxAdaptorElement_createChild_closure, A.SliverMultiBoxAdaptorElement_removeChild_closure, A.SliverMultiBoxAdaptorElement_insertRenderObjectChild_closure, A.SlottedRenderObjectElement__updateChildren_closure, A.SlottedRenderObjectElement__updateChildren_closure0, A.SlottedRenderObjectElement__updateChildren__closure, A.SystemContextMenu_SystemContextMenu$editableText_closure, A.Table_closure, A.Table_closure0, A.Table_closure3, A.RenderTapRegionSurface_handleEvent_closure, A._SelectableTextContainerDelegate__adjustSelection_closure, A._SelectionHandleOverlayState_build_closure, A._TextSelectionGestureDetectorState_build_closure, A._TextSelectionGestureDetectorState_build_closure1, A._TextSelectionGestureDetectorState_build_closure3, A._TextSelectionGestureDetectorState_build_closure5, A._TextSelectionGestureDetectorState_build_closure7, A.__SelectionHandleOverlayState_State_SingleTickerProviderStateMixin_dispose_closure, A.__SelectionToolbarWrapperState_State_SingleTickerProviderStateMixin_dispose_closure, A.SingleTickerProviderStateMixin_createTicker_closure, A.ToggleableStateMixin__handleTapDown_closure, A.ToggleableStateMixin__handleTapEnd_closure, A.ToggleableStateMixin__handleFocusHighlightChanged_closure, A.ToggleableStateMixin__handleHoverChanged_closure, A._AnimatedState__handleChange_closure, A._throttle__closure, A._ValueListenableBuilderState__valueChanged_closure, A.View_of_closure, A._RawViewElement__updateChild_closure, A._ScreenshotPaintingContext__isScreenshotRecording_closure, A._WidgetInspectorService_closure, A.WidgetInspectorService_isStructuredErrorsEnabled_closure, A.WidgetInspectorService_initServiceExtensions_closure, A.WidgetInspectorService_initServiceExtensions_closure0, A.WidgetInspectorService_initServiceExtensions_closure2, A.WidgetInspectorService_initServiceExtensions_closure4, A.WidgetInspectorService_toId_closure, A.WidgetInspectorService__getParentChain_createDelegate, A._ElementLocationStatsTracker_exportToJson_closure, A._ElementLocationStatsTracker_exportToJson_closure0, A._WidgetInspectorState__selectionInformationChanged_closure, A._InspectorOverlayLayer_closure, A._WidgetInspectorButtonGroupState__moveExitWidgetSelectionButton_closure, A._WidgetInspectorButtonGroupState__moveExitWidgetSelectionButton_closure0, A._WidgetInspectorButtonGroupState__exitWidgetSelectionButton_closure, A._WidgetInspectorButtonGroupState__changeButtonGroupAlignment_closure, A._WidgetInspectorButtonGroupState__changeTooltipMessage_closure, A._WidgetInspectorButtonState_build_closure1, A._WidgetInspectorButtonState__tooltipVisibilityChangedAfter_closure, A._WidgetInspectorButtonState__tooltipVisibilityChangedAfter_closure0, A._parseDiagnosticsNode_closure, A._parseDiagnosticsNode__closure, A.CustomSlidableAction_build_closure, A._SlidableDismissalState_handleResizeRequestChanged_closure0, A._SlidableDismissalState_build_closure, A.__SlidableDismissalState_State_SingleTickerProviderStateMixin_dispose_closure, A._RenderFlexEntranceTransition_getTotalFlex__closure, A.SlidableGroupNotification_createDispatcher_closure, A._ActionPaneState_handleRatioChanged_closure, A._SlidableState_handleActionPanelTypeChanged_closure, A.__SlidableState_State_TickerProviderStateMixin_dispose_closure, A.MediaType_MediaType$parse_closure, A.KeyColor__maxChroma_closure, A._RotatedPreviewState_onDeviceOrientationEvent_closure, A.PollingBarcodeReader_detectBarcodes_closure, A.PollingBarcodeReader_detectBarcodes_closure0, A.POSDialogs_promptClearCart__closure, A.POSDialogs_promptClearCart__closure0, A.POSDialogs_showInvalidBarcodeDialog__closure, A.POSDialogs_onWillPop__closure, A.POSDialogs_onWillPop__closure0, A.POSDialogs_showEditItemDialog__closure, A.POSDialogs_showEditItemDialog__closure0, A._ManualEntryDialogState__setCurrentText_closure, A._ManualEntryDialogState__selectField_closure, A._ManualEntryDialogState__submit_closure, A._ManualEntryDialogState__submit_closure0, A._ManualEntryDialogState__submit_closure1, A._ManualEntryDialogState__buildFieldBox_closure, A._ManualEntryDialogState_build_closure, A._ManualEntryDialogState_build_closure0, A._ManualEntryDialogState_build_closure1, A._ManualEntryDialogState_build_closure2, A._ManualEntryDialogState_build_closure3, A._ManualEntryDialogState_build_closure4, A._ManualEntryDialogState_build_closure5, A._ManualEntryDialogState_build_closure6, A._ManualEntryDialogState_build_closure7, A._ManualEntryDialogState_build_closure8, A._ManualEntryDialogState_build_closure9, A._ManualEntryDialogState_build_closure10, A._CategoryListScreenState__onSearchChanged_closure, A._CategoryListScreenState_fetchCategories_closure0, A._CategoryListScreenState_showDeleteConfirmation__closure, A._CategoryListScreenState_showDeleteConfirmation__closure0, A._CategoryListScreenState_showRateInputPopup__closure, A._CategoryListScreenState_showRateInputPopup__closure0, A._CategoryListScreenState_showRateInputPopup___closure, A._CategoryListScreenState_build__closure0, A._CategoryListScreenState_build__closure1, A._CategoryListScreenState_build__closure2, A._CategoryListScreenState_build_closure0, A._AccountListScreenState__onSearchChanged_closure, A._AccountListScreenState__checkIfAdmin_closure, A._AccountListScreenState_fetchAccounts_closure, A._AccountListScreenState_fetchAccounts_closure0, A._AccountListScreenState__showAddOrEditDialog_validateForm_closure, A._AccountListScreenState__showAddOrEditDialog___closure3, A._AccountListScreenState__showAddOrEditDialog___closure4, A._AccountListScreenState__confirmDeleteAccount__closure, A._AccountListScreenState__confirmDeleteAccount__closure0, A._AccountListScreenState__confirmDeleteAccount___closure0, A._AccountListScreenState_buildAccountTile_closure, A._AccountListScreenState_buildAccountTile_closure0, A._AccountListScreenState_buildAccountTile_closure1, A._AccountListScreenState__showAccountOptions__closure, A._AccountListScreenState__showAccountOptions__closure0, A._AccountListScreenState_build_closure0, A._AccountTransactionsScreenState_findExistingTransaction_closure0, A._AccountTransactionsScreenState__checkIfAdmin_closure, A._AccountTransactionsScreenState_fetchTransactions_closure, A._AccountTransactionsScreenState_fetchTransactions_closure0, A._AccountTransactionsScreenState__showTransactionDialog___onTypeChange_closure, A._AccountTransactionsScreenState__showTransactionDialog_____closure, A._AccountTransactionsScreenState__showTransactionDialog___closure3, A._AccountTransactionsScreenState__showTransactionDialog___closure4, A._AccountTransactionsScreenState__showTransactionDialog____closure, A._AccountTransactionsScreenState__deleteTransaction__closure, A._AccountTransactionsScreenState__deleteTransaction__closure0, A._AccountTransactionsScreenState_build__closure0, A._AccountTransactionsScreenState_build__closure, A._AccountTransactionsScreenState_build_closure4, A._AddEditCategoryScreenState_submitCategory_closure, A._AddEditCategoryScreenState_submitCategory_closure0, A._AddEditCategoryScreenState_build__closure0, A._AddEditCategoryScreenState_build___closure, A._AddEditCategoryScreenState_build__closure3, A._AddProductScreenState_initState_closure, A._AddProductScreenState_fetchCategories_closure, A._AddProductScreenState_checkProductExists_closure, A._AddProductScreenState_checkProductExists_closure1, A._AddProductScreenState_checkProductExists_closure2, A._AddProductScreenState_submitProductUpdate_closure1, A._AddProductScreenState_submitProduct_closure, A._AddProductScreenState_submitProduct_closure0, A._AddProductScreenState_submitProduct_closure3, A._AddProductScreenState_submitProduct_closure4, A._AddProductScreenState_showPriceEditDialog__closure_calculateSpecialRate, A._AddProductScreenState_showPriceEditDialog___calculateSpecialRate_closure, A._AddProductScreenState_showPriceEditDialog___calculateSpecialRate_closure0, A._AddProductScreenState_showPriceEditDialog____closure, A._AddProductScreenState_showPriceEditDialog___closure6, A._AddProductScreenState_showPriceEditDialog___closure7, A._AddProductScreenState_build_closure1, A._AddProductScreenState_build__closure4, A._AddProductScreenState_build_closure2, A._AddProductScreenState_build____closure, A._AddProductScreenState_build__closure2, A._AddProductScreenState_build__closure0, A._AddProductScreenState_build___closure, A._AddProductScreenState_build_closure4, A._AddProductScreenState_build__closure, A._CategorySearchDialogState_build__closure0, A._CategorySearchDialogState_build__closure, A._BarcodeScannerScreenState_handleBarcodeScanned_closure, A._BarcodeScannerScreenState_handleBarcodeScanned_closure0, A._BarcodeScannerScreenState_build__closure, A._BarcodeScannerScreenState_build__closure0, A._BarcodeScannerScreenState_build___closure, A._DashboardScreenState_fetchDashboardData_closure, A._DashboardScreenState_fetchDashboardData_closure0, A._FastBillingDialogState__filterList_closure, A._FastBillingDialogState_build__closure, A._FastBillingDialogState_build_closure0, A._HomeScreenState__checkSavedUser_closure, A._HomeScreenState__showPasscodeDialog__closure, A._HomeScreenState__showPasscodeDialog___closure, A._HomeScreenState_build__closure, A._POSScreenState__showPasscodeDialog__closure, A._POSScreenState__showPasscodeDialog___closure, A._POSScreenState__showInvoiceNameDialog__closure, A._POSScreenState__showInvoiceNameDialog__closure0, A._POSScreenState__showInvoiceNameDialog___closure, A._POSScreenState_promptRateTypeIfNeeded__closure, A._POSScreenState_promptRateTypeIfNeeded__closure0, A._POSScreenState__promptClearCart_closure, A._POSScreenState_fetchProduct_closure, A._POSScreenState_fetchProduct_closure0, A._POSScreenState_fetchProduct_closure1, A._POSScreenState_fetchProduct_closure2, A._POSScreenState_fetchProduct_closure4, A._POSScreenState_fetchProduct_closure5, A._POSScreenState_fetchProduct_closure7, A._POSScreenState_fetchProduct_closure9, A._POSScreenState__addManualItem__closure, A._POSScreenState__showInvalidBarcodeDialog_closure, A._POSScreenState_build_closure, A._POSScreenState_build_____closure, A._POSScreenState_build_____closure0, A._POSScreenState_build____closure0, A._POSScreenState_build_closure1, A._POSScreenState_build_closure2, A._POSScreenState_build_closure3, A._POSScreenState_build_closure4, A._POSScreenState__editItemDialog__closure, A.PriceSelectionDialog_build__closure, A.PriceSelectionDialog_build_closure0, A._ProductListScreenState__onSearchChanged_closure, A._ProductListScreenState_fetchProducts_closure0, A._ProductListScreenState_showDeleteConfirmation__closure, A._ProductListScreenState_showDeleteConfirmation__closure0, A._ProductListScreenState_build__closure0, A._ProductListScreenState_build__closure1, A._ProductListScreenState_build_closure0, A._TodoEditScreenState__showChequeDialog___closure3, A._TodoEditScreenState__showChequeDialog____closure0, A._TodoEditScreenState__showChequeDialog___closure4, A._TodoEditScreenState__showChequeDialog____closure, A._TodoEditScreenState__showChequeDialog__closure, A._TodoEditScreenState__showChequeDialog__closure0, A._TodoEditScreenState__showChequeDialog___closure5, A._TodoEditScreenState__loadUsername_closure, A._TodoEditScreenState__submit_closure, A._TodoEditScreenState__submit_closure0, A._TodoEditScreenState__pickDueDate_closure, A._TodoEditScreenState_build__closure, A._TodoScreenState__loadUserRole_closure, A._TodoScreenState_fetchTodos_closure, A._TodoScreenState_fetchTodos_closure0, A._TodoScreenState_fetchTodos_closure1, A._TodoScreenState__closeTodo_closure, A._TodoScreenState__closeTodo_closure0, A._TodoScreenState__closeTodo_closure1, A._TodoScreenState__deleteTodo_closure, A._TodoScreenState__deleteTodo_closure0, A._TodoScreenState__deleteTodo_closure1, A._TodoScreenState__showConfirmationDialog__closure, A._TodoScreenState__showConfirmationDialog__closure0, A._TodoScreenState__showClosingCommentDialog__closure, A._TodoScreenState__showClosingCommentDialog__closure0, A._TodoScreenState_buildTodoCard_closure0, A._TodoScreenState_buildTodoCard_closure1, A._TodoScreenState_build_closure0, A.PdfDocument_save_closure, A.TtfWriter_withChars_closure, A.PdfDiagnostic_debugFill_closure, A.PdfObjectBase_output_closure, A.PdfObjectBase_output_closure0, A.PdfStream_putString_closure, A.PdfXrefTable_output_closure, A.PdfXrefTable_output_closure0, A.PdfXrefTable_output_closure1, A.PdfXrefTable_output_closure2, A.PdfXrefTable__outputLegacy_closure0, A.PdfGraphics_fillPath_closure, A.PdfGraphics_fillPath_closure0, A.PdfGraphics_strokePath_closure, A.PdfGraphics_strokePath_closure0, A.PdfGraphics_clipPath_closure, A.PdfGraphics_clipPath_closure0, A.PdfGraphics_restoreContext_closure, A.PdfGraphics_restoreContext_closure0, A.PdfGraphics_saveContext_closure, A.PdfGraphics_saveContext_closure0, A.PdfGraphics_drawImage_closure, A.PdfGraphics_drawImage_closure0, A.PdfGraphics_drawRect_closure, A.PdfGraphics_drawRect_closure0, A.PdfGraphics_setFont_closure, A.PdfGraphics_setFont_closure0, A.PdfGraphics_drawString_closure, A.PdfGraphics_drawString_closure0, A.PdfGraphics_drawString_closure1, A.PdfGraphics_drawString_closure2, A.PdfGraphics_drawString_closure3, A.PdfGraphics_drawString_closure4, A.PdfGraphics_reset_closure, A.PdfGraphics_reset_closure0, A.PdfGraphics_setFillColor_closure, A.PdfGraphics_setFillColor_closure0, A.PdfGraphics_setStrokeColor_closure, A.PdfGraphics_setStrokeColor_closure0, A.PdfGraphics_setTransform_closure, A.PdfGraphics_setTransform_closure0, A.PdfGraphics_lineTo_closure, A.PdfGraphics_lineTo_closure0, A.PdfGraphics_moveTo_closure, A.PdfGraphics_moveTo_closure0, A.PdfGraphics_curveTo_closure, A.PdfGraphics_curveTo_closure0, A.PdfGraphics_setLineCap_closure, A.PdfGraphics_setLineCap_closure0, A.PdfGraphics_setLineJoin_closure, A.PdfGraphics_setLineJoin_closure0, A.PdfGraphics_setLineWidth_closure, A.PdfGraphics_setLineWidth_closure0, A.PdfGraphics_setMiterLimit_closure, A.PdfGraphics_setMiterLimit_closure0, A.PdfFont_stringMetrics_closure, A.PdfFont_putText_closure, A.PdfImage_PdfImage_closure, A.PdfImage_PdfImage_closure0, A.PdfImage_PdfImage$jpeg_closure, A.PdfImage_PdfImage$jpeg_closure0, A.PdfImage_PdfImage$_alpha_closure, A.PdfImage_PdfImage$_alpha_closure0, A.PdfImage$__closure, A.PdfType1Font$create_closure, A.Font_buildFont_closure0, A.MultiPage_generate_closure, A.MultiPage_generate_closure0, A.Page_postProcess_closure, A.RichText__preProcessSpans__closure, A.RichText_layout__buildLines, A.RichText_paint_closure, A.RichText_paint_closure0, A.Widget_paint_closure, A.WebPermissionHandler__devices_closure, A.WebPermissionHandler__htmlPermissions_closure, A.PrintingPlugin_layoutPdf_closure, A.PrintingPlugin_layoutPdf__closure0, A.PrintingPlugin_layoutPdf__closure, A.PrintingPlugin_layoutPdf___closure, A.MethodChannelPrinting__handleMethod_closure, A.MethodChannelPrinting__handleMethod__closure, A._ScrollablePositionedListState_startAnimationCallback_closure, A._ScrollablePositionedListState_initState_closure, A._ScrollablePositionedListState_didUpdateWidget_closure, A._ScrollablePositionedListState_didUpdateWidget_closure0, A._ScrollablePositionedListState_didUpdateWidget_closure1, A._ScrollablePositionedListState__startScroll_closure0, A._ScrollablePositionedListState__startScroll___closure, A._ScrollablePositionedListState__startScroll_closure1, A._ScrollablePositionedListState__stopScroll_closure, A.__ScrollablePositionedListState_State_TickerProviderStateMixin_dispose_closure, A.UnboundedRenderViewport_performLayout_closure, A.Highlighter_closure, A.Highlighter__writeFileStart_closure, A.Highlighter__writeMultilineHighlights_closure, A.Highlighter__writeMultilineHighlights_closure0, A.Highlighter__writeMultilineHighlights_closure1, A.Highlighter__writeMultilineHighlights_closure2, A.Highlighter__writeMultilineHighlights__closure, A.Highlighter__writeMultilineHighlights__closure0, A.Highlighter__writeHighlightedText_closure, A.Highlighter__writeIndicator_closure, A.Highlighter__writeIndicator_closure0, A.Highlighter__writeIndicator_closure1, A.Highlighter__writeSidebar_closure, A._Highlight_closure, A.main_closure0, A.main_closure]);
+    _inheritMany(A.Closure, [A.Closure0Args, A.AppBootstrap_prepareEngineInitializer_closure0, A.AppBootstrap__prepareAppRunner_closure, A.AppBootstrap__prepareFlutterApp_closure, A.AppBootstrap__prepareFlutterApp_closure0, A.CkCanvas_saveLayerWithFilter_closure, A._canvasKitJsUrls_closure, A.CkColorFilter_filterBounds_closure, A.SkiaFontCollection_registerDownloadedFonts_makeRegisterFont, A.CkImageFilter_filterBounds_closure, A._CkComposeImageFilter_withSkImageFilter_closure, A._CkComposeImageFilter_withSkImageFilter__closure, A.CkUniqueRef_closure, A.CkCountedRef_closure, A.CkPaint_toSkPaint_closure, A.CanvasKitRenderer__createRasterizer_closure, A.CanvasKitRenderer__createRasterizer_closure0, A._computeCombinedFontFamilies_closure, A.ClipboardMessageHandler_setDataMethodCall_closure, A.ClipboardMessageHandler_setDataMethodCall_closure0, A.ClipboardMessageHandler_getDataMethodCall_closure, A.ClipboardMessageHandler_getDataMethodCall_closure0, A.ClipboardMessageHandler_hasStringsMethodCall_closure, A.ClipboardMessageHandler_hasStringsMethodCall_closure0, A.CanvasProvider_acquireCanvas_closure, A.DomConsole_get_warn_closure, A.createImageBitmap_closure, A.DomNavigator_get_languages_closure, A.rawHttpGet_closure, A.DomResponse_arrayBuffer_closure, A._DomStreamReader_read_closure, A.DomFontFace_load_closure, A.DomClipboard_readText_closure, A.DomOffscreenCanvas_convertToBlob_closure, A.Closure2Args, A._ttPolicy_closure, A.sendFontChangeMessage_closure, A.sendFontChangeMessage__closure, A.FallbackFontService_addMissingCodePoints_closure, A.FallbackFontService__process__closure1, A.FallbackFontService__process__closure0, A.FallbackFontService__process__closure, A.FallbackFontService__findFontsForComponents_closure, A.FallbackFontService__selectBestFont_closure, A.FallbackFontService__selectBestFont_closure0, A.FallbackFontService__selectBestFont_closure1, A.FallbackFontService__findFontsWithMaxCoverage_closure, A.fetchFontManifest_closure, A.fetchFontManifest_closure0, A.fetchFontManifest_closure1, A.fetchFontManifest__closure, A.FrameService_scheduleFrame_closure, A.FlutterApp_constructor__closure, A.FlutterEngineInitializer_constructor__closure, A.FlutterAppRunner_constructor__closure, A.CustomFutureOfJSAnyToJSPromise_get_toPromise__closure, A._kLogicalKeyToModifierGetter_closure, A._kLogicalKeyToModifierGetter_closure0, A._kLogicalKeyToModifierGetter_closure1, A._kLogicalKeyToModifierGetter_closure2, A._kLogicalKeyToModifierGetter_closure3, A._kLogicalKeyToModifierGetter_closure4, A._kLogicalKeyToModifierGetter_closure5, A._kLogicalKeyToModifierGetter_closure6, A.KeyboardBinding$__closure, A.KeyboardBinding$__closure0, A.KeyboardBinding__addEventListener_loggedHandler, A.KeyboardBinding__onKeyData_closure, A.KeyboardConverter__scheduleAsyncEvent_closure, A.KeyboardConverter_handleEvent_closure, A.preventDefaultListener_closure, A.NativeMemoryFinalizer_closure, A.UniqueRef_finalizer_closure, A.MultiEntriesBrowserHistory_onPopState_closure, A.SingleEntryBrowserHistory_onPopState_closure, A.SingleEntryBrowserHistory_onPopState_closure0, A.EnginePlatformDispatcher_closure, A.EnginePlatformDispatcher__zonedPlatformMessageResponseCallback_closure, A.EnginePlatformDispatcher__sendPlatformMessage_closure1, A.EnginePlatformDispatcher__sendPlatformMessage_closure2, A.EnginePlatformDispatcher__sendPlatformMessage_closure3, A.EnginePlatformDispatcher__addLocaleChangedListener_closure, A.EnginePlatformDispatcher__setAppLifecycleState_closure, A.EnginePlatformDispatcher_replyToPlatformMessage_closure, A.EnginePlatformDispatcher__addNavigationFocusHandler_closure, A._BrowserAppLifecycleState__focusListener_closure, A._BrowserAppLifecycleState__blurListener_closure, A._BrowserAppLifecycleState__visibilityChangeListener_closure, A.MediaQueryManager_addListener_closure, A.ViewFocusBinding__handleFocusin_closure, A.ViewFocusBinding__handleFocusout_closure, A.ViewFocusBinding__handleKeyDown_closure, A.ViewFocusBinding__handleKeyUp_closure, A.PlatformViewEmbedder_submitFrame_closure, A.PlatformViewEmbedder_submitFrame_closure0, A.PlatformViewEmbedder__updateDomForNewComposition_closure, A.SafariPointerEventWorkaround_workAroundMissingPointerEvents_closure, A._BaseAdapter_addEventListener_loggedHandler, A._WheelEventListenerMixin__convertWheelEventToPointerData_closure, A._PointerAdapter__addPointerEventListener_closure, A._PointerAdapter_setup_closure, A._PointerAdapter_setup_closure0, A._PointerAdapter_setup_closure1, A._PointerAdapter_setup_closure2, A._PointerAdapter_setup_closure3, A._PointerAdapter_setup_closure4, A._PointerAdapter_setup_closure5, A._PointerAdapter_setup_closure6, A.EngineImage_closure, A.EngineImage_closure0, A.RawKeyboard_handleHtmlEvent_closure0, A.AccessibilityFocusManager_manage_closure, A.AccessibilityFocusManager_manage_closure0, A.SemanticIncrementable_closure, A.SemanticIncrementable_closure0, A._computeLabelValue_closure, A.SemanticMenu__updateMenuItemId_closure, A.SemanticMenuBar__updateMenuItemId_closure, A.SemanticRouteBase__setDefaultFocus_closure, A.SemanticScrollable_update_closure0, A.SemanticScrollable_update_closure1, A.SemanticRole_addSemanticBehavior_closure, A.SemanticRole__updateTraversalParent_closure, A.SemanticsObject__debugVisitRenderedSemanticNodesDepthFirst_closure, A.EngineSemanticsOwner__finalizeTree_closure, A.EngineSemanticsOwner__computeNodeMapConsistencyMessage_closure, A.DesktopSemanticsEnabler__prepareAccessibilityPlaceholder_closure, A.MobileSemanticsEnabler__prepareAccessibilityPlaceholder_closure, A.Tappable_update_closure, A.SemanticTextField__initializeEditableElement_closure, A.SemanticTextField__initializeEditableElement_closure0, A.SemanticTextField__initializeEditableElement_closure1, A.TestUrlStrategy__nextEventLoop_closure, A.EngineAutofillForm_addInputEventListeners_addSubscriptionForKey, A.EngineAutofillForm_addInputEventListeners_addSubscriptionForKey_closure, A.DefaultTextEditingStrategy_preventDefaultForMouseEvents_closure, A.DefaultTextEditingStrategy_preventDefaultForMouseEvents_closure0, A.DefaultTextEditingStrategy_preventDefaultForMouseEvents_closure1, A.IOSTextEditingStrategy_addEventHandlers_closure, A.IOSTextEditingStrategy__addTapListener_closure, A.FirefoxTextEditingStrategy_addEventHandlers_closure, A.TextEditingChannel_onFocusReceived_closure, A.HybridTextEditing__startEditing_closure, A.EditableTextGeometry_EditableTextGeometry$fromFrameworkMessage_closure, A.Matrix4_toString_closure_fmt, A.CustomElementDimensionsProvider_closure, A.VisualOrder_inVisualOrder_closure, A.ViewConstraints_toString_describe, A._CastListBase_removeWhere_closure, A.CastSet_removeWhere_closure, A.CastMap_entries_closure, A.Instantiation, A.TearOffClosure, A.assertInteropArgs_closure, A.JsLinkedHashMap_containsValue_closure, A.initHooks_closure, A.initHooks_closure1, A._StringStream__goalToEventCode_closure, A._AsyncRun__initializeScheduleImmediate_internalCallback, A._AsyncRun__initializeScheduleImmediate_closure, A._awaitOnObject_closure, A._SyncBroadcastStreamController__sendData_closure, A._SyncBroadcastStreamController__sendError_closure, A._SyncBroadcastStreamController__sendDone_closure, A.Future_wait_closure, A._Future__chainForeignFuture_closure, A._Future__propagateToListeners_handleWhenCompleteCallback_closure, A._Future_timeout_closure0, A.Stream_length_closure, A.Stream_first_closure0, A.Stream_firstWhere_closure0, A.Stream_firstWhere__closure0, A._RootZone_bindUnaryCallback_closure, A._RootZone_bindUnaryCallbackGuarded_closure, A._HashMap_values_closure, A._HashMap_containsValue_closure, A._CustomHashMap_closure, A._LinkedCustomHashMap_closure, A.MapBase_entries_closure, A.SplayTreeMap_containsValue_visit, A._JsonMap_values_closure, A.DateTime_parse_parseIntOrZero, A.DateTime_parse_parseMilliAndMicroseconds, A._Uri__makePath_closure, A._Uri__splitQueryStringAll_parsePair, A.MidiInputMap_containsValue_closure, A.MidiOutputMap_containsValue_closure, A.RtcStatsReport_containsValue_closure, A.Storage_containsValue_closure, A._EventStreamSubscription_closure, A._EventStreamSubscription_onData_closure, A.jsify__convert, A.promiseToFuture_closure, A.promiseToFuture_closure0, A.dartify_convert, A.KeyData__quotedCharCode_closure, A._Transform_makeComposite_closure, A._Transform_makeTranslate_closure, A._Transform_makeScale_closure, A._Transform_kFlip_closure, A.bootstrapEngine_closure, A.BrowserPlatformLocation_getOrCreateDomEventListener_closure0, A.HashUrlStrategy_addPopStateListener_wrappedFn, A.HashUrlStrategy__waitForPopState_closure, A.AudioParamMap_containsValue_closure, A.AudioPlayer_onPlayerComplete_closure, A.AudioPlayer__onPrepared_closure, A.AudioPlayer__onPrepared_closure0, A.AudioPlayer_onLog_closure, A.AudioPlayer_onLog_closure0, A.AudioPlayer_closure, A.AudioPlayer_closure0, A.AudioPlayer_closure1, A.AudioPlayer_closure2, A.AudioPlayer__completePrepared_closure, A.GlobalAudioScope_onLog_closure, A.GlobalAudioScope_onLog_closure0, A.EventChannelAudioplayersPlatform_createEventStream_closure, A.EventChannelGlobalAudioplayersPlatform_getGlobalEventStream_closure, A.WebGlobalAudioplayersPlatform_init_closure, A.WrappedPlayer__setupStreams_closure, A.WrappedPlayer__setupStreams_closure0, A.WrappedPlayer__setupStreams_closure1, A.WrappedPlayer__setupStreams_closure2, A.WrappedPlayer__setupStreams_closure3, A.CanonicalizedMap_containsValue_closure, A.CanonicalizedMap_entries_closure, A.CanonicalizedMap_keys_closure, A.CanonicalizedMap_values_closure, A._CupertinoButtonState__defaultCursor_closure, A._CupertinoButtonState__animate_closure, A._CupertinoButtonState_build_closure0, A._CupertinoBackGestureDetectorState_dispose_closure, A._CupertinoBackGestureController_dragEnd_closure, A._CupertinoEdgeShadowDecoration_lerp_closure, A._CupertinoEdgeShadowDecoration_lerp_closure0, A._CupertinoScrollbarState_handleThumbPress_closure, A._CupertinoTextSelectionToolbarContentState_build_closure, A._CupertinoTextSelectionToolbarItemsElement_mount_closure, A._RenderCupertinoTextSelectionToolbarItems_performLayout_closure, A._RenderCupertinoTextSelectionToolbarItems_performLayout_closure0, A._RenderCupertinoTextSelectionToolbarItems_paint_closure, A._RenderCupertinoTextSelectionToolbarItems_redepthChildren_closure, A._RenderCupertinoTextSelectionToolbarItems_visitChildrenForSemantics_closure, A._RenderCupertinoTextSelectionToolbarItems_debugDescribeChildren_closure, A.CupertinoThemeData_resolveFrom_convertColor, A.NoDefaultCupertinoThemeData_resolveFrom_convertColor, A._CupertinoThemeDefaults_resolveFrom_convertColor, A.FlutterErrorDetails_summary_closure, A.FlutterErrorDetails_debugFillProperties_closure, A.FlutterError_FlutterError_closure, A.FlutterError$fromParts__closure, A.FlutterError_defaultStackFilter_closure, A.FlutterError_defaultStackFilter_closure0, A.FlutterError_toString_closure, A.debugPrintStack_closure, A.BindingBase_initServiceExtensions_closure1, A.BindingBase_initServiceExtensions_closure3, A.BindingBase_initServiceExtensions__closure, A.BindingBase_initServiceExtensions__closure0, A.BindingBase_registerSignalServiceExtension_closure, A.BindingBase_registerBoolServiceExtension_closure, A.BindingBase_registerNumericServiceExtension_closure, A.BindingBase_registerStringServiceExtension_closure, A._PrefixedStringBuilder__wordWrapLine_noWrap, A.TextTreeRenderer__debugRender_visitor, A.TextTreeRenderer__debugRender_closure, A.DiagnosticsNode_toJsonList_closure, A.DiagnosticsNode__toJson_closure, A.IterableProperty_valueToString_closure, A.IterableProperty_toJsonMap_closure, A.FlagsSummary__hasNonNullEntry_closure, A.FlagsSummary__formattedValues_closure, A.FlagsSummary__formattedValues_closure0, A.FlutterMemoryAllocations__tryDefragmentListeners_closure, A.FlutterMemoryAllocations_hasListeners_closure, A.HashedObserverList_toList_closure, A.debugPrintThrottled_closure, A.StackFrame_fromStackString_closure, A.SynchronousFuture_whenComplete_closure, A._GestureArena_toString_closure, A.GestureBinding__handleHitTest_closure, A.PointerEventConverter_expand_closure, A.PointerEventConverter_expand_closure0, A.HitTestResult__debugVectorMoreOrLessEquals__closure, A.PolynomialFit_toString_closure, A.BackButtonIcon_build_closure, A.BackButtonIcon_build_closure0, A.BackButtonIcon_build_closure1, A.CloseButtonIcon_build_closure, A.CloseButtonIcon_build_closure0, A.CloseButtonIcon_build_closure1, A.DrawerButtonIcon_build_closure, A.DrawerButtonIcon_build_closure0, A.DrawerButtonIcon_build_closure1, A.EndDrawerButtonIcon_build_closure, A.EndDrawerButtonIcon_build_closure0, A.EndDrawerButtonIcon_build_closure1, A.AdaptiveTextSelectionToolbar_getAdaptiveButtons_closure, A.AdaptiveTextSelectionToolbar_getAdaptiveButtons_closure0, A.AdaptiveTextSelectionToolbar_getAdaptiveButtons_closure1, A._MaterialAppState__buildWidgetApp_closure, A.MaterialRectArcTween__initialize_closure, A.Autocomplete_build_closure, A._AutocompleteOptionsListState_didUpdateWidget_closure, A._AutocompleteOptionsListState_build__closure, A._DragHandle_build_closure, A._DragHandle_build_closure0, A._ModalBottomSheetState_build__closure, A.ModalBottomSheetRoute_buildPage_closure, A._BottomSheetGestureDetector_build_closure0, A._ButtonStyleState_build_effectiveValue, A._ButtonStyleState_build_resolve, A._ButtonStyleState_build_resolve_closure, A._ButtonStyleState_build_closure, A._ButtonStyleState_build_closure0, A._ButtonStyleState_build_closure1, A._ButtonStyleState_build_closure2, A._ButtonStyleState_build_closure3, A._ButtonStyleState_build_closure4, A._ButtonStyleState_build_closure5, A._ButtonStyleState_build_closure6, A._ButtonStyleState_build_closure7, A._ButtonStyleState_build_closure8, A._ButtonStyleState_build_closure9, A._ButtonStyleState_build_closure10, A._ButtonStyleState_build_closure11, A._ButtonStyleState_build_closure21, A._ButtonStyleState_build__closure0, A._ButtonStyleState_build_closure22, A._ButtonStyleState_build__closure, A._ButtonStyleState_build_closure12, A._ButtonStyleState_build_closure13, A._ButtonStyleState_build_closure14, A._ButtonStyleState_build_closure15, A._ButtonStyleState_build_closure16, A._ButtonStyleState_build_closure17, A._ButtonStyleState_build_closure18, A._ButtonStyleState_build_closure19, A._ButtonStyleState_build_closure20, A._DayState_build_effectiveValue, A._DayState_build_resolve, A._DayState_build_resolve_closure, A._DayState_build_closure, A._DayState_build_closure0, A._DayState_build_closure3, A._DayState_build__closure, A._DayState_build_closure1, A._YearPickerState__buildYearItem_effectiveValue, A._YearPickerState__buildYearItem_resolve, A._YearPickerState__buildYearItem_resolve_closure, A._YearPickerState__buildYearItem_closure, A._YearPickerState__buildYearItem_closure0, A._YearPickerState__buildYearItem_closure3, A._YearPickerState__buildYearItem__closure, A._YearPickerState__buildYearItem_closure1, A._CheckboxState__widgetFillColor_closure, A._CheckboxState_build_closure, A._CheckboxDefaultsM3_side_closure, A._CheckboxDefaultsM3_fillColor_closure, A._CheckboxDefaultsM3_checkColor_closure, A._CheckboxDefaultsM3_overlayColor_closure, A._RawChipState_build_closure1, A._RawChipState_build_closure, A._ChoiceChipDefaultsM3_color_closure, A.DataRow__debugInteractive_closure, A.DataTable_closure, A.DataTable__debugInteractive_closure, A.DataTable__debugInteractive_closure0, A.DataTable_build_closure3, A.DataTable_build_closure, A.DataTable_build_closure0, A.DataTable_build_closure1, A.DataTable_build_closure2, A.DataTable_build_closure4, A.showDatePicker_closure, A._DatePickerDefaultsM3_dayForegroundColor_closure, A._DatePickerDefaultsM3_dayBackgroundColor_closure, A._DatePickerDefaultsM3_dayOverlayColor_closure, A._DatePickerDefaultsM3_todayForegroundColor_closure, A._DatePickerDefaultsM3_yearForegroundColor_closure, A._DatePickerDefaultsM3_yearBackgroundColor_closure, A._DatePickerDefaultsM3_yearOverlayColor_closure, A._DatePickerDefaultsM3_rangeSelectionOverlayColor_closure, A._DialogPopScope_build_closure, A._DialogContentPage_createRoute_closure, A.showDialog_closure, A.showDialog__closure, A.DialogRoute_closure, A._DropdownRoutePageState_build_closure, A.DropdownButton$_formField_closure, A._DropdownButtonState_initState_closure, A._DropdownButtonState_initState_closure0, A._DropdownButtonState__updateSelectedIndex_closure, A._DropdownButtonState__updateSelectedIndex_closure0, A._DropdownButtonState__handleTap_closure, A._DropdownButtonState__handleTap_closure0, A._DropdownButtonState_build_closure, A._DropdownButtonState_build_closure0, A.DropdownButtonFormField_closure, A.DropdownButtonFormField_closure0, A.DropdownButtonFormField__closure, A._ElevatedButtonDefaultsM3_backgroundColor_closure, A._ElevatedButtonDefaultsM3_foregroundColor_closure, A._ElevatedButtonDefaultsM3_overlayColor_closure, A._ElevatedButtonDefaultsM3_elevation_closure, A._ElevatedButtonDefaultsM3_iconColor_closure, A._IconButtonDefaultsM3_foregroundColor_closure, A._IconButtonDefaultsM3_overlayColor_closure, A._FilledIconButtonDefaultsM3_backgroundColor_closure, A._FilledIconButtonDefaultsM3_foregroundColor_closure, A._FilledIconButtonDefaultsM3_overlayColor_closure, A._FilledTonalIconButtonDefaultsM3_backgroundColor_closure, A._FilledTonalIconButtonDefaultsM3_foregroundColor_closure, A._FilledTonalIconButtonDefaultsM3_overlayColor_closure, A._OutlinedIconButtonDefaultsM3_backgroundColor_closure, A._OutlinedIconButtonDefaultsM3_foregroundColor_closure, A._OutlinedIconButtonDefaultsM3_overlayColor_closure, A._OutlinedIconButtonDefaultsM3_side_closure, A._InkResponseState_highlightsExist_closure, A._InkResponseState_build_getHighlightColorForType, A._InputDatePickerFormFieldState_didUpdateWidget_closure, A._HelperErrorState__buildError_closure, A._RenderDecoration_paint_doPaint, A._RenderDecoration__childSemanticsConfigurationDelegate_closure, A._InputDecoratorState_build_closure, A._InputDecoratorDefaultsM3_hintStyle_closure, A._InputDecoratorDefaultsM3_fillColor_closure, A._InputDecoratorDefaultsM3_activeIndicatorBorder_closure, A._InputDecoratorDefaultsM3_outlineBorder_closure, A._InputDecoratorDefaultsM3_prefixIconColor_closure, A._InputDecoratorDefaultsM3_suffixIconColor_closure, A._InputDecoratorDefaultsM3_labelStyle_closure, A._InputDecoratorDefaultsM3_floatingLabelStyle_closure, A._InputDecoratorDefaultsM3_helperStyle_closure, A._InputDecoratorDefaultsM3_errorStyle_closure, A.ListTile_build_resolveColor, A.ListTile__findIntermediateWidget_closure, A._RenderListTile_paint_doPaint, A.ListTileTheme_merge_closure, A.TextMagnifier_adaptiveMagnifierConfiguration_closure, A._MaterialState_build_closure, A._MaterialInteriorState_forEachTween_closure, A._MaterialInteriorState_forEachTween_closure0, A._MaterialInteriorState_forEachTween_closure1, A._MaterialInteriorState_forEachTween_closure2, A.MaterialStateMixin_updateMaterialState_closure, A._OutlinedButtonDefaultsM3_foregroundColor_closure, A._OutlinedButtonDefaultsM3_overlayColor_closure, A._OutlinedButtonDefaultsM3_iconColor_closure, A._OutlinedButtonDefaultsM3_side_closure, A._ZoomPageTransition_build_closure, A._ZoomPageTransition_build_closure0, A._FadeForwardsPageTransition_build_closure, A._FadeForwardsPageTransition_build_closure0, A.FadeForwardsPageTransitionsBuilder__delegatedTransition_closure, A.FadeForwardsPageTransitionsBuilder__delegatedTransition_closure0, A.ZoomPageTransitionsBuilder_delegatedTransition_closure, A.ZoomPageTransitionsBuilder__snapshotAwareDelegatedTransition_closure, A.ZoomPageTransitionsBuilder__snapshotAwareDelegatedTransition_closure0, A.PageTransitionsTheme__all_closure, A.PredictiveBackPageTransitionsBuilder_buildTransitions_closure, A._CircularProgressIndicatorState_build_closure, A.RefreshIndicatorState__show_closure, A.ScaffoldMessengerState_hideCurrentSnackBar_closure, A.ScaffoldState_build_closure, A._HitTestableAtOrigin_hitTestableAtOrigin_closure, A._MaterialScrollbarState__trackVisibility_closure, A._MaterialScrollbarState__thumbColor_closure, A._MaterialScrollbarState__trackColor_closure, A._MaterialScrollbarState__trackBorderColor_closure, A._MaterialScrollbarState__thickness_closure, A._SnackBarState_build_closure_message, A._SnackBarState_build_closure0, A._SnackBarState_build_closure2, A._SnackBarState_build_closure3, A._SnackbarDefaultsM3_actionTextColor_closure, A._MaterialSwitchState__widgetThumbColor_closure, A._MaterialSwitchState__widgetTrackColor_closure, A._MaterialSwitchState_build_closure, A._SwitchPainter_paint_thumbSizeAnimation, A._SwitchDefaultsCupertino_mouseCursor_closure, A._SwitchDefaultsCupertino_trackColor_closure, A._SwitchDefaultsCupertino_overlayColor_closure, A._SwitchConfigCupertino_iconColor_closure, A._SwitchDefaultsM3_thumbColor_closure, A._SwitchDefaultsM3_trackColor_closure, A._SwitchDefaultsM3_trackOutlineColor_closure, A._SwitchDefaultsM3_overlayColor_closure, A._SwitchDefaultsM3_mouseCursor_closure, A._SwitchConfigM3_iconColor_closure, A._TextButtonDefaultsM3_foregroundColor_closure, A._TextButtonDefaultsM3_overlayColor_closure, A._TextButtonDefaultsM3_iconColor_closure, A._TextFieldState_build_closure7, A._TextFieldState_build_closure8, A._m3StateInputStyle_closure, A.TextFormField_closure, A.TextFormField_closure_onChangedHandler, A._RenderTextSelectionToolbarItemsLayout__layoutChildren_closure, A._RenderTextSelectionToolbarItemsLayout__placeChildrenHorizontally_closure, A._RenderTextSelectionToolbarItemsLayout__placeChildrenVertically_closure, A._RenderTextSelectionToolbarItemsLayout__resizeChildrenWhenOverflow_closure, A._RenderTextSelectionToolbarItemsLayout_paint_closure, A._RenderTextSelectionToolbarItemsLayout_visitChildrenForSemantics_closure, A._AnimatedThemeState_forEachTween_closure, A.ThemeData__lerpThemeExtensions_closure0, A.TimePickerThemeData_dayPeriodColor_closure, A._CompoundBorder_closure, A._CompoundBorder_scale_closure, A._CompoundBorder_preferPaintInterior_closure, A._CompoundBorder_toString_closure, A.ClipContext_clipPathAndPaint_closure, A.ClipContext_clipRRectAndPaint_closure, A.ClipContext_clipRectAndPaint_closure, A.InlineSpan_getSpanForPosition_closure, A.InlineSpan_codeUnitAt_closure, A._ShapeDecorationPainter__precache_closure, A._ShapeDecorationPainter__precache_closure0, A._ShapeDecorationPainter__precache_closure1, A._ShapeDecorationPainter__paintShadows_debugHandleDisabledShadowStart, A.StrutStyle_debugFillProperties_closure, A.TextPainter_inlinePlaceholderBoxes_closure, A.TextPainter_setPlaceholderDimensions__closure, A.TextPainter_getBoxesForSelection_closure, A.TextPainter_computeLineMetrics_closure, A.TextSpan_debugDescribeChildren_closure, A.TextStyle_lerp__closure, A.TextStyle_debugFillProperties_closure, A.FrictionSimulation_closure, A.RendererBinding_pipelineOwner_closure1, A.RendererBinding__handleWebFirstFrame_closure, A.RendererBinding__scheduleMouseTrackerUpdate_closure0, A.RendererBinding__forceRepaint_closure, A.BoxConstraints_debugAssertIsValid_closure_throwError, A.BoxConstraints_toString_describe, A.RenderBox_getDistanceToActualBaseline_closure, A.RenderEditable_getBoxesForSelection_closure, A.RenderEditable_describeSemanticsConfiguration_closure, A.RenderFlex__computeDryDistanceToHighestBaseline_constraintsForChild, A.RenderFlex__computeDryDistanceToFirstBaseline_constraintsForChild, A.TransformLayer_transform_closure, A.LayerLink__debugScheduleLeadersCleanUpCheck__closure, A.RenderListBody_computeMinIntrinsicWidth_closure, A.RenderListBody_computeMinIntrinsicWidth_closure0, A.RenderListBody_computeMaxIntrinsicWidth_closure, A.RenderListBody_computeMaxIntrinsicWidth_closure0, A.RenderListBody_computeMinIntrinsicHeight_closure, A.RenderListBody_computeMinIntrinsicHeight_closure0, A.RenderListBody_computeMaxIntrinsicHeight_closure, A.RenderListBody_computeMaxIntrinsicHeight_closure0, A.MouseTracker__handleDeviceUpdate_closure, A.MouseTracker__handleDeviceUpdateMouseEvents_closure0, A.PipelineOwner_flushSemantics_closure0, A.PipelineOwner_flushSemantics_closure3, A.RenderObject_reassemble_closure, A.RenderObject__updateCompositingBits_closure, A.RenderObject__updateCompositingBits_closure0, A.RenderObject__paintWithContext__closure, A.RenderObject_clearSemantics_closure, A.RenderObjectWithLayoutCallbackMixin_runLayoutCallback_closure, A.RelayoutWhenSystemFontsChangeMixin__scheduleSystemFontsUpdate_closure, A._SemanticsConfigurationProvider_absorbAll_closure, A._RenderObjectSemantics_debugCheckForParentData_debugCheckParentDataNotDirty, A._RenderObjectSemantics_isBlockingPreviousSibling_closure, A._RenderObjectSemantics_updateChildren_closure, A._RenderObjectSemantics_updateChildren_closure0, A._RenderObjectSemantics_updateChildren_closure1, A._RenderObjectSemantics_updateChildren_closure2, A._RenderObjectSemantics_updateChildren_closure3, A._RenderObjectSemantics_updateChildren_closure4, A._RenderObjectSemantics__getNonBlockedChildren_closure, A._RenderObjectSemantics__collectChildMergeUpAndSiblingGroup_closure, A._RenderObjectSemantics__collectChildMergeUpAndSiblingGroup_closure0, A._RenderObjectSemantics__updateChildGeometry_closure, A._RenderObjectSemantics__updateChildGeometry_closure0, A._RenderObjectSemantics__buildSemanticsSubtree_closure, A._RenderObjectSemantics__mergeSiblingGroup_closure, A._RenderObjectSemantics__mergeSiblingGroup_closure0, A._RenderObjectSemantics_debugDescribeChildren_closure, A.RenderParagraph_markNeedsLayout_closure, A.RenderParagraph_selectionColor_closure, A.RenderParagraph_performLayout_closure, A._factoriesTypeSet_closure, A._PlatformViewGestureRecognizer_closure, A.RenderFittedBox__updatePaintData_closure, A.SliverConstraints_debugAssertIsValid_closure_verifyDouble, A.SliverGeometry_debugAssertIsValid_closure_verify, A.RenderSliverHelpers_hitTestBoxChild_closure, A.RenderSliverMultiBoxAdaptor__createOrObtainChild_closure, A.RenderSliverMultiBoxAdaptor_collectGarbage_closure, A.RenderSliverMultiBoxAdaptor_collectGarbage__closure, A.RenderSliverMultiBoxAdaptor_collectGarbage__closure0, A.RenderSliverEdgeInsetsPadding_performLayout_paintOffset, A.RenderSliverEdgeInsetsPadding_performLayout_cacheOffset, A.RenderStack_computeMinIntrinsicWidth_closure, A.RenderStack_computeMaxIntrinsicWidth_closure, A.RenderStack_computeMinIntrinsicHeight_closure, A.RenderStack_computeMaxIntrinsicHeight_closure, A.RenderTable_assembleSemanticsNode_rectWithOffset, A.RenderTable_assembleSemanticsNode_findRowIndex, A.RenderTable_assembleSemanticsNode_findColumnIndex, A.RenderTable_assembleSemanticsNode_shiftTransform, A.RenderViewportBase_visitChildrenForSemantics_closure, A.RenderViewportBase_hitTestChildren_closure, A.RenderWrap_computeDryBaseline_getChildSize, A.SchedulerBinding_endOfFrame_closure, A.SchedulerBinding__handleDrawFrame_closure, A.TickerFuture_whenCompleteOrCancel_thunk, A._DebugSemanticsRoleChecks__semanticsTabBar_closure, A._DebugSemanticsRoleChecks__semanticsTable_closure, A._DebugSemanticsRoleChecks__semanticsRow_closure, A._DebugSemanticsRoleChecks__semanticsRadioGroup_validateRadioGroupChildren, A.SemanticsData_debugFillProperties_closure, A.SemanticsNode__replaceChildren_closure, A.SemanticsNode__replaceChildren__closure, A.SemanticsNode_detach_closure0, A.SemanticsNode_getSemanticsData_closure, A.SemanticsNode__childrenIdInHitTestOrder_closure, A.SemanticsNode__childrenInTraversalOrder_closure, A.SemanticsNode_sendEvent_closure, A.SemanticsNode_debugFillProperties_closure, A.SemanticsNode_debugFillProperties_closure0, A.SemanticsNode_debugFillProperties_closure1, A.SemanticsNode_debugFillProperties_closure2, A.SemanticsNode_debugDescribeChildren_closure, A._SemanticsSortGroup_sortedWithinVerticalGroup_closure, A._SemanticsSortGroup_sortedWithinKnot_search, A._SemanticsSortGroup_sortedWithinKnot_closure0, A._SemanticsSortGroup_sortedWithinKnot_closure1, A._childrenInDefaultOrder_closure, A.SemanticsOwner_sendSemanticsUpdate_closure_findInvisibleNodes, A.SemanticsOwner_sendSemanticsUpdate_closure_nodeToMessage, A.SemanticsOwner_sendSemanticsUpdate_closure0, A.SemanticsOwner_sendSemanticsUpdate_closure3, A.SemanticsOwner__getSemanticsActionHandlerForId_closure, A.SemanticsConfiguration__addArgumentlessAction_closure, A.SemanticsConfiguration_onScrollToOffset_closure, A.SemanticsConfiguration_onMoveCursorForwardByCharacter_closure, A.SemanticsConfiguration_onMoveCursorBackwardByCharacter_closure, A.SemanticsConfiguration_onMoveCursorForwardByWord_closure, A.SemanticsConfiguration_onMoveCursorBackwardByWord_closure, A.SemanticsConfiguration_onSetSelection_closure, A.SemanticsConfiguration_onSetText_closure, A.PlatformAssetBundle_load_closure, A.ServicesBinding__initKeyboard_closure, A._DefaultBinaryMessenger_send_closure, A.LogicalKeyboardKey_expandSynonyms_closure, A.BasicMessageChannel_setMessageHandler_closure, A.MethodChannel_setMethodCallHandler_closure, A.EventChannel_receiveBroadcastStream__closure, A.RestorationManager_handleRestorationUpdateFromEngine_closure, A.RestorationManager_scheduleSerializationFor_closure, A.RestorationBucket__debugAssertIntegrity__closure, A.RestorationBucket__visitChildren_closure, A.SystemChrome_setSystemUIOverlayStyle__closure, A.FilteringTextInputFormatter__processRegion_adjustIndex, A.TextEditingValue_replaced_adjustIndex, A.TextInput__handleTextInputInvocation_closure, A.TextInput__handleTextInputInvocation_closure0, A.TextInput__handleTextInputInvocation_closure1, A._PlatformTextInputControl_attach_closure, A._PlatformTextInputControl_detach_closure, A._PlatformTextInputControl_updateConfig_closure, A._PlatformTextInputControl_setEditingState_closure, A._PlatformTextInputControl_show_closure, A._PlatformTextInputControl_hide_closure, A._PlatformTextInputControl_setEditableSizeAndTransform_closure, A._PlatformTextInputControl_setComposingRect_closure, A._PlatformTextInputControl_setCaretRect_closure, A._PlatformTextInputControl_setSelectionRects_closure, A._PlatformTextInputControl_setSelectionRects_closure0, A._PlatformTextInputControl_updateStyle_closure, A._PlatformTextInputControl_requestAutofill_closure, A.SystemContextMenuController_showWithItems_closure, A.UndoManager__setUndoState_closure, A.MinimumTapTargetEvaluation__traverse_closure, A.LabeledTapTargetEvaluation__traverse_closure, A._ContrastEvaluation__evaluateNode_closure, A._colorsWithinRect_getPixel, A._colorsWithinRect_closure, A._collectElementsByText_closure, A.HtmlElementViewImpl_get__createController_closure, A.HtmlElementViewImpl__createController_closure, A.WindowScope_updateShouldNotifyDependent_closure, A._WindowManagerState_build__closure, A._getParent_closure, A.Actions__findDispatcher_closure, A.Actions_maybeFind_closure, A.Actions__maybeFindWithoutDependingOn_closure, A.Actions_invoke_closure0, A.Actions_maybeInvoke_closure, A._FocusableActionDetectorState_initState_closure, A._FocusableActionDetectorState__mayTriggerCallback_shouldShowHoverHighlight, A._FocusableActionDetectorState__mayTriggerCallback_canRequestFocus, A._FocusableActionDetectorState__mayTriggerCallback_shouldShowFocusHighlight, A._FocusableActionDetectorState_didUpdateWidget_closure, A._AnimatedSwitcherState__newEntry_closure, A._AnimatedSwitcherState__rebuildOutgoingWidgetsIfNeeded_closure, A._AnimatedSwitcherState_build_closure, A._WidgetsAppState__onGenerateRoute_closure, A._WidgetsAppState_build_closure, A._WidgetsAppState_build__closure, A._RawAutocompleteState__buildOptionsView_closure, A._AutomaticKeepAliveState__addClient_closure, A._AutomaticKeepAliveState__getChildElement_closure, A._UbiquitousInheritedElement_notifyClients_closure, A._UbiquitousInheritedElement__recurseChildren_closure, A.ClipPath_shape_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure2, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure4, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure6, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure7, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure9, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure11, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure13, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure2, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure4, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure6, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_initInstances_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_initServiceExtensions_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_initInstances__closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initInstances_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initInstances_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions__closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions_closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure2, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure4, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure6, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure7, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions__closure0, A.WidgetsBinding__formatEvaluationResult_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure0, A.ContextMenuController_show_closure, A.DefaultSelectionStyle_merge_closure, A.showRawDialog_closure, A._DialogWindowRoute_install_closure, A.DisplayFeatureSubScreen_avoidBounds_closure, A.DisplayFeatureSubScreen_avoidBounds_closure0, A.EditableTextState_cutSelection_closure, A.EditableTextState__pasteText_closure, A.EditableTextState__startLiveTextInput_closure, A.EditableTextState__isPasswordInput_closure, A.EditableTextState_didChangeDependencies_closure, A.EditableTextState_didChangeDependencies_closure0, A.EditableTextState_didUpdateWidget_closure, A.EditableTextState_didUpdateWidget_closure0, A.EditableTextState_didUpdateWidget_closure1, A.EditableTextState_didUpdateWidget_closure2, A.EditableTextState__scheduleShowCaretOnScreen_closure, A.EditableTextState_didChangeMetrics_closure, A.EditableTextState__startCursorBlink_closure, A.EditableTextState__onCursorTick_closure1, A.EditableTextState_build_closure, A.EditableTextState_build__closure, A.EditableTextState_build__closure5, A.EditableTextState_build__closure2, A.EditableTextState_build__closure1, A.EditableTextState_build__closure3, A._ScribbleFocusableState_isInScribbleRect_closure, A._OverridingTextStyleTextSpanUtils__applyTextStyleOverrides_closure0, A._ExpansibleState__toggleExpansion__closure, A.FocusNode_traversalDescendants_closure, A.FocusNode__removeChild_closure, A.FocusNode_debugDescribeChildren_closure, A.FocusScopeNode_debugFillProperties_closure, A._getAncestor_closure, A.FocusTraversalPolicy__findInitialFocus_closure, A.FocusTraversalPolicy__sortAllDescendants_visitGroups, A.FocusTraversalPolicy__sortAllDescendants_closure, A._ReadingOrderTraversalPolicy_FocusTraversalPolicy_DirectionalFocusTraversalPolicyMixin_changedScope_closure, A.DirectionalFocusTraversalPolicyMixin__findNextFocusInDirection_closure, A.DirectionalFocusTraversalPolicyMixin__findNextFocusInDirection_closure0, A.DirectionalFocusTraversalPolicyMixin__findNextFocusInDirection_closure1, A.DirectionalFocusTraversalPolicyMixin__findNextFocusInDirection_closure2, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterHorizontally_closure, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterHorizontally_closure0, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterVertically_closure, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterVertically_closure0, A.DirectionalFocusTraversalPolicyMixin__popPolicyDataIfNeeded_popOrInvalidate, A._ReadingOrderSortData_commonDirectionalityOf_closure, A._ReadingOrderSortData_directionalAncestors_getDirectionalityAncestors, A._ReadingOrderDirectionalGroupData_rect_closure, A._ReadingOrderDirectionalGroupData_debugFillProperties_closure, A.ReadingOrderTraversalPolicy__pickNext_inBand_closure, A.FormState__fieldDidChange_closure, A.FormState_build_closure, A.FormFieldState_didChangeDependencies_closure, A.FormFieldState_build_closure, A._InactiveElements__unmount_closure0, A.BuildScope__flushDirtyElements__closure, A.BuildOwner__debugVerifyGlobalKeyReservation____closure, A.BuildOwner__debugVerifyGlobalKeyReservation____closure0, A.BuildOwner_finalizeTree__closure, A.BuildOwner_finalizeTree__closure0, A.BuildOwner_finalizeTree__closure1, A.BuildOwner_finalizeTree__closure2, A.Element_reassemble_closure, A.Element_renderObjectAttachingChild_closure, A.Element_describeMissingAncestor_closure, A.Element_describeElements_closure, A.Element_updateChildren_replaceWithNullIfForgotten, A.Element_updateChildren_closure, A.Element_updateSlotForChild_visit, A.Element__updateDepth_closure, A.Element__updateBuildScopeRecursively_closure, A.Element_detachRenderObject_closure, A.Element_attachRenderObject_closure, A.Element_debugFillProperties_closure0, A.Element_debugDescribeChildren_closure, A.ParentDataElement__applyParentData_applyParentDataToChild, A.RenderObjectElement__debugCheckCompetingAncestors__closure, A.RenderObjectElement__findAncestorParentDataElements_closure, A.MultiChildRenderObjectElement_children_closure, A.GestureDetector_build_closure0, A.GestureDetector_build_closure2, A.GestureDetector_build_closure4, A.GestureDetector_build_closure6, A.GestureDetector_build_closure8, A.GestureDetector_build_closure10, A.RawGestureDetectorState_debugFillProperties_closure, A._DefaultSemanticsGestureDelegate__getHorizontalDragUpdateHandler_closure, A._DefaultSemanticsGestureDelegate__getHorizontalDragUpdateHandler_closure0, A._DefaultSemanticsGestureDelegate__getHorizontalDragUpdateHandler_closure1, A._DefaultSemanticsGestureDelegate__getVerticalDragUpdateHandler_closure, A._DefaultSemanticsGestureDelegate__getVerticalDragUpdateHandler_closure0, A._DefaultSemanticsGestureDelegate__getVerticalDragUpdateHandler_closure1, A.Hero__allHeroesFor_visitor, A.HeroController_didStopUserGesture_isInvalidFlight, A.HeroController__maybeStartHeroTransition_closure, A.IconTheme_merge_closure, A.ImplicitlyAnimatedWidgetState_initState_closure, A.ImplicitlyAnimatedWidgetState_didUpdateWidget_closure, A.ImplicitlyAnimatedWidgetState__constructTweens_closure, A._AnimatedContainerState_forEachTween_closure, A._AnimatedContainerState_forEachTween_closure0, A._AnimatedContainerState_forEachTween_closure1, A._AnimatedContainerState_forEachTween_closure2, A._AnimatedContainerState_forEachTween_closure3, A._AnimatedContainerState_forEachTween_closure4, A._AnimatedContainerState_forEachTween_closure5, A._AnimatedContainerState_forEachTween_closure6, A._AnimatedPaddingState_forEachTween_closure, A._AnimatedPositionedState_forEachTween_closure, A._AnimatedPositionedState_forEachTween_closure0, A._AnimatedPositionedState_forEachTween_closure1, A._AnimatedPositionedState_forEachTween_closure2, A._AnimatedPositionedState_forEachTween_closure3, A._AnimatedPositionedState_forEachTween_closure4, A._AnimatedOpacityState_forEachTween_closure, A._AnimatedDefaultTextStyleState_forEachTween_closure, A._AnimatedPhysicalModelState_forEachTween_closure, A._AnimatedPhysicalModelState_forEachTween_closure0, A._AnimatedPhysicalModelState_forEachTween_closure1, A._AnimatedPhysicalModelState_forEachTween_closure2, A.IndexedStack_build_closure, A.Visibility_of_closure, A.InheritedTheme_capture_closure0, A._loadAll_closure, A._loadAll_closure0, A._loadAll_closure1, A.Localizations_closure, A._LocalizationsState_load_closure, A._LocalizationsState_load_closure0, A.LocalizationsResolver__debugCheckLocalizations__closure, A.LookupBoundary_findAncestorWidgetOfExactType_closure, A.LookupBoundary_findAncestorRenderObjectOfType_closure, A.LookupBoundary_debugIsHidingAncestorWidgetOfExactType__closure, A.LookupBoundary_debugIsHidingAncestorStateOfType__closure, A.LookupBoundary_debugIsHidingAncestorRenderObjectOfType__closure, A.MagnifierController_show_closure, A.MediaQueryData_removeDisplayFeatures_closure, A.MediaQuery_withNoTextScaling_closure, A.MediaQuery_withClampedTextScaling_closure, A.MediaQuery_updateShouldNotifyDependent_closure, A.Route_didPush_closure, A.Route_didAdd_closure, A.Navigator_defaultGenerateInitialRoutes_closure2, A._RouteEntry_handleDidPopNext_closure, A._RouteEntry_dispose_closure, A._RouteEntry_dispose__closure, A._RouteEntry_isRoutePredicate_closure, A.NavigatorState__handleHistoryChanged_closure, A.NavigatorState_restoreState_closure, A.NavigatorState__forcedDisposeAllRouteEntries_closure, A.NavigatorState__updateHeroController__closure, A.NavigatorState__afterNavigation_closure, A.NavigatorState_build_closure, A.OverlayEntry_remove_closure, A.OverlayState_rearrange_closure, A.OverlayState_rearrange_closure0, A._RenderTheater_computeMinIntrinsicWidth_closure, A._RenderTheater_computeMaxIntrinsicWidth_closure, A._RenderTheater_computeMinIntrinsicHeight_closure, A._RenderTheater_computeMaxIntrinsicHeight_closure, A._RenderTheater_debugDescribeChildren_closure, A.OverlayPortal$overlayChildLayoutBuilder_closure, A._RenderTheaterMarker__rootRenderTheaterMarkerOf_closure, A._RenderDeferredLayoutBox__childrenInPaintOrder_closure, A._RenderDeferredLayoutBox__doLayoutFrom_closure, A._RenderLayoutBuilder__childrenInPaintOrder_closure, A.PageStorageBucket__allKeys_closure, A._PageViewState_build_closure, A._PlatformViewPlaceholderBox_performLayout_closure, A._extension_0_disposePostFrame_closure, A.RawTooltipState__handleMouseEnter_closure, A._RootRestorationScopeState__loadRootBucketIfNecessary_closure, A.RestorationMixin_registerForRestoration_closure, A.RestorationMixin__doRestore__closure, A._RouterState__processParsedRouteInformation_closure, A._RouterState__handleRoutePopped_closure, A.TransitionRoute__updateSecondaryAnimation_jumpOnAnimationEnd, A.TransitionRoute__setSecondaryAnimation_closure, A.TransitionRoute__handleDragEnd_closure, A.LocalHistoryRoute_removeLocalHistoryEntry_closure, A._ModalScopeStatus_updateShouldNotifyDependent_closure, A._ModalScopeState_build_closure0, A._ModalScopeState_build__closure, A.ModalRoute__maybeDispatchNavigationNotification_closure, A.ScrollBehavior_velocityTrackerBuilder_closure, A.ScrollBehavior_velocityTrackerBuilder_closure0, A.ScrollBehavior_velocityTrackerBuilder_closure1, A.ScrollNotificationObserverState_build_closure, A.ScrollNotificationObserverState_build_closure0, A.ScrollPosition_forcePixels_closure, A.ScrollView_build_closure0, A.Scrollable_ensureVisible_closure, A.ScrollableState_setCanDrag_closure0, A.ScrollableState_setCanDrag_closure2, A._ScrollableSelectionContainerDelegate__scheduleLayoutChange_closure, A.ScrollbarPainter__debugAssertIsValidOrientation_closure_isVerticalOrientation, A.RawScrollbarState__debugScheduleCheckHasValidScrollPosition_closure, A.RawScrollbarState__gestures_closure2, A.RawScrollbarState_build_closure, A.RawScrollbarState_build_closure0, A.StaticSelectionContainerDelegate_didChangeSelectables_closure, A.StaticSelectionContainerDelegate_didChangeSelectables_closure0, A.MultiSelectableSelectionContainerDelegate__scheduleSelectableUpdate_runScheduledTask, A.MultiSelectableSelectionContainerDelegate_getSelectionGeometry_closure, A.MultiSelectableSelectionContainerDelegate_getSelectionGeometry_closure0, A.ShortcutMapProperty_valueToString_closure, A.SingleChildScrollView_build_closure0, A.SliverMultiBoxAdaptorElement_performRebuild_processElement, A.SliverMultiBoxAdaptorElement_visitChildren_closure, A._SystemContextMenuState_build_closure, A.Table__closure2, A.Table___closure, A.Table__closure0, A.Table__closure1, A.Table_closure1, A.Table_closure2, A.Table__closure, A._TableElement_mount_closure, A._TableElement_mount__closure, A._TableElement_update_closure, A._TableElement_update_closure0, A._TableElement__updateRenderObjectChildren_closure, A._TableElement__updateRenderObjectChildren__closure, A._TableElement_visitChildren_closure, A.RenderTapRegionSurface__classifyRegions_closure, A._OverridingTextStyleTextSpanUtils__applyTextStyleOverrides_closure, A.SelectionOverlay_showMagnifier_closure, A.SelectionOverlay_showHandles_closure, A.SelectionOverlay_showHandles_closure0, A.SelectionOverlay_showToolbar_closure, A.SelectionOverlay_markNeedsBuild_closure, A.SelectionOverlay__buildToolbar_closure, A._SelectionHandleOverlayState_build_closure0, A.TextSelectionGestureDetectorBuilder_onTapDown_closure, A._TextSelectionGestureDetectorState_build_closure0, A._TextSelectionGestureDetectorState_build_closure2, A._TextSelectionGestureDetectorState_build_closure4, A._TextSelectionGestureDetectorState_build_closure6, A._TextSelectionGestureDetectorState_build_closure8, A.UndoHistoryState_initState_closure, A._throttle_closure, A._MultiChildComponentElement__debugCheckMustAttachRenderObject_closure, A.Viewport_closure, A._calculateSubtreeBoundsHelper_closure, A.WidgetInspectorService__registerSignalServiceExtension_closure, A.WidgetInspectorService__registerObjectGroupServiceExtension_closure, A.WidgetInspectorService__registerBoolServiceExtension_closure, A.WidgetInspectorService__registerServiceExtensionWithArg_closure, A.WidgetInspectorService__registerServiceExtensionVarArgs_closure, A.WidgetInspectorService_initServiceExtensions_closure1, A.WidgetInspectorService_initServiceExtensions_closure3, A.WidgetInspectorService_initServiceExtensions_closure5, A.WidgetInspectorService_initServiceExtensions_closure7, A.WidgetInspectorService_initServiceExtensions_closure8, A.WidgetInspectorService_initServiceExtensions_closure9, A.WidgetInspectorService_initServiceExtensions_closure10, A.WidgetInspectorService_initServiceExtensions_closure11, A.WidgetInspectorService_addPubRootDirectories_closure, A.WidgetInspectorService_removePubRootDirectories_closure, A.WidgetInspectorService__truncateNodes_closure, A._WidgetInspectorState_hitTest_area, A._filterInspectorHitCandidatesToModalRouteScope_closure, A._filterInspectorHitCandidatesToModalRouteScope_closure0, A._InspectorOverlayLayer__isInInspectorRenderObjectTree_closure, A._WidgetInspectorButtonState_build_closure, A._WidgetInspectorButtonState_build_closure0, A.InspectorSerializationDelegate_filterProperties_closure, A.WidgetSpan_extractFromInlineSpan_visitSubtree, A.SlidableAction_build_closure, A.SlidableAutoCloseBehaviorListener_build_closure, A.SlidableAutoCloseNotificationSender_build_closure, A._SlidableAutoCloseBarrierNotificationSenderState_dispose_closure, A._SlidableAutoCloseBarrierBehaviorListenerState_build_closure, A._SlidableDismissalState_handleResizeRequestChanged_closure, A._RenderFlexEntranceTransition_getTotalFlex_closure, A._RenderFlexEntranceTransition_performLayout_closure, A.Registrar_send_closure, A.get_closure, A.post_closure, A.put_closure, A.delete_closure, A.BaseRequest_closure0, A.BrowserClient_send_closure, A.BrowserClient_send_closure0, A.ByteStream_toBytes_closure, A.MediaType_toString__closure, A.expectQuotedString_closure, A.BmpDecoder_decodeFrame_closure, A.ExrPart_closure, A.JpegData__readSOS_closure, A.PnmDecoder__getNextToken_closure, A.Image_getPixelLinear_linear, A.Image_getPixelCubic_cubic, A.DateFormat_dateTimeConstructor_closure, A.verifiedLocale_closure, A.verifiedLocale_closure0, A.verifiedLocale_closure1, A.MaterialDynamicColors_background_closure, A.MaterialDynamicColors_background_closure0, A.MaterialDynamicColors_onBackground_closure0, A.MaterialDynamicColors_onBackground_closure1, A.MaterialDynamicColors_onBackground_closure, A.MaterialDynamicColors_surface_closure, A.MaterialDynamicColors_surface_closure0, A.MaterialDynamicColors_surfaceDim_closure, A.MaterialDynamicColors_surfaceDim_closure0, A.MaterialDynamicColors_surfaceBright_closure, A.MaterialDynamicColors_surfaceBright_closure0, A.MaterialDynamicColors_surfaceContainerLowest_closure, A.MaterialDynamicColors_surfaceContainerLowest_closure0, A.MaterialDynamicColors_surfaceContainerLow_closure, A.MaterialDynamicColors_surfaceContainerLow_closure0, A.MaterialDynamicColors_surfaceContainer_closure, A.MaterialDynamicColors_surfaceContainer_closure0, A.MaterialDynamicColors_surfaceContainerHigh_closure, A.MaterialDynamicColors_surfaceContainerHigh_closure0, A.MaterialDynamicColors_surfaceContainerHighest_closure, A.MaterialDynamicColors_surfaceContainerHighest_closure0, A.MaterialDynamicColors_onSurface_closure, A.MaterialDynamicColors_onSurface_closure0, A.MaterialDynamicColors_surfaceVariant_closure, A.MaterialDynamicColors_surfaceVariant_closure0, A.MaterialDynamicColors_onSurfaceVariant_closure, A.MaterialDynamicColors_onSurfaceVariant_closure0, A.MaterialDynamicColors_inverseSurface_closure, A.MaterialDynamicColors_inverseSurface_closure0, A.MaterialDynamicColors_inverseOnSurface_closure0, A.MaterialDynamicColors_inverseOnSurface_closure1, A.MaterialDynamicColors_inverseOnSurface_closure, A.MaterialDynamicColors_outline_closure, A.MaterialDynamicColors_outline_closure0, A.MaterialDynamicColors_outlineVariant_closure, A.MaterialDynamicColors_outlineVariant_closure0, A.MaterialDynamicColors_shadow_closure, A.MaterialDynamicColors_shadow_closure0, A.MaterialDynamicColors_scrim_closure, A.MaterialDynamicColors_scrim_closure0, A.MaterialDynamicColors_primary_closure, A.MaterialDynamicColors_primary_closure0, A.MaterialDynamicColors_primary_closure1, A.MaterialDynamicColors_onPrimary_closure0, A.MaterialDynamicColors_onPrimary_closure1, A.MaterialDynamicColors_onPrimary_closure, A.MaterialDynamicColors_primaryContainer_closure, A.MaterialDynamicColors_primaryContainer_closure0, A.MaterialDynamicColors_primaryContainer_closure1, A.MaterialDynamicColors_onPrimaryContainer_closure0, A.MaterialDynamicColors_onPrimaryContainer_closure1, A.MaterialDynamicColors_onPrimaryContainer_closure, A.MaterialDynamicColors_inversePrimary_closure0, A.MaterialDynamicColors_inversePrimary_closure1, A.MaterialDynamicColors_inversePrimary_closure, A.MaterialDynamicColors_secondary_closure, A.MaterialDynamicColors_secondary_closure0, A.MaterialDynamicColors_secondary_closure1, A.MaterialDynamicColors_onSecondary_closure0, A.MaterialDynamicColors_onSecondary_closure1, A.MaterialDynamicColors_onSecondary_closure, A.MaterialDynamicColors_secondaryContainer_closure, A.MaterialDynamicColors_secondaryContainer_closure0, A.MaterialDynamicColors_secondaryContainer_closure1, A.MaterialDynamicColors_onSecondaryContainer_closure0, A.MaterialDynamicColors_onSecondaryContainer_closure1, A.MaterialDynamicColors_onSecondaryContainer_closure, A.MaterialDynamicColors_tertiary_closure, A.MaterialDynamicColors_tertiary_closure0, A.MaterialDynamicColors_tertiary_closure1, A.MaterialDynamicColors_onTertiary_closure0, A.MaterialDynamicColors_onTertiary_closure1, A.MaterialDynamicColors_onTertiary_closure, A.MaterialDynamicColors_tertiaryContainer_closure, A.MaterialDynamicColors_tertiaryContainer_closure0, A.MaterialDynamicColors_tertiaryContainer_closure1, A.MaterialDynamicColors_onTertiaryContainer_closure0, A.MaterialDynamicColors_onTertiaryContainer_closure1, A.MaterialDynamicColors_onTertiaryContainer_closure, A.MaterialDynamicColors_error_closure, A.MaterialDynamicColors_error_closure0, A.MaterialDynamicColors_error_closure1, A.MaterialDynamicColors_onError_closure0, A.MaterialDynamicColors_onError_closure1, A.MaterialDynamicColors_onError_closure, A.MaterialDynamicColors_errorContainer_closure, A.MaterialDynamicColors_errorContainer_closure0, A.MaterialDynamicColors_errorContainer_closure1, A.MaterialDynamicColors_onErrorContainer_closure0, A.MaterialDynamicColors_onErrorContainer_closure1, A.MaterialDynamicColors_onErrorContainer_closure, A.MaterialDynamicColors_primaryFixed_closure, A.MaterialDynamicColors_primaryFixed_closure0, A.MaterialDynamicColors_primaryFixed_closure1, A.MaterialDynamicColors_primaryFixedDim_closure, A.MaterialDynamicColors_primaryFixedDim_closure0, A.MaterialDynamicColors_primaryFixedDim_closure1, A.MaterialDynamicColors_onPrimaryFixed_closure0, A.MaterialDynamicColors_onPrimaryFixed_closure2, A.MaterialDynamicColors_onPrimaryFixed_closure, A.MaterialDynamicColors_onPrimaryFixed_closure1, A.MaterialDynamicColors_onPrimaryFixedVariant_closure0, A.MaterialDynamicColors_onPrimaryFixedVariant_closure2, A.MaterialDynamicColors_onPrimaryFixedVariant_closure, A.MaterialDynamicColors_onPrimaryFixedVariant_closure1, A.MaterialDynamicColors_secondaryFixed_closure, A.MaterialDynamicColors_secondaryFixed_closure0, A.MaterialDynamicColors_secondaryFixed_closure1, A.MaterialDynamicColors_secondaryFixedDim_closure, A.MaterialDynamicColors_secondaryFixedDim_closure0, A.MaterialDynamicColors_secondaryFixedDim_closure1, A.MaterialDynamicColors_onSecondaryFixed_closure0, A.MaterialDynamicColors_onSecondaryFixed_closure2, A.MaterialDynamicColors_onSecondaryFixed_closure, A.MaterialDynamicColors_onSecondaryFixed_closure1, A.MaterialDynamicColors_onSecondaryFixedVariant_closure0, A.MaterialDynamicColors_onSecondaryFixedVariant_closure2, A.MaterialDynamicColors_onSecondaryFixedVariant_closure, A.MaterialDynamicColors_onSecondaryFixedVariant_closure1, A.MaterialDynamicColors_tertiaryFixed_closure, A.MaterialDynamicColors_tertiaryFixed_closure0, A.MaterialDynamicColors_tertiaryFixed_closure1, A.MaterialDynamicColors_tertiaryFixedDim_closure, A.MaterialDynamicColors_tertiaryFixedDim_closure0, A.MaterialDynamicColors_tertiaryFixedDim_closure1, A.MaterialDynamicColors_onTertiaryFixed_closure0, A.MaterialDynamicColors_onTertiaryFixed_closure2, A.MaterialDynamicColors_onTertiaryFixed_closure, A.MaterialDynamicColors_onTertiaryFixed_closure1, A.MaterialDynamicColors_onTertiaryFixedVariant_closure0, A.MaterialDynamicColors_onTertiaryFixedVariant_closure2, A.MaterialDynamicColors_onTertiaryFixedVariant_closure, A.MaterialDynamicColors_onTertiaryFixedVariant_closure1, A.MethodChannelMobileScanner_deviceOrientationChangedStream_closure, A.MethodChannelMobileScanner_barcodesStream_closure, A.MethodChannelMobileScanner_torchStateStream_closure, A.MethodChannelMobileScanner_torchStateStream_closure0, A.MethodChannelMobileScanner_zoomScaleStateStream_closure, A.MethodChannelMobileScanner_zoomScaleStateStream_closure0, A._MobileScannerState_build_closure, A.MobileScannerController__setupListeners_closure, A.MobileScannerController__setupListeners_closure0, A.MobileScannerController__setupListeners_closure1, A.MobileScannerController__setupListeners_closure2, A.MobileScannerController__setupListeners_closure3, A.CameraPreview_build_closure, A.Barcode_Barcode$fromNative_closure, A.BarcodeDetectorReader__buildDetector_closure, A.BarcodeReader_maybeLoadLibrary_closure, A.BarcodeReader_maybeLoadLibrary_closure0, A.MobileScannerWeb_torchStateStream_closure, A.MobileScannerWeb_zoomScaleStateStream_closure, A.MobileScannerWeb__createVideoElement_closure, A.MobileScannerWeb__createVideoElement_closure0, A.MobileScannerWeb__createVideoElement_closure1, A.MobileScannerWeb__applyVideoConstraints_closure, A.MobileScannerWeb__applyVideoConstraints_closure0, A.MobileScannerWeb__applyVideoConstraints_closure1, A.MobileScannerWeb__isValidDeviceId_closure, A.MobileScannerWeb_start_closure, A.MobileScannerWeb_start_closure0, A.PollingBarcodeReader__startDecodeLoop_closure, A.isInsideScanWindow_closure, A.isInsideScanWindow_closure0, A.isInsideScanWindow_closure1, A.isInsideScanWindow_closure2, A.computeBoundingBoxSize_closure, A.computeBoundingBoxSize_closure0, A.mirrorBarcodeX_closure, A.POSDialogs_promptClearCart_closure, A.POSDialogs_showInvalidBarcodeDialog_closure, A.POSDialogs_onWillPop_closure, A.POSDialogs_showManualEntryDialog_closure, A.POSDialogs_showEditItemDialog_closure, A._CategoryListScreenState__onSearchChanged__closure, A._CategoryListScreenState_fetchCategories_closure, A._CategoryListScreenState_showDeleteConfirmation_closure, A._CategoryListScreenState_navigateToEdit_closure, A._CategoryListScreenState_showRateInputPopup_closure, A._CategoryListScreenState_build__closure, A._AccountListScreenState__onSearchChanged__closure, A._AccountListScreenState_openTransactionsScreen_closure, A._AccountListScreenState__showAddOrEditDialog_validateForm, A._AccountListScreenState__showAddOrEditDialog_closure, A._AccountListScreenState__showAddOrEditDialog___closure, A._AccountListScreenState__showAddOrEditDialog___closure0, A._AccountListScreenState__showAddOrEditDialog___closure1, A._AccountListScreenState__showAddOrEditDialog___closure2, A._AccountListScreenState__confirmDeleteAccount_closure, A._AccountListScreenState__confirmDeleteAccount___closure, A._AccountListScreenState__showAccountOptions_closure, A._AccountTransactionsScreenState_findExistingTransaction_closure, A._AccountTransactionsScreenState__showTransactionDialog_closure, A._AccountTransactionsScreenState__showTransactionDialog__closure_onTypeChange, A._AccountTransactionsScreenState__showTransactionDialog___closure0, A._AccountTransactionsScreenState__showTransactionDialog___closure, A._AccountTransactionsScreenState__showTransactionDialog___closure1, A._AccountTransactionsScreenState__showTransactionDialog___closure2, A._AccountTransactionsScreenState__showTransactionDialog____closure0, A._AccountTransactionsScreenState__createDefaultTodoForTransaction_safeToDouble, A._AccountTransactionsScreenState__deleteTransaction_closure, A._AccountTransactionsScreenState_build_closure, A._AccountTransactionsScreenState_build_closure1, A._AccountTransactionsScreenState_generateLedgerPdf_closure, A._AccountTransactionsScreenState_generateLedgerPdf_closure1, A._AccountTransactionsScreenState_generateLedgerPdf_closure3, A._AccountTransactionsScreenState_generateLedgerPdf__closure, A._AccountTransactionsScreenState_generateLedgerPdf_closure4, A._AddEditCategoryScreenState_build_closure3, A._AddEditCategoryScreenState_build__closure, A._AddEditCategoryScreenState_build_closure2, A._AddEditCategoryScreenState_build_closure1, A._AddEditCategoryScreenState_build__closure1, A._AddEditCategoryScreenState_build__closure2, A._AddEditCategoryScreenState_build_closure, A._AddEditCategoryScreenState_build_closure0, A._AddProductScreenState_fetchCategories__closure, A._AddProductScreenState_checkProductExists_closure0, A._AddProductScreenState_submitProductUpdate_closure, A._AddProductScreenState_submitProductUpdate_closure0, A._AddProductScreenState_submitProduct_closure1, A._AddProductScreenState_submitProduct_closure2, A._AddProductScreenState_scanBarcodeWithMobileScanner_closure, A._AddProductScreenState_showPriceEditDialog_closure, A._AddProductScreenState_showPriceEditDialog___closure, A._AddProductScreenState_showPriceEditDialog___closure0, A._AddProductScreenState_showPriceEditDialog___closure1, A._AddProductScreenState_showPriceEditDialog___closure2, A._AddProductScreenState_showPriceEditDialog___closure3, A._AddProductScreenState_showPriceEditDialog___closure4, A._AddProductScreenState_showPriceEditDialog___closure5, A._AddProductScreenState_build_closure, A._AddProductScreenState_build_closure0, A._AddProductScreenState_build__closure3, A._AddProductScreenState_build__closure1, A._AddProductScreenState_build___closure0, A._AddProductScreenState_build_closure3, A._CategorySearchDialogState_build_closure, A._CategorySearchDialogState_build_closure0, A._BarcodeScannerScreenState_build_closure, A._DashboardScreenState_buildLast7DaysAccordion_closure2, A._DashboardScreenState_buildInactive60DaysAccordion_closure, A._FastBillingDialogState__filterList__closure, A._HomeScreenState__showPasscodeDialog_closure, A._HomeScreenState__navigate_closure, A._HomeScreenState__navigate_closure0, A._HomeScreenState__navigate_closure1, A._HomeScreenState__navigate_closure2, A._HomeScreenState__navigate_closure3, A._HomeScreenState__navigate_closure4, A._POSScreenState_initState_closure, A._POSScreenState__showPasscodeDialog_closure, A._POSScreenState__showInvoiceNameDialog_closure, A._POSScreenState_promptRateTypeIfNeeded_closure, A._POSScreenState_fetchProduct_closure3, A._POSScreenState_fetchProduct_closure6, A._POSScreenState_fetchProduct_closure8, A._POSScreenState__addManualItem_closure0, A._POSScreenState__handleScan_closure, A._POSScreenState_build__closure0, A._POSScreenState_build___closure, A._POSScreenState_build____closure, A._POSScreenState_build___closure0, A._POSScreenState_build__closure, A._ProductListScreenState__onSearchChanged__closure, A._ProductListScreenState_fetchProducts_closure, A._ProductListScreenState_showDeleteConfirmation_closure, A._ProductListScreenState_build__closure, A._TodoEditScreenState__showChequeDialog_closure, A._TodoEditScreenState__showChequeDialog___closure, A._TodoEditScreenState__showChequeDialog___closure0, A._TodoEditScreenState__showChequeDialog___closure1, A._TodoEditScreenState__showChequeDialog___closure2, A._TodoEditScreenState_build_closure, A._TodoEditScreenState_build_closure0, A._TodoEditScreenState_build_closure1, A._TodoScreenState__closeTodo__closure, A._TodoScreenState__deleteTodo__closure, A._TodoScreenState__showConfirmationDialog_closure, A._TodoScreenState__showClosingCommentDialog_closure, A._TodoScreenState_buildTodoCard_formatDate, A._TodoScreenState_buildTodoCard_closure, A._TodoScreenState_buildTodoCard__closure, A._TodoScreenState_build__closure, A.InvoiceService_generateAndPrintInvoice_closure, A.InvoiceService_generateAndPrintInvoice__closure, A.InvoiceService_generateAndPrintInvoice_closure0, A.InvoiceService_generateAndPrintInvoiceThermal_closure, A.InvoiceService_generateAndPrintInvoiceThermal__closure, A.InvoiceService_generateAndPrintInvoiceThermal_closure0, A.Context_joinAll_closure, A.Context_split_closure, A._validateArgList_closure, A.PdfDocument__write_closure, A.TtfWriter_withChars_addGlyph, A.TtfWriter_withChars_closure0, A.PdfArray_fromObjects_closure, A.PdfArray_fromNum_closure, A.PdfString__encodeUtf16be_add, A.PdfPage_prepare_closure, A.PdfType1Font$create_closure0, A.Font_buildFont_closure, A.MultiPage_closure, A.RichText__preProcessSpans_closure, A.PrintingPlugin_layoutPdf_closure0, A.PrintingPlugin_layoutPdf_closure1, A.MethodChannelPrinting__handleMethod_closure0, A._PositionedListState__schedulePositionNotificationUpdate_closure, A._ScrollablePositionedListState_build__closure1, A._ScrollablePositionedListState_build__closure, A._ScrollablePositionedListState_build__closure0, A._ScrollablePositionedListState__scrollTo_closure, A._ScrollablePositionedListState__startScroll_closure, A._ScrollablePositionedListState__startScroll__closure, A._ScrollablePositionedListState__updatePositions_closure, A.SharedPreferencesPlugin__getPrefixedKeys_closure, A._getAllowedKeys_closure, A.Highlighter$__closure, A.Highlighter$___closure, A.Highlighter$__closure0, A.Highlighter__collateLines_closure, A.Highlighter__collateLines_closure1, A.Highlighter__collateLines__closure, A.Highlighter_highlight_closure, A.MethodChannelUrlLauncher_canLaunch_closure, A.MethodChannelUrlLauncher_launch_closure, A._EventStreamSubscription_closure0, A._EventStreamSubscription_onData_closure0]);
+    _inheritMany(A.Closure0Args, [A.AppBootstrap_prepareEngineInitializer_closure, A.SkiaFontCollection__registerWithFontProvider_closure, A.SkiaFontCollection__registerWithFontProvider_closure0, A.CkPaint_toString_closure, A.CkPicture_dispose_closure, A.CkPicture__initStackTrace_closure, A.CanvasKitRenderer_initialize_closure, A.CkGradientLinear_closure, A.CkParagraphStyle_toString_closure, A.CkTextStyle_skTextStyle_closure, A.CkTextStyle_toString_closure, A.CkParagraphBuilder_pop_closure, A.DisplayCanvasFactory_closure, A.MultiSurfaceRasterizer_createViewRasterizer_closure, A.OffscreenCanvasRasterizer_createViewRasterizer_closure, A.OffscreenCanvasViewRasterizer_displayFactory_closure, A.FlutterConfiguration$legacy_closure, A.FallbackFontService__process_closure, A.FallbackFontService__process_closure0, A.FallbackFontService__process_closure1, A.FallbackFontService__notifyFontsChanged_closure, A.FrameService_scheduleWarmUpFrame_closure, A.FrameService_scheduleWarmUpFrame_closure0, A.initializeEngineServices_closure, A.initializeEngineServices_initializeRendererCallback, A.initializeEngineUi_closure, A.FlutterEngineInitializer_constructor__closure0, A._cached_closure, A.KeyboardBinding_initInstance_closure, A.KeyboardConverter__scheduleAsyncEvent_closure0, A.KeyboardConverter__startGuardingKey_closure, A.KeyboardConverter__startGuardingKey_closure0, A.KeyboardConverter__handleEvent_closure, A.KeyboardConverter__handleEvent_closure0, A.KeyboardConverter__handleEvent_closure1, A.Frame_raster_closure, A.Frame_raster_closure0, A.PaintVisitor_visitPicture_closure, A.CountedRef_closure, A.EnginePlatformDispatcher_invokeOnKeyData_closure, A.EnginePlatformDispatcher__sendPlatformMessage_closure, A.EnginePlatformDispatcher__sendPlatformMessage_closure0, A.EnginePlatformDispatcher_invokeOnSemanticsAction_sendActionToFramework, A.invoke2_closure, A.MediaQueryManager_addListener_closure0, A.PlatformViewManager_renderContent_closure, A.PlatformViewEmbedder__compositeWithParams_closure, A.PointerBinding_closure, A.ClickDebouncer_closure, A._PointerAdapter__ensureSanitizer_closure, A._PointerAdapter_setup__closure, A._GlobalPointerState_closure, A._GlobalPointerState_ensurePointerDeviceState_closure, A.EngineImage__init_closure, A.RawKeyboard$__closure, A.RawKeyboard_handleHtmlEvent_closure, A.AccessibilityAnnouncements_announce_closure, A.AccessibilityAnnouncements_announce_closure0, A.AccessibilityFocusManager_changeFocus_closure, A.AccessibilityFocusManager_changeFocus_closure0, A.SemanticRouteBase_closure, A.SemanticRouteBase_update_closure, A.RouteName_update_closure, A.SemanticScrollable_update_closure, A.SemanticRole__updateControls_closure, A.SemanticsObject_toString_closure, A.EngineSemantics__now_closure, A.EngineSemantics__getGestureModeClock_closure, A.EngineSemanticsOwner_closure, A.EngineSemanticsOwner_updateSemantics_closure, A.EngineSemanticsOwner_updateSemantics_closure0, A.MobileSemanticsEnabler_tryEnableSemantics_closure, A.SemanticTextField_update_closure, A.TestUrlStrategy_go_closure, A.TestUrlStrategy_addPopStateListener_closure, A.TestUrlStrategy_addPopStateListener__closure, A.EngineLineMetrics_toString_closure, A.fontWeightIndexToCss_closure, A.EditingState_toString_closure, A.IOSTextEditingStrategy__schedulePlacement_closure, A.TextEditingChannel_handleTextInput_closure, A.Matrix4_toString_closure, A.CustomElementDimensionsProvider_closure1, A.FullPageEmbeddingStrategy__applyViewportMeta_closure, A.FlutterViewManager_safeBlur_closure, A.FlutterViewManager_safeRemove_closure, A._hotRestartCache_closure, A._hotRestartCache__closure, A.applyGlobalCssRulesToSheet_closure, A.WebParagraphDebug_log_closure, A.WebParagraphDebug_apiTrace_closure, A.WebFontCollection_loadAssetFonts_closure, A.TextLayout_addLine_closure, A.WebParagraphPainter_paint_closure, A.WebParagraphStyle_toString_closure, A.WebTextStyle_toString_closure, A._LineBuilder_hasPendingText_closure, A.EngineFlutterView__computePhysicalSize_closure, A.EngineFlutterWindow_handleNavigationMessage_closure, A.CastMap_putIfAbsent_closure, A.nullFuture_closure, A.Primitives_initTicker_closure, A._AsyncRun__scheduleImmediateJsOverride_internalCallback, A._AsyncRun__scheduleImmediateWithSetImmediate_internalCallback, A._TimerImpl_internalCallback, A._TimerImpl$periodic_closure, A.Future_Future_closure, A.Future_Future$delayed_closure, A._Future__addListener_closure, A._Future__prependListeners_closure, A._Future__chainForeignFuture_closure1, A._Future__chainCoreFuture_closure, A._Future__asyncCompleteWithValue_closure, A._Future__asyncCompleteErrorObject_closure, A._Future__propagateToListeners_handleWhenCompleteCallback, A._Future__propagateToListeners_handleValueCallback, A._Future__propagateToListeners_handleError, A._Future_timeout_closure, A.Stream_length_closure0, A.Stream_first_closure, A.Stream_firstWhere_closure, A.Stream_firstWhere__closure, A._StreamController__subscribe_closure, A._StreamController__recordCancel_complete, A._BufferingStreamSubscription__sendError_sendError, A._BufferingStreamSubscription__sendDone_sendDone, A._PendingEvents_schedule_closure, A._cancelAndError_closure, A._cancelAndValue_closure, A._RootZone_bindCallbackGuarded_closure, A._rootHandleError_closure, A._Utf8Decoder__decoder_closure, A._Utf8Decoder__decoderNonfatal_closure, A.DateTime$_internal_closure, A._performance_closure, A._json_closure, A.ChannelBuffers_push_closure, A.ChannelBuffers_push_closure0, A.ChannelBuffers_setListener_closure, A.ChannelBuffers_allowOverflow_closure, A.bootstrapEngine_closure0, A.BrowserPlatformLocation_getOrCreateDomEventListener_closure, A.HashUrlStrategy_addPopStateListener_closure, A.AudioPlayer__completePrepared_closure0, A.AudioPlayer_setSourceAsset_closure, A.CanonicalizedMap_putIfAbsent_closure, A.FirebaseCoreWeb_registerService_closure, A.AnimationController_forward_closure, A.AnimationController_reverse_closure, A.AnimationController_animateTo_closure, A.AnimationController_animateBack_closure, A.AnimationController_repeat_closure, A.AnimationController_dispose_closure, A.AnimationController_toStringDetails_closure, A.CurvedAnimation_value_closure, A.AnimationLocalListenersMixin_notifyListeners_closure, A.AnimationLocalListenersMixin_notifyListeners__closure, A.AnimationLocalStatusListenersMixin_notifyStatusListeners_closure, A.AnimationLocalStatusListenersMixin_notifyStatusListeners__closure, A.Tween_lerp_closure, A.__CupertinoActivityIndicatorState_State_SingleTickerProviderStateMixin_dispose_closure, A._CupertinoButtonState__handleTapDown_closure, A._CupertinoButtonState__handleTapUp_closure, A._CupertinoButtonState__handleTapCancel_closure, A._CupertinoButtonState__onShowFocusHighlight_closure, A._CupertinoButtonState_build_closure, A.__CupertinoButtonState_State_SingleTickerProviderStateMixin_dispose_closure, A.CupertinoDynamicColor_resolveFrom_closure, A.debugCheckHasCupertinoLocalizations_closure, A._CupertinoDesktopTextSelectionToolbarButtonState__onEnter_closure, A._CupertinoDesktopTextSelectionToolbarButtonState__onExit_closure, A._CupertinoTextMagnifierState_initState_closure, A._CupertinoTextMagnifierState_initState__closure, A._CupertinoTextMagnifierState__determineMagnifierPositionAndFocalPoint_closure, A.__CupertinoTextMagnifierState_State_SingleTickerProviderStateMixin_dispose_closure, A.CupertinoRouteTransitionMixin__startPopGesture_closure0, A.CupertinoRouteTransitionMixin__startPopGesture_closure, A.CupertinoRouteTransitionMixin_buildPageTransitions_closure, A.CupertinoRouteTransitionMixin_buildPageTransitions_closure0, A._CupertinoScrollbarState_initState_closure, A._RenderCupertinoTextSelectionToolbarShape_debugPaintSize_closure, A._CupertinoTextSelectionToolbarContentState__statusListener_closure, A.__CupertinoTextSelectionToolbarContentState_State_TickerProviderStateMixin_dispose_closure, A._CupertinoTextSelectionToolbarButtonState__onTapDown_closure, A._CupertinoTextSelectionToolbarButtonState__onTapUp_closure, A._CupertinoTextSelectionToolbarButtonState__onTapCancel_closure, A._testPlatform_closure, A.FlutterErrorDetails_summary_formatException, A.FlutterErrorDetails_summary_closure0, A.FlutterError$fromParts_closure, A.FlutterError_dumpErrorToConsole_closure, A.BindingBase_closure, A.BindingBase_initInstances_closure, A.BindingBase_checkInstance_closure, A.BindingBase_debugCheckZone_closure, A.BindingBase_initServiceExtensions_closure, A.BindingBase_initServiceExtensions_closure0, A.BindingBase_initServiceExtensions_closure2, A.BindingBase_initServiceExtensions_closure4, A.BindingBase_initServiceExtensions_closure5, A.BindingBase_lockEvents_closure, A.BindingBase_registerServiceExtension__closure, A.BindingBase_registerServiceExtension__closure0, A.ChangeNotifier_debugAssertNotDisposed_closure, A.ChangeNotifier_maybeDispatchObjectCreation_closure, A.ChangeNotifier_dispose_closure, A.ChangeNotifier_notifyListeners_closure, A.debugInstrumentAction_closure, A.DiagnosticsNode_toJsonMap_closure, A.DiagnosticsNode_toJsonMapIterative_closure, A.DiagnosticsNode_toString_closure, A.DiagnosticsNode_toStringDeep_closure, A.DiagnosticableNode_builder_closure, A.DiagnosticableNode_toDescription_closure, A.DiagnosticPropertiesBuilder_add_closure, A.Diagnosticable_toString_closure, A.FlutterMemoryAllocations_dispatchObjectEvent_closure, A.objectRuntimeType_closure, A.GestureArenaManager_add_closure, A.GestureArenaManager__tryToResolveArena_closure, A.GestureArenaManager__debugLogDiagnostic_closure, A.GestureBinding__handlePointerEventImmediately_closure, A.GestureBinding__handlePointerEventImmediately_closure0, A.GestureBinding_dispatchEvent_closure, A.GestureBinding_dispatchEvent_closure0, A.GestureBinding_samplingClock_closure, A.ForcePressGestureRecognizer_handleEvent_closure, A.ForcePressGestureRecognizer_acceptGesture_closure, A.ForcePressGestureRecognizer_didStopTrackingLastPointer_closure, A.HitTestResult__debugVectorMoreOrLessEquals_closure, A.LongPressGestureRecognizer__checkLongPressStart_closure, A.LongPressGestureRecognizer__checkLongPressMoveUpdate_closure, A.LongPressGestureRecognizer__checkLongPressEnd_closure, A.DragGestureRecognizer__checkDown_closure, A.DragGestureRecognizer__checkStart_closure, A.DragGestureRecognizer__checkUpdate_closure, A.DragGestureRecognizer__checkEnd_closure, A.DragGestureRecognizer__checkEnd_closure0, A.DragGestureRecognizer__checkEnd_closure1, A.DragGestureRecognizer__checkEnd_closure2, A.PointerRouter_addRoute_closure, A.PointerRouter__dispatch_closure, A.PointerRouter__dispatch__closure, A.PointerSignalResolver_resolve_closure, A.PointerSignalResolver_resolve__closure, A.GestureRecognizer_invokeCallback_closure, A.GestureRecognizer_invokeCallback_closure0, A.GestureRecognizer_invokeCallback__closure, A.PrimaryPointerGestureRecognizer_addAllowedPointer_closure, A.TapGestureRecognizer_handleTapDown_closure, A.TapGestureRecognizer_handleTapDown_closure0, A.TapGestureRecognizer_handleTapUp_closure, A.TapGestureRecognizer_handleTapUp_closure0, A.TapGestureRecognizer_handleTapUp_closure1, A.TapGestureRecognizer_handleTapMove_closure, A.BaseTapAndDragGestureRecognizer__handleDragUpdateThrottled_closure, A.BaseTapAndDragGestureRecognizer_addAllowedPointer_closure, A.BaseTapAndDragGestureRecognizer__checkTapDown_closure, A.BaseTapAndDragGestureRecognizer__checkTapUp_closure, A.BaseTapAndDragGestureRecognizer__checkDragStart_closure, A.BaseTapAndDragGestureRecognizer__checkDragUpdate_closure, A.BaseTapAndDragGestureRecognizer__checkDragEnd_closure, A.GestureArenaTeam_add_closure, A.VelocityTracker_getVelocityEstimate_closure, A.VelocityTracker_getVelocityEstimate_closure0, A.IOSScrollViewFlingVelocityTracker_addPosition_closure, A._ActionButton_build_closure, A._MaterialAppState_build_closure, A.AppBar__getEffectiveCenterTitle_platformCenter, A._AppBarState__handleScrollNotification_closure, A.MaterialPointArcTween__initialize_sweepAngle, A._AutocompleteOptionsListState_build__closure0, A._BottomSheetState__handleDragStart_closure, A._BottomSheetState__handleDragEnd_closure, A._BottomSheetState__handleDragHandleHover_closure, A._ModalBottomSheetState_build_closure0, A._BottomSheetGestureDetector_build_closure, A._ButtonStyleState_handleStatesControllerChange_closure, A._ButtonStyleState_build_effectiveIconColor, A._ButtonStyleState_build__closure1, A.__ButtonStyleState_State_TickerProviderStateMixin_dispose_closure, A._CalendarDatePickerState__handleModeChanged_closure, A._CalendarDatePickerState__handleMonthChanged_closure, A._CalendarDatePickerState__handleYearChanged_closure, A._CalendarDatePickerState__handleDayChanged_closure, A._CalendarDatePickerState_build_closure, A._MonthPickerState__handleMonthPageChanged_closure, A._MonthPickerState__handleGridFocusChange_closure, A._MonthPickerState__handleDirectionFocus_closure, A._DayState_build_closure2, A._YearPickerState__buildYearItem_closure2, A.__DatePickerModeToggleButtonState_State_SingleTickerProviderStateMixin_dispose_closure, A.__CheckboxState_State_TickerProviderStateMixin_dispose_closure, A._RawChipState_initState_closure, A._RawChipState_initState__closure, A._RawChipState__handleTapDown_closure, A._RawChipState__handleTapCancel_closure, A._RawChipState__handleTap_closure, A._RawChipState_didUpdateWidget_closure, A._RawChipState_didUpdateWidget_closure0, A._RawChipState_didUpdateWidget_closure1, A.__RawChipState_State_TickerProviderStateMixin_dispose_closure, A.TableRowInkWell_getRectCallback_closure, A._DatePickerDialogState__handleOk_closure, A._DatePickerDialogState__handleEntryModeToggle_closure, A._DatePickerDialogState__handleDateChanged_closure, A._DatePickerDialogState_build_calendarDatePicker, A._DatePickerDialogState_build_inputDatePicker, A.debugCheckHasMaterial_closure, A.debugCheckHasMaterialLocalizations_closure, A.debugCheckHasScaffoldMessenger_closure, A.DrawerControllerState__animationChanged_closure, A._DrawerControllerState_State_SingleTickerProviderStateMixin_dispose_closure, A._DropdownMenuState_build_closure, A._DropdownMenuRouteLayout_getPositionForChild_closure, A._DropdownButtonState__handleFocusChanged_closure, A._DropdownButtonState__handleTap__closure, A._DropdownButtonState__handleTap_closure1, A._DropdownButtonState_build__closure0, A._DropdownButtonState_build__closure, A._ExpansionTileState__onExpansionChanged_closure, A._getClipCallback_closure0, A._getClipCallback_closure, A._InkResponseState_activateOnIntent_closure, A._InkResponseState_handleStatesControllerChange_closure, A._InkResponseState_updateHighlight_handleInkRemoval, A._InkResponseState__createSplash_onRemoved, A._InkResponseState_handleFocusHighlightModeChange_closure, A._InputDatePickerFormFieldState_didUpdateWidget__closure, A._HelperErrorState__handleChange_closure, A._RenderDecoration__childSemanticsConfigurationDelegate_closure0, A._InputDecoratorState__handleChange_closure, A.__HelperErrorState_State_SingleTickerProviderStateMixin_dispose_closure, A.__BorderContainerState_State_TickerProviderStateMixin_dispose_closure, A.__InputDecoratorState_State_TickerProviderStateMixin_dispose_closure, A.ListTile__debugCheckBackgroundIsHidden_closure, A.ListTile__debugCheckBackgroundIsHidden__closure, A._RenderListTile__computeSizes_closure, A._TextMagnifierState__determineMagnifierPositionAndFocalPoint_closure, A._TextMagnifierState__determineMagnifierPositionAndFocalPoint__closure, A._TextMagnifierState__determineMagnifierPositionAndFocalPoint_closure0, A.Material_of_closure, A.InkFeature_dispose_closure, A.__MaterialState_State_TickerProviderStateMixin_dispose_closure, A.MaterialStateMixin_addMaterialState_closure, A.MaterialStateMixin_removeMaterialState_closure, A._PredictiveBackGestureDetectorState_phase_closure, A._PredictiveBackGestureDetectorState_startBackEvent_closure, A._PredictiveBackGestureDetectorState_currentBackEvent_closure, A.__PredictiveBackSharedElementPageTransitionState_State_SingleTickerProviderStateMixin_dispose_closure, A.__CircularProgressIndicatorState_State_SingleTickerProviderStateMixin_dispose_closure, A.RefreshIndicatorState__handleScrollNotification_closure, A.RefreshIndicatorState__dismiss_closure, A.RefreshIndicatorState__dismiss_closure0, A.RefreshIndicatorState__show__closure, A.RefreshIndicatorState__show__closure0, A.RefreshIndicatorState_build_closure, A._RefreshIndicatorState_State_TickerProviderStateMixin_dispose_closure, A.ScaffoldMessengerState_showSnackBar_closure, A.ScaffoldMessengerState_showSnackBar_closure0, A.ScaffoldMessengerState_showSnackBar_closure1, A.ScaffoldMessengerState__handleSnackBarStatusChanged_closure, A.ScaffoldMessengerState__handleSnackBarStatusChanged_closure0, A.ScaffoldMessengerState_build_closure, A._ScaffoldLayout_performLayout_closure, A._FloatingActionButtonTransitionState__handlePreviousAnimationStatusChanged_closure, A.ScaffoldState__endDrawerOpenedCallback_closure, A.ScaffoldState__updateSnackBar_closure, A.ScaffoldState__updateMaterialBanner_closure, A._ScaffoldMessengerState_State_TickerProviderStateMixin_dispose_closure, A._ScaffoldState_State_TickerProviderStateMixin_dispose_closure, A.__FloatingActionButtonTransitionState_State_TickerProviderStateMixin_dispose_closure, A._MaterialScrollbarState_initState_closure, A._MaterialScrollbarState_handleThumbPressStart_closure, A._MaterialScrollbarState_handleThumbPressEnd_closure, A._MaterialScrollbarState_handleHover_closure, A._MaterialScrollbarState_handleHover_closure0, A._MaterialScrollbarState_handleHoverExit_closure, A._SnackBarState_build_closure, A._SnackBarState_build_closure1, A._MaterialSwitchState__handleDragEnd_closure, A.__MaterialSwitchState_State_TickerProviderStateMixin_dispose_closure, A.SwitchListTile_build_closure, A._TextFieldState__handleFocusChanged_closure, A._TextFieldState__handleSelectionChanged_closure, A._TextFieldState__handleHover_closure, A._TextFieldState__handleStatesControllerChange_closure, A._TextFieldState_build_closure, A._TextFieldState_build_closure0, A._TextFieldState_build_closure1, A._TextFieldState_build_closure2, A._TextFieldState_build_closure3, A._TextFieldState_build_closure4, A._TextFieldState_build__closure, A._TextFieldState_build__closure0, A._TextSelectionToolbarOverflowableState_build_closure, A._TextSelectionToolbarOverflowableState_build__closure, A.__TextSelectionToolbarOverflowableState_State_TickerProviderStateMixin_dispose_closure, A.ThemeData_copyWith_closure, A.ThemeData_localize_closure, A._TooltipState_State_SingleTickerProviderStateMixin_dispose_closure, A.Border_paint_closure, A.Border_paint_closure0, A.Border_paint_closure1, A._BoxDecorationPainter__paintShadows_closure, A._BoxDecorationPainter__paintShadows_closure0, A.BoxShadow_toPaint_closure, A.debugCheckCanResolveTextDirection_closure, A._TextLayout__computeEndOfTextCaretAnchorOffset_closure, A.TextPainter_markNeedsLayout_closure, A.TextPainter_textWidthBasis_closure, A.TextPainter_setPlaceholderDimensions_closure, A.TextPainter__createParagraph_closure, A.TextPainter_layout_closure, A.TextPainter_paint_closure, A.TextPainter_debugDisposed_closure, A.TextPainter_dispose_closure, A.TextSpan_debugAssertIsValid_closure, A.TextStyle_copyWith_closure, A.TextStyle_apply_closure, A.TextStyle_merge_closure, A.TextStyle_lerp_closure, A.TextStyle_lerp_closure0, A.RenderAnimatedSize_closure, A.RendererBinding_pipelineOwner_closure, A.RendererBinding_pipelineOwner_closure0, A.RendererBinding__scheduleMouseTrackerUpdate_closure, A.RendererBinding__scheduleMouseTrackerUpdate__closure, A.BoxConstraints__debugPropagateDebugSize_closure, A.BoxConstraints_constrain_closure, A.BoxConstraints_constrainSizeAndAttemptToPreserveAspectRatio_closure, A.BoxConstraints_constrainSizeAndAttemptToPreserveAspectRatio_closure0, A.BoxConstraints_debugAssertIsValid_closure, A._DryLayout_memoize_closure, A._Baseline_memoize_ifAbsent, A._IntrinsicDimension_memoize_closure, A.RenderBox__computeIntrinsics_closure, A.RenderBox__computeWithTimeline_closure, A.RenderBox_getMinIntrinsicWidth_closure, A.RenderBox_getMaxIntrinsicWidth_closure, A.RenderBox_getMinIntrinsicHeight_closure, A.RenderBox_getMaxIntrinsicHeight_closure, A.RenderBox__computeDryLayout_closure, A.RenderBox__computeDryLayout_closure0, A.RenderBox__computeDryBaseline_closure, A.RenderBox__computeDryBaseline_closure0, A.RenderBox_debugCannotComputeDryLayout_closure, A.RenderBox_size_closure, A.RenderBox_size_closure0, A.RenderBox_size_closure1, A.RenderBox_size_closure2, A.RenderBox_debugAdoptSize_closure, A.RenderBox_debugAssertDoesMeetConstraints_closure, A.RenderBox_performLayout_closure, A.RenderBox_hitTest_closure, A.RenderBox_applyPaintTransform_closure, A.RenderBox_debugHandleEvent_closure, A.RenderBox_debugPaint_closure, A.RenderBox_debugPaintSize_closure, A.RenderBox_debugPaintBaselines_closure, A.MultiChildLayoutDelegate_layoutChild_closure, A.MultiChildLayoutDelegate_positionChild_closure, A.MultiChildLayoutDelegate__callPerformLayout_closure, A.MultiChildLayoutDelegate__callPerformLayout_closure0, A.MultiChildLayoutDelegate__callPerformLayout_closure1, A.MultiChildLayoutDelegate__callPerformLayout_closure2, A.MultiChildLayoutDelegate__callPerformLayout_closure3, A.RenderCustomPaint__paintWithPainter_closure, A.RenderCustomPaint__paintWithPainter_closure0, A.RenderCustomPaint_assembleSemanticsNode_closure, A.RenderCustomPaint__updateSemanticsChildren_closure, A.RenderCustomPaint__updateSemanticsChildren_closure0, A.debugPaintPadding_closure, A.debugCheckHasBoundedAxis_closure, A.DebugOverflowIndicatorMixin__reportOverflow_closure, A.RenderEditable__createShowOnScreenFor_closure, A.RenderErrorBox__initBackgroundColor_closure, A.RenderErrorBox__initTextStyle_closure, A._RenderFlex_RenderBox_ContainerRenderObjectMixin_RenderBoxContainerDefaultsMixin_DebugOverflowIndicatorMixin_reassemble_closure, A.RenderFlex_computeDryLayout_closure, A.RenderFlex__debugCheckConstraints_closure, A.RenderFlex_performLayout_closure, A.RenderFlex_paint_closure, A.Layer_addCompositionCallback_closure, A.Layer_addCompositionCallback__closure, A.Layer_addCompositionCallback__closure0, A.Layer_addCompositionCallback_closure0, A.Layer_debugDisposed_closure, A.Layer_debugHandleCount_closure, A.Layer_dispose_closure, A.ContainerLayer_append_closure, A.ContainerLayer__adoptChild_closure, A.ClipRectLayer_addToScene_closure, A.ClipRRectLayer_addToScene_closure, A.ClipPathLayer_addToScene_closure, A.OpacityLayer_addToScene_closure, A.LayerLink__registerLeader_closure, A.LayerLink__debugScheduleLeadersCleanUpCheck_closure, A.RenderListBody__debugCheckConstraints_closure, A.RenderListBody__debugCheckConstraints_closure0, A.MouseTracker__deviceUpdatePhase_closure, A.MouseTracker__deviceUpdatePhase_closure0, A.MouseTracker_updateWithEvent_closure, A.MouseTracker_updateWithEvent__closure, A.MouseTracker_updateAllDevices_closure, A.PaintingContext__repaintCompositedChild_closure, A.PaintingContext__repaintCompositedChild_closure0, A.PaintingContext__repaintCompositedChild_closure1, A.PaintingContext_updateLayerProperties_closure, A.PaintingContext_debugInstrumentRepaintCompositedChild_closure, A.PaintingContext_paintChild_closure, A.PaintingContext__compositeChild_closure, A.PaintingContext__isRecording_closure, A.PaintingContext_stopRecordingIfNeeded_closure, A.PaintingContext_pushClipRect_closure, A.PaintingContext_pushClipRRect_closure, A.PaintingContext_pushClipPath_closure, A.PipelineOwner_flushLayout_closure, A.PipelineOwner_flushLayout_closure0, A.PipelineOwner_flushLayout_closure2, A.PipelineOwner_flushLayout_closure3, A.PipelineOwner__enableMutationsToDirtySubtrees_closure, A.PipelineOwner__enableMutationsToDirtySubtrees_closure0, A.PipelineOwner_flushPaint_closure, A.PipelineOwner_flushPaint_closure0, A.PipelineOwner_flushPaint_closure2, A.PipelineOwner_flushSemantics_closure, A.PipelineOwner_flushSemantics_closure2, A.PipelineOwner_flushSemantics_closure5, A.PipelineOwner_flushSemantics_closure6, A.RenderObject_debugDisposed_closure, A.RenderObject_dispose_closure, A.RenderObject_adoptChild_closure, A.RenderObject__reportException_closure, A.RenderObject__withDebugActiveLayoutCleared_closure, A.RenderObject__withDebugActiveLayoutCleared_closure0, A.RenderObject__debugCanPerformMutations_closure, A.RenderObject_debugLayoutParent_closure, A.RenderObject_markNeedsLayout_closure, A.RenderObject_scheduleInitialLayout_closure, A.RenderObject__layoutWithoutResize_closure, A.RenderObject__layoutWithoutResize_closure0, A.RenderObject_layout_closure, A.RenderObject_layout_closure0, A.RenderObject_layout_closure1, A.RenderObject_layout_closure2, A.RenderObject_layout_closure3, A.RenderObject_layout_closure4, A.RenderObject_layout_closure5, A.RenderObject_layout_closure6, A.RenderObject_layout_closure7, A.RenderObject_layout_closure8, A.RenderObject_layout_closure9, A.RenderObject_invokeLayoutCallback_closure, A.RenderObject_debugLayer_closure, A.RenderObject_markNeedsPaint_closure, A.RenderObject_markNeedsPaint_closure0, A.RenderObject__paintWithContext_closure, A.RenderObject__paintWithContext_closure0, A.RenderObject__paintWithContext_closure1, A.RenderObject__paintWithContext_closure2, A.RenderObject__paintWithContext_closure3, A.RenderObject_toStringDeep_closure, A.RenderObjectWithChildMixin_debugValidateChild_closure, A.ContainerRenderObjectMixin_debugValidateChild_closure, A.RenderInlineChildrenContainerDefaults_positionInlineChildren_closure, A.RenderParagraph_paint_closure, A.RenderParagraph_paint_closure0, A.RenderParagraph__createShowOnScreenFor_closure, A.RenderConstrainedBox_debugPaintSize_closure, A.RenderBackdropFilter_paint_closure, A._RenderCustomClip_debugPaintSize_closure, A.RenderClipRect_debugPaintSize_closure, A.RenderClipRRect_debugPaintSize_closure, A.RenderClipPath_debugPaintSize_closure, A.RenderPhysicalModel_paint_closure, A.RenderPhysicalModel_paint_closure1, A.RenderPhysicalShape_paint_closure, A.RenderPhysicalShape_paint_closure1, A.RenderDecoratedBox_paint_closure, A.RenderDecoratedBox_paint_closure0, A.RenderTransform_paint_closure, A.RenderRepaintBoundary_debugRegisterRepaintBoundaryPaint_closure, A.RenderRepaintBoundary_debugFillProperties_closure, A.RenderLeaderLayer_paint_closure, A.RenderFollowerLayer_paint_closure, A.RenderPadding_debugPaintSize_closure, A.RenderPositionedBox_debugPaintSize_closure, A.SliverConstraints_debugAssertIsValid_closure, A.SliverGeometry_debugAssertIsValid_closure, A.RenderSliver_geometry_closure, A.RenderSliver_debugAssertDoesMeetConstraints_closure, A.RenderSliver_debugAssertDoesMeetConstraints_closure0, A.RenderSliver_applyPaintTransform_closure, A.RenderSliver__debugDrawArrow_closure, A.RenderSliver_debugPaint_closure, A.RenderSliverFixedExtentBoxAdaptor_debugAssertDoesMeetConstraints_closure, A.RenderSliverList_performLayout_advance, A.RenderSliverMultiBoxAdaptor_closure, A.RenderSliverMultiBoxAdaptor_debugChildIntegrityEnabled_closure, A.RenderSliverMultiBoxAdaptor_move_closure, A.RenderSliverMultiBoxAdaptor_move_closure0, A.RenderSliverMultiBoxAdaptor_remove_closure, A.RenderSliverMultiBoxAdaptor_debugAssertChildListIsNonEmptyAndContiguous_closure, A.RenderSliverEdgeInsetsPadding_debugPaint_closure, A.RenderTable_assembleSemanticsNode_closure, A.RenderTable_assembleSemanticsNode_closure0, A.RenderView_paint_closure, A.RenderView_compositeFrame_closure, A.RenderView_debugFillProperties_closure, A.RenderAbstractViewport_of_closure, A.RenderViewportBase_debugThrowIfNotCheckingIntrinsics_closure, A.RenderViewportBase_debugPaintSize_closure, A.RenderViewport_performLayout_closure, A.RenderShrinkWrappingViewport_debugThrowIfNotCheckingIntrinsics_closure, A.RenderShrinkWrappingViewport__debugCheckHasBoundedCrossAxis_closure, A._FrameCallbackEntry_closure, A._FrameCallbackEntry__closure, A.SchedulerBinding__executeTimingsCallbacks_closure, A.SchedulerBinding__executeTimingsCallbacks__closure, A.SchedulerBinding_handleEventLoopCallback_closure, A.SchedulerBinding_addPostFrameCallback_closure, A.SchedulerBinding_scheduleFrame_closure, A.SchedulerBinding_scheduleForcedFrame_closure, A.SchedulerBinding_scheduleWarmUpFrame_closure, A.SchedulerBinding_scheduleWarmUpFrame_closure0, A.SchedulerBinding_scheduleWarmUpFrame_closure1, A.SchedulerBinding_handleBeginFrame_closure, A.SchedulerBinding_handleDrawFrame_closure, A.SchedulerBinding__invokeFrameCallback_closure, A.SchedulerBinding__invokeFrameCallback_closure0, A.SchedulerBinding__invokeFrameCallback_closure1, A.Ticker_closure, A.Ticker_start_closure, A.Ticker_dispose_closure, A.Ticker_toString_closure, A.Ticker_toString_closure0, A.SemanticsBinding_disableAnimations_closure, A.ChildSemanticsConfigurationsResultBuilder_build_closure, A.AttributedString_closure, A.SemanticsNode__replaceChildren_closure0, A.SemanticsNode__replaceChildren_closure1, A.SemanticsNode__adoptChild_closure, A.SemanticsNode__addToUpdate_closure, A.SemanticsNode_sendEvent__closure, A.SemanticsNode__debugIsActionBlocked_closure, A.SemanticsOwner_sendSemanticsUpdate_closure, A.SemanticsOwner_sendSemanticsUpdate_closure5, A.ServicesBinding__addLicenses_closure, A.ServicesBinding__generateStateTransitions_closure, A.HardwareKeyboard__logEventIfIrregular_closure, A.HardwareKeyboard__logEventIfIrregular__closure, A.HardwareKeyboard__logEventIfIrregular__closure0, A.HardwareKeyboard__logEventIfIrregular__closure1, A.HardwareKeyboard__dispatchKeyEvent_closure, A.HardwareKeyboard__dispatchKeyEvent__closure, A.HardwareKeyboard_handleKeyEvent_closure, A.HardwareKeyboard_handleKeyEvent_closure0, A.HardwareKeyboard_handleKeyEvent_closure1, A.KeyEventManager__dispatchKeyMessage_closure, A.KeyEventManager__dispatchKeyMessage__closure, A.LogicalKeyboardKey_debugName_closure, A.PhysicalKeyboardKey_debugName_closure, A.EventChannel_receiveBroadcastStream_closure, A.EventChannel_receiveBroadcastStream_closure0, A.RawKeyEventData_modifiersPressed_closure, A.RawKeyEvent_RawKeyEvent$fromMessage_dataFromWeb, A.RawKeyboard_handleRawKeyEvent_closure, A.RawKeyboard_handleRawKeyEvent__closure, A.RawKeyboard__synchronizeModifiers_closure, A.RestorationManager__doSerialization_closure, A.RestorationManager__doSerialization_closure0, A.RestorationBucket$empty_closure, A.RestorationBucket$root_closure, A.RestorationBucket$child_closure, A.RestorationBucket__rawChildren_closure, A.RestorationBucket__rawValues_closure, A.RestorationBucket__debugAssertIntegrity_closure, A.RestorationBucket__addChildData_closure, A.RestorationBucket__debugAssertNotDisposed_closure, A.debugIsSerializableForRestoration_closure, A.SystemChrome_setSystemUIOverlayStyle_closure, A.SystemChrome_handleAppLifecycleStateChanged_closure, A.TextInput__debugEnsureInputActionWorksOnPlatform_closure, A.TextInput__loudlyHandleTextInputInvocation_closure, A.TextInput__handleTextInputInvocation_closure2, A.TextInput__scheduleHide_closure, A._colorsWithinRect_closure0, A.Actions_maybeFind_closure0, A.Actions_invoke_closure, A._ActionsState__handleActionChanged_closure, A._FocusableActionDetectorState__updateHighlightMode_closure, A._FocusableActionDetectorState__handleMouseEnter_closure, A._FocusableActionDetectorState__handleMouseExit_closure, A._FocusableActionDetectorState__handleFocusChange_closure, A._OverridableActionMixin__invokeOverride_closure, A._OverridableActionMixin__invokeOverride_closure0, A._OverridableActionMixin__isOverrideActionEnabled_closure, A._OverridableActionMixin__isOverrideActionEnabled_closure0, A._OverridableActionMixin_isEnabled_closure, A._OverridableActionMixin_isEnabled_closure0, A._OverridableActionMixin_consumesKey_closure, A._OverridableActionMixin_consumesKey_closure0, A._OverridableContextAction__invokeOverride_closure, A._OverridableContextAction__invokeOverride_closure0, A.__AnimatedSizeState_State_SingleTickerProviderStateMixin_dispose_closure, A._AnimatedSwitcherState__newEntry__closure, A.__AnimatedSwitcherState_State_TickerProviderStateMixin_dispose_closure, A._WidgetsAppState__onUnknownRoute_closure, A._WidgetsAppState__onUnknownRoute_closure0, A._WidgetsAppState_build_closure0, A.AppLifecycleListener_dispose_closure, A.AppLifecycleListener__debugAssertNotDisposed_closure, A._RawAutocompleteState__actionMap_closure, A._RawAutocompleteState__actionMap_closure0, A._RawAutocompleteState__actionMap_closure1, A._RawAutocompleteState__actionMap_closure2, A._RawAutocompleteState__actionMap_closure3, A._RawAutocompleteState__actionMap_closure4, A._AutomaticKeepAliveState__createCallback_closure, A._AutomaticKeepAliveState__createCallback__closure, A._AutomaticKeepAliveState__createCallback__closure0, A._AutomaticKeepAliveState__createCallback__closure1, A._AutomaticKeepAliveState__createCallback___closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure3, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure5, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure8, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure10, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions__closure12, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure3, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_initServiceExtensions_closure5, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_initServiceExtensions_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_initInstances_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions__closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_initServiceExtensions_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initInstances_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initInstances_closure0, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure3, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure5, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions_closure8, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_initServiceExtensions__closure, A.WidgetsBinding__handleBuildScheduled_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure1, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_drawFrame_closure2, A.WidgetsBinding_scheduleAttachRootWidget_closure, A._WidgetsFlutterBinding_BindingBase_GestureBinding_SchedulerBinding_ServicesBinding_PaintingBinding_SemanticsBinding_RendererBinding_WidgetsBinding_performReassemble_closure, A.RootWidget_attach_closure, A.RootWidget_attach_closure0, A.debugChildrenHaveDuplicateKeys_closure, A.debugCheckHasTable_closure, A.debugCheckHasMediaQuery_closure, A.debugCheckHasDirectionality_closure, A.debugWidgetBuilderValue_closure, A.debugCheckHasWidgetsLocalizations_closure, A.debugCheckHasOverlay_closure, A._DismissibleState__handleDragStart_closure, A._DismissibleState__handleDragUpdate_closure, A._DismissibleState_build_closure, A.__DismissibleState_State_TickerProviderStateMixin_dispose_closure, A._DiscreteKeyFrameSimulation$__closure, A.EditableTextState__onChangedClipboardStatus_closure, A.EditableTextState__inferSpellCheckConfiguration_closure, A.EditableTextState_buttonItemsForToolbarOptions_closure, A.EditableTextState_buttonItemsForToolbarOptions_closure0, A.EditableTextState_buttonItemsForToolbarOptions_closure1, A.EditableTextState_buttonItemsForToolbarOptions_closure2, A.EditableTextState_contextMenuButtonItems_closure, A.EditableTextState_contextMenuButtonItems_closure0, A.EditableTextState_contextMenuButtonItems_closure1, A.EditableTextState_contextMenuButtonItems_closure2, A.EditableTextState_contextMenuButtonItems_closure3, A.EditableTextState_contextMenuButtonItems_closure4, A.EditableTextState_contextMenuButtonItems_closure5, A.EditableTextState_contextMenuButtonItems_closure6, A.EditableTextState__textProcessingActionButtonItems_closure, A.EditableTextState__onCursorTick_closure, A.EditableTextState__onCursorTick_closure0, A.EditableTextState__didChangeTextEditingValue_closure, A.EditableTextState__handleFocusChanged_closure, A.EditableTextState_insertTextPlaceholder_closure, A.EditableTextState_removeTextPlaceholder_closure, A.EditableTextState_showAutocorrectionPromptRect_closure, A.EditableTextState__semanticsOnCopy_closure, A.EditableTextState__semanticsOnCut_closure, A.EditableTextState__semanticsOnPaste_closure, A.EditableTextState_build___closure, A._EditableTextState_State_AutomaticKeepAliveClientMixin_WidgetsBindingObserver_TickerProviderStateMixin_dispose_closure, A._ExpansibleState__toggleExpansion_closure, A._ExpansibleState__toggleExpansion___closure, A.__ExpansibleState_State_SingleTickerProviderStateMixin_dispose_closure, A._Autofocus_applyIfValid_closure, A._Autofocus_applyIfValid_closure0, A.FocusAttachment_detach_closure, A.FocusAttachment_detach_closure0, A.FocusNode_debugLabel_closure, A.FocusNode_unfocus_closure, A.FocusNode_unfocus_closure0, A.FocusNode__doRequestFocus_closure, A.FocusNode__doRequestFocus_closure0, A.FocusNode__setAsFocusedChildForScope_closure, A.FocusNode__setAsFocusedChildForScope_closure0, A.FocusScopeNode_setFirstFocus_closure, A.FocusScopeNode_setFirstFocus_closure0, A.FocusScopeNode_autofocus_closure, A.FocusManager__appLifecycleChange_closure, A.FocusManager__appLifecycleChange_closure0, A.FocusManager__appLifecycleChange_closure1, A.FocusManager__markDetached_closure, A.FocusManager__markPropertiesChanged_closure, A.FocusManager__markNeedsUpdate_closure, A.FocusManager_applyFocusChangesIfNeeded_closure, A.FocusManager_applyFocusChangesIfNeeded_closure0, A.FocusManager_applyFocusChangesIfNeeded_closure1, A.FocusManager_applyFocusChangesIfNeeded_closure2, A.FocusManager_applyFocusChangesIfNeeded_closure3, A._HighlightModeManager_notifyListeners_closure, A._HighlightModeManager_notifyListeners__closure, A._HighlightModeManager_handleKeyMessage_closure, A._HighlightModeManager_handleKeyMessage_closure0, A._HighlightModeManager_handleKeyMessage_closure1, A._HighlightModeManager_handleKeyMessage_closure2, A._HighlightModeManager_handleKeyMessage_closure3, A._HighlightModeManager_handleKeyMessage_closure4, A._HighlightModeManager_handleKeyMessage_closure5, A._HighlightModeManager_handleKeyMessage_closure6, A._HighlightModeManager_handleKeyMessage_closure7, A._FocusState_didUpdateWidget_closure, A._FocusState__handleFocusChanged_closure, A._FocusState__handleFocusChanged_closure0, A._FocusState__handleFocusChanged_closure1, A._FocusState__handleFocusChanged_closure2, A._FocusState_build_closure, A.FocusTraversalPolicy__sortAllDescendants_closure0, A.FocusTraversalGroup_of_closure, A.FormState__forceRebuild_closure, A.FormState__validate_closure, A.FormFieldState_reset_closure, A.FormFieldState_validate_closure, A.FormFieldState_didChange_closure, A.FormFieldState_build__closure, A.State_context_closure, A.State_setState_closure, A.State_setState_closure0, A.State_dispose_closure, A.State_debugFillProperties_closure, A._InactiveElements__unmount_closure, A._InactiveElements__deactivateRecursively_closure, A.BuildScope__tryRebuild_closure, A.BuildScope__tryRebuild_closure0, A.BuildScope__flushDirtyElements_closure, A.BuildScope__dirtyElementIndexAfter_closure, A.BuildOwner_scheduleBuildFor_closure, A.BuildOwner_scheduleBuildFor_closure0, A.BuildOwner_scheduleBuildFor_closure1, A.BuildOwner_lockState_closure, A.BuildOwner_lockState_closure0, A.BuildOwner_buildScope_closure, A.BuildOwner_buildScope_closure0, A.BuildOwner_buildScope_closure1, A.BuildOwner_buildScope_closure2, A.BuildOwner_buildScope_closure3, A.BuildOwner__debugTrackElementThatWillNeedToBeRebuiltDueToGlobalKeyShenanigans_closure, A.BuildOwner__debugRemoveGlobalKeyReservationFor_closure, A.BuildOwner__registerGlobalKey_closure, A.BuildOwner__unregisterGlobalKey_closure, A.BuildOwner__debugReserveGlobalKeyFor_closure, A.BuildOwner__debugVerifyGlobalKeyReservation_closure, A.BuildOwner__debugVerifyIllFatedPopulation_closure, A.BuildOwner__debugVerifyIllFatedPopulation__closure, A.BuildOwner_finalizeTree_closure, A.Element_depth_closure, A.Element_debugIsDefunct_closure, A.Element_debugIsActive_closure, A.Element_visitChildElements_closure, A.Element_updateChild_closure, A.Element_updateChild_closure0, A.Element_updateChild_closure1, A.Element_updateChild_closure2, A.Element_update_closure, A.Element__retakeInactiveElement_closure, A.Element__retakeInactiveElement_closure0, A.Element_inflateWidget_closure, A.Element_inflateWidget_closure0, A.Element__debugCheckForCycles_closure, A.Element_deactivateChild_closure, A.Element_forgetChild_closure, A.Element__activateWithParent_closure, A.Element_findRenderObject_closure, A.Element_size_closure, A.Element_size_closure0, A.Element__debugCheckStateIsActiveForAncestorLookup_closure, A.Element__debugCheckOwnerBuildTargetExists_closure, A.Element_markNeedsBuild_closure, A.Element_rebuild_closure, A.Element_rebuild_closure0, A.Element_rebuild_closure1, A.ErrorWidget__defaultErrorWidgetBuilder_closure, A.ComponentElement_performRebuild_closure, A.ComponentElement_performRebuild_closure0, A.ComponentElement_performRebuild_closure1, A.ComponentElement_performRebuild_closure2, A.StatefulElement_closure, A.StatefulElement__firstBuild_closure, A.StatefulElement__firstBuild_closure0, A.StatefulElement__firstBuild_closure1, A.StatefulElement_update_closure, A.StatefulElement_unmount_closure, A.StatefulElement_dependOnInheritedElement_closure, A.ParentDataElement_debugParentDataType_closure, A.InheritedElement_notifyClients_closure, A.RenderObjectElement__findAncestorRenderObjectElement_closure, A.RenderObjectElement__findAncestorRenderObjectElement_closure0, A.RenderObjectElement__debugCheckCompetingAncestors_closure, A.RenderObjectElement__findAncestorParentDataElements_closure0, A.RenderObjectElement_mount_closure, A.RenderObjectElement_mount_closure0, A.RenderObjectElement_mount_closure1, A.RenderObjectElement_update_closure, A.RenderObjectElement__debugUpdateRenderObjectOwner_closure, A.RenderObjectElement__performRebuild_closure, A.RenderObjectElement__performRebuild_closure0, A.RenderObjectElement__updateParentData_closure, A.RenderObjectElement_attachRenderObject_closure, A.MultiChildRenderObjectElement__debugCheckHasAssociatedRenderObject_closure, A.GestureDetector_closure, A.GestureDetector_build_closure, A.GestureDetector_build_closure1, A.GestureDetector_build_closure3, A.GestureDetector_build_closure5, A.GestureDetector_build_closure7, A.GestureDetector_build_closure9, A.RawGestureDetectorState_replaceGestureRecognizers_closure, A.RawGestureDetectorState_replaceSemanticsActions_closure, A._DefaultSemanticsGestureDelegate__getTapHandler_closure, A._DefaultSemanticsGestureDelegate__getLongPressHandler_closure, A.Hero__allHeroesFor_inviteHero_closure, A._HeroState_startFlight_closure, A._HeroState_endFlight_closure, A._HeroFlight__handleAnimationUpdate_delayedPerformAnimationUpdate, A._HeroFlight_start_closure, A.AnimatedWidgetBaseState__handleAnimationChanged_closure, A._ImplicitlyAnimatedWidgetState_State_SingleTickerProviderStateMixin_dispose_closure, A.InheritedTheme_capture_closure, A.InheritedTheme_capture__closure, A._LayoutBuilderElement__rebuildWithConstraints_updateChildCallback, A._LayoutBuilderElement__rebuildWithConstraints_updateChildCallback_closure, A._LayoutBuilderElement__rebuildWithConstraints_updateChildCallback_closure0, A._RenderLayoutBuilder__debugThrowIfNotCheckingIntrinsics_closure, A._LocalizationsState_load__closure, A.LocalizationsResolver__debugCheckLocalizations_closure, A.LocalizationsResolver__debugCheckLocalizations__closure0, A.LookupBoundary_debugIsHidingAncestorWidgetOfExactType_closure, A.LookupBoundary_debugIsHidingAncestorStateOfType_closure, A.LookupBoundary_debugIsHidingAncestorRenderObjectOfType_closure, A._MediaQueryFromViewState__updateData_closure, A.ModalBarrier_build_handleDismiss, A.TransitionDelegate__transition_closure, A.Navigator_of_closure, A.Navigator_defaultGenerateInitialRoutes_closure, A.Navigator_defaultGenerateInitialRoutes_closure0, A.Navigator_defaultGenerateInitialRoutes_closure1, A._RouteEntry_handlePush_closure, A._RouteEntry_handlePush__closure, A._RouteEntry_handlePush__closure0, A._RouteEntry_dispose_closure0, A._RouteEntry_dispose__closure0, A._RouteEntry_markForPop_closure, A.NavigatorState_restoreState_closure0, A.NavigatorState_restoreState_closure1, A.NavigatorState__updateHeroController_closure, A.NavigatorState_didUpdateWidget_closure, A.NavigatorState__debugCheckDuplicatedPageKeys_closure, A.NavigatorState_dispose_closure, A.NavigatorState__updatePages_closure, A.NavigatorState__updatePages_closure0, A.NavigatorState__updatePages_closure1, A.NavigatorState__updatePages_closure2, A.NavigatorState__updatePages_closure3, A.NavigatorState__updatePages_closure4, A.NavigatorState__updatePages_closure5, A.NavigatorState__updatePages_closure6, A.NavigatorState__updatePages_closure7, A.NavigatorState__routeNamed_closure, A.NavigatorState__routeNamed_closure0, A.NavigatorState__routeNamed_closure1, A.NavigatorState__pushEntry_closure, A.NavigatorState__pushEntry_closure0, A.NavigatorState_pop_closure, A.NavigatorState_pop_closure0, A.NavigatorState_pop_closure1, A.NavigatorState_removeRoute_closure, A.NavigatorState_removeRoute_closure0, A.NavigatorState_finalizeRoute_closure, A.NavigatorState_finalizeRoute_closure0, A.NavigatorState__cancelActivePointers_closure, A._NavigatorState_State_TickerProviderStateMixin_dispose_closure, A._RenderOverflowBar_performLayout_nextChild, A._OverlayEntryWidgetState__markNeedsBuild_closure, A.Overlay_of_closure, A.OverlayState_insert_closure, A.OverlayState_insertAll_closure, A.OverlayState_rearrange_closure1, A.OverlayState__markDirty_closure, A.OverlayState__didChangeEntryOpacity_closure, A._TheaterElement_moveRenderObjectChild_closure, A._OverlayPortalState__getLocation_closure, A._OverlayPortalState_show_closure, A._OverlayPortalState_hide_closure, A._OverlayEntryLocation__debugMarkLocationInvalid_closure, A._RenderDeferredLayoutBox_performLayout_closure, A._RenderDeferredLayoutBox_performLayout_closure0, A._RenderLayoutSurrogateProxyBox_attach_closure, A._RenderLayoutBuilder__computeNewLayoutInfo_closure, A._OverlayState_State_TickerProviderStateMixin_dispose_closure, A._GlowController_pull_closure, A._StretchController_animate_closure, A._StretchController_animate_closure0, A.__GlowingOverscrollIndicatorState_State_TickerProviderStateMixin_dispose_closure, A.__StretchingOverscrollIndicatorState_State_TickerProviderStateMixin_dispose_closure, A.PageStorage_of_closure, A._PlatformViewLinkState__onPlatformViewCreated_closure, A.PrimaryScrollController_of_closure, A.RawTooltipState__scheduleShowTooltip_show, A._RawTooltipState_State_SingleTickerProviderStateMixin_dispose_closure, A._RootRestorationScopeState__loadRootBucketIfNecessary__closure, A.RestorationMixin_registerForRestoration_listener, A.RestorationMixin_registerForRestoration_closure0, A.RestorationMixin__doRestore_closure, A.RestorationMixin__doRestore_closure0, A.RestorationMixin__unregister_closure, A._RouterState_restoreState_closure, A._RouterState_restoreState_closure0, A._RouterState_didChangeDependencies_closure, A._RouterState__handleRouteInformationProviderNotification_closure, A._RouterState__rebuild_closure, A._RouterState__handleRouterDelegateNotification_closure, A.TransitionRoute_debugTransitionCompleted_closure, A.TransitionRoute__updateSecondaryAnimation_closure, A.TransitionRoute__updateSecondaryAnimation_closure0, A._ModalScopeState__forceRebuildPage_closure, A.ModalRoute_offstage_closure, A.ModalRoute_changedInternalState_closure, A._SelectionKeepAliveState_listensTo_closure, A.ScrollNotificationObserverState__debugAssertNotDisposed_closure, A.ScrollNotificationObserverState__notifyListeners_closure, A.ClampingScrollPhysics_applyBoundaryConditions_closure, A.ScrollPosition_setPixels_closure, A.ScrollPosition_applyBoundaryConditions_closure, A.ClampingScrollSimulation__flingDistance_closure, A.ScrollView_buildViewport_closure, A.ScrollableState_setCanDrag_closure, A.ScrollableState_setCanDrag_closure1, A._ScrollableState_State_TickerProviderStateMixin_dispose_closure, A.ScrollAction_invoke_closure, A.ScrollbarPainter__debugAssertIsValidOrientation_closure, A.RawScrollbarState__debugCheckHasValidScrollPosition_closure, A.RawScrollbarState__debugCheckHasValidScrollPosition_closure0, A.RawScrollbarState__maybeStartFadeoutTimer_closure, A.RawScrollbarState__handleScrollMetricsNotification_closure, A.RawScrollbarState__handleScrollMetricsNotification_closure0, A.RawScrollbarState__gestures_closure, A.RawScrollbarState__gestures_closure0, A.RawScrollbarState__gestures_closure1, A._RawScrollbarState_State_TickerProviderStateMixin_dispose_closure, A.MultiSelectableSelectionContainerDelegate__adjustSelection_closure, A.SingleActivator_debugDescribeKeys_closure, A.ShortcutManager__indexShortcuts__closure, A.ShortcutManager_handleKeypress_closure, A.SizeChangedLayoutNotifier_createRenderObject_closure, A.SliverMultiBoxAdaptorElement_performRebuild_closure, A.SliverMultiBoxAdaptorElement_performRebuild_closure0, A.SliverMultiBoxAdaptorElement_createChild_closure, A.SliverMultiBoxAdaptorElement_removeChild_closure, A.SliverMultiBoxAdaptorElement_insertRenderObjectChild_closure, A.SlottedRenderObjectElement__updateChildren_closure, A.SlottedRenderObjectElement__updateChildren_closure0, A.SlottedRenderObjectElement__updateChildren__closure, A.SystemContextMenu_SystemContextMenu$editableText_closure, A.Table_closure, A.Table_closure0, A.Table_closure3, A.RenderTapRegionSurface_handleEvent_closure, A._SelectableTextContainerDelegate__adjustSelection_closure, A._SelectionHandleOverlayState_build_closure, A._TextSelectionGestureDetectorState_build_closure, A._TextSelectionGestureDetectorState_build_closure1, A._TextSelectionGestureDetectorState_build_closure3, A._TextSelectionGestureDetectorState_build_closure5, A._TextSelectionGestureDetectorState_build_closure7, A.__SelectionHandleOverlayState_State_SingleTickerProviderStateMixin_dispose_closure, A.__SelectionToolbarWrapperState_State_SingleTickerProviderStateMixin_dispose_closure, A.SingleTickerProviderStateMixin_createTicker_closure, A.ToggleableStateMixin__handleTapDown_closure, A.ToggleableStateMixin__handleTapEnd_closure, A.ToggleableStateMixin__handleFocusHighlightChanged_closure, A.ToggleableStateMixin__handleHoverChanged_closure, A._AnimatedState__handleChange_closure, A._throttle__closure, A._ValueListenableBuilderState__valueChanged_closure, A.View_of_closure, A._RawViewElement__updateChild_closure, A._ScreenshotPaintingContext__isScreenshotRecording_closure, A._WidgetInspectorService_closure, A.WidgetInspectorService_isStructuredErrorsEnabled_closure, A.WidgetInspectorService_initServiceExtensions_closure, A.WidgetInspectorService_initServiceExtensions_closure0, A.WidgetInspectorService_initServiceExtensions_closure2, A.WidgetInspectorService_initServiceExtensions_closure4, A.WidgetInspectorService_toId_closure, A.WidgetInspectorService__getParentChain_createDelegate, A._ElementLocationStatsTracker_exportToJson_closure, A._ElementLocationStatsTracker_exportToJson_closure0, A._WidgetInspectorState__selectionInformationChanged_closure, A._InspectorOverlayLayer_closure, A._WidgetInspectorButtonGroupState__moveExitWidgetSelectionButton_closure, A._WidgetInspectorButtonGroupState__moveExitWidgetSelectionButton_closure0, A._WidgetInspectorButtonGroupState__exitWidgetSelectionButton_closure, A._WidgetInspectorButtonGroupState__changeButtonGroupAlignment_closure, A._WidgetInspectorButtonGroupState__changeTooltipMessage_closure, A._WidgetInspectorButtonState_build_closure1, A._WidgetInspectorButtonState__tooltipVisibilityChangedAfter_closure, A._WidgetInspectorButtonState__tooltipVisibilityChangedAfter_closure0, A._parseDiagnosticsNode_closure, A._parseDiagnosticsNode__closure, A.CustomSlidableAction_build_closure, A._SlidableDismissalState_handleResizeRequestChanged_closure0, A._SlidableDismissalState_build_closure, A.__SlidableDismissalState_State_SingleTickerProviderStateMixin_dispose_closure, A._RenderFlexEntranceTransition_getTotalFlex__closure, A.SlidableGroupNotification_createDispatcher_closure, A._ActionPaneState_handleRatioChanged_closure, A._SlidableState_handleActionPanelTypeChanged_closure, A.__SlidableState_State_TickerProviderStateMixin_dispose_closure, A.MediaType_MediaType$parse_closure, A.KeyColor__maxChroma_closure, A._RotatedPreviewState_onDeviceOrientationEvent_closure, A.PollingBarcodeReader_detectBarcodes_closure, A.PollingBarcodeReader_detectBarcodes_closure0, A.POSDialogs_promptClearCart__closure, A.POSDialogs_promptClearCart__closure0, A.POSDialogs_showInvalidBarcodeDialog__closure, A.POSDialogs_onWillPop__closure, A.POSDialogs_onWillPop__closure0, A.POSDialogs_showEditItemDialog__closure, A.POSDialogs_showEditItemDialog__closure0, A._ManualEntryDialogState__setCurrentText_closure, A._ManualEntryDialogState__selectField_closure, A._ManualEntryDialogState__submit_closure, A._ManualEntryDialogState__submit_closure0, A._ManualEntryDialogState__buildFieldBox_closure, A._ManualEntryDialogState_build_closure, A._ManualEntryDialogState_build_closure0, A._ManualEntryDialogState_build_closure1, A._ManualEntryDialogState_build_closure2, A._ManualEntryDialogState_build_closure3, A._ManualEntryDialogState_build_closure4, A._ManualEntryDialogState_build_closure5, A._ManualEntryDialogState_build_closure6, A._ManualEntryDialogState_build_closure7, A._ManualEntryDialogState_build_closure8, A._ManualEntryDialogState_build_closure9, A._ManualEntryDialogState_build_closure10, A._CategoryListScreenState__onSearchChanged_closure, A._CategoryListScreenState_fetchCategories_closure0, A._CategoryListScreenState_showDeleteConfirmation__closure, A._CategoryListScreenState_showDeleteConfirmation__closure0, A._CategoryListScreenState_showRateInputPopup__closure, A._CategoryListScreenState_showRateInputPopup__closure0, A._CategoryListScreenState_showRateInputPopup___closure, A._CategoryListScreenState_build__closure0, A._CategoryListScreenState_build__closure1, A._CategoryListScreenState_build__closure2, A._CategoryListScreenState_build_closure0, A._AccountListScreenState__onSearchChanged_closure, A._AccountListScreenState__checkIfAdmin_closure, A._AccountListScreenState_fetchAccounts_closure, A._AccountListScreenState_fetchAccounts_closure0, A._AccountListScreenState__showAddOrEditDialog_validateForm_closure, A._AccountListScreenState__showAddOrEditDialog___closure3, A._AccountListScreenState__showAddOrEditDialog___closure4, A._AccountListScreenState__confirmDeleteAccount__closure, A._AccountListScreenState__confirmDeleteAccount__closure0, A._AccountListScreenState__confirmDeleteAccount___closure0, A._AccountListScreenState_buildAccountTile_closure, A._AccountListScreenState_buildAccountTile_closure0, A._AccountListScreenState_buildAccountTile_closure1, A._AccountListScreenState__showAccountOptions__closure, A._AccountListScreenState__showAccountOptions__closure0, A._AccountListScreenState_build_closure0, A._AccountTransactionsScreenState_findExistingTransaction_closure0, A._AccountTransactionsScreenState__checkIfAdmin_closure, A._AccountTransactionsScreenState_fetchTransactions_closure, A._AccountTransactionsScreenState_fetchTransactions_closure0, A._AccountTransactionsScreenState__showTransactionDialog___onTypeChange_closure, A._AccountTransactionsScreenState__showTransactionDialog_____closure, A._AccountTransactionsScreenState__showTransactionDialog___closure3, A._AccountTransactionsScreenState__showTransactionDialog___closure4, A._AccountTransactionsScreenState__showTransactionDialog____closure, A._AccountTransactionsScreenState__deleteTransaction__closure, A._AccountTransactionsScreenState__deleteTransaction__closure0, A._AccountTransactionsScreenState_build__closure0, A._AccountTransactionsScreenState_build__closure, A._AccountTransactionsScreenState_build_closure4, A._AddEditCategoryScreenState_submitCategory_closure, A._AddEditCategoryScreenState_submitCategory_closure0, A._AddEditCategoryScreenState_build__closure0, A._AddEditCategoryScreenState_build___closure, A._AddEditCategoryScreenState_build__closure3, A._AddProductScreenState_initState_closure, A._AddProductScreenState_fetchCategories_closure, A._AddProductScreenState_checkProductExists_closure, A._AddProductScreenState_checkProductExists_closure1, A._AddProductScreenState_checkProductExists_closure2, A._AddProductScreenState_submitProductUpdate_closure1, A._AddProductScreenState_submitProduct_closure, A._AddProductScreenState_submitProduct_closure0, A._AddProductScreenState_submitProduct_closure3, A._AddProductScreenState_submitProduct_closure4, A._AddProductScreenState_showPriceEditDialog__closure_calculateSpecialRate, A._AddProductScreenState_showPriceEditDialog___calculateSpecialRate_closure, A._AddProductScreenState_showPriceEditDialog___calculateSpecialRate_closure0, A._AddProductScreenState_showPriceEditDialog____closure, A._AddProductScreenState_showPriceEditDialog___closure6, A._AddProductScreenState_showPriceEditDialog___closure7, A._AddProductScreenState_build_closure1, A._AddProductScreenState_build__closure4, A._AddProductScreenState_build_closure2, A._AddProductScreenState_build____closure, A._AddProductScreenState_build__closure2, A._AddProductScreenState_build__closure0, A._AddProductScreenState_build___closure, A._AddProductScreenState_build_closure4, A._AddProductScreenState_build__closure, A._CategorySearchDialogState_build__closure0, A._CategorySearchDialogState_build__closure, A._BarcodeScannerScreenState_handleBarcodeScanned_closure, A._BarcodeScannerScreenState_handleBarcodeScanned_closure0, A._BarcodeScannerScreenState_build__closure, A._BarcodeScannerScreenState_build__closure0, A._BarcodeScannerScreenState_build___closure, A._DashboardScreenState_fetchDashboardData_closure, A._DashboardScreenState_fetchDashboardData_closure0, A._FastBillingDialogState__filterList_closure, A._FastBillingDialogState_build__closure, A._FastBillingDialogState_build_closure0, A._HomeScreenState__checkSavedUser_closure, A._HomeScreenState__showPasscodeDialog__closure, A._HomeScreenState__showPasscodeDialog___closure, A._HomeScreenState_build__closure, A._POSScreenState__showPasscodeDialog__closure, A._POSScreenState__showPasscodeDialog___closure, A._POSScreenState__showInvoiceNameDialog__closure, A._POSScreenState__showInvoiceNameDialog__closure0, A._POSScreenState__showInvoiceNameDialog___closure, A._POSScreenState_promptRateTypeIfNeeded__closure, A._POSScreenState_promptRateTypeIfNeeded__closure0, A._POSScreenState__promptClearCart_closure, A._POSScreenState_fetchProduct_closure, A._POSScreenState_fetchProduct_closure0, A._POSScreenState_fetchProduct_closure1, A._POSScreenState_fetchProduct_closure2, A._POSScreenState_fetchProduct_closure4, A._POSScreenState_fetchProduct_closure5, A._POSScreenState_fetchProduct_closure7, A._POSScreenState_fetchProduct_closure9, A._POSScreenState__addManualItem_closure, A._POSScreenState__showInvalidBarcodeDialog_closure, A._POSScreenState_build_closure, A._POSScreenState_build_____closure, A._POSScreenState_build_____closure0, A._POSScreenState_build____closure0, A._POSScreenState_build_closure1, A._POSScreenState_build_closure2, A._POSScreenState_build_closure3, A._POSScreenState_build_closure4, A._POSScreenState__editItemDialog__closure, A.PriceSelectionDialog_build__closure, A.PriceSelectionDialog_build_closure0, A._ProductListScreenState__onSearchChanged_closure, A._ProductListScreenState_fetchProducts_closure0, A._ProductListScreenState_showDeleteConfirmation__closure, A._ProductListScreenState_showDeleteConfirmation__closure0, A._ProductListScreenState_build__closure0, A._ProductListScreenState_build__closure1, A._ProductListScreenState_build_closure0, A._TodoEditScreenState__showChequeDialog___closure3, A._TodoEditScreenState__showChequeDialog____closure0, A._TodoEditScreenState__showChequeDialog___closure4, A._TodoEditScreenState__showChequeDialog____closure, A._TodoEditScreenState__showChequeDialog__closure, A._TodoEditScreenState__showChequeDialog__closure0, A._TodoEditScreenState__showChequeDialog___closure5, A._TodoEditScreenState__loadUsername_closure, A._TodoEditScreenState__submit_closure, A._TodoEditScreenState__submit_closure0, A._TodoEditScreenState__pickDueDate_closure, A._TodoEditScreenState_build__closure, A._TodoScreenState__loadUserRole_closure, A._TodoScreenState_fetchTodos_closure, A._TodoScreenState_fetchTodos_closure0, A._TodoScreenState_fetchTodos_closure1, A._TodoScreenState__closeTodo_closure, A._TodoScreenState__closeTodo_closure0, A._TodoScreenState__closeTodo_closure1, A._TodoScreenState__deleteTodo_closure, A._TodoScreenState__deleteTodo_closure0, A._TodoScreenState__deleteTodo_closure1, A._TodoScreenState__showConfirmationDialog__closure, A._TodoScreenState__showConfirmationDialog__closure0, A._TodoScreenState__showClosingCommentDialog__closure, A._TodoScreenState__showClosingCommentDialog__closure0, A._TodoScreenState_buildTodoCard_closure0, A._TodoScreenState_buildTodoCard_closure1, A._TodoScreenState_build_closure0, A.PdfDocument_save_closure, A.TtfWriter_withChars_closure, A.PdfDiagnostic_debugFill_closure, A.PdfObjectBase_output_closure, A.PdfObjectBase_output_closure0, A.PdfStream_putString_closure, A.PdfXrefTable_output_closure, A.PdfXrefTable_output_closure0, A.PdfXrefTable_output_closure1, A.PdfXrefTable_output_closure2, A.PdfXrefTable__outputLegacy_closure0, A.PdfGraphics_fillPath_closure, A.PdfGraphics_fillPath_closure0, A.PdfGraphics_strokePath_closure, A.PdfGraphics_strokePath_closure0, A.PdfGraphics_clipPath_closure, A.PdfGraphics_clipPath_closure0, A.PdfGraphics_restoreContext_closure, A.PdfGraphics_restoreContext_closure0, A.PdfGraphics_saveContext_closure, A.PdfGraphics_saveContext_closure0, A.PdfGraphics_drawImage_closure, A.PdfGraphics_drawImage_closure0, A.PdfGraphics_drawRect_closure, A.PdfGraphics_drawRect_closure0, A.PdfGraphics_setFont_closure, A.PdfGraphics_setFont_closure0, A.PdfGraphics_drawString_closure, A.PdfGraphics_drawString_closure0, A.PdfGraphics_drawString_closure1, A.PdfGraphics_drawString_closure2, A.PdfGraphics_drawString_closure3, A.PdfGraphics_drawString_closure4, A.PdfGraphics_reset_closure, A.PdfGraphics_reset_closure0, A.PdfGraphics_setFillColor_closure, A.PdfGraphics_setFillColor_closure0, A.PdfGraphics_setStrokeColor_closure, A.PdfGraphics_setStrokeColor_closure0, A.PdfGraphics_setTransform_closure, A.PdfGraphics_setTransform_closure0, A.PdfGraphics_lineTo_closure, A.PdfGraphics_lineTo_closure0, A.PdfGraphics_moveTo_closure, A.PdfGraphics_moveTo_closure0, A.PdfGraphics_curveTo_closure, A.PdfGraphics_curveTo_closure0, A.PdfGraphics_setLineCap_closure, A.PdfGraphics_setLineCap_closure0, A.PdfGraphics_setLineJoin_closure, A.PdfGraphics_setLineJoin_closure0, A.PdfGraphics_setLineWidth_closure, A.PdfGraphics_setLineWidth_closure0, A.PdfGraphics_setMiterLimit_closure, A.PdfGraphics_setMiterLimit_closure0, A.PdfFont_stringMetrics_closure, A.PdfFont_putText_closure, A.PdfImage_PdfImage_closure, A.PdfImage_PdfImage_closure0, A.PdfImage_PdfImage$jpeg_closure, A.PdfImage_PdfImage$jpeg_closure0, A.PdfImage_PdfImage$_alpha_closure, A.PdfImage_PdfImage$_alpha_closure0, A.PdfImage$__closure, A.PdfType1Font$create_closure, A.Font_buildFont_closure0, A.MultiPage_generate_closure, A.MultiPage_generate_closure0, A.Page_postProcess_closure, A.RichText__preProcessSpans__closure, A.RichText_layout__buildLines, A.RichText_paint_closure, A.RichText_paint_closure0, A.Widget_paint_closure, A.WebPermissionHandler__devices_closure, A.WebPermissionHandler__htmlPermissions_closure, A.PrintingPlugin_layoutPdf_closure, A.PrintingPlugin_layoutPdf__closure0, A.PrintingPlugin_layoutPdf__closure, A.PrintingPlugin_layoutPdf___closure, A.MethodChannelPrinting__handleMethod_closure, A.MethodChannelPrinting__handleMethod__closure, A._ScrollablePositionedListState_startAnimationCallback_closure, A._ScrollablePositionedListState_initState_closure, A._ScrollablePositionedListState_didUpdateWidget_closure, A._ScrollablePositionedListState_didUpdateWidget_closure0, A._ScrollablePositionedListState_didUpdateWidget_closure1, A._ScrollablePositionedListState__startScroll_closure0, A._ScrollablePositionedListState__startScroll___closure, A._ScrollablePositionedListState__startScroll_closure1, A._ScrollablePositionedListState__stopScroll_closure, A.__ScrollablePositionedListState_State_TickerProviderStateMixin_dispose_closure, A.UnboundedRenderViewport_performLayout_closure, A.Highlighter_closure, A.Highlighter__writeFileStart_closure, A.Highlighter__writeMultilineHighlights_closure, A.Highlighter__writeMultilineHighlights_closure0, A.Highlighter__writeMultilineHighlights_closure1, A.Highlighter__writeMultilineHighlights_closure2, A.Highlighter__writeMultilineHighlights__closure, A.Highlighter__writeMultilineHighlights__closure0, A.Highlighter__writeHighlightedText_closure, A.Highlighter__writeIndicator_closure, A.Highlighter__writeIndicator_closure0, A.Highlighter__writeIndicator_closure1, A.Highlighter__writeSidebar_closure, A._Highlight_closure, A.main_closure0, A.main_closure]);
     _inherit(A.CkMatrixColorFilter, A.CkColorFilter);
     _inheritMany(A.CkImageFilter, [A.CkColorFilterImageFilter, A._CkBlurImageFilter, A._CkMatrixImageFilter, A._CkComposeImageFilter]);
     _inherit(A.CkUniqueRef, A.UniqueRef);
@@ -293613,7 +293592,7 @@
     _inherit(A.RenderCanvas, A.DisplayCanvas);
     _inheritMany(A.SurfaceProvider, [A.OffscreenSurfaceProvider, A.OnscreenSurfaceProvider]);
     _inherit(A.EngineFlutterDisplay, A.Display);
-    _inheritMany(A.Closure2Args, [A.createDomResizeObserver_closure, A.FallbackFontService__findFontsWithMaxCoverage_closure0, A.initializeEngineServices_closure0, A.CustomFutureOfJSAnyToJSPromise_get_toPromise_closure, A.CustomFutureOfJSAnyToJSPromise_get_toPromise__closure0, A.KeyboardBinding__clearListeners_closure, A.KeyboardConverter__handleEvent_closure2, A.KeyboardConverter__handleEvent__closure, A.EnginePlatformDispatcher__addTypographySettingsObserver_closure, A.EnginePlatformDispatcher__addTypographySettingsObserver_closure_isDefault, A.PlatformViewEmbedder__updateDomForNewComposition_updateCompositionCanvasWithDisplay, A.EngineSemanticsOwner_updateSemantics__closure, A.StandardMessageCodec_writeValue_closure0, A.saveForms_closure, A.HybridTextEditing__startEditing_closure0, A.CustomElementDimensionsProvider_closure0, A.TextLayout_extractTextClusters_closure, A._CastListBase_sort_closure, A.CastMap_forEach_closure, A.ConstantMap_map_closure, A.JsLinkedHashMap_addAll_closure, A.initHooks_closure0, A._awaitOnObject_closure0, A._wrapJsFunctionForAsync_closure, A.Future_wait_handleError, A._Future__chainForeignFuture_closure0, A._Future__propagateToListeners_handleWhenCompleteCallback_closure0, A._Future_timeout_closure1, A.Stream_handleError_closure, A._cancelAndErrorClosure_closure, A._RootZone_bindBinaryCallback_closure, A._HashMap_addAll_closure, A.LinkedHashMap_LinkedHashMap$from_closure, A.MapBase_mapToString_closure, A._JsonStringifier_writeMap_closure, A._JsonPrettyPrintMixin_writeMap_closure, A.NoSuchMethodError_toString_closure, A._Uri__makeQueryFromParameters_closure, A.Uri_parseIPv6Address_error, A._Uri__makeQueryFromParametersDefault_writeParameter, A._Uri__makeQueryFromParametersDefault_closure, A.MidiInputMap_keys_closure, A.MidiInputMap_values_closure, A.MidiOutputMap_keys_closure, A.MidiOutputMap_values_closure, A.RtcStatsReport_keys_closure, A.RtcStatsReport_values_closure, A.Storage_keys_closure, A.Storage_values_closure, A._AcceptStructuredClone_walk_closure, A.AudioParamMap_keys_closure, A.AudioParamMap_values_closure, A.CanonicalizedMap_addAll_closure, A.CanonicalizedMap_forEach_closure, A.CanonicalizedMap_map_closure, A.CupertinoDynamicColor_toString_toString, A._RenderCupertinoTextSelectionToolbarShape_paint_closure, A._RenderCupertinoTextSelectionToolbarItems_hitTestChild_closure, A.BindingBase_registerServiceExtension_closure, A.PointerRouter__dispatchEventToRoutes_closure, A.MaterialApp_createMaterialHeroController_closure, A._AutocompleteOptionsListState_build_closure, A._ModalBottomSheetState_build_closure, A._RenderInputPadding_hitTest_closure0, A._RenderInputPadding_hitTest_closure, A._RawChipState_build_closure0, A._RenderChipRedirectingHitDetection_hitTest_closure, A._RenderChip_hitTest_closure, A._RenderChip_performLayout_centerLayout, A._RenderChip__paintAvatar_paintWithOverlay, A._RenderChip__paintChild_closure, A._RenderChip__paintChild_closure0, A._DatePickerDialogState_build_closure, A.__DatePickerDialogState_State_RestorationMixin_dispose_closure, A._DialogPopScope_build_closure0, A._NavigatorShim_build_closure, A.showDialog_closure0, A._DropdownRoute_buildPage_closure, A._DropdownRoute_getItemOffset_closure, A._DropdownRoute_getMenuLimits_closure, A._ExpansionTileState__onExpansionChanged__closure, A._ExpansionTileState__onExpansionChanged_closure0, A._RenderDecoration_performLayout_centerLayout, A._RenderDecoration_performLayout_baselineLayout, A._RenderDecoration_hitTestChildren_closure, A._RenderListTile_hitTestChildren_closure, A._ZoomEnterTransitionPainter_paint_closure, A._ZoomExitTransitionPainter_paint_closure, A._PredictiveBackSharedElementPageTransitionState_build_closure, A._CircularProgressIndicatorState__buildAnimation_closure, A._RefreshProgressIndicatorState__buildAnimation_closure, A.RefreshIndicatorState_build_closure0, A.Scaffold__defaultBottomSheetScrimBuilder_closure, A._ScaffoldState_State_TickerProviderStateMixin_RestorationMixin_dispose_closure, A._TextFieldState_build_closure5, A._TextFieldState_build_closure6, A.__TextFieldState_State_RestorationMixin_dispose_closure, A._TextSelectionToolbarTrailingEdgeAlignRenderBox_hitTestChildren_closure, A._RenderTextSelectionToolbarItemsLayout_hitTestChildren_closure, A.ThemeData__lerpThemeExtensions_closure, A.TooltipState_build_closure, A._CompoundBorder_dimensions_closure, A._ShapeDecorationPainter__paintShadows_debugHandleDisabledShadowEnd, A.RendererBinding_initMouseTracker_closure, A.RendererBinding__handleWebFirstFrame_closure0, A.RenderBoxContainerDefaultsMixin_defaultHitTestChildren_closure, A.RenderEditable_getRectForComposingRange_closure, A.RenderEditable_computeMinIntrinsicWidth_closure, A.RenderEditable_computeMaxIntrinsicWidth_closure, A.RenderFlex__getIntrinsicSize_layoutChild, A.RenderFlex_computeMinIntrinsicWidth_closure, A.RenderFlex_computeMaxIntrinsicWidth_closure, A.RenderFlex_computeMinIntrinsicHeight_closure, A.RenderFlex_computeMaxIntrinsicHeight_closure, A.MouseTracker__handleDeviceUpdateMouseEvents_closure, A.PipelineOwner_flushLayout_closure1, A.PipelineOwner_flushCompositingBits_closure, A.PipelineOwner_flushPaint_closure1, A.PipelineOwner_flushSemantics_closure1, A.PipelineOwner_flushSemantics_closure4, A.RenderInlineChildrenContainerDefaults_hitTestInlineChildren_closure, A.RenderParagraph_computeMinIntrinsicWidth_closure, A.RenderParagraph_computeMaxIntrinsicWidth_closure, A.RenderPhysicalModel_paint_closure0, A.RenderPhysicalShape_paint_closure0, A.RenderTransform_hitTestChildren_closure, A.RenderFittedBox_hitTestChildren_closure, A.RenderFractionalTranslation_hitTestChildren_closure, A.RenderFollowerLayer_hitTestChildren_closure, A.RenderRotatedBox_hitTestChildren_closure, A.RenderShiftedBox_hitTestChildren_closure, A.SliverConstraints_debugAssertIsValid_closure_verify, A.RenderIndexedStack_hitTestChildren_closure, A.RenderTable_computeDryLayout_closure, A.RenderTable_hitTestChildren_closure, A.RenderWrap_computeDryBaseline_findHighestBaseline, A.SchedulerBinding_handleBeginFrame_closure0, A.SemanticsNode_detach_closure, A.SemanticsNode_detach_closure1, A.SemanticsNode_sendEvent_closure0, A._SemanticsSortGroup_sortedWithinKnot_closure, A.SemanticsOwner_sendSemanticsUpdate_closure1, A.SemanticsOwner_sendSemanticsUpdate_closure2, A.SemanticsOwner_sendSemanticsUpdate_closure4, A.SemanticsOwner_sendSemanticsUpdate_closure6, A.SemanticsConfiguration_absorb_closure, A._DefaultBinaryMessenger_setMessageHandler_closure, A.StandardMessageCodec_writeValue_closure, A._debugLaunchProfilePlatformChannels_closure, A.SystemChrome_setSystemUIOverlayStyle__closure0, A._PlatformTextInputControl_attach_closure0, A._PlatformTextInputControl_detach_closure0, A._PlatformTextInputControl_updateConfig_closure0, A._PlatformTextInputControl_setEditingState_closure0, A._PlatformTextInputControl_show_closure0, A._PlatformTextInputControl_hide_closure0, A._PlatformTextInputControl_setEditableSizeAndTransform_closure0, A._PlatformTextInputControl_setComposingRect_closure0, A._PlatformTextInputControl_setCaretRect_closure0, A._PlatformTextInputControl_setSelectionRects_closure1, A._PlatformTextInputControl_updateStyle_closure0, A._PlatformTextInputControl_requestAutofill_closure0, A.UndoManager__setUndoState_closure0, A._colorsWithinRect_closure1, A.HtmlElementViewImpl_buildImpl_closure, A.DialogWindow_build_closure, A._WindowManagerState_build_closure, A._WidgetsAppState_build_closure1, A._WidgetsAppState_build_closure2, A._RawAutocompleteState__announceSemantics_closure, A.WidgetsBinding_handlePopRoute_closure, A.EditableTextState__reportClipboardError_closure, A.EditableTextState__startLiveTextInput_closure0, A.EditableTextState__formatAndSetValue_closure, A.EditableTextState_build__closure0, A.EditableTextState_build__closure4, A._ExpansibleState_build_closure, A.DirectionalFocusTraversalPolicyMixin_findFirstFocusInDirection_closure, A.DirectionalFocusTraversalPolicyMixin__sortByDistancePreferVertical_closure, A.DirectionalFocusTraversalPolicyMixin__sortByDistancePreferHorizontal_closure, A.DirectionalFocusTraversalPolicyMixin__sortClosestEdgesByDistancePreferHorizontal_closure, A.DirectionalFocusTraversalPolicyMixin__sortClosestEdgesByDistancePreferVertical_closure, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterHorizontally_closure1, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterVertically_closure1, A._ReadingOrderSortData_sortWithDirectionality_closure, A._ReadingOrderDirectionalGroupData_sortWithDirectionality_closure, A.ReadingOrderTraversalPolicy__pickNext_closure, A.ReadingOrderTraversalPolicy__pickNext_inBand, A.FormState__validate_closure0, A._FormFieldState_State_RestorationMixin_dispose_closure, A.BuildOwner__debugVerifyGlobalKeyReservation__closure, A.BuildOwner__debugVerifyGlobalKeyReservation___closure, A.Element_updateChildren_slotFor, A.Element_debugFillProperties_closure, A.Hero__allHeroesFor_inviteHero, A._HeroFlight__buildOverlay_closure, A.HeroController__defaultHeroFlightShuttleBuilder_closure, A.DefaultTransitionDelegate_resolve_handleExitingRoute, A._RouteEntry_handleDidPopNext_closure0, A._HistoryProperty_fromPrimitives_closure, A._NavigatorState_State_TickerProviderStateMixin_RestorationMixin_dispose_closure, A._RenderTheaterMixin_hitTestChildren_childHitTest, A._StretchingOverscrollIndicatorState_build_closure, A._PageViewState_build_closure0, A._PlatformViewLinkState_build_closure, A._PlatformViewLinkState__handleFrameworkFocusChanged_closure, A.__RestorationScopeState_State_RestorationMixin_dispose_closure, A.__RouterState_State_RestorationMixin_dispose_closure, A._ModalScopeState_build_closure, A._ModalScopeState_build__closure0, A._ModalScopeState_build___closure, A.ScrollView_build_closure, A.ListView$separated_closure, A.ListView$separated_closure0, A._ScrollableState_State_TickerProviderStateMixin_RestorationMixin_dispose_closure, A._ScrollableSelectionContainerDelegate_didChangeSelectables_closure, A._ScrollableSelectionContainerDelegate_didChangeSelectables_closure0, A.ScrollableDetails_toString_addIfNonNull, A.ShortcutManager__indexShortcuts_closure, A.SingleChildScrollView_build_closure, A._RenderSingleChildViewport_paint_paintContents, A._RenderSingleChildViewport_hitTestChildren_closure, A.RawView_build_closure, A.WidgetInspectorService_initServiceExtensions_closure6, A.WidgetInspectorService__getRootWidgetTreeImpl_combinedAddAdditionalPropertiesCallback, A.WidgetInspectorService__getLayoutExplorerNode_closure, A._WidgetInspectorState_hitTest_closure, A._filterInspectorHitCandidatesToModalRouteScope_closure1, A._RenderScaledInlineWidget_paint_closure, A._RenderScaledInlineWidget_hitTestChildren_closure, A._RenderFlexEntranceTransition_hitTestChildren_closure, A.BaseRequest_closure, A.MediaType_toString_closure, A.IfdContainer$from_closure, A.IfdDirectory_copy_closure, A.IfdDirectory_copy_closure0, A.VP8__upSample_loadUv, A.DateFormat__fieldConstructors_closure, A.DateFormat__fieldConstructors_closure0, A.DateFormat__fieldConstructors_closure1, A.TemperatureCache_hctsByTemp_closure, A._MobileScannerState_build__closure, A.MobileScannerController_start_closure, A._CategoryListScreenState_build_closure, A._AccountListScreenState__showAddOrEditDialog__closure, A._AccountListScreenState_build_closure, A._AccountTransactionsScreenState__showTransactionDialog__closure, A._AccountTransactionsScreenState_build_closure0, A._AccountTransactionsScreenState_build_closure2, A._AccountTransactionsScreenState_build_closure3, A._AccountTransactionsScreenState_generateLedgerPdf_closure0, A._AccountTransactionsScreenState_generateLedgerPdf_closure2, A._AddProductScreenState_showPriceEditDialog__closure, A._CategorySearchDialogState_build_closure1, A._BarcodeScannerScreenState_build_closure0, A._DashboardScreenState_buildLast7DaysAccordion_closure, A._DashboardScreenState_buildLast7DaysAccordion_closure0, A._DashboardScreenState_buildLast7DaysAccordion_closure1, A._FastBillingDialogState_build_closure, A._HomeScreenState_build_closure0, A._HomeScreenState_build_closure, A._POSScreenState__addManualItem_closure, A._POSScreenState_build_closure0, A._POSScreenState__editItemDialog_closure, A.PriceSelectionDialog_build_closure, A._ProductListScreenState_build_closure, A._TodoEditScreenState__showChequeDialog__closure1, A._TodoScreenState_build_closure, A.PdfDocument_closure, A.PdfDict_fromObjectMap_closure, A.PdfDict_output_closure, A.PdfDict_output_closure0, A.PdfXref__compressedRef_setVal, A.PdfXrefTable__outputLegacy_closure, A.PdfXrefTable__outputCompressed_closure, A.PdfXrefTable__outputCompressed_closure0, A.Table_layout_closure, A.Table_layout_closure0, A.Table_layout_closure1, A._Line_height_closure, A._PositionedListState_build_closure, A._PositionedListState_build_closure0, A._PositionedListState_build_closure1, A._ScrollablePositionedListState_build_closure, A._ScrollablePositionedListState__updatePositions_closure0, A.Highlighter__collateLines_closure0]);
+    _inheritMany(A.Closure2Args, [A.createDomResizeObserver_closure, A.FallbackFontService__findFontsWithMaxCoverage_closure0, A.initializeEngineServices_closure0, A.CustomFutureOfJSAnyToJSPromise_get_toPromise_closure, A.CustomFutureOfJSAnyToJSPromise_get_toPromise__closure0, A.KeyboardBinding__clearListeners_closure, A.KeyboardConverter__handleEvent_closure2, A.KeyboardConverter__handleEvent__closure, A.EnginePlatformDispatcher__addTypographySettingsObserver_closure, A.EnginePlatformDispatcher__addTypographySettingsObserver_closure_isDefault, A.PlatformViewEmbedder__updateDomForNewComposition_updateCompositionCanvasWithDisplay, A.EngineSemanticsOwner_updateSemantics__closure, A.StandardMessageCodec_writeValue_closure0, A.saveForms_closure, A.HybridTextEditing__startEditing_closure0, A.CustomElementDimensionsProvider_closure0, A.TextLayout_extractTextClusters_closure, A._CastListBase_sort_closure, A.CastMap_forEach_closure, A.ConstantMap_map_closure, A.JsLinkedHashMap_addAll_closure, A.initHooks_closure0, A._awaitOnObject_closure0, A._wrapJsFunctionForAsync_closure, A.Future_wait_handleError, A._Future__chainForeignFuture_closure0, A._Future__propagateToListeners_handleWhenCompleteCallback_closure0, A._Future_timeout_closure1, A.Stream_handleError_closure, A._cancelAndErrorClosure_closure, A._RootZone_bindBinaryCallback_closure, A._HashMap_addAll_closure, A.LinkedHashMap_LinkedHashMap$from_closure, A.MapBase_mapToString_closure, A._JsonStringifier_writeMap_closure, A._JsonPrettyPrintMixin_writeMap_closure, A.NoSuchMethodError_toString_closure, A._Uri__makeQueryFromParameters_closure, A.Uri_parseIPv6Address_error, A._Uri__makeQueryFromParametersDefault_writeParameter, A._Uri__makeQueryFromParametersDefault_closure, A.MidiInputMap_keys_closure, A.MidiInputMap_values_closure, A.MidiOutputMap_keys_closure, A.MidiOutputMap_values_closure, A.RtcStatsReport_keys_closure, A.RtcStatsReport_values_closure, A.Storage_keys_closure, A.Storage_values_closure, A._AcceptStructuredClone_walk_closure, A.AudioParamMap_keys_closure, A.AudioParamMap_values_closure, A.CanonicalizedMap_addAll_closure, A.CanonicalizedMap_forEach_closure, A.CanonicalizedMap_map_closure, A.CupertinoDynamicColor_toString_toString, A._RenderCupertinoTextSelectionToolbarShape_paint_closure, A._RenderCupertinoTextSelectionToolbarItems_hitTestChild_closure, A.BindingBase_registerServiceExtension_closure, A.PointerRouter__dispatchEventToRoutes_closure, A.MaterialApp_createMaterialHeroController_closure, A._AutocompleteOptionsListState_build_closure, A._ModalBottomSheetState_build_closure, A._RenderInputPadding_hitTest_closure0, A._RenderInputPadding_hitTest_closure, A._RawChipState_build_closure0, A._RenderChipRedirectingHitDetection_hitTest_closure, A._RenderChip_hitTest_closure, A._RenderChip_performLayout_centerLayout, A._RenderChip__paintAvatar_paintWithOverlay, A._RenderChip__paintChild_closure, A._RenderChip__paintChild_closure0, A._DatePickerDialogState_build_closure, A.__DatePickerDialogState_State_RestorationMixin_dispose_closure, A._DialogPopScope_build_closure0, A._NavigatorShim_build_closure, A.showDialog_closure0, A._DropdownRoute_buildPage_closure, A._DropdownRoute_getItemOffset_closure, A._DropdownRoute_getMenuLimits_closure, A._ExpansionTileState__onExpansionChanged__closure, A._ExpansionTileState__onExpansionChanged_closure0, A._RenderDecoration_performLayout_centerLayout, A._RenderDecoration_performLayout_baselineLayout, A._RenderDecoration_hitTestChildren_closure, A._RenderListTile_hitTestChildren_closure, A._ZoomEnterTransitionPainter_paint_closure, A._ZoomExitTransitionPainter_paint_closure, A._PredictiveBackSharedElementPageTransitionState_build_closure, A._CircularProgressIndicatorState__buildAnimation_closure, A._RefreshProgressIndicatorState__buildAnimation_closure, A.RefreshIndicatorState_build_closure0, A.Scaffold__defaultBottomSheetScrimBuilder_closure, A._ScaffoldState_State_TickerProviderStateMixin_RestorationMixin_dispose_closure, A._TextFieldState_build_closure5, A._TextFieldState_build_closure6, A.__TextFieldState_State_RestorationMixin_dispose_closure, A._TextSelectionToolbarTrailingEdgeAlignRenderBox_hitTestChildren_closure, A._RenderTextSelectionToolbarItemsLayout_hitTestChildren_closure, A.ThemeData__lerpThemeExtensions_closure, A.TooltipState_build_closure, A._CompoundBorder_dimensions_closure, A._ShapeDecorationPainter__paintShadows_debugHandleDisabledShadowEnd, A.RendererBinding_initMouseTracker_closure, A.RendererBinding__handleWebFirstFrame_closure0, A.RenderBoxContainerDefaultsMixin_defaultHitTestChildren_closure, A.RenderEditable_getRectForComposingRange_closure, A.RenderEditable_computeMinIntrinsicWidth_closure, A.RenderEditable_computeMaxIntrinsicWidth_closure, A.RenderFlex__getIntrinsicSize_layoutChild, A.RenderFlex_computeMinIntrinsicWidth_closure, A.RenderFlex_computeMaxIntrinsicWidth_closure, A.RenderFlex_computeMinIntrinsicHeight_closure, A.RenderFlex_computeMaxIntrinsicHeight_closure, A.MouseTracker__handleDeviceUpdateMouseEvents_closure, A.PipelineOwner_flushLayout_closure1, A.PipelineOwner_flushCompositingBits_closure, A.PipelineOwner_flushPaint_closure1, A.PipelineOwner_flushSemantics_closure1, A.PipelineOwner_flushSemantics_closure4, A.RenderInlineChildrenContainerDefaults_hitTestInlineChildren_closure, A.RenderParagraph_computeMinIntrinsicWidth_closure, A.RenderParagraph_computeMaxIntrinsicWidth_closure, A.RenderPhysicalModel_paint_closure0, A.RenderPhysicalShape_paint_closure0, A.RenderTransform_hitTestChildren_closure, A.RenderFittedBox_hitTestChildren_closure, A.RenderFractionalTranslation_hitTestChildren_closure, A.RenderFollowerLayer_hitTestChildren_closure, A.RenderRotatedBox_hitTestChildren_closure, A.RenderShiftedBox_hitTestChildren_closure, A.SliverConstraints_debugAssertIsValid_closure_verify, A.RenderIndexedStack_hitTestChildren_closure, A.RenderTable_computeDryLayout_closure, A.RenderTable_hitTestChildren_closure, A.RenderWrap_computeDryBaseline_findHighestBaseline, A.SchedulerBinding_handleBeginFrame_closure0, A.SemanticsNode_detach_closure, A.SemanticsNode_detach_closure1, A.SemanticsNode_sendEvent_closure0, A._SemanticsSortGroup_sortedWithinKnot_closure, A.SemanticsOwner_sendSemanticsUpdate_closure1, A.SemanticsOwner_sendSemanticsUpdate_closure2, A.SemanticsOwner_sendSemanticsUpdate_closure4, A.SemanticsOwner_sendSemanticsUpdate_closure6, A.SemanticsConfiguration_absorb_closure, A._DefaultBinaryMessenger_setMessageHandler_closure, A.StandardMessageCodec_writeValue_closure, A._debugLaunchProfilePlatformChannels_closure, A.SystemChrome_setSystemUIOverlayStyle__closure0, A._PlatformTextInputControl_attach_closure0, A._PlatformTextInputControl_detach_closure0, A._PlatformTextInputControl_updateConfig_closure0, A._PlatformTextInputControl_setEditingState_closure0, A._PlatformTextInputControl_show_closure0, A._PlatformTextInputControl_hide_closure0, A._PlatformTextInputControl_setEditableSizeAndTransform_closure0, A._PlatformTextInputControl_setComposingRect_closure0, A._PlatformTextInputControl_setCaretRect_closure0, A._PlatformTextInputControl_setSelectionRects_closure1, A._PlatformTextInputControl_updateStyle_closure0, A._PlatformTextInputControl_requestAutofill_closure0, A.UndoManager__setUndoState_closure0, A._colorsWithinRect_closure1, A.HtmlElementViewImpl_buildImpl_closure, A.DialogWindow_build_closure, A._WindowManagerState_build_closure, A._WidgetsAppState_build_closure1, A._WidgetsAppState_build_closure2, A._RawAutocompleteState__announceSemantics_closure, A.WidgetsBinding_handlePopRoute_closure, A.EditableTextState__reportClipboardError_closure, A.EditableTextState__startLiveTextInput_closure0, A.EditableTextState__formatAndSetValue_closure, A.EditableTextState_build__closure0, A.EditableTextState_build__closure4, A._ExpansibleState_build_closure, A.DirectionalFocusTraversalPolicyMixin_findFirstFocusInDirection_closure, A.DirectionalFocusTraversalPolicyMixin__sortByDistancePreferVertical_closure, A.DirectionalFocusTraversalPolicyMixin__sortByDistancePreferHorizontal_closure, A.DirectionalFocusTraversalPolicyMixin__sortClosestEdgesByDistancePreferHorizontal_closure, A.DirectionalFocusTraversalPolicyMixin__sortClosestEdgesByDistancePreferVertical_closure, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterHorizontally_closure1, A.DirectionalFocusTraversalPolicyMixin__sortAndFilterVertically_closure1, A._ReadingOrderSortData_sortWithDirectionality_closure, A._ReadingOrderDirectionalGroupData_sortWithDirectionality_closure, A.ReadingOrderTraversalPolicy__pickNext_closure, A.ReadingOrderTraversalPolicy__pickNext_inBand, A.FormState__validate_closure0, A._FormFieldState_State_RestorationMixin_dispose_closure, A.BuildOwner__debugVerifyGlobalKeyReservation__closure, A.BuildOwner__debugVerifyGlobalKeyReservation___closure, A.Element_updateChildren_slotFor, A.Element_debugFillProperties_closure, A.Hero__allHeroesFor_inviteHero, A._HeroFlight__buildOverlay_closure, A.HeroController__defaultHeroFlightShuttleBuilder_closure, A.DefaultTransitionDelegate_resolve_handleExitingRoute, A._RouteEntry_handleDidPopNext_closure0, A._HistoryProperty_fromPrimitives_closure, A._NavigatorState_State_TickerProviderStateMixin_RestorationMixin_dispose_closure, A._RenderTheaterMixin_hitTestChildren_childHitTest, A._StretchingOverscrollIndicatorState_build_closure, A._PageViewState_build_closure0, A._PlatformViewLinkState_build_closure, A._PlatformViewLinkState__handleFrameworkFocusChanged_closure, A.__RestorationScopeState_State_RestorationMixin_dispose_closure, A.__RouterState_State_RestorationMixin_dispose_closure, A._ModalScopeState_build_closure, A._ModalScopeState_build__closure0, A._ModalScopeState_build___closure, A.ScrollView_build_closure, A.ListView$separated_closure, A.ListView$separated_closure0, A._ScrollableState_State_TickerProviderStateMixin_RestorationMixin_dispose_closure, A._ScrollableSelectionContainerDelegate_didChangeSelectables_closure, A._ScrollableSelectionContainerDelegate_didChangeSelectables_closure0, A.ScrollableDetails_toString_addIfNonNull, A.ShortcutManager__indexShortcuts_closure, A.SingleChildScrollView_build_closure, A._RenderSingleChildViewport_paint_paintContents, A._RenderSingleChildViewport_hitTestChildren_closure, A.RawView_build_closure, A.WidgetInspectorService_initServiceExtensions_closure6, A.WidgetInspectorService__getRootWidgetTreeImpl_combinedAddAdditionalPropertiesCallback, A.WidgetInspectorService__getLayoutExplorerNode_closure, A._WidgetInspectorState_hitTest_closure, A._filterInspectorHitCandidatesToModalRouteScope_closure1, A._RenderScaledInlineWidget_paint_closure, A._RenderScaledInlineWidget_hitTestChildren_closure, A._RenderFlexEntranceTransition_hitTestChildren_closure, A.BaseRequest_closure, A.MediaType_toString_closure, A.IfdContainer$from_closure, A.IfdDirectory_copy_closure, A.IfdDirectory_copy_closure0, A.VP8__upSample_loadUv, A.DateFormat__fieldConstructors_closure, A.DateFormat__fieldConstructors_closure0, A.DateFormat__fieldConstructors_closure1, A.TemperatureCache_hctsByTemp_closure, A._MobileScannerState_build__closure, A.MobileScannerController_start_closure, A._CategoryListScreenState_build_closure, A._AccountListScreenState__showAddOrEditDialog__closure, A._AccountListScreenState_build_closure, A._AccountTransactionsScreenState__showTransactionDialog__closure, A._AccountTransactionsScreenState_build_closure0, A._AccountTransactionsScreenState_build_closure2, A._AccountTransactionsScreenState_build_closure3, A._AccountTransactionsScreenState_generateLedgerPdf_closure0, A._AccountTransactionsScreenState_generateLedgerPdf_closure2, A._AddProductScreenState_showPriceEditDialog__closure, A._CategorySearchDialogState_build_closure1, A._BarcodeScannerScreenState_build_closure0, A._DashboardScreenState_buildLast7DaysAccordion_closure, A._DashboardScreenState_buildLast7DaysAccordion_closure0, A._DashboardScreenState_buildLast7DaysAccordion_closure1, A._FastBillingDialogState_build_closure, A._HomeScreenState_build_closure0, A._HomeScreenState_build_closure, A._POSScreenState_build_closure0, A._POSScreenState__editItemDialog_closure, A.PriceSelectionDialog_build_closure, A._ProductListScreenState_build_closure, A._TodoEditScreenState__showChequeDialog__closure1, A._TodoScreenState_build_closure, A.PdfDocument_closure, A.PdfDict_fromObjectMap_closure, A.PdfDict_output_closure, A.PdfDict_output_closure0, A.PdfXref__compressedRef_setVal, A.PdfXrefTable__outputLegacy_closure, A.PdfXrefTable__outputCompressed_closure, A.PdfXrefTable__outputCompressed_closure0, A.Table_layout_closure, A.Table_layout_closure0, A.Table_layout_closure1, A._Line_height_closure, A._PositionedListState_build_closure, A._PositionedListState_build_closure0, A._PositionedListState_build_closure1, A._ScrollablePositionedListState_build_closure, A._ScrollablePositionedListState__updatePositions_closure0, A.Highlighter__collateLines_closure0]);
     _inheritMany(A.Iterable, [A._DomListWrapper, A.MutatorsStack, A._CastIterableBase, A.EfficientLengthIterable, A.MappedIterable, A.WhereIterable, A.ExpandIterable, A.TakeIterable, A.SkipIterable, A.SkipWhileIterable, A.FollowedByIterable, A.WhereTypeIterable, A._KeysOrValues, A._AllMatchesIterable, A._StringAllMatchesIterable, A._SyncStarIterable, A.LinkedList, A.DoubleLinkedQueue, A.Runes, A.StringCharacters, A.ObserverList, A.HashedObserverList, A.__History_Iterable_ChangeNotifier, A.ColorFloat16, A.ColorFloat32, A.ColorFloat64, A.ColorInt16, A.ColorInt32, A.ColorInt8, A.ColorUint1, A.ColorUint16, A.ColorUint2, A.ColorUint32, A.ColorUint4, A.ColorUint8, A.Image0, A.ImageData0, A.PixelFloat16, A.PixelFloat32, A.PixelFloat64, A.PixelInt16, A.PixelInt32, A.PixelInt8, A.PixelUint1, A.PixelUint16, A.PixelUint2, A.PixelUint32, A.PixelUint4, A.PixelUint8, A.PixelUndefined]);
     _inheritMany(A.Error, [A.FontLoadError, A.LateError, A.TypeError, A.JsNoSuchMethodError, A.UnknownJsTypeError, A.RuntimeError, A.AssertionError, A._Error, A.JsonUnsupportedObjectError, A.ArgumentError, A.NoSuchMethodError, A.UnsupportedError, A.UnimplementedError, A.StateError, A.ConcurrentModificationError, A._FlutterError_Error_DiagnosticableTreeMixin]);
     _inheritMany(A.FontLoadError, [A.FontNotFoundError, A.FontDownloadError, A.FontInvalidDataError]);
@@ -295040,7 +295019,7 @@
     typeUniverse: {eC: new Map(), tR: {}, eT: {}, tPV: {}, sEA: []},
     mangledGlobalNames: {int: "int", double: "double", num: "num", String: "String", bool: "bool", Null: "Null", List: "List", Object: "Object", Map: "Map", JSObject: "JSObject"},
     mangledNames: {},
-    types: ["~()", "bool()", "double(double)", "~(JSObject)", "~(Duration)", "TonalPalette(DynamicScheme)", "double(DynamicScheme)", "Future<~>()", "Color(Set<WidgetState>)", "String()", "~(AnimationStatus)", "List<DiagnosticsNode>()", "Null(~)", "~(bool)", "~(RenderObject)", "~(InputBuffer)", "DynamicColor(DynamicScheme)", "~(Element)", "bool(BoxHitTestResult,Offset)", "~(Object?)", "FlutterError?(SemanticsNode)", "~(PaintingContext,Offset)", "~(Object,StackTrace)", "~(DragUpdateDetails)", "Future<bool>()", "String(String)", "bool(Element)", "Widget(BuildContext)", "AlertDialog(BuildContext)", "Color?(Set<WidgetState>)", "Null()", "Null(Object,StackTrace)", "~(String)", "~(int)", "double(RenderBox)", "bool(SemanticsNode)", "bool(Object?)", "Future<~>(bool)", "ToneDeltaPair(DynamicScheme)", "String?(String?)", "bool(String)", "int(Uint32List,int,int)", "Future<Map<String,@>>(Map<String,String>)", "~(DragEndDetails)", "~(PointerEvent)", "bool(FocusNode)", "~(DragStartDetails)", "~(ByteData?)", "bool(ScrollNotification)", "bool(@)", "~(String,@)", "~(TapDownDetails)", "bool(NotoFont)", "Null(Object)", "Future<Map<String,Object?>>(Map<String,String>)", "int([int])", "~(PointerExitEvent)", "Tween<double>(@)", "0&()", "bool(FlutterHtmlKeyboardEvent)", "~(RestorableProperty<Object?>,~())", "~(SemanticsConfiguration)", "~(PointerEnterEvent)", "Widget(BuildContext,int)", "Widget(BuildContext,Widget?)", "double(double,@)", "Null(JSObject)", "~(String?)", "int(int)", "Size(RenderBox,BoxConstraints)", "~(@)", "int(FocusNode,FocusNode)", "double(RenderBox,double)", "MouseCursor(Set<WidgetState>)", "bool(int)", "double(Offset)", "~(~())", "~(Selectable0)", "~(PointerDownEvent)", "bool(DiagnosticsNode)", "Future<Map<String,Object>>(Map<String,String>)", "TextStyle(Set<WidgetState>)", "int(RenderObject,RenderObject)", "int()", "bool(OverlayEntry)", "bool(_RouteEntry)", "bool(InheritedElement)", "bool(TableRow)", "Future<@>(MethodCall0)", "bool(RenderObject)", "~(JpegComponent,List<int>)", "double(double,double)", "bool(DataRow)", "~(DateTime)", "Future<~>(String)", "Offset(Offset)", "Null(@)", "ListTile(BuildContext,int)", "JSObject(Object?)", "TextBoundary()", "ColorTween(@)", "Future<Response>(Client0)", "Widget(BuildContext)?(ActionIconThemeData?)", "IconData(BuildContext)", "String(MaterialLocalizations)", "double()", "~(Object[StackTrace?])", "WidgetStateProperty<Color?>?(ButtonStyle?)", "bool(Map<@,@>)", "String(Object?)", "WidgetStateProperty<Color?>?(DatePickerThemeData?)", "BorderSide(Set<WidgetState>)", "~(Object?,Object?)", "~(bool?)", "~(DragDownDetails)", "~(String,String)", "~(double)", "~(ForcePressDetails)", "List<Object>(String?,String)", "~(NavigatorObserver)", "Null(bool)", "String(int)", "~(TapUpDetails)", "JSObject()", "~(TapDragDownDetails)", "List<Object>()", "bool(AudioEvent)", "List<_RouteEntry>()", "bool(InlineSpan)", "FadeTransition(BuildContext,Animation<double>,Widget?)", "TextBox(TextBox)", "~(SemanticsUpdate0)", "Matrix4(double)", "~(DiagnosticsNode)", "bool(Object?,Object?)", "~({curve:Curve,descendant:RenderObject?,duration:Duration,rect:Rect?})", "int(Object?)", "@(@)", "int(double)", "~(List<FrameTiming>)", "~(SemanticsActionEvent)", "int(SemanticsNode,SemanticsNode)", "Future<~>(MethodCall0)", "Widget(BuildContext,Animation<double>)", "bool(FocusableActionDetector)", "JSObject?()", "~([Intent?])", "Widget(BuildContext,Animation<double>,Animation<double>)", "TapGestureRecognizer()", "int(@,@)", "~(TapGestureRecognizer)", "EdgeInsetsGeometryTween(@)", "JSObject?(int)", "Rect()", "~(int,int,int,int,int,Uint8List)", "~(VerticalDragGestureRecognizer)", "bool(ScrollMetricsNotification)", "VerticalDragGestureRecognizer()", "bool(KeyData)", "bool(double)", "bool(HitTestEntry<HitTestTarget>)", "Future<Null>(List<String>)", "WidgetStateProperty<Size?>?(ButtonStyle?)", "Color(Color)", "String(@)", "bool(Map<Object?,Object?>)", "Future<String>()", "StatefulBuilder(BuildContext)", "AlertDialog(BuildContext,~(~()))", "Future<Uint8List>(PdfPageFormat)", "bool(Map<String,@>)", "Iterable<String>(Iterable<String>)", "bool(_Highlight)", "bool(String?)", "bool(RenderBox)", "Future<ByteData?>(ByteData?)", "_SemanticsFragment(SemanticsConfiguration)", "~(_SelectableFragment)", "+boundaryEnd,boundaryStart(TextPosition,TextPosition)(TextPosition)", "bool(BoxHitTestResult)", "~(SliverConstraints)", "~(Image1)", "double({from!double,to!double})", "KeyData()", "~(Offset,RenderBox)", "Size(RenderBox)", "int(String?)", "~(bool,Object?)", "~(Object)", "~(SemanticsNode)", "bool(Object,SemanticsNode)", "bool(Object,Set<SemanticsNode>)", "int(SemanticsNode)", "List<SemanticsNode>(_SemanticsSortGroup)", "WidgetStateProperty<double?>?(ButtonStyle?)", "~(ViewFocusEvent)", "List<String>()", "~(Picture)", "~(RestorationBucket)", "Map<Object?,Object?>()", "~(AppLifecycleState)", "bool(Object)", "~(ScrollNotification)", "double(Set<WidgetState>)", "bool(Widget)", "bool(NavigationNotification)", "KeyEventResult(FocusNode,KeyEvent)", "Object?(DismissIntent)", "Future<Null>()", "Widget(BuildContext,Set<WidgetState>,Widget?)?(ButtonStyle?)", "~(FocusHighlightMode)", "Future<~>(@)", "bool(DisplayFeature)", "~([Duration?])", "TextPosition(TextPosition,bool,TextBoundary)", "PolynomialFit?()", "~(Timer)", "InlineSpan(InlineSpan)", "ChildSemanticsConfigurationsResult(List<SemanticsConfiguration>)", "~(Event)", "~(List<JSObject>,JSObject)", "int(_ReadingOrderSortData,_ReadingOrderSortData)", "bool(FormFieldState<@>)", "bool(ParentDataElement<ParentData>)", "LongPressGestureRecognizer()", "~(LongPressGestureRecognizer)", "HorizontalDragGestureRecognizer()", "~(HorizontalDragGestureRecognizer)", "PanGestureRecognizer()", "~(PanGestureRecognizer)", "Tween<@>?(Tween<@>?,@,Tween<@>(@))", "AlignmentGeometryTween(@)", "~(RenderBox?)", "DecorationTween(@)", "MediaQuery(BuildContext)", "Set<0^>()<Object?>", "~(~)", "Object?(Object?)", "_Channel()", "0^?(0^?(DatePickerThemeData?))<Object?>", "RenderBox(int)", "@(String)", "Future<ServiceExtensionResponse>(String,Map<String,String>)", "bool(~(ObjectEvent)?)", "bool(ScrollUpdateNotification)", "~(PointerSignalEvent)", "bool(Selectable0,double)", "bool(Selectable0)", "~(GestureMode)", "_ZoomEnterTransition(BuildContext,Animation<double>,Widget?)", "_ZoomExitTransition(BuildContext,Animation<double>,Widget?)", "~(TapDragUpDetails)", "~(LongPressStartDetails)", "~(LongPressMoveUpdateDetails)", "~(LongPressEndDetails)", "~(TapDragStartDetails)", "~(TapDragUpdateDetails)", "~(TapDragEndDetails)", "0^?(WidgetStateProperty<0^>?(DatePickerThemeData?),Set<WidgetState>)<Object?>", "~(Object?,String,String)", "Map<String,Object?>?(String?,String)", "Actions(BuildContext)", "Align(BuildContext,double,Widget?)", "Null(ProgressEvent)", "String(Match)", "~(String,IfdDirectory)", "bool(ShapeBorder)", "bool(SemanticsObject)", "int(int,int)", "double?(RenderBox,BoxConstraints,TextBaseline)", "~(SemanticsObject)", "List<JSObject>()", "Color?(Color?)", "JSObject([JSObject?])", "0&(Object,StackTrace)", "Color?(DatePickerThemeData?)", "~(DeviceOrientation)", "~(BarcodeCapture)", "Null(Object?)", "String(double,double,String)", "AddEditCategoryScreen(BuildContext)", "WidgetStateProperty<OutlinedBorder?>?(DatePickerThemeData?)", "double?(+(BoxConstraints,TextBaseline))", "Semantics(BuildContext,Widget?)", "DropdownMenuItem<String>(String)", "Null(String)", "BoxConstraints(RenderBox)", "Future<~>(~)", "Map<String,@>(Map<String,@>)", "BarcodeScannerScreen(BuildContext)", "DataRow(@)", "TodoEditScreen(BuildContext)", "String(String?)", "bool(PdfObject<PdfDataType>)", "int(PdfXref,PdfXref)", "PdfFontMetrics(int)", "Iterable<DiagnosticsNode>()", "~(Size)", "bool(ItemPosition)", "@()", "bool(bool?)", "Future<JSObject>([JSObject?])", "bool(BuildContext)", "0^(0^,0^)<num>", "Widget?(BuildContext,Animation<double>,Animation<double>,bool,Widget?)", "Widget(BuildContext,Animation<double>,Animation<double>,Widget)", "double(RenderBox,BoxConstraints)", "Widget(BuildContext,EditableTextState)", "Rect(Matrix4,Rect)", "~(_RenderObjectSemantics)", "int(Selectable0,Selectable0)", "VelocityTracker(PointerEvent)", "Widget(BuildContext,+(Size,Matrix4,Size))", "BorderSide?(Set<WidgetState>)", "TickerFuture({from:double?})", "Color?(Color?,Color?,Color?[Color?])", "~(_AnimationDirection)", "ListTileTheme(BuildContext)", "StatefulWidget?(BuildContext,MagnifierController,ValueNotifier<MagnifierInfo>)", "bool(LayoutChangedNotification)", "~(BackendImage)", "~(EngineImage)", "ShapeBorderTween(@)", "Null(JavaScriptFunction,JavaScriptFunction)", "CkOnscreenSurface(OnscreenCanvasProvider)", "ByteBuffer(Object?)", "IgnorePointer(BuildContext,Animation<double>,Widget?)", "Widget(BuildContext,Animation<double>,Animation<double>,bool,Widget?)", "PageTransitionsBuilder?(TargetPlatform)", "Widget(BuildContext,_PredictiveBackPhase,PredictiveBackEvent?,PredictiveBackEvent?)", "Transform(BuildContext,Widget?)", "~(TapMoveDetails)", "bool(OverscrollIndicatorNotification)", "ModalBarrier(BuildContext,Widget?)", "bool(SemanticBehavior)", "bool(Set<WidgetState>)", "~(DismissDirection)", "Null(JSArray<Object?>,JSObject)", "Animation<Size>(bool)", "SystemMouseCursor(Set<WidgetState>)", "~(TextSelection,SelectionChangedCause?)", "InputDecorator(BuildContext,Widget?)", "UnmanagedRestorationScope(FormFieldState<String>)", "ThemeDataTween(@)", "AppBarThemeData()", "ThemeData()", "MapEntry<Object,ThemeExtension<@>>(Object,ThemeExtension<@>)", "bool(MapEntry<Object,ThemeExtension<@>>)", "Offset(TooltipPositionContext)", "FadeTransition(BuildContext,Animation<double>)", "DateTime()", "EdgeInsetsGeometry(EdgeInsetsGeometry,ShapeBorder)", "ShapeBorder(ShapeBorder)", "String(ShapeBorder)", "~(int?,SemanticsObject)", "Paint(BoxShadow)", "Rect(BoxShadow)", "Path(BoxShadow)", "bool(Canvas,BoxShadow,Path)", "bool(Canvas,BoxShadow)", "bool(int,bool)", "GlyphInfo?()", "String(String,Color)", "LineMetrics(LineMetrics)", "DiagnosticsNode(InlineSpan)", "~(@,Object?)", "HitTestResult(Offset,int)", "Size()", "double?()", "Size(BoxConstraints)", "~(@,String,String)", "DiagnosticsNode(RenderBox)", "~(TextSelection)", "bool(InlineSpanSemanticsInformation)", "Rect(Rect?,TextBox)", "~(@,String,String?)", "~(String,EngineAutofillForm)", "~(EditingState?,TextEditingDeltaState?)", "MouseCursor(MouseTrackerAnnotation)", "~(MouseTrackerAnnotation,Matrix4)", "bool(MouseTrackerAnnotation)", "String?(String)", "double(@)", "int(_RenderObjectSemantics,_RenderObjectSemantics)", "~(String,JavaScriptFunction)", "Center(Widget)", "~(List<_SemanticsFragment>{isMergeUp:bool})", "Element(int)", "SemanticsConfiguration?(_SemanticsFragment)", "HotRestartCacheHandler?()", "List<_SemanticsFragment>(List<_SemanticsFragment>)", "List<_RenderObjectSemantics>(_RenderObjectSemantics)", "Set<SemanticsTag>?(_SemanticsFragment)", "Set<SemanticsTag>(Set<SemanticsTag>)", "DiagnosticsNode(_RenderObjectSemantics)", "BidiRun(JSObject)", "bool(_SelectableFragment)", "Future<+(String,FontLoadError?)>()", "+boundaryEnd,boundaryStart(TextPosition,TextPosition)(TextPosition,String)", "OneSequenceGestureRecognizer(Factory<OneSequenceGestureRecognizer>)", "TransformLayer?(PaintingContext,Offset)", "~(bool,String)", "~(double,String{mustBeNegative:bool,mustBePositive:bool})", "~(bool,String{details:List<DiagnosticsNode>?})", "bool(SliverHitTestResult{crossAxisPosition!double,mainAxisPosition!double})", "int(WebCluster,WebCluster)", "bool(DiagnosticsNode?)", "bool(StackFrame)", "ErrorDescription(String)", "Rect(SemanticsNode)", "Uint8List()", "~(SemanticsNode,double,double)", "SemanticsNode()", "bool(RenderSliver)", "~(Size?)", "String(DiagnosticsNode)", "~({callback!Future<Map<String,@>>(Map<String,String>),name!String})", "~(FrameTiming)", "~(int,_FrameCallbackEntry)", "CkOffscreenSurface(OffscreenCanvasProvider)", "int(JSObject)", "~(List<SemanticsConfiguration>)", "String?(int)", "Future<~>(NotoFont)", "MultiSurfaceViewRasterizer()", "@(@,String)", "Map<String,Object?>(DiagnosticsNode)", "SemanticsNode(_TraversalSortNode)", "String(SemanticsTag)", "String(SemanticsAction)", "String?(CustomSemanticsAction)", "DiagnosticsNode(SemanticsNode)", "~(Map<String,Object?>)", "~(int,bool(FlutterHtmlKeyboardEvent))", "SemanticsNode(int)", "List<DiagnosticsNode>(SemanticsNode)", "Set<SemanticsNode>()", "~(SemanticsTag)", "~(SemanticsAction,~(Object?))", "ByteData(ByteData?)", "Stream<LicenseEntry>()", "Future<String?>(String?)", "MapEntry<int,String>(MapEntry<String,String>)", "Future<~>(ByteData?,~(ByteData?))", "bool(int,int)", "Future<Map<String,@>>(@)", "~(RawKeyEvent)", "Set<LogicalKeyboardKey>(LogicalKeyboardKey)", "int(_PlatformChannelStats,_PlatformChannelStats)", "Future<~>(JSObject)", "Future<Null>(ByteData?)", "RawKeyEventData()", "Iterable<String>(String)", "String(GestureArenaMember)", "_GestureArena()", "ErrorDescription(RestorationBucket)", "List<RestorationBucket>()", "List<RestorationBucket>(List<RestorationBucket>)", "double(num)", "List<@>(String)", "List<num>(SelectionRect)", "Map<String,@>(IOSSystemContextMenuItemData)", "int(ByteData,int,int)", "MapEntry<Color,int>(int,int)", "~(PointerDataPacket)", "PlatformViewSurface(BuildContext,PlatformViewController)", "_HtmlElementViewController(PlatformViewCreationParams)", "Future<~>(PointerEvent)", "WindowScope(BuildContext,Widget?)", "HitTestResponse(HitTestRequest)", "StatelessWidget(WindowEntry)", "double?(int)", "~(Action<Intent>)", "Null(~())", "~(_ChildEntry)", "Widget(_ChildEntry)", "List<PictureLayer>()", "bool(PointerData)", "Route<@>?(RouteSettings)", "Route<@>(RouteSettings)", "Widget(BuildContext,bool,Widget?)", "_PointerEventDescription?(PointerData)", "Localizations(BuildContext,Widget?)", "~(AutocompletePreviousOptionIntent)", "~(AutocompleteNextOptionIntent)", "~(AutocompleteFirstOptionIntent)", "~(AutocompleteLastOptionIntent)", "~(AutocompleteNextPageOptionIntent)", "~(AutocompletePreviousPageOptionIntent)", "Null(@,StackTrace)", "String(double)", "bool(KeepAliveNotification)", "ClipPath(BuildContext)", "~(_TapTracker)", "Map<~(PointerEvent),Matrix4?>()", "Future<double>()", "Future<~>(double)", "~(~(PointerEvent),Matrix4?)", "Future<bool>(MethodCall0)", "Future<Map<String,List<Map<String,String>>>>(Map<String,String>)", "Map<String,String>(Violation)", "DefaultSelectionStyle(BuildContext)", "SizedBox(BuildContext)", "Future<~>(AnimationStatus)", "_CombiningGestureArenaMember()", "Rect(DisplayFeature)", "~(Layer0)", "~(int,@)", "~(LayerCanvas)", "int(NotoFont,NotoFont)", "~(TransposeCharactersIntent)", "~(ReplaceTextIntent)", "~(ScrollToDocumentBoundaryIntent)", "~(ScrollIntent)", "~(UpdateSelectionIntent)", "TextEditingValue(TextEditingValue,TextInputFormatter)", "~(@,StackTrace)", "TextFieldTapRegion(BuildContext)", "~(PointerUpEvent)", "~(TextEditingValue)", "bool(TextEditingValue?,TextEditingValue)", "TextEditingValue(TextEditingValue)", "CompositedTransformTarget(BuildContext,ViewportOffset)", "CupertinoTextSelectionToolbarButton(ContextMenuButtonItem)", "DesktopTextSelectionToolbarButton(ContextMenuButtonItem)", "~([FocusNode?])", "CupertinoDesktopTextSelectionToolbarButton(ContextMenuButtonItem)", "DiagnosticsNode(FocusNode)", "String(FocusNode)", "Set<FocusNode>()", "bool(KeyMessage)", "~(_FocusTraversalGroupInfo)", "bool(_DirectionalPolicyDataEntry)", "MaterialRectArcTween(Rect?,Rect?)", "bool(TraversalDirection)", "Set<Directionality>(_ReadingOrderSortData)", "Widget(BuildContext{key!GlobalKey<State<StatefulWidget>>,onPressed!~(),semanticsLabel!String})", "List<Directionality>(BuildContext)", "Rect(_ReadingOrderSortData)", "int(_ReadingOrderDirectionalGroupData,_ReadingOrderDirectionalGroupData)", "String(_ReadingOrderSortData)", "List<_ReadingOrderSortData>(_ReadingOrderSortData,Iterable<_ReadingOrderSortData>)", "bool(_ReadingOrderSortData)", "Widget(BuildContext{onPressed!~(),semanticsLabel!String,usesDefaultAlignment:bool})", "HashSet<GlobalKey<State<StatefulWidget>>>()", "~(Element,Map<Element,GlobalKey<State<StatefulWidget>>>)", "~(Element,GlobalKey<State<StatefulWidget>>)", "Set<Element>()", "String(GlobalKey<State<StatefulWidget>>)", "String(Element)", "DiagnosticsProperty<Element>(Element)", "Element?(Element)", "Object?(int,Element?)", "int(InheritedElement,InheritedElement)", "DiagnosticsNode(InheritedElement)", "Widget(BuildContext{onPressed!~(),selectionOnTapEnabled!bool,semanticsLabel!String})", "DoubleTapGestureRecognizer()", "~(DoubleTapGestureRecognizer)", "~(List<Object?>)", "MaterialPageRoute<0^>(RouteSettings,Widget(BuildContext))<Object?>", "~(NativeUint8List)", "~(@,@)", "double(_Diagonal)", "Semantics(BuildContext,int)", "~(PointerPanZoomStartEvent)", "~(RenderSemanticsGestureHandler)", "String(GestureRecognizer)", "~(StatefulElement,Object)", "Positioned(BuildContext,Widget?)", "~(_HeroFlight)", "Widget(BuildContext,Animation<double>,HeroFlightDirection,BuildContext,BuildContext)", "bool(_HeroFlight)", "MediaQuery(BuildContext,Widget?)", "IconTheme(BuildContext)", "Container(BuildContext)", "bool(DraggableScrollableNotification)", "FontFamily(@)", "~(DragEndDetails{isClosing:bool?})", "BoxConstraintsTween(@)", "Matrix4Tween(@)", "TextStyleTween(@)", "BorderRadiusTween(@)", "_VisibilityScope(int)", "~(Constraints)", "Future<@>(_Pending)", "Map<Type,@>(List<@>)", "bool(LocalizationsDelegate<@>)", "Map<Type,@>(Map<Type,@>)", "Null(Map<Type,@>)", "Type(LocalizationsDelegate<@>)", "FontAsset(@)", "~(RouteTransitionRecord?,bool)", "bool(Route<@>?)", "Future<Null>(@)", "~(Symbol0,@)", "OffscreenCanvasViewRasterizer()", "bool(double?,double)", "~([0^?])<Object?>", "0^?(0^?(ButtonStyle?))<Object?>", "0^?(WidgetStateProperty<0^>?(ButtonStyle?))<Object?>", "MapEntry<String?,List<Object>>(@,@)", "RenderBox?()", "_OverlayChildLayoutBuilder(BuildContext)", "_RenderTheaterMarker()", "Color?()", "~(BoxConstraints)", "ClipRect(BuildContext,Widget?)", "Viewport(BuildContext,ViewportOffset)", "~(Size,Offset)", "bool(RawTooltipState)", "Null(RestorationBucket?)", "~(RestorableProperty<Object?>)", "String?(RestorableProperty<Object?>)", "ErrorDescription(RestorableProperty<Object?>)", "SynchronousFuture<bool>(bool)", "bool(_ModalRouteAspect)", "RestorationScope(BuildContext,Widget?)", "IgnorePointer(BuildContext,Widget?)", "IOSScrollViewFlingVelocityTracker(PointerEvent)", "MacOSScrollViewFlingVelocityTracker(PointerEvent)", "~([Object?])", "WidgetStateProperty<TextStyle?>?(ButtonStyle?)", "0&(String,int?)", "Widget(BuildContext,ViewportOffset)", "WidgetStateProperty<EdgeInsetsGeometry?>?(ButtonStyle?)", "Widget?(BuildContext,int)", "int?(Widget,int)", "Null(List<~>)", "~(String,String?)", "WidgetStateProperty<BorderSide?>?(ButtonStyle?)", "~(Offset)", "~(String,Object?)", "bool(ScrollbarOrientation)", "~(DragGestureRecognizer)", "_HorizontalThumbDragGestureRecognizer()", "_VerticalThumbDragGestureRecognizer()", "_TrackTapGestureRecognizer()", "~(_TrackTapGestureRecognizer)", "~(PointerHoverEvent)", "WidgetStateProperty<OutlinedBorder?>?(ButtonStyle?)", "Rect(Rect)", "bool(Rect)", "String(ShortcutActivator)", "~(ShortcutActivator,Intent)", "List<_ActivatorIntentPair>()", "Action<Intent>?()", "_SingleChildViewport(BuildContext,ViewportOffset)", "~(RenderBox)", "Element?()", "bool(Element?)", "List<Element>()", "IOSSystemContextMenuItemData(IOSSystemContextMenuItem)", "MouseCursor?(Set<WidgetState>)", "Decoration?(TableRow)", "List<Widget>(TableRow)", "_TableElementRow(TableRow)", "Element(Widget)", "bool(_TableElementRow)", "bool(List<Element>)", "Iterable<RenderBox>(_TableElementRow)", "RenderBox(Element)", "List<Element>(_TableElementRow)", "bool(RenderTapRegion)", "_SelectionToolbarWrapper(BuildContext)", "MouseCursor?(ButtonStyle?)", "~(int,int,int)", "Color?(ButtonStyle?)", "VisualDensity?(ButtonStyle?)", "MaterialTapTargetSize?(ButtonStyle?)", "Duration?(ButtonStyle?)", "bool?(ButtonStyle?)", "AlignmentGeometry?(ButtonStyle?)", "InteractiveInkFeatureFactory?(ButtonStyle?)", "TapAndHorizontalDragGestureRecognizer()", "~(TapAndHorizontalDragGestureRecognizer)", "TapAndPanGestureRecognizer()", "~(TapAndPanGestureRecognizer)", "ForcePressGestureRecognizer()", "~(ForcePressGestureRecognizer)", "~([TapUpDetails?])", "~(UndoTextIntent)", "~(RedoTextIntent)", "_ViewScope(BuildContext,PipelineOwner)", "~(FlutterErrorDetails)", "~(InspectorReferenceData)", "bool([String?])", "bool(String?[String?])", "List<Object?>(String?,String)", "RenderCanvas()", "Map<String,Object?>?(String)", "Map<String,Object?>?(String{addAdditionalPropertiesCallback:Map<String,Object>?(DiagnosticsNode,InspectorSerializationDelegate)?})", "RegisteredFont?(ByteBuffer,String,String)", "~(NextFocusIntent)", "Future<Null>(String)", "Future<Null>(String?,String)", "~(PreviousFocusIntent)", "Set<InspectorReferenceData>()", "InspectorSerializationDelegate()", "Map<String,Object>?(DiagnosticsNode,InspectorSerializationDelegate)", "Map<String,Object>(DiagnosticsNode,InspectorSerializationDelegate)", "List<int>()", "Map<String,List<Object?>>()", "double(RenderObject)", "~({selectionOnTapEnabled:bool?})", "Flexible(Widget)", "~(SlidableAutoCloseNotification)", "~(SlidableAutoCloseBarrierNotification)", "Future<~>(String,ByteData?,~(ByteData?)?)", "~(DirectionalFocusIntent)", "bool(String,String)", "int(String)", "_MediaQueryListeners()", "~(List<int>)", "MediaType()", "~(JavaScriptFunction)", "@(@,@)", "~(int,IfdValue)", "ViewClipChain()", "~(num,num,num,num)", "Uint32List(int)", "JpegComponent(int)", "DisplayCanvas(CompositionCanvas)", "~({allowPlatformDefault!bool})", "num(num,num,num,num)", "num(num,num,num,num,num)", "DateTime(int,int,int,int,int,int,int,bool)", "_DateFormatQuotedField(String,DateFormat)", "_DateFormatPatternField(String,DateFormat)", "_DateFormatLiteralField(String,DateFormat)", "Picture(PictureRecorder)", "Future<~>([JSObject?])", "Ink(BuildContext,Widget?)", "Offset(Size,double)", "bool(DataCell)", "int(Hct,Hct)", "BarcodeCapture?(Map<Object?,Object?>?)", "JavaScriptFunction()", "DeviceOrientation(String)", "bool(DataColumn)", "TorchState(Map<Object?,Object?>)", "double(Map<Object?,Object?>)", "TableRow(int)", "Widget(BuildContext,MobileScannerState,Widget?)", "Widget(BuildContext,BoxConstraints)", "~(BarcodeCapture?)", "~(TorchState)", "SizedBox(BuildContext,MobileScannerState,Widget?)", "Offset(Map<Object?,Object?>)", "TorchState(JSObject)", "double(JSObject)", "JSObject(@)", "bool(JSObject)", "Future<JSObject>()", "Future<~>(Timer)", "Rect()(RenderBox)", "List<int>(List<int>{level:int?,output:OutputStreamBase?})", "_ManualEntryDialog(BuildContext)", "bool(Category)", "Category(@)", "Future<Duration?>()", "~(CompositionCanvas,int)", "AccountTransactionsScreen(BuildContext)", "~(~(~()))", "CalendarDatePicker()", "Form()", "Flex(BuildContext,BoxConstraints)", "Wrap(BuildContext)", "Map<@,@>()", "ChoiceChip(String)", "double?(@)", "String(AudioEvent)", "Card(BuildContext,int)", "List<Widget0>(Context0)", "TableRow0(@)", "~(JSObject,List<PointerData>)", "Iterable<String>(TextEditingValue)", "TextFormField(BuildContext,TextEditingController,FocusNode,~())", "Category0(@)", "Map<String,@>(@)", "_NavigatorShim(BuildContext)", "bool(Route<@>,@)", "Null(Object[StackTrace?])", "CategorySearchDialog(BuildContext)", "SimpleDialog(BuildContext)", "SimpleDialogOption(String)", "ElevatedButton(MapEntry<int,Map<String,@>>)", "bool(Category0)", "Stack(BuildContext,BoxConstraints)", "Directionality(BuildContext)", "ProductListScreen(BuildContext)", "CategoryListScreen(BuildContext)", "POSScreen(BuildContext)", "AccountListScreen(BuildContext)", "DashboardScreen(BuildContext)", "TodoScreen(BuildContext)", "SizedBox(BuildContext,int)", "InkWell(BuildContext,int)", "PriceSelectionDialog(BuildContext)", "bool(ValueNotifier<Map<String,@>>)", "~(double,int)", "ValueListenableBuilder<Map<String,@>>(BuildContext,int)", "Slidable(BuildContext,Map<String,@>,Widget?)", "Future<~>(BuildContext)", "~(BuildContext)", "FastBillingDialog(BuildContext)", "Null(int,double)", "bool(Product)", "Product(@)", "AddProductScreen(BuildContext)", "SingleChildScrollView(BuildContext,~(~()))", "_FullWindowDialogWrapper(BuildContext)", "Container0(Context0)", "List<@>(int)", "Padding0(Context0)", "Padding0(int)", "bool(bool)", "Uint8List(Uint8List,PdfObjectBase<PdfDataType>)", "bool(GlobalAudioEvent)", "Future<Uint8List>()", "bool(TtfGlyphInfo)", "PdfIndirect(PdfObjectBase<PdfDataType>)", "PdfNum(num)", "MapEntry<String,PdfIndirect>(String,PdfObjectBase<PdfDataType>)", "int(int,String)", "~(int,int)", "CustomSingleChildLayout(BuildContext)", "~(ActivateIntent)", "bool(PdfFont)", "PdfFont()", "SizedBox0(Context0)", "double(double?,double?)", "_Span(_Span,_Span)", "bool(InlineSpan0,TextStyle0?,AnnotationBuilder?)", "~(ButtonActivateIntent)", "String(GlobalAudioEvent)", "Listener0(BuildContext,BoxConstraints)", "Future<~>(Duration)", "~(Duration?)", "ItemPosition(ItemPosition,ItemPosition)", "String?()", "int(_Line)", "Widget(BuildContext,Widget,Widget,Animation<double>)", "Object(_Line)", "Object(_Highlight)", "int(_Highlight,_Highlight)", "List<_Line>(MapEntry<Object,List<_Highlight>>)", "SourceSpanWithContext()", "AudioEvent(@)", "String(String,String)", "JSObject(int{params:Object?})", "Rect()?(RenderBox)", "~(Intent?)", "int(Comparable<@>,Comparable<@>)", "List<String>(String,List<String>)", "GlobalAudioEvent(@)", "Size?(Size?,Size?,double)", "double?(num?,num?,double)", "Color?(Color?,Color?,double)", "bool(InkHighlight?)", "Widget(BuildContext,Offset,Offset,Widget)", "~(FlutterErrorDetails{forceReport:bool})", "DiagnosticsNode(String)", "String(double?)", "~(String?{wrapWidth:int?})", "StackFrame?(String)", "double(double,double,double)", "Color(_HighlightType)", "Future<~>(WrappedPlayer)", "~(RenderBox,Offset)", "bool?(bool?,bool?,double)", "Semantics(BuildContext)", "Widget(BuildContext,Widget)", "OutlinedBorder?(OutlinedBorder?,OutlinedBorder?,double)", "EdgeInsetsGeometry?(EdgeInsetsGeometry?,EdgeInsetsGeometry?,double)", "~({allowPlatformDefault:bool})", "TextStyle?(TextStyle?,TextStyle?,double)", "int(_TaskEntry<@>,_TaskEntry<@>)", "bool({priority!int,scheduler!SchedulerBinding})", "_ButtonSanitizer()", "List<LicenseEntry>(String)", "Widget(Widget,Animation<double>)", "Widget(Widget?,List<Widget>)", "~(FocusNode{alignment:double?,alignmentPolicy:ScrollPositionAlignmentPolicy?,curve:Curve?,duration:Duration?})", "int(Element,Element)", "IconThemeData(IconThemeData?,IconThemeData?,double)", "Widget?(BuildContext,MagnifierController,ValueNotifier<MagnifierInfo>)", "List<Route<@>>(NavigatorState,String)", "int(Widget,int)", "_PointerDeviceState()", "Iterable<DiagnosticsNode>(Iterable<DiagnosticsNode>)", "bool(SemanticsTag)", "List<SemanticsConfiguration>()", "Address(Map<Object?,Object?>)", "Barcode(Map<Object?,Object?>)", "Email(Map<Object?,Object?>)", "Phone(Map<Object?,Object?>)", "JSObject(int)", "FirebaseWebService()", "_RouteEntry(Route<@>)"],
+    types: ["~()", "bool()", "double(double)", "~(JSObject)", "~(Duration)", "double(DynamicScheme)", "TonalPalette(DynamicScheme)", "Future<~>()", "Color(Set<WidgetState>)", "String()", "~(AnimationStatus)", "List<DiagnosticsNode>()", "Null(~)", "~(bool)", "~(RenderObject)", "DynamicColor(DynamicScheme)", "~(InputBuffer)", "~(Element)", "bool(BoxHitTestResult,Offset)", "~(Object?)", "FlutterError?(SemanticsNode)", "~(PaintingContext,Offset)", "~(Object,StackTrace)", "~(DragUpdateDetails)", "Future<bool>()", "Null()", "Color?(Set<WidgetState>)", "bool(Element)", "String(String)", "AlertDialog(BuildContext)", "Widget(BuildContext)", "~(String)", "~(int)", "Null(Object,StackTrace)", "double(RenderBox)", "bool(SemanticsNode)", "bool(Object?)", "Future<~>(bool)", "String?(String?)", "int(Uint32List,int,int)", "ToneDeltaPair(DynamicScheme)", "bool(String)", "~(DragEndDetails)", "Future<Map<String,@>>(Map<String,String>)", "~(PointerEvent)", "bool(FocusNode)", "~(ByteData?)", "~(DragStartDetails)", "~(TapDownDetails)", "~(String,@)", "bool(@)", "bool(ScrollNotification)", "~(PointerExitEvent)", "Tween<double>(@)", "Future<Map<String,Object?>>(Map<String,String>)", "int([int])", "bool(NotoFont)", "Null(Object)", "~(PointerEnterEvent)", "~(RestorableProperty<Object?>,~())", "bool(FlutterHtmlKeyboardEvent)", "~(SemanticsConfiguration)", "0&()", "~(@)", "int(int)", "Widget(BuildContext,Widget?)", "Null(JSObject)", "Widget(BuildContext,int)", "~(String?)", "Size(RenderBox,BoxConstraints)", "double(double,@)", "int(FocusNode,FocusNode)", "double(Offset)", "MouseCursor(Set<WidgetState>)", "int()", "~(PointerDownEvent)", "bool(DiagnosticsNode)", "~(~())", "bool(int)", "double(RenderBox,double)", "TextStyle(Set<WidgetState>)", "int(RenderObject,RenderObject)", "Future<Map<String,Object>>(Map<String,String>)", "~(Selectable0)", "double(double,double)", "bool(TableRow)", "~(DateTime)", "Offset(Offset)", "bool(DataRow)", "Future<@>(MethodCall0)", "JSObject(Object?)", "Future<~>(String)", "~(JpegComponent,List<int>)", "TextBoundary()", "bool(InheritedElement)", "Null(@)", "bool(_RouteEntry)", "bool(OverlayEntry)", "ListTile(BuildContext,int)", "bool(RenderObject)", "JSObject()", "ColorTween(@)", "bool(InlineSpan)", "bool(AudioEvent)", "~(Object?,Object?)", "String(Object?)", "~(double)", "~(DragDownDetails)", "String(int)", "~(Object[StackTrace?])", "IconData(BuildContext)", "~(bool?)", "List<Object>()", "BorderSide(Set<WidgetState>)", "bool(Map<@,@>)", "WidgetStateProperty<Color?>?(DatePickerThemeData?)", "Null(bool)", "~(NavigatorObserver)", "List<_RouteEntry>()", "~(TapUpDetails)", "String(MaterialLocalizations)", "~(TapDragDownDetails)", "~(ForcePressDetails)", "List<Object>(String?,String)", "Future<Response>(Client0)", "~(String,String)", "double()", "Widget(BuildContext)?(ActionIconThemeData?)", "WidgetStateProperty<Color?>?(ButtonStyle?)", "bool(HitTestEntry<HitTestTarget>)", "@(@)", "Rect()", "Widget(BuildContext,Animation<double>,Animation<double>)", "bool(KeyData)", "Future<String>()", "Widget(BuildContext,Animation<double>)", "Matrix4(double)", "~([Intent?])", "~(DiagnosticsNode)", "FadeTransition(BuildContext,Animation<double>,Widget?)", "bool(Object?,Object?)", "TextBox(TextBox)", "~(SemanticsUpdate0)", "JSObject?(int)", "~({curve:Curve,descendant:RenderObject?,duration:Duration,rect:Rect?})", "int(@,@)", "bool(RenderBox)", "int(double)", "~(List<FrameTiming>)", "~(SemanticsActionEvent)", "int(SemanticsNode,SemanticsNode)", "bool(double)", "Future<~>(MethodCall0)", "TapGestureRecognizer()", "bool(FocusableActionDetector)", "~(TapGestureRecognizer)", "EdgeInsetsGeometryTween(@)", "VerticalDragGestureRecognizer()", "~(int,int,int,int,int,Uint8List)", "bool(String?)", "bool(ScrollMetricsNotification)", "WidgetStateProperty<Size?>?(ButtonStyle?)", "Future<Null>(List<String>)", "Color(Color)", "String(@)", "bool(Map<Object?,Object?>)", "JSObject?()", "StatefulBuilder(BuildContext)", "AlertDialog(BuildContext,~(~()))", "int(Object?)", "Future<Uint8List>(PdfPageFormat)", "bool(Map<String,@>)", "Iterable<String>(Iterable<String>)", "bool(_Highlight)", "~(VerticalDragGestureRecognizer)", "bool(Object,Set<SemanticsNode>)", "~(_SelectableFragment)", "+boundaryEnd,boundaryStart(TextPosition,TextPosition)(TextPosition)", "bool(BoxHitTestResult)", "~(SliverConstraints)", "~(Event)", "double({from!double,to!double})", "Future<JSObject>([JSObject?])", "~(Offset,RenderBox)", "Size(RenderBox)", "ChildSemanticsConfigurationsResult(List<SemanticsConfiguration>)", "Object?(Object?)", "~(FocusHighlightMode)", "~(SemanticsNode)", "bool(Object,SemanticsNode)", "WidgetStateProperty<OutlinedBorder?>?(DatePickerThemeData?)", "int(SemanticsNode)", "List<SemanticsNode>(_SemanticsSortGroup)", "~(RenderBox?)", "List<JSObject>()", "List<String>()", "Future<ByteData?>(ByteData?)", "Null(String)", "~(RestorationBucket)", "Map<Object?,Object?>()", "PolynomialFit?()", "bool(Object)", "Future<Null>()", "bool(SemanticsObject)", "bool(Widget)", "bool(NavigationNotification)", "KeyEventResult(FocusNode,KeyEvent)", "Object?(DismissIntent)", "Future<ServiceExtensionResponse>(String,Map<String,String>)", "~(Image1)", "_Channel()", "Future<~>(@)", "bool(DisplayFeature)", "~([Duration?])", "TextPosition(TextPosition,bool,TextBoundary)", "KeyData()", "~(Timer)", "InlineSpan(InlineSpan)", "~(ScrollNotification)", "~(~)", "Future<~>(~)", "int(_ReadingOrderSortData,_ReadingOrderSortData)", "bool(FormFieldState<@>)", "bool(ParentDataElement<ParentData>)", "LongPressGestureRecognizer()", "~(LongPressGestureRecognizer)", "HorizontalDragGestureRecognizer()", "~(HorizontalDragGestureRecognizer)", "~(Object)", "~(PanGestureRecognizer)", "Tween<@>?(Tween<@>?,@,Tween<@>(@))", "AlignmentGeometryTween(@)", "_ZoomEnterTransition(BuildContext,Animation<double>,Widget?)", "DecorationTween(@)", "MediaQuery(BuildContext)", "Semantics(BuildContext,Widget?)", "~(Size)", "_ZoomExitTransition(BuildContext,Animation<double>,Widget?)", "~(bool,Object?)", "String(double,double,String)", "RenderBox(int)", "VelocityTracker(PointerEvent)", "WidgetStateProperty<double?>?(ButtonStyle?)", "~(GestureMode)", "bool(ScrollUpdateNotification)", "~(PointerSignalEvent)", "bool(Selectable0,double)", "bool(Selectable0)", "~(ViewFocusEvent)", "Align(BuildContext,double,Widget?)", "int(Selectable0,Selectable0)", "~(TapDragUpDetails)", "~(LongPressStartDetails)", "~(LongPressMoveUpdateDetails)", "~(LongPressEndDetails)", "~(TapDragStartDetails)", "~(TapDragUpdateDetails)", "~(TapDragEndDetails)", "Widget(BuildContext,Set<WidgetState>,Widget?)?(ButtonStyle?)", "JSObject([JSObject?])", "Map<String,Object?>?(String?,String)", "bool(ShapeBorder)", "~(Picture)", "Null(ProgressEvent)", "String(Match)", "~(String,IfdDirectory)", "Set<0^>()<Object?>", "~(AppLifecycleState)", "int(int,int)", "Color?(Color?)", "PanGestureRecognizer()", "@()", "Null(Object?)", "int(String?)", "0&(Object,StackTrace)", "~(List<JSObject>,JSObject)", "~(DeviceOrientation)", "~(BarcodeCapture)", "0^?(0^?(DatePickerThemeData?))<Object?>", "double?(+(BoxConstraints,TextBaseline))", "AddEditCategoryScreen(BuildContext)", "0^?(WidgetStateProperty<0^>?(DatePickerThemeData?),Set<WidgetState>)<Object?>", "bool(~(ObjectEvent)?)", "BoxConstraints(RenderBox)", "DropdownMenuItem<String>(String)", "double(Set<WidgetState>)", "double?(RenderBox,BoxConstraints,TextBaseline)", "~(Object?,String,String)", "Map<String,@>(Map<String,@>)", "BarcodeScannerScreen(BuildContext)", "DataRow(@)", "TodoEditScreen(BuildContext)", "String(String?)", "bool(PdfObject<PdfDataType>)", "int(PdfXref,PdfXref)", "PdfFontMetrics(int)", "Iterable<DiagnosticsNode>()", "bool(BuildContext)", "bool(ItemPosition)", "~(SemanticsObject)", "bool(bool?)", "~(_RenderObjectSemantics)", "_SemanticsFragment(SemanticsConfiguration)", "0^(0^,0^)<num>", "Widget?(BuildContext,Animation<double>,Animation<double>,bool,Widget?)", "Widget(BuildContext,Animation<double>,Animation<double>,Widget)", "double(RenderBox,BoxConstraints)", "Widget(BuildContext,EditableTextState)", "Rect(Matrix4,Rect)", "Color?(DatePickerThemeData?)", "Actions(BuildContext)", "@(String)", "Widget(BuildContext,+(Size,Matrix4,Size))", "Widget(BuildContext,Widget,Widget,Animation<double>)", "FirebaseWebService()", "Color?(Color?,Color?,Color?[Color?])", "TickerFuture({from:double?})", "ListTileTheme(BuildContext)", "StatefulWidget?(BuildContext,MagnifierController,ValueNotifier<MagnifierInfo>)", "bool(LayoutChangedNotification)", "~(_AnimationDirection)", "_PointerDeviceState()", "ShapeBorderTween(@)", "~(BackendImage)", "~(EngineImage)", "Null(JavaScriptFunction,JavaScriptFunction)", "IgnorePointer(BuildContext,Animation<double>,Widget?)", "Widget(BuildContext,Animation<double>,Animation<double>,bool,Widget?)", "PageTransitionsBuilder?(TargetPlatform)", "Widget(BuildContext,_PredictiveBackPhase,PredictiveBackEvent?,PredictiveBackEvent?)", "Transform(BuildContext,Widget?)", "CkOnscreenSurface(OnscreenCanvasProvider)", "bool(OverscrollIndicatorNotification)", "ModalBarrier(BuildContext,Widget?)", "~(TapMoveDetails)", "bool(Set<WidgetState>)", "~(DismissDirection)", "ByteBuffer(Object?)", "Animation<Size>(bool)", "SystemMouseCursor(Set<WidgetState>)", "~(TextSelection,SelectionChangedCause?)", "InputDecorator(BuildContext,Widget?)", "UnmanagedRestorationScope(FormFieldState<String>)", "ThemeDataTween(@)", "AppBarThemeData()", "ThemeData()", "MapEntry<Object,ThemeExtension<@>>(Object,ThemeExtension<@>)", "bool(MapEntry<Object,ThemeExtension<@>>)", "Offset(TooltipPositionContext)", "FadeTransition(BuildContext,Animation<double>)", "bool(SemanticBehavior)", "EdgeInsetsGeometry(EdgeInsetsGeometry,ShapeBorder)", "ShapeBorder(ShapeBorder)", "String(ShapeBorder)", "Null(JSArray<Object?>,JSObject)", "Paint(BoxShadow)", "Rect(BoxShadow)", "Path(BoxShadow)", "bool(Canvas,BoxShadow,Path)", "bool(Canvas,BoxShadow)", "bool(int,bool)", "GlyphInfo?()", "DateTime()", "LineMetrics(LineMetrics)", "DiagnosticsNode(InlineSpan)", "String(String,Color)", "HitTestResult(Offset,int)", "Size()", "double?()", "Size(BoxConstraints)", "~(int?,SemanticsObject)", "DiagnosticsNode(RenderBox)", "~(TextSelection)", "bool(InlineSpanSemanticsInformation)", "Rect(Rect?,TextBox)", "~(@,Object?)", "~(@,String,String)", "~(@,String,String?)", "MouseCursor(MouseTrackerAnnotation)", "~(MouseTrackerAnnotation,Matrix4)", "bool(MouseTrackerAnnotation)", "~(String,EngineAutofillForm)", "~(EditingState?,TextEditingDeltaState?)", "int(_RenderObjectSemantics,_RenderObjectSemantics)", "String?(String)", "double(@)", "~(List<_SemanticsFragment>{isMergeUp:bool})", "Center(Widget)", "SemanticsConfiguration?(_SemanticsFragment)", "Element(int)", "List<_SemanticsFragment>(List<_SemanticsFragment>)", "List<_RenderObjectSemantics>(_RenderObjectSemantics)", "Set<SemanticsTag>?(_SemanticsFragment)", "Set<SemanticsTag>(Set<SemanticsTag>)", "DiagnosticsNode(_RenderObjectSemantics)", "~(String,JavaScriptFunction)", "bool(_SelectableFragment)", "HotRestartCacheHandler?()", "+boundaryEnd,boundaryStart(TextPosition,TextPosition)(TextPosition,String)", "OneSequenceGestureRecognizer(Factory<OneSequenceGestureRecognizer>)", "TransformLayer?(PaintingContext,Offset)", "~(bool,String)", "~(double,String{mustBeNegative:bool,mustBePositive:bool})", "~(bool,String{details:List<DiagnosticsNode>?})", "bool(SliverHitTestResult{crossAxisPosition!double,mainAxisPosition!double})", "BidiRun(JSObject)", "Future<+(String,FontLoadError?)>()", "bool(DiagnosticsNode?)", "bool(StackFrame)", "Rect(SemanticsNode)", "ErrorDescription(String)", "~(SemanticsNode,double,double)", "SemanticsNode()", "bool(RenderSliver)", "int(WebCluster,WebCluster)", "Uint8List()", "String(DiagnosticsNode)", "~(FrameTiming)", "~(int,_FrameCallbackEntry)", "~({callback!Future<Map<String,@>>(Map<String,String>),name!String})", "~(Size?)", "~(List<SemanticsConfiguration>)", "String?(int)", "CkOffscreenSurface(OffscreenCanvasProvider)", "int(JSObject)", "Future<~>(NotoFont)", "MultiSurfaceViewRasterizer()", "SemanticsNode(_TraversalSortNode)", "String(SemanticsTag)", "String(SemanticsAction)", "String?(CustomSemanticsAction)", "DiagnosticsNode(SemanticsNode)", "Map<String,Object?>(DiagnosticsNode)", "~(Map<String,Object?>)", "SemanticsNode(int)", "List<DiagnosticsNode>(SemanticsNode)", "Set<SemanticsNode>()", "~(SemanticsTag)", "~(SemanticsAction,~(Object?))", "ByteData(ByteData?)", "Stream<LicenseEntry>()", "Future<String?>(String?)", "@(@,String)", "Future<~>(ByteData?,~(ByteData?))", "~(int,bool(FlutterHtmlKeyboardEvent))", "Future<Map<String,@>>(@)", "~(RawKeyEvent)", "Set<LogicalKeyboardKey>(LogicalKeyboardKey)", "int(_PlatformChannelStats,_PlatformChannelStats)", "MapEntry<int,String>(MapEntry<String,String>)", "Future<Null>(ByteData?)", "RawKeyEventData()", "Iterable<String>(String)", "String(GestureArenaMember)", "_GestureArena()", "ErrorDescription(RestorationBucket)", "List<RestorationBucket>()", "List<RestorationBucket>(List<RestorationBucket>)", "double(num)", "List<@>(String)", "List<num>(SelectionRect)", "Map<String,@>(IOSSystemContextMenuItemData)", "int(ByteData,int,int)", "MapEntry<Color,int>(int,int)", "~(PointerDataPacket)", "PlatformViewSurface(BuildContext,PlatformViewController)", "_HtmlElementViewController(PlatformViewCreationParams)", "Future<~>(PointerEvent)", "WindowScope(BuildContext,Widget?)", "HitTestResponse(HitTestRequest)", "StatelessWidget(WindowEntry)", "double?(int)", "~(Action<Intent>)", "bool(int,int)", "~(_ChildEntry)", "Widget(_ChildEntry)", "Null(~())", "bool(PointerData)", "Route<@>?(RouteSettings)", "Route<@>(RouteSettings)", "Widget(BuildContext,bool,Widget?)", "_PointerEventDescription?(PointerData)", "Localizations(BuildContext,Widget?)", "~(AutocompletePreviousOptionIntent)", "~(AutocompleteNextOptionIntent)", "~(AutocompleteFirstOptionIntent)", "~(AutocompleteLastOptionIntent)", "~(AutocompleteNextPageOptionIntent)", "~(AutocompletePreviousPageOptionIntent)", "List<PictureLayer>()", "String(double)", "bool(KeepAliveNotification)", "ClipPath(BuildContext)", "~(_TapTracker)", "Map<~(PointerEvent),Matrix4?>()", "Future<double>()", "Future<~>(double)", "~(~(PointerEvent),Matrix4?)", "Future<bool>(MethodCall0)", "Future<Map<String,List<Map<String,String>>>>(Map<String,String>)", "Map<String,String>(Violation)", "DefaultSelectionStyle(BuildContext)", "SizedBox(BuildContext)", "Future<~>(AnimationStatus)", "_CombiningGestureArenaMember()", "Rect(DisplayFeature)", "~(Layer0)", "Null(@,StackTrace)", "~(int,@)", "~(LayerCanvas)", "~(TransposeCharactersIntent)", "~(ReplaceTextIntent)", "~(ScrollToDocumentBoundaryIntent)", "~(ScrollIntent)", "~(UpdateSelectionIntent)", "TextEditingValue(TextEditingValue,TextInputFormatter)", "int(NotoFont,NotoFont)", "TextFieldTapRegion(BuildContext)", "~(PointerUpEvent)", "~(TextEditingValue)", "bool(TextEditingValue?,TextEditingValue)", "TextEditingValue(TextEditingValue)", "CompositedTransformTarget(BuildContext,ViewportOffset)", "CupertinoTextSelectionToolbarButton(ContextMenuButtonItem)", "DesktopTextSelectionToolbarButton(ContextMenuButtonItem)", "~([FocusNode?])", "CupertinoDesktopTextSelectionToolbarButton(ContextMenuButtonItem)", "DiagnosticsNode(FocusNode)", "String(FocusNode)", "Set<FocusNode>()", "bool(KeyMessage)", "~(_FocusTraversalGroupInfo)", "bool(_DirectionalPolicyDataEntry)", "MaterialRectArcTween(Rect?,Rect?)", "bool(TraversalDirection)", "Set<Directionality>(_ReadingOrderSortData)", "Widget(BuildContext{key!GlobalKey<State<StatefulWidget>>,onPressed!~(),semanticsLabel!String})", "List<Directionality>(BuildContext)", "Rect(_ReadingOrderSortData)", "int(_ReadingOrderDirectionalGroupData,_ReadingOrderDirectionalGroupData)", "String(_ReadingOrderSortData)", "List<_ReadingOrderSortData>(_ReadingOrderSortData,Iterable<_ReadingOrderSortData>)", "bool(_ReadingOrderSortData)", "Widget(BuildContext{onPressed!~(),semanticsLabel!String,usesDefaultAlignment:bool})", "HashSet<GlobalKey<State<StatefulWidget>>>()", "~(Element,Map<Element,GlobalKey<State<StatefulWidget>>>)", "~(Element,GlobalKey<State<StatefulWidget>>)", "Set<Element>()", "String(GlobalKey<State<StatefulWidget>>)", "String(Element)", "DiagnosticsProperty<Element>(Element)", "Element?(Element)", "Object?(int,Element?)", "int(InheritedElement,InheritedElement)", "DiagnosticsNode(InheritedElement)", "Widget(BuildContext{onPressed!~(),selectionOnTapEnabled!bool,semanticsLabel!String})", "DoubleTapGestureRecognizer()", "~(DoubleTapGestureRecognizer)", "~(@,StackTrace)", "MaterialPageRoute<0^>(RouteSettings,Widget(BuildContext))<Object?>", "~(List<Object?>)", "~(NativeUint8List)", "double(_Diagonal)", "Semantics(BuildContext,int)", "~(PointerPanZoomStartEvent)", "~(RenderSemanticsGestureHandler)", "String(GestureRecognizer)", "~(StatefulElement,Object)", "Positioned(BuildContext,Widget?)", "~(_HeroFlight)", "Widget(BuildContext,Animation<double>,HeroFlightDirection,BuildContext,BuildContext)", "bool(_HeroFlight)", "MediaQuery(BuildContext,Widget?)", "IconTheme(BuildContext)", "Container(BuildContext)", "bool(DraggableScrollableNotification)", "~(@,@)", "~(DragEndDetails{isClosing:bool?})", "BoxConstraintsTween(@)", "Matrix4Tween(@)", "TextStyleTween(@)", "BorderRadiusTween(@)", "_VisibilityScope(int)", "~(Constraints)", "Future<@>(_Pending)", "Map<Type,@>(List<@>)", "bool(LocalizationsDelegate<@>)", "Map<Type,@>(Map<Type,@>)", "Null(Map<Type,@>)", "Type(LocalizationsDelegate<@>)", "FontFamily(@)", "~(RouteTransitionRecord?,bool)", "bool(Route<@>?)", "Future<Null>(@)", "FontAsset(@)", "~(Symbol0,@)", "OffscreenCanvasViewRasterizer()", "0^?(0^?(ButtonStyle?))<Object?>", "_RouteEntry(Route<@>)", "0^?(WidgetStateProperty<0^>?(ButtonStyle?))<Object?>", "MapEntry<String?,List<Object>>(@,@)", "RenderBox?()", "_OverlayChildLayoutBuilder(BuildContext)", "_RenderTheaterMarker()", "Color?()", "~(BoxConstraints)", "ClipRect(BuildContext,Widget?)", "Viewport(BuildContext,ViewportOffset)", "~(Size,Offset)", "bool(RawTooltipState)", "Null(RestorationBucket?)", "~(RestorableProperty<Object?>)", "String?(RestorableProperty<Object?>)", "ErrorDescription(RestorableProperty<Object?>)", "SynchronousFuture<bool>(bool)", "bool(_ModalRouteAspect)", "RestorationScope(BuildContext,Widget?)", "IgnorePointer(BuildContext,Widget?)", "IOSScrollViewFlingVelocityTracker(PointerEvent)", "MacOSScrollViewFlingVelocityTracker(PointerEvent)", "bool(double?,double)", "WidgetStateProperty<TextStyle?>?(ButtonStyle?)", "~([Object?])", "Widget(BuildContext,ViewportOffset)", "WidgetStateProperty<EdgeInsetsGeometry?>?(ButtonStyle?)", "Widget?(BuildContext,int)", "int?(Widget,int)", "Null(List<~>)", "0&(String,int?)", "WidgetStateProperty<BorderSide?>?(ButtonStyle?)", "~(Offset)", "~(String,Object?)", "bool(ScrollbarOrientation)", "~(DragGestureRecognizer)", "_HorizontalThumbDragGestureRecognizer()", "_VerticalThumbDragGestureRecognizer()", "_TrackTapGestureRecognizer()", "~(_TrackTapGestureRecognizer)", "~(PointerHoverEvent)", "WidgetStateProperty<OutlinedBorder?>?(ButtonStyle?)", "Rect(Rect)", "bool(Rect)", "String(ShortcutActivator)", "~(ShortcutActivator,Intent)", "List<_ActivatorIntentPair>()", "Action<Intent>?()", "_SingleChildViewport(BuildContext,ViewportOffset)", "~(RenderBox)", "Element?()", "bool(Element?)", "List<Element>()", "IOSSystemContextMenuItemData(IOSSystemContextMenuItem)", "MouseCursor?(Set<WidgetState>)", "Decoration?(TableRow)", "List<Widget>(TableRow)", "_TableElementRow(TableRow)", "Element(Widget)", "bool(_TableElementRow)", "bool(List<Element>)", "Iterable<RenderBox>(_TableElementRow)", "RenderBox(Element)", "List<Element>(_TableElementRow)", "bool(RenderTapRegion)", "_SelectionToolbarWrapper(BuildContext)", "MouseCursor?(ButtonStyle?)", "~(String,String?)", "Color?(ButtonStyle?)", "VisualDensity?(ButtonStyle?)", "MaterialTapTargetSize?(ButtonStyle?)", "Duration?(ButtonStyle?)", "bool?(ButtonStyle?)", "AlignmentGeometry?(ButtonStyle?)", "InteractiveInkFeatureFactory?(ButtonStyle?)", "TapAndHorizontalDragGestureRecognizer()", "~(TapAndHorizontalDragGestureRecognizer)", "TapAndPanGestureRecognizer()", "~(TapAndPanGestureRecognizer)", "ForcePressGestureRecognizer()", "~(ForcePressGestureRecognizer)", "~([TapUpDetails?])", "~(UndoTextIntent)", "~(RedoTextIntent)", "_ViewScope(BuildContext,PipelineOwner)", "~(FlutterErrorDetails)", "~(InspectorReferenceData)", "bool([String?])", "bool(String?[String?])", "List<Object?>(String?,String)", "~(int,int,int)", "Map<String,Object?>?(String)", "Map<String,Object?>?(String{addAdditionalPropertiesCallback:Map<String,Object>?(DiagnosticsNode,InspectorSerializationDelegate)?})", "RenderCanvas()", "~(NextFocusIntent)", "Future<Null>(String)", "Future<Null>(String?,String)", "~(PreviousFocusIntent)", "Set<InspectorReferenceData>()", "InspectorSerializationDelegate()", "Map<String,Object>?(DiagnosticsNode,InspectorSerializationDelegate)", "Map<String,Object>(DiagnosticsNode,InspectorSerializationDelegate)", "List<int>()", "Map<String,List<Object?>>()", "double(RenderObject)", "~({selectionOnTapEnabled:bool?})", "Flexible(Widget)", "~(SlidableAutoCloseNotification)", "~(SlidableAutoCloseBarrierNotification)", "Future<~>(String,ByteData?,~(ByteData?)?)", "~(DirectionalFocusIntent)", "bool(String,String)", "int(String)", "RegisteredFont?(ByteBuffer,String,String)", "~(List<int>)", "MediaType()", "_MediaQueryListeners()", "~(JavaScriptFunction)", "~(int,IfdValue)", "@(@,@)", "~(num,num,num,num)", "Uint32List(int)", "JpegComponent(int)", "ViewClipChain()", "DisplayCanvas(CompositionCanvas)", "num(num,num,num,num)", "num(num,num,num,num,num)", "DateTime(int,int,int,int,int,int,int,bool)", "_DateFormatQuotedField(String,DateFormat)", "_DateFormatPatternField(String,DateFormat)", "_DateFormatLiteralField(String,DateFormat)", "~({allowPlatformDefault!bool})", "Picture(PictureRecorder)", "Ink(BuildContext,Widget?)", "Offset(Size,double)", "bool(DataCell)", "int(Hct,Hct)", "BarcodeCapture?(Map<Object?,Object?>?)", "Future<~>([JSObject?])", "DeviceOrientation(String)", "bool(DataColumn)", "TorchState(Map<Object?,Object?>)", "double(Map<Object?,Object?>)", "TableRow(int)", "Widget(BuildContext,MobileScannerState,Widget?)", "Widget(BuildContext,BoxConstraints)", "~(BarcodeCapture?)", "~(TorchState)", "SizedBox(BuildContext,MobileScannerState,Widget?)", "Offset(Map<Object?,Object?>)", "TorchState(JSObject)", "double(JSObject)", "JSObject(@)", "bool(JSObject)", "JavaScriptFunction()", "Future<~>(Timer)", "Rect()(RenderBox)", "Future<JSObject>()", "_ManualEntryDialog(BuildContext)", "bool(Category)", "Category(@)", "List<int>(List<int>{level:int?,output:OutputStreamBase?})", "Future<Duration?>()", "AccountTransactionsScreen(BuildContext)", "~(~(~()))", "CalendarDatePicker()", "Form()", "Flex(BuildContext,BoxConstraints)", "Wrap(BuildContext)", "Map<@,@>()", "ChoiceChip(String)", "double?(@)", "~(CompositionCanvas,int)", "Card(BuildContext,int)", "List<Widget0>(Context0)", "TableRow0(@)", "String(AudioEvent)", "Iterable<String>(TextEditingValue)", "TextFormField(BuildContext,TextEditingController,FocusNode,~())", "Category0(@)", "Map<String,@>(@)", "_NavigatorShim(BuildContext)", "bool(Route<@>,@)", "~(JSObject,List<PointerData>)", "CategorySearchDialog(BuildContext)", "SimpleDialog(BuildContext)", "SimpleDialogOption(String)", "ElevatedButton(MapEntry<int,Map<String,@>>)", "bool(Category0)", "Stack(BuildContext,BoxConstraints)", "Directionality(BuildContext)", "ProductListScreen(BuildContext)", "CategoryListScreen(BuildContext)", "POSScreen(BuildContext)", "AccountListScreen(BuildContext)", "DashboardScreen(BuildContext)", "TodoScreen(BuildContext)", "SizedBox(BuildContext,int)", "InkWell(BuildContext,int)", "PriceSelectionDialog(BuildContext)", "bool(ValueNotifier<Map<String,@>>)", "ValueListenableBuilder<Map<String,@>>(BuildContext,int)", "Slidable(BuildContext,Map<String,@>,Widget?)", "Future<~>(BuildContext)", "~(BuildContext)", "FastBillingDialog(BuildContext)", "Null(int,double)", "bool(Product)", "Product(@)", "AddProductScreen(BuildContext)", "SingleChildScrollView(BuildContext,~(~()))", "_FullWindowDialogWrapper(BuildContext)", "Container0(Context0)", "List<@>(int)", "Padding0(Context0)", "Padding0(int)", "Null(Object[StackTrace?])", "Uint8List(Uint8List,PdfObjectBase<PdfDataType>)", "bool(bool)", "Future<Uint8List>()", "bool(TtfGlyphInfo)", "PdfIndirect(PdfObjectBase<PdfDataType>)", "PdfNum(num)", "MapEntry<String,PdfIndirect>(String,PdfObjectBase<PdfDataType>)", "int(int,String)", "~(int,int)", "CustomSingleChildLayout(BuildContext)", "~(ActivateIntent)", "bool(PdfFont)", "PdfFont()", "SizedBox0(Context0)", "double(double?,double?)", "_Span(_Span,_Span)", "bool(InlineSpan0,TextStyle0?,AnnotationBuilder?)", "~(ButtonActivateIntent)", "bool(GlobalAudioEvent)", "Listener0(BuildContext,BoxConstraints)", "Future<~>(Duration)", "String(GlobalAudioEvent)", "ItemPosition(ItemPosition,ItemPosition)", "String?()", "int(_Line)", "~(Duration?)", "Object(_Line)", "Object(_Highlight)", "int(_Highlight,_Highlight)", "List<_Line>(MapEntry<Object,List<_Highlight>>)", "SourceSpanWithContext()", "BorderSide?(Set<WidgetState>)", "String(String,String)", "JSObject(int{params:Object?})", "Rect()?(RenderBox)", "~(Intent?)", "int(Comparable<@>,Comparable<@>)", "List<String>(String,List<String>)", "AudioEvent(@)", "Size?(Size?,Size?,double)", "double?(num?,num?,double)", "Color?(Color?,Color?,double)", "bool(InkHighlight?)", "Widget(BuildContext,Offset,Offset,Widget)", "~(FlutterErrorDetails{forceReport:bool})", "DiagnosticsNode(String)", "String(double?)", "~(String?{wrapWidth:int?})", "StackFrame?(String)", "double(double,double,double)", "Color(_HighlightType)", "GlobalAudioEvent(@)", "~(RenderBox,Offset)", "bool?(bool?,bool?,double)", "Semantics(BuildContext)", "Widget(BuildContext,Widget)", "OutlinedBorder?(OutlinedBorder?,OutlinedBorder?,double)", "EdgeInsetsGeometry?(EdgeInsetsGeometry?,EdgeInsetsGeometry?,double)", "Future<~>(WrappedPlayer)", "TextStyle?(TextStyle?,TextStyle?,double)", "int(_TaskEntry<@>,_TaskEntry<@>)", "bool({priority!int,scheduler!SchedulerBinding})", "Future<~>(JSObject)", "List<LicenseEntry>(String)", "Widget(Widget,Animation<double>)", "Widget(Widget?,List<Widget>)", "~(FocusNode{alignment:double?,alignmentPolicy:ScrollPositionAlignmentPolicy?,curve:Curve?,duration:Duration?})", "int(Element,Element)", "IconThemeData(IconThemeData?,IconThemeData?,double)", "Widget?(BuildContext,MagnifierController,ValueNotifier<MagnifierInfo>)", "List<Route<@>>(NavigatorState,String)", "int(Widget,int)", "~({allowPlatformDefault:bool})", "Iterable<DiagnosticsNode>(Iterable<DiagnosticsNode>)", "bool(SemanticsTag)", "List<SemanticsConfiguration>()", "Address(Map<Object?,Object?>)", "Barcode(Map<Object?,Object?>)", "Email(Map<Object?,Object?>)", "Phone(Map<Object?,Object?>)", "JSObject(int)", "_ButtonSanitizer()", "~([0^?])<Object?>"],
     interceptorsByTag: null,
     leafTags: null,
     arrayRti: Symbol("$ti"),
@@ -296020,6 +295999,7 @@
       Map_String_String: findType("Map<String,String>"),
       Map_String_dynamic: findType("Map<String,@>"),
       Map_String_int: findType("Map<String,int>"),
+      Map_String_num: findType("Map<String,num>"),
       Map_TargetPlatform_PageTransitionsBuilder: findType("Map<TargetPlatform,PageTransitionsBuilder>"),
       Map_Type_GestureRecognizer: findType("Map<Type,GestureRecognizer>"),
       Map_Type_dynamic: findType("Map<Type,@>"),
@@ -298290,7 +298270,6 @@
     B.EdgeInsets_20_20_20_20 = new A.EdgeInsets(20, 20, 20, 20);
     B.EdgeInsets_24_0_24_0 = new A.EdgeInsets(24, 0, 24, 0);
     B.EdgeInsets_24_0_24_24 = new A.EdgeInsets(24, 0, 24, 24);
-    B.EdgeInsets_24_16_12_0 = new A.EdgeInsets(24, 16, 12, 0);
     B.EdgeInsets_24_24_24_0 = new A.EdgeInsets(24, 24, 24, 0);
     B.EdgeInsets_24_8_24_8 = new A.EdgeInsets(24, 8, 24, 8);
     B.EdgeInsets_40_24_40_24 = new A.EdgeInsets(40, 24, 40, 24);
@@ -298516,7 +298495,6 @@
     B.IconData_984310_MaterialIcons_false = new A.IconData(984310, "MaterialIcons", false);
     B.Icon_2Dz = new A.Icon(B.IconData_984310_MaterialIcons_false, null, null, null, null);
     B.Icon_61b = new A.Icon(B.IconData_58332_MaterialIcons_false, null, null, null, null);
-    B.Icon_8qC = new A.Icon(B.IconData_57706_MaterialIcons_false, 20, null, null, null);
     B.IconData_58370_MaterialIcons_false = new A.IconData(58370, "MaterialIcons", false);
     B.Color_Zdt = new A.Color(1, 0.9803921568627451, 0.9803921568627451, 0.9803921568627451, B.ColorSpace_0);
     B.Color_euu = new A.Color(1, 0.9607843137254902, 0.9607843137254902, 0.9607843137254902, B.ColorSpace_0);
@@ -304422,6 +304400,7 @@
     B.SizedBox_108_null_null_null = new A.SizedBox(108, null, null, null);
     B.SizedBox_10_null_null_null = new A.SizedBox(10, null, null, null);
     B.SizedBox_12_null_null_null = new A.SizedBox(12, null, null, null);
+    B.SizedBox_4_null_null_null = new A.SizedBox(4, null, null, null);
     B.SizedBox_8_null_null_null = new A.SizedBox(8, null, null, null);
     B.AlwaysStoppedAnimation_2aH = new A.AlwaysStoppedAnimation(B.Color_wst, type$.AlwaysStoppedAnimation_Color);
     B.CircularProgressIndicator_DEm = new A.CircularProgressIndicator(2, null, null, null, null, null, B.AlwaysStoppedAnimation_2aH, null, null, null);
@@ -305331,6 +305310,7 @@
     B._IntrinsicDimension_2 = new A._IntrinsicDimension(2, "minHeight");
     B._IntrinsicDimension_3 = new A._IntrinsicDimension(3, "maxHeight");
     B._LinearTextScaler_1 = new A._LinearTextScaler(1);
+    B._ManualEntryDialog_null = new A._ManualEntryDialog(null);
     B._ManualEntryField_0 = new A._ManualEntryField(0, "rate");
     B._ManualEntryField_1 = new A._ManualEntryField(1, "qty");
     B._MediaQueryAspect_0 = new A._MediaQueryAspect(0, "size");
