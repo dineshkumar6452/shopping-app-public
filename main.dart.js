@@ -130959,9 +130959,9 @@
       if (rowIndex < 0)
         return;
       _this._checkMaxRow$1(rowIndex);
-      _this._checkMaxCol$1(9);
+      _this._checkMaxCol$1(8);
       _this.__Sheet__maxRows_A === $ && A.throwLateFieldNI("_maxRows");
-      for (columnIndex = 0, currentRowPosition = 0; currentRowPosition <= 8;) {
+      for (columnIndex = 0, currentRowPosition = 0; currentRowPosition <= 7;) {
         _this._putData$3(rowIndex, columnIndex, row[currentRowPosition]);
         ++currentRowPosition;
         ++columnIndex;
@@ -292773,7 +292773,7 @@
               sheet = t1.$index(0, "Sheet1");
               t1 = sheet.__Sheet__maxRows_A;
               t1 === $ && A.throwLateFieldNI("_maxRows");
-              sheet.insertRowIterables$2(["MAIN_BILLNO", "MAIN_BILLDATE", "ITEM_BARCODE", "ITEM_NAME", "ITEM_BATCH", "ITEM_QTY", "ITEM_MRP", "ITEM_PRATE", "Wrate"], t1);
+              sheet.insertRowIterables$2(["MAIN_BILLNO", "MAIN_BILLDATE", "ITEM_BARCODE", "ITEM_NAME", "ITEM_BATCH", "ITEM_QTY", "ITEM_MRP", "ITEM_PRATE"], t1);
               for (t1 = J.get$iterator$ax($async$self._sessionExportRows); t1.moveNext$0();) {
                 t2 = t1.get$current(t1);
                 t3 = J.getInterceptor$asx(t2);
@@ -292793,7 +292793,7 @@
                 t2 = t3.$index(t2, "retailRate");
                 if (t2 == null)
                   t2 = "";
-                sheet.insertRowIterables$2(["", "", t4, t5, wrate, t6, t2, 0, wrate], sheet.__Sheet__maxRows_A);
+                sheet.insertRowIterables$2(["", "", t4, t5, wrate, t6, t2, wrate], sheet.__Sheet__maxRows_A);
               }
               t1 = excel.__Excel_parser_A;
               t1 === $ && A.throwLateFieldNI("parser");
