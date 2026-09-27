@@ -68910,18 +68910,16 @@
       this.barcode = t0;
       this.key = t1;
     },
-    _AddBarcodeDialogState: function _AddBarcodeDialogState(t0, t1, t2, t3, t4, t5, t6, t7) {
+    _AddBarcodeDialogState: function _AddBarcodeDialogState(t0, t1, t2, t3) {
       var _ = this;
       _._nameController = t0;
-      _._categoryController = t1;
-      _._unitController = t2;
-      _._wholesaleController = t3;
-      _._retailController = t4;
-      _._batchController = t5;
-      _._stockController = t6;
+      _._wholesaleController = t1;
+      _._batchController = t2;
       _._saving = false;
-      _._widget = _._suggestedProduct = _._errorText = null;
-      _._debugLifecycleState = t7;
+      _._suggestedProduct = _._errorText = null;
+      _._rateDecodedFromBarcode = false;
+      _._widget = null;
+      _._debugLifecycleState = t3;
       _._framework$_element = null;
     },
     _AddBarcodeDialogState__submit_closure: function _AddBarcodeDialogState__submit_closure(t0) {
@@ -297343,21 +297341,43 @@
   };
   A._AddBarcodeDialog.prototype = {
     createState$0() {
-      var _null = null;
-      return new A._AddBarcodeDialogState(A.TextEditingController$(_null), A.TextEditingController$(_null), A.TextEditingController$(_null), A.TextEditingController$(_null), A.TextEditingController$(_null), A.TextEditingController$(_null), A.TextEditingController$(_null), B._StateLifecycle_0);
+      return new A._AddBarcodeDialogState(A.TextEditingController$(null), A.TextEditingController$(null), A.TextEditingController$(null), B._StateLifecycle_0);
     }
   };
   A._AddBarcodeDialogState.prototype = {
+    initState$0() {
+      var decoded, _this = this;
+      _this.super$State$initState();
+      decoded = _this._decodeWholesaleRateFromBarcode$1(_this._widget.barcode);
+      if (decoded != null) {
+        _this._wholesaleController.set$text(0, decoded);
+        _this._batchController.set$text(0, decoded);
+        _this._rateDecodedFromBarcode = true;
+      }
+    },
     dispose$0() {
       var _this = this;
       _this._nameController.dispose$0();
-      _this._categoryController.dispose$0();
-      _this._unitController.dispose$0();
       _this._wholesaleController.dispose$0();
-      _this._retailController.dispose$0();
       _this._batchController.dispose$0();
-      _this._stockController.dispose$0();
       _this.super$State$dispose();
+    },
+    _decodeWholesaleRateFromBarcode$1(barcode) {
+      var t1, frateNum, frateStr, _null = null;
+      if (barcode.length === 8) {
+        t1 = A.RegExp_RegExp("^\\d{8}$", false);
+        t1 = !t1._nativeRegExp.test(barcode);
+      } else
+        t1 = true;
+      if (t1)
+        return _null;
+      frateNum = A.Primitives_parseInt(B.JSString_methods.substring$1(barcode, 3), _null);
+      if (frateNum == null)
+        return _null;
+      frateStr = B.JSInt_methods.toString$0(frateNum);
+      if (!B.JSString_methods.startsWith$1(frateStr, "6") || frateStr.length < 2)
+        return _null;
+      return B.JSString_methods.substring$1(frateStr, 1);
     },
     _check_product_availability_screen$_submit$2$attachToProductId$forceNewProduct(attachToProductId, forceNewProduct) {
       var $async$goto = 0,
@@ -297382,7 +297402,7 @@
               $async$self.setState$1(new A._AddBarcodeDialogState__submit_closure0($async$self));
               t2 = type$.String;
               t3 = type$.dynamic;
-              body = A.LinkedHashMap_LinkedHashMap$_literal(["barcode", $async$self._widget.barcode, "productName", B.JSString_methods.trim$0($async$self._nameController._change_notifier$_value.text), "category", B.JSString_methods.trim$0($async$self._categoryController._change_notifier$_value.text), "unit", B.JSString_methods.trim$0($async$self._unitController._change_notifier$_value.text), "wholesaleRate", B.JSString_methods.trim$0($async$self._wholesaleController._change_notifier$_value.text), "retailRate", B.JSString_methods.trim$0($async$self._retailController._change_notifier$_value.text), "batch", B.JSString_methods.trim$0($async$self._batchController._change_notifier$_value.text), "stock", B.JSString_methods.trim$0($async$self._stockController._change_notifier$_value.text)], t2, t3);
+              body = A.LinkedHashMap_LinkedHashMap$_literal(["barcode", $async$self._widget.barcode, "productName", B.JSString_methods.trim$0($async$self._nameController._change_notifier$_value.text), "wholesaleRate", B.JSString_methods.trim$0($async$self._wholesaleController._change_notifier$_value.text), "batch", B.JSString_methods.trim$0($async$self._batchController._change_notifier$_value.text)], t2, t3);
               if (!t1)
                 J.$indexSet$ax(body, "productId", attachToProductId);
               if (forceNewProduct)
@@ -297475,10 +297495,17 @@
       return A.AlertDialog$(A._setArrayType([t3, t4, A.ElevatedButton$(_this._saving ? B.SizedBox_CQ7 : B.Text_Rwm, t2, t5)], type$.JSArray_Widget), _null, t1, B.Text_n9p, _null);
     },
     _buildForm$0() {
-      var t4, t5, _this = this, _null = null, _s1_ = "\u2022",
+      var t4, t5, _this = this, _null = null,
         t1 = type$.JSArray_Widget,
-        t2 = A._setArrayType([A.Text$("Barcode: " + _this._widget.barcode, _null, _null, _null, B.TextStyle_wFH, _null, _null, _null), B.SizedBox_null_12_null_null, A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._nameController, _null, _null, _null, _null, _null, 2, B.InputDecoration_sr3, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, _s1_, _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_00, _null, _null, _null, _null), A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._categoryController, _null, _null, _null, _null, _null, 2, B.InputDecoration_TRT, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, _s1_, _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null), A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._unitController, _null, _null, _null, _null, _null, 2, B.InputDecoration_jsC, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, _s1_, _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null), A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._batchController, _null, _null, _null, _null, _null, 2, B.InputDecoration_Fd6, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, _s1_, _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null), A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._wholesaleController, _null, _null, _null, _null, _null, 2, B.InputDecoration_wY1, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_true, _null, _null, _null, 1, _null, _null, false, _s1_, _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null), A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._retailController, _null, _null, _null, _null, _null, 2, B.InputDecoration_KT8, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_true, _null, _null, _null, 1, _null, _null, false, _s1_, _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null), A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._stockController, _null, _null, _null, _null, _null, 2, B.InputDecoration_gWg, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_false, _null, _null, _null, 1, _null, _null, false, _s1_, _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null)], t1),
-        t3 = _this._errorText;
+        t2 = A._setArrayType([A.Text$("Barcode: " + _this._widget.barcode, _null, _null, _null, B.TextStyle_wFH, _null, _null, _null), B.SizedBox_null_12_null_null, A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._nameController, _null, _null, _null, _null, _null, 2, B.InputDecoration_sr3, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_00, _null, _null, _null, _null)], t1),
+        t3 = _this._batchController;
+      if (_this._rateDecodedFromBarcode)
+        t2.push(new A.Padding(B.EdgeInsets_0_4_0_4, A.Row$(A._setArrayType([B.Icon_uyZ, B.SizedBox_6_null_null_null, A.Expanded$(A.Text$("Batch: " + t3._change_notifier$_value.text + "   Wholesale Rate: " + _this._wholesaleController._change_notifier$_value.text + "\n(both decoded from barcode - confirm below)", _null, _null, _null, B.TextStyle_Lpm, _null, _null, _null), 1)], t1), B.CrossAxisAlignment_2, B.MainAxisAlignment_0, B.MainAxisSize_1, 0, _null), _null));
+      else
+        t2.push(A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), t3, _null, _null, _null, _null, _null, 2, B.InputDecoration_Fd6, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, _null, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null));
+      if (!_this._rateDecodedFromBarcode)
+        t2.push(A.TextField$(_null, B.List_empty0, false, _null, true, B.Clip_1, _null, A.text_field_TextField__defaultContextMenuBuilder$closure(), _this._wholesaleController, _null, _null, _null, _null, _null, 2, B.InputDecoration_wY1, B.DragStartBehavior_1, true, _null, true, _null, false, _null, B.Type_EditableText_O5i, _null, _null, _null, _null, B.TextInputType_2_false_true, _null, _null, _null, 1, _null, _null, false, "\u2022", _null, _null, _null, _null, _null, false, _null, _null, false, _null, true, _null, B.EdgeInsets_20_20_20_20, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null, true, B.TextAlign_4, _null, B.TextCapitalization_30, _null, _null, _null, _null));
+      t3 = _this._errorText;
       if (t3 != null)
         B.JSArray_methods.addAll$1(t2, A._setArrayType([B.SizedBox_null_8_null_null, A.Text$(t3, _null, _null, _null, B.TextStyle_njP, _null, _null, _null)], t1));
       t2 = A.SingleChildScrollView$(A.Column$(t2, B.CrossAxisAlignment_0, B.MainAxisAlignment_0, B.MainAxisSize_0), _null, B.Axis_1);
@@ -297486,7 +297513,7 @@
       t4 = A.TextButton$(B.Text_FgL, t3 ? _null : new A._AddBarcodeDialogState__buildForm_closure(_this), _null);
       t3 = t3 ? _null : new A._AddBarcodeDialogState__buildForm_closure0(_this);
       t5 = A.ElevatedButton_styleFrom(_null, _null, B.MaterialColor_vIZ, _null, _null, _null, _null, _null, _null, B.Color_wst, _null, _null, _null, _null, _null, _null, _null, _null, _null, _null);
-      return A.AlertDialog$(A._setArrayType([t4, A.ElevatedButton$(_this._saving ? B.SizedBox_CQ7 : B.Text_CkH, t3, t5)], t1), _null, t2, B.Text_EOI, _null);
+      return A.AlertDialog$(A._setArrayType([t4, A.ElevatedButton$(_this._saving ? B.SizedBox_CQ7 : B.Text_J4f, t3, t5)], t1), _null, t2, B.Text_EOI, _null);
     }
   };
   A._AddBarcodeDialogState__submit_closure.prototype = {
@@ -324355,6 +324382,7 @@
     B.IconData_57648_MaterialIcons_false = new A.IconData(57648, "MaterialIcons", false);
     B.Icon_sEL = new A.Icon(B.IconData_57648_MaterialIcons_false, null, null, null, null);
     B.Icon_t50 = new A.Icon(B.IconData_57882_MaterialIcons_false, null, null, null, null);
+    B.Icon_uyZ = new A.Icon(B.IconData_58614_MaterialIcons_false, 18, B.MaterialColor_vIZ, null, null);
     B.IconData_58132_MaterialIcons_false = new A.IconData(58132, "MaterialIcons", false);
     B.Icon_vKo = new A.Icon(B.IconData_58132_MaterialIcons_false, null, B.MaterialColor_45F, null, null);
     B.IconData_57500_MaterialIcons_true = new A.IconData(57500, "MaterialIcons", true);
@@ -324424,7 +324452,6 @@
     B.InputDecoration_NPf = new A.InputDecoration(null, null, null, "Barcode", null, null, null, null, null, null, "Scan or type a barcode", null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, B.Icon_y7S, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, B.OutlineInputBorder_kIs, true, null, null, null, null);
     B.InputDecoration_PR2 = new A.InputDecoration(null, null, null, "Packing Size", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
     B.InputDecoration_S4p = new A.InputDecoration(null, null, null, "Product Name", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
-    B.InputDecoration_TRT = new A.InputDecoration(null, null, null, "Category", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
     B.InputDecoration_WAN = new A.InputDecoration(null, null, null, null, null, null, null, null, null, null, "Customer / Invoice name (optional)", null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
     B.InputDecoration_XLg = new A.InputDecoration(null, null, null, null, null, null, null, null, null, null, "Enter closing comment (optional)", null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, B.OutlineInputBorder_kIs, true, null, null, null, null);
     B.InputDecoration_XOn = new A.InputDecoration(null, null, null, "Parent Category Name", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
@@ -324433,7 +324460,6 @@
     B.InputDecoration_dgB = new A.InputDecoration(null, null, null, "Rate Quantity", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
     B.InputDecoration_dpc = new A.InputDecoration(null, null, null, "Amount", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
     B.InputDecoration_gWg = new A.InputDecoration(null, null, null, "Stock", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
-    B.InputDecoration_jsC = new A.InputDecoration(null, null, null, "Unit (e.g. pcs, pair, kg)", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
     B.InputDecoration_jzp = new A.InputDecoration(null, null, null, "Cheque Number *", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
     B.InputDecoration_kuE = new A.InputDecoration(null, null, null, "Unit (pcs/bx/dz)", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
     B.InputDecoration_lrN = new A.InputDecoration(null, null, null, "Current Owner", null, null, null, null, null, null, null, null, null, null, null, null, true, true, false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, true, null, null, null, null);
@@ -330293,6 +330319,7 @@
     B.SizedBox_10_null_null_null = new A.SizedBox(10, null, null, null);
     B.SizedBox_12_null_null_null = new A.SizedBox(12, null, null, null);
     B.SizedBox_4_null_null_null = new A.SizedBox(4, null, null, null);
+    B.SizedBox_6_null_null_null = new A.SizedBox(6, null, null, null);
     B.SizedBox_8_null_null_null = new A.SizedBox(8, null, null, null);
     B.CircularProgressIndicator_KvV = new A.CircularProgressIndicator(2, null, null, null, null, B.Color_wst, null, null, null, null);
     B.SizedBox_CQ7 = new A.SizedBox(18, 18, B.CircularProgressIndicator_KvV, null);
@@ -330563,6 +330590,7 @@
     B.TextStyle_IEP = new A.TextStyle(true, null, null, null, null, null, 20, B.FontWeight_500, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     B.TextStyle_IOa = new A.TextStyle(false, null, null, null, null, null, 15, B.FontWeight_400, null, -0.15, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     B.TextStyle_KSV = new A.TextStyle(true, B.MaterialColor_VpP, null, null, null, null, null, B.FontWeight_600, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+    B.TextStyle_Lpm = new A.TextStyle(true, B.MaterialColor_vIZ, null, null, null, null, null, B.FontWeight_600, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     B.TextStyle_MPr = new A.TextStyle(true, B.MaterialColor_wdy, null, null, null, null, 12, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     B.TextStyle_NKh = new A.TextStyle(true, null, null, null, null, null, 16, B.FontWeight_600, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     B.TextStyle_PJp = new A.TextStyle(true, B.MaterialColor_nI1, null, null, null, null, null, B.FontWeight_700, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
@@ -330947,6 +330975,7 @@
     B.TextStyle_2UR = new A.TextStyle(true, B.Color_PW1, null, null, null, null, 16, B.FontWeight_500, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
     B.Text_HTz = new A.Text("Align the barcode inside the box to scan", null, B.TextStyle_2UR, B.TextAlign_2, null, null, null, null, null, null);
     B.Text_HqJ = new A.Text("Warning", null, null, null, null, null, null, null, null, null);
+    B.Text_J4f = new A.Text("Confirm & Save", null, null, null, null, null, null, null, null, null);
     B.Text_JLA = new A.Text("Save Product", null, null, null, null, null, null, null, null, null);
     B.Text_Jcc = new A.Text("Product Not Found", null, B.TextStyle_njP, null, null, null, null, null, null, null);
     B.Text_Jql = new A.Text("Delete", null, null, null, null, null, null, null, null, null);
